@@ -1,78 +1,75 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EchoFrame | Emerging Markets Risk Intelligence</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
+      background: #0e0e2c;
+      color: #fff;
       scroll-behavior: smooth;
-      background-color: #f9f9f9;
-      color: #333;
     }
     header, section {
-      padding: 4rem 2rem;
-      max-width: 960px;
+      padding: 6rem 2rem;
+      max-width: 1100px;
       margin: 0 auto;
+      text-align: center;
     }
     header {
-      text-align: center;
-      background: linear-gradient(to right, #0e0e2c, #1a1a3c);
+      background: linear-gradient(135deg, #1a1a3c, #0e0e2c);
       color: #fff;
-      position: relative;
+      border-bottom: 5px solid #0070f3;
     }
     nav {
-      background: #1a1a3c;
+      background: rgba(0, 0, 0, 0.8);
       padding: 1rem;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 10;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
     }
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.3s ease;
     }
     nav a:hover {
-      text-decoration: underline;
+      color: #00b8d9;
+    }
+    section {
+      background: #1c1c3c;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    section:hover {
+      transform: translateY(-5px);
     }
     h1, h2, h3 {
       margin-top: 0;
     }
-    section {
-      background: #fff;
-      margin-bottom: 2rem;
-      padding: 3rem 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-    .cta {
-      display: inline-block;
-      background: #0070f3;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      margin-top: 1rem;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .cta:hover {
-      background: #005bb5;
+    ul {
+      text-align: left;
+      margin: 2rem auto;
+      max-width: 800px;
+      padding-left: 0;
+      list-style-position: inside;
     }
     footer {
       background: #0e0e2c;
-      color: white;
+      color: #fff;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem;
+      font-size: 0.9rem;
     }
     .logo-section {
       margin-bottom: 2rem;
@@ -83,27 +80,52 @@
       right: 20px;
       background: #0070f3;
       color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
+      padding: 0.7rem 1.2rem;
+      border-radius: 50px;
       font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
     .back-to-top:hover {
       background: #005bb5;
+    }
+    a {
+      color: inherit;
+    }
+    .graphics {
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .graphics img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .hero-banner {
+      background: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?fit=crop&w=1400&q=80') center/cover no-repeat;
+      padding: 8rem 2rem;
+      color: white;
+      text-align: center;
+    }
+    .hero-banner h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero-banner p {
+      font-size: 1.25rem;
     }
   </style>
 </head>
 <body>
   <a name="top"></a>
-  <header>
+  <header class="hero-banner">
     <div class="logo-section">
-      <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" alt="EchoFrame Logo" width="250" />
+      <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" alt="EchoFrame Logo" width="220">
     </div>
     <h1>EchoFrame</h1>
     <h2>Emerging Markets Risk Intelligence Platform</h2>
     <p>Transforming local news archives into actionable intelligence for risk-conscious decision makers.</p>
-    <a href="#contact" class="cta">Contact Us</a>
+    <a href="#contact" class="back-to-top">Contact</a>
   </header>
 
   <nav>
@@ -117,16 +139,22 @@
 
   <section id="solution">
     <h2>The Solution</h2>
+    <div class="graphics">
+      <img src="https://images.unsplash.com/photo-1600378562581-8c8b7c3f4ce1?fit=crop&w=1350&q=80" alt="Archive Insights">
+    </div>
     <p>EchoFrame ingests historical local news archives and uses advanced AI to identify policy shifts, economic risks, and regional developments that traditional models miss.</p>
     <ul>
-      <li><strong>Archives = Nervous System:</strong> Treat news archives as live sensors</li>
-      <li><strong>LLMs = Brain:</strong> Generate predictive insights from weak signals</li>
-      <li><strong>Automation = Hands:</strong> Deliver tailored alerts to decision-makers</li>
+      <li><strong>Archives = Nervous System:</strong> Treat news archives as live sensors.</li>
+      <li><strong>LLMs = Brain:</strong> Generate predictive insights from weak signals.</li>
+      <li><strong>Automation = Hands:</strong> Deliver tailored alerts to decision-makers.</li>
     </ul>
   </section>
 
   <section id="why">
     <h2>Why EchoFrame?</h2>
+    <div class="graphics">
+      <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?fit=crop&w=1350&q=80" alt="Risk Management">
+    </div>
     <p>Global due diligence is broken — we bring a new model for emerging market intelligence that’s:</p>
     <ul>
       <li>Continuous and forward-looking</li>
@@ -137,10 +165,13 @@
 
   <section id="products">
     <h2>Premium Risk Products</h2>
+    <div class="graphics">
+      <img src="https://images.unsplash.com/photo-1581093588401-5fe9dbe4d6f5?fit=crop&w=1350&q=80" alt="Products">
+    </div>
     <ul>
-      <li><strong>Policy Pulse Alerts:</strong> Instant signals on regulation and policy changes</li>
-      <li><strong>Investment Briefs:</strong> Monthly regional and sectoral outlooks</li>
-      <li><strong>Operational Dashboards:</strong> Visualized alerts on strikes, protests, logistics</li>
+      <li><strong>Policy Pulse Alerts:</strong> Instant signals on regulation and policy changes.</li>
+      <li><strong>Investment Briefs:</strong> Monthly regional and sectoral outlooks.</li>
+      <li><strong>Operational Dashboards:</strong> Visualized alerts on strikes, protests, logistics.</li>
     </ul>
   </section>
 
@@ -159,6 +190,6 @@
     <p>&copy; 2025 EchoFrame Inc. All rights reserved.</p>
   </footer>
 
-  <a href="#top" class="back-to-top">↑ Back to Top</a>
+  <a href="#top" class="back-to-top">↑ Top</a>
 </body>
 </html>
