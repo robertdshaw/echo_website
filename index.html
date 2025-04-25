@@ -214,17 +214,22 @@
     }
     
     .hero-banner {
-      background: linear-gradient(rgba(14, 14, 44, 0.8), rgba(14, 14, 44, 0.9)), 
-                  url('https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/simple-icons.svg');
-      background-position: center;
-      background-size: cover;
-      padding: 6rem 2rem;
-      color: white;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
+        background: linear-gradient(rgba(14, 14, 44, 0.8), rgba(14, 14, 44, 0.9)), 
+                    url('https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/simple-icons.svg');
+        background-position: center;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        padding: 2rem;
+      }      
+
     .hero-content {
         max-width: 800px;
         margin: 0 auto;
