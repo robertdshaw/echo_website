@@ -219,16 +219,20 @@
         background-position: center;
         background-size: cover;
         min-height: 100vh;
+        padding: 3rem 1.5rem 2rem;
         display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Aligns content near top */
         color: white;
         text-align: center;
         position: relative;
         overflow: hidden;
-        padding: 2rem;
-      }      
+      }
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
     
     .hero-banner::before {
       content: "";
@@ -299,7 +303,7 @@
     }
     
     .svg-logo {
-      width: 400px;
+      width: 320px;
       height: auto;
       display: block;
         margin: 0 auto 1.5rem auto;
