@@ -7,6 +7,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
+    .trust-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .trust-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
     html {
         scroll-padding-top: 80px;
       }      
@@ -621,6 +632,25 @@
 <p style="margin-top: 2rem; font-size: 1rem; color: var(--text-muted);">Built for: investors, operational risk teams, ESG analysts, and sovereign risk specialists operating in emerging markets.</p>
     </div>
   </header>
+
+  <script>
+    const trustItems = document.querySelectorAll('.trust-fade');
+  
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('trust-visible');
+          observer.unobserve(entry.target); // Only fade in once
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+  
+    trustItems.forEach(item => {
+      observer.observe(item);
+    });
+  </script>  
 </body>
 
   <nav>
@@ -679,16 +709,17 @@
   </section>
 
   <section id="trust" style="background: var(--bg-light); padding: 4rem 2rem; text-align: center; border-radius: 16px; margin: 2rem auto; max-width: 1000px;">
-    <h2>Why Trust EchoFrame?</h2>
+    <h2>Trust the Signal, Not the Noise.</h2>
     <p style="max-width: 800px; margin: 1rem auto 2rem; font-size: 1.1rem; color: var(--text-muted);">
-      Our platform is built by veterans of global journalism, sovereign risk advisory, and AI innovation — with real-world expertise in Latin America, Southeast Asia, and Sub-Saharan Africa.
+      EchoFrame is built by veterans of global journalism, sovereign risk advisory, and AI innovation — with real-world expertise in Latin America, Southeast Asia, and Sub-Saharan Africa.
     </p>
-    <ul style="list-style: none; padding: 0; margin: 0; max-width: 700px; margin: 0 auto; text-align: left;">
-      <li style="margin-bottom: 1.5rem;"><strong>Proven Expertise:</strong> Decades of frontline journalism and global risk consulting experience.</li>
-      <li style="margin-bottom: 1.5rem;"><strong>Regional Depth:</strong> Specialized coverage across emerging markets — not generic models.</li>
-      <li><strong>AI Innovation:</strong> Advanced signal detection built specifically for unstructured local news data.</li>
+    <ul style="list-style: none; padding: 0; margin: 0; max-width: 700px; margin: 0 auto; text-align: left; color: var(--text-light); font-size: 1.05rem;">
+      <li class="trust-fade" style="margin-bottom: 1.5rem;"><strong>Proven Expertise:</strong> Decades of frontline journalism and political risk consulting experience.</li>
+      <li class="trust-fade" style="margin-bottom: 1.5rem;"><strong>Regional Depth:</strong> Specialized emerging market coverage — not one-size-fits-all models.</li>
+      <li class="trust-fade"><strong>AI Innovation:</strong> Purpose-built models designed for unstructured, local-source intelligence.</li>
     </ul>
-  </section>  
+  </section>
+  
 
   <section id="trust" style="background: var(--bg-light); padding: 4rem 2rem; text-align: center; border-radius: 16px; margin: 2rem auto; max-width: 1000px;">
     <h2>Trust the Signal, Not the Noise.</h2>
