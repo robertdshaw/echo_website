@@ -3,77 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EchoFrame | Emerging Markets Risk Intelligence</title>
+  <title>EchoFrame – Risk Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      scroll-behavior: smooth;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
     }
-    header, section {
-      padding: 4rem 2rem;
-      max-width: 960px;
-      margin: 0 auto;
+
+    body {
+      background: #fdfdfd;
+      color: #1e1e1e;
+      line-height: 1.6;
     }
+
     header {
+      background: #002244;
+      color: white;
+      padding: 4rem 2rem;
       text-align: center;
-      background: #0e0e2c;
-      color: #fff;
     }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #c0d6e4;
+    }
+
     nav {
-      background: #1a1a3c;
+      background: #00162e;
+      color: white;
+      display: flex;
+      justify-content: center;
       padding: 1rem;
       position: sticky;
       top: 0;
       z-index: 100;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
     }
+
     nav a {
-      color: #fff;
+      color: white;
       text-decoration: none;
-      font-weight: 600;
+      margin: 0 1.2rem;
+      font-weight: 500;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
-    h1, h2, h3 {
-      margin-top: 0;
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
     }
-    .cta {
-      display: inline-block;
-      background: #0070f3;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      margin-top: 1rem;
-      text-decoration: none;
+
+    section h2 {
+      font-size: 2rem;
+      color: #002244;
+      margin-bottom: 1rem;
     }
+
     footer {
-      background: #0e0e2c;
+      background: #002244;
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem;
+    }
+
+    footer p {
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" alt="EchoFrame Logo" width="250" />
     <h1>EchoFrame</h1>
-    <h2>Emerging Markets Risk Intelligence Platform</h2>
-    <p>Transforming local news archives into actionable intelligence for risk-conscious decision makers.</p>
-    <a href="#contact" class="cta">Contact Us</a>
+    <p>Transforming Local News into Risk Intelligence</p>
   </header>
 
   <nav>
-    <a href="#solution">Solution</a>
-    <a href="#why">Why EchoFrame</a>
+    <a href="#solution">The Solution</a>
+    <a href="#why">Why EchoFrame?</a>
     <a href="#products">Products</a>
     <a href="#team">Team</a>
     <a href="#contact">Contact</a>
@@ -81,42 +101,32 @@
 
   <section id="solution">
     <h2>The Solution</h2>
-    <p>EchoFrame ingests historical local news archives and uses advanced AI to identify policy shifts, economic risks, and regional developments that traditional models miss.</p>
-    <ul>
-      <li><strong>Archives = Nervous System:</strong> Treat news archives as live sensors</li>
-      <li><strong>LLMs = Brain:</strong> Generate predictive insights from weak signals</li>
-      <li><strong>Automation = Hands:</strong> Deliver tailored alerts to decision-makers</li>
-    </ul>
+    <p>EchoFrame turns regional news content into actionable economic and political risk signals. Our AI processes thousands of local media articles to alert decision-makers to supply chain disruptions, protests, sanctions, and regulatory change—before they escalate.</p>
   </section>
 
   <section id="why">
     <h2>Why EchoFrame?</h2>
-    <p>Global due diligence is broken — we bring a new model for emerging market intelligence that’s:</p>
-    <ul>
-      <li>Continuous and forward-looking</li>
-      <li>Location-specific and grounded in local media</li>
-      <li>Cost-effective and scalable</li>
-    </ul>
+    <p>We help investors, operators, and analysts make faster, localized, and more confident decisions in high-risk environments. Our AI engine reads between the lines—converting messy media archives into predictive foresight.</p>
   </section>
 
   <section id="products">
     <h2>Premium Risk Products</h2>
     <ul>
-      <li><strong>Policy Pulse Alerts:</strong> Instant signals on regulation and policy changes</li>
-      <li><strong>Investment Briefs:</strong> Monthly regional and sectoral outlooks</li>
-      <li><strong>Operational Dashboards:</strong> Visualized alerts on strikes, protests, logistics</li>
+      <li><strong>Policy Pulse Alerts:</strong> Instant updates on new regulations</li>
+      <li><strong>Regional Briefs:</strong> Country-by-country investment reports</li>
+      <li><strong>Operational Dashboards:</strong> Real-time alerts on protest, infrastructure, and currency risk</li>
     </ul>
   </section>
 
   <section id="team">
     <h2>The Team</h2>
-    <p>We bring decades of expertise across journalism, risk advisory, and AI product development with deep regional ties in Latin America and Southeast Asia.</p>
+    <p>We’re journalists, analysts, and technologists who’ve worked in emerging markets for decades. Our tools are built from the ground up to reflect regional complexity—not abstract country ratings.</p>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:info@echoframe.ai">info@echoframe.ai</a></p>
-    <p>Website: <a href="https://echoframe.ai" target="_blank">www.echoframe.ai</a></p>
+    <p>Web: <a href="https://www.echoframe.ai" target="_blank">www.echoframe.ai</a></p>
   </section>
 
   <footer>
@@ -124,4 +134,3 @@
   </footer>
 </body>
 </html>
-
