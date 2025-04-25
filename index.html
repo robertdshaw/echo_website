@@ -564,17 +564,12 @@
   <header class="hero-banner">
     <div class="hero-content">
       <div class="logo-section">
-        <!-- SVG Logo with improved gradient -->
-        <svg class="svg-logo" viewBox="0 0 280 100" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#0070f3" />
-              <stop offset="100%" stop-color="#00b8d9" />
-            </linearGradient>
-          </defs>
-          <body style="font-family: sans-serif; text-align: center; padding: 3rem;">
-            <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" width="400" alt="EchoFrame Logo" />
-        </svg>
+        <!-- Use img directly instead of nesting in svg if it's a PNG -->
+        <img 
+          src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" 
+          alt="EchoFrame Logo"
+          class="svg-logo"
+        />
       </div>
       <h1>EchoFrame</h1>
       <h2>Emerging Markets Risk Intelligence Platform</h2>
@@ -582,6 +577,7 @@
       <a href="#contact" class="contact-button">Contact Us</a>
     </div>
   </header>
+</body>
 
   <nav>
     <a href="#top">Home</a>
