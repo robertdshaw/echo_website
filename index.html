@@ -234,81 +234,73 @@
     }
 
     .hero-banner {
+      position: relative;
       background: linear-gradient(rgba(14, 14, 44, 0.8), rgba(14, 14, 44, 0.9)),
                   url('https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/simple-icons.svg');
       background-position: center;
       background-size: cover;
-      min-height: 70vh;
-      padding: 3rem 1.5rem 2rem;
+      min-height: 90vh;
+      padding: 4rem 2rem;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Align items to the left */
-      justify-content: center; /* Center content vertically */
-      color: white;
-      text-align: center; /* Align text to the left */
-      position: relative;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
-  }
-
-  .hero-content {
-      max-width: 800px;
-      margin-left: 2rem; /* Add some left margin for the text */
-  }
-
-  .hero-banner .svg-logo {
-      width: 300px; /* Adjust logo size as needed */
-      height: auto;
-      position: left;
+      text-align: center;
+    }
+    
+    /* LOGO separate, floating top-left */
+    .hero-logo {
+      position: absolute;
       top: 2rem;
       left: 2rem;
-      margin: 0;
-  }
-
-  .hero-banner h1 {
-      font-size: 3rem; /* Slightly reduce font size if needed */
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  }
-
-  .hero-banner h2 {
-      font-size: 1.8rem; /* Slightly reduce font size if needed */
+      width: 220px; /* Maybe even 250px if you want */
+      height: auto;
+    }
+    
+    /* HERO TEXT */
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+    
+    .hero-content h1 {
+      font-size: 3rem;
       margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero-content h2 {
+      font-size: 2rem;
       color: var(--accent);
-      font-weight: 500;
-  }
-
-  .hero-banner h2::after {
-      display: none;
-  }
-
-  .hero-banner p {
-      font-size: 1.1rem; /* Slightly reduce font size if needed */
-      max-width: 700px; /* Adjust text width if needed */
-      margin: 0 0 1.5rem; /* Adjust margins */
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
       color: var(--text-light);
-  }
-
-  .hero-banner .contact-button {
+      margin-bottom: 2rem;
+    }
+    
+    .contact-button {
       display: inline-block;
       background: var(--primary);
       color: white;
-      padding: 0.8rem 2rem; /* Adjust button padding */
+      padding: 1rem 2.5rem;
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
-      margin-top: 1rem; /* Adjust margin */
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  .hero-banner .contact-button:hover {
+      margin-top: 1rem;
+    }
+    
+    .contact-button:hover {
       background: var(--primary-dark);
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      text-decoration: none;
-      color: white;
-  }
+    }    
 
     #contact {
       padding-bottom: 8rem;
@@ -593,14 +585,16 @@
     </nav>
   
     <header class="hero-banner" id="hero">
+      <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" alt="EchoFrame Logo" class="hero-logo">
+      
       <div class="hero-content">
-        <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" alt="EchoFrame Logo" class="svg-logo">
         <h1>Emerging Markets Risk Intelligence</h1>
         <h2>Transforming Local News into Actionable Insights</h2>
         <p>Unlock the hidden signals in emerging market news archives with our AI-powered risk intelligence platform.</p>
         <a href="#contact" class="contact-button">Contact Us</a>
       </div>
     </header>
+    
   
     <section id="executive-summary">
       <h2>Overview</h2>
