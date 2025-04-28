@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EchoFrame | Emerging Markets Risk Intelligence</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
   <style>
+    /* Your CSS from the previous response goes here */
     .trust-fade {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    
+
     .trust-visible {
       opacity: 1;
       transform: translateY(0);
     }
-    
+
     html {
         scroll-padding-top: 80px;
-      }       
+      }
     :root {
       --primary: #0070f3;
       --primary-dark: #005bb5;
@@ -34,13 +34,13 @@
       --text-light: #f0f0ff;   /* slightly softer but brighter white */
       --text-muted: #d0d0e8;   /* brighter muted text for better readability */
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
       margin: 0;
@@ -49,14 +49,14 @@
       scroll-behavior: smooth;
       line-height: 1.6;
     }
-    
+
     header, section {
       padding: 5rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
       text-align: center;
     }
-    
+
     nav {
       background: rgba(14, 14, 44, 0.85);
       backdrop-filter: blur(10px);
@@ -70,7 +70,7 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-    
+
     nav a {
       color: var(--text-light);
       text-decoration: none;
@@ -79,11 +79,11 @@
       padding: 0.3rem 0;
       transition: color 0.3s ease;
     }
-    
+
     nav a:hover {
       color: var(--accent);
     }
-    
+
     nav a::after {
       content: '';
       position: absolute;
@@ -94,11 +94,11 @@
       background: var(--accent);
       transition: width 0.3s ease;
     }
-    
+
     nav a:hover::after {
       width: 100%;
     }
-    
+
     section {
       background: var(--bg-medium);
       margin: 2rem auto;
@@ -107,12 +107,14 @@
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: left; /* Override center alignment for content within sections */
+      padding: 3rem;
     }
-    
+
     section:hover {
       transform: translateY(-8px);
     }
-    
+
     h1 {
       font-size: 3.5rem;
       font-weight: 700;
@@ -122,16 +124,19 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       letter-spacing: -0.5px;
+      text-align: center; /* Center align main heading */
     }
-    
+
     h2 {
       font-size: 2.5rem;
       font-weight: 600;
       margin-bottom: 1.5rem;
       position: relative;
       display: inline-block;
+      text-align: center; /* Center align section headings */
+      width: 100%; /* Ensure the underline spans correctly */
     }
-    
+
     h2::after {
       content: '';
       position: absolute;
@@ -143,13 +148,13 @@
       background: linear-gradient(90deg, var(--primary), var(--accent));
       border-radius: 2px;
     }
-    
+
     h3 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
       font-weight: 600;
     }
-    
+
     p {
       margin-bottom: 1.5rem;
       font-size: 1.1rem;
@@ -159,30 +164,30 @@
       margin-left: auto;
       margin-right: auto;
     }
-    
+
     ul {
       text-align: left;
       margin: 2rem auto;
       max-width: 800px;
       padding-left: 2rem;
     }
-    
+
     li {
       margin-bottom: 1rem;
       position: relative;
       padding-left: 0.5rem;
     }
-    
+
     li::marker {
       color: var(--accent);
       font-weight: bold;
     }
-    
+
     li strong {
       color: var(--accent);
       font-weight: 600;
     }
-    
+
     footer {
       background: var(--bg-dark);
       color: var(--text-light);
@@ -191,7 +196,7 @@
       font-size: 0.95rem;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
-    
+
     .back-to-top {
       position: fixed;
       bottom: 30px;
@@ -212,33 +217,33 @@
       z-index: 100;
       transition: all 0.3s ease;
     }
-    
+
     .back-to-top:hover {
       background: var(--primary-dark);
       transform: translateY(-5px);
     }
-    
+
     a {
       color: var(--accent);
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    
+
     a:hover {
       color: var(--accent-dark);
     }
-    
+
     .hero-banner {
-        background: linear-gradient(rgba(14, 14, 44, 0.8), rgba(14, 14, 44, 0.9)), 
+        background: linear-gradient(rgba(14, 14, 44, 0.8), rgba(14, 14, 44, 0.9)),
                     url('https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/simple-icons.svg');
         background-position: center;
         background-size: cover;
-        min-height: 100vh;
+        min-height: 70vh; /* Adjust hero height */
         padding: 3rem 1.5rem 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start; /* Aligns content near top */
+        justify-content: center; /* Center content vertically in hero */
         color: white;
         text-align: center;
         position: relative;
@@ -248,7 +253,7 @@
         max-width: 800px;
         margin: 0 auto;
       }
-    
+
     .hero-banner::before {
       content: "";
       position: absolute;
@@ -256,42 +261,42 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: 
+      background:
         radial-gradient(circle at 20% 30%, rgba(0, 112, 243, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 80% 70%, rgba(0, 184, 217, 0.15) 0%, transparent 50%);
       z-index: 1;
     }
-    
+
     .hero-content {
       position: relative;
       z-index: 2;
     }
-    
+
     .hero-banner h1 {
       font-size: 4rem;
       margin-bottom: 0.5rem;
       font-weight: 700;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
-    
+
     .hero-banner h2 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
       color: var(--accent);
       font-weight: 500;
     }
-    
+
     .hero-banner h2::after {
       display: none;
     }
-    
+
     .hero-banner p {
       font-size: 1.3rem;
       max-width: 800px;
       margin: 0 auto 2.5rem;
       color: var(--text-light);
     }
-    
+
     .contact-button {
       display: inline-block;
       background: var(--primary);
@@ -304,7 +309,7 @@
       margin-top: 1.5rem;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
-    
+
     .contact-button:hover {
       background: var(--primary-dark);
       transform: translateY(-5px);
@@ -312,18 +317,18 @@
       text-decoration: none;
       color: white;
     }
-    
+
     #contact {
       padding-bottom: 8rem;
     }
-    
+
     .svg-logo {
       width: 320px;
       height: auto;
       display: block;
         margin: 0 auto 1.5rem auto;
     }
-      
+
     /* Product Cards */
     .product-grid {
       display: grid;
@@ -333,7 +338,7 @@
       max-width: 1100px;
       padding: 0 1rem;
     }
-    
+
     .product-card {
       background: var(--bg-lighter);
       border-radius: 16px;
@@ -344,13 +349,14 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      text-align: center; /* Center align content in product cards */
     }
-    
+
     .product-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
-    
+
     .product-header {
       padding: 2rem 1rem;
       background: linear-gradient(135deg, var(--bg-light), var(--bg-lighter));
@@ -362,19 +368,19 @@
       justify-content: center;
       min-height: 160px;
     }
-    
+
     .product-card:nth-child(1) .product-header {
       background: linear-gradient(135deg, #0055b3, #0077f3);
     }
-    
+
     .product-card:nth-child(2) .product-header {
       background: linear-gradient(135deg, #00839d, #00b8d9);
     }
-    
+
     .product-card:nth-child(3) .product-header {
       background: linear-gradient(135deg, #5a1c9e, #7928ca);
     }
-    
+
     .product-icon {
       font-size: 3rem;
       margin-bottom: 1rem;
@@ -389,7 +395,7 @@
       position: relative;
       z-index: 1;
     }
-    
+
     .product-header h3 {
       font-size: 1.6rem;
       color: white;
@@ -398,59 +404,497 @@
       margin: 0;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
-    
+
     .product-body {
       padding: 2rem;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
+      text-align: left; /* Align text left within product body */
     }
-    
+
     .product-desc {
       margin-bottom: 1.5rem;
       font-size: 1rem;
       color: var(--text-muted);
       flex-grow: 1;
     }
-    
+
     .product-features {
       list-style-type: none;
       padding: 0;
       margin: 0;
-      text-align: left;
-    }
-    
-    .product-features li {
-      padding-left: 1.5rem;
-      position: relative;
-      margin-bottom: 0.8rem;
-      font-size: 0.95rem;
-    }
-    
-    .product-features li:before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-    
-    /* Solution Section */
-    .solution-flow {
-      background: var(--bg-light);
-      border-radius: 16px;
-      padding: 3rem 2rem;
-      margin: 3rem auto;
-      max-width: 1000px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-    
-    .flow-steps {
-      display: flex;
-      justify-content: space-between;
-      position: relative;
-      z-index: 1;
-    }
-    
-    @
+      text
+      .product-features li {
+        padding-left: 1.5rem;
+        position: relative;
+        margin-bottom: 0.8rem;
+        font-size: 0.95rem;
+      }
+  
+      .product-features li:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+  
+      /* Solution Section */
+      .solution-flow {
+        background: var(--bg-light);
+        border-radius: 16px;
+        padding: 3rem 2rem;
+        margin: 3rem auto;
+        max-width: 1000px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        text-align: center; /* Center align content in solution flow */
+      }
+  
+      .flow-steps {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 2rem auto;
+      }
+  
+      @media (max-width: 768px) {
+        .flow-steps {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+  
+      .flow-step {
+        flex: 1;
+        padding: 2rem;
+        background: var(--bg-lighter);
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        margin: 0 1rem;
+      }
+  
+      @media (max-width: 768px) {
+        .flow-step {
+          margin: 1rem 0;
+          width: 90%;
+        }
+      }
+  
+      .flow-icon {
+        font-size: 2.5rem;
+        color: var(--accent);
+        margin-bottom: 1rem;
+      }
+  
+      .flow-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text-light);
+      }
+  
+      .flow-desc {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+      }
+  
+      .flow-arrow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        color: var(--accent);
+        z-index: 0;
+      }
+  
+      @media (max-width: 768px) {
+        .flow-arrow {
+          display: none;
+        }
+        .flow-steps {
+          flex-direction: column;
+          align-items: center;
+        }
+        .flow-step {
+          width: 90%;
+          margin: 1rem 0;
+        }
+      }
+  
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 3rem auto;
+        max-width: 1000px;
+        padding: 0 1rem;
+      }
+  
+      .team-member {
+        background: var(--bg-lighter);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+        padding: 2rem;
+      }
+  
+      .team-member:hover {
+        transform: translateY(-5px);
+      }
+  
+      .team-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border: 3px solid var(--accent);
+      }
+  
+      .team-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-light);
+        margin-bottom: 0.5rem;
+      }
+  
+      .team-title {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+      }
+  
+      .contact-info {
+        margin-top: 2rem;
+      }
+  
+      .contact-info p {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+  
+      .contact-info a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+  
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#executive-summary">Summary</a>
+      <a href="#solution">Solution</a>
+      <a href="#products">Products</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  
+    <header class="hero-banner" id="hero">
+      <div class="hero-content">
+        <img src="https://stock.adobe.com/search/images?k=ef+logo" alt="EchoFrame Logo" class="svg-logo">
+        <h1>Emerging Markets Risk Intelligence</h1>
+        <h2>Transforming Local News into Actionable Insights</h2>
+        <p>Unlock the hidden signals in emerging market news archives with our AI-powered risk intelligence platform.</p>
+        <a href="#contact" class="contact-button">Contact Us</a>
+      </div>
+    </header>
+  
+    <section id="executive-summary">
+      <h2>Executive Summary</h2>
+      <p>Echoframe transforms local news archives in emerging markets into actionable political and economic risk intelligence. By addressing critical gaps in traditional due diligence processes, we convert the untapped value of regional news media into premium risk products for businesses, investors, and organizations operating in complex environments.</p>
+    </section>
+  
+    <section id="crisis">
+      <h2>The Crisis in Risk Analysis</h2>
+      <h3>High-Profile Due Diligence Failures</h3>
+      <ul>
+        <li><strong>Stenn</strong> ($900M fintech collapsed after Russian money laundering allegations)</li>
+        <li><strong>FTX</strong> (Complete investor due diligence failure before $32B collapse)</li>
+        <li><strong>Wirecard</strong> (Prolonged fraud despite Big Four oversight)</li>
+        <li><strong>Danske Bank Estonia</strong> (€200B money laundering scandal missed by compliance systems)</li>
+      </ul>
+  
+      <h3>Why Due Diligence is Failing</h3>
+      <h4>The 5 Critical Contributing Factors</h4>
+      <ul>
+        <li>
+          <strong>1. Pressure to Close Deals Quickly</strong>
+          <ul>
+            <li><strong>Real Impact:</strong> WeWork's rushed IPO overlooked governance issues leading to $40B valuation loss</li>
+            <li><strong>Market Reality:</strong> 73% of M&A professionals report increased pressure to accelerate due diligence timelines</li>
+          </ul>
+        </li>
+        <li>
+          <strong>2. Digital Transformation Introducing New Risks</strong>
+          <ul>
+            <li><strong>Real Impact:</strong> SolarWinds breach affected thousands of organizations with no framework to assess supply chain software risk</li>
+            <li><strong>Market Reality:</strong> 64% of companies report gaps between digital transformation initiatives and risk assessment capabilities</li>
+          </ul>
+        </li>
+        <li>
+          <strong>3. Remote Work Transition</strong>
+          <ul>
+            <li><strong>Real Impact:</strong> Wirecard collapse partly enabled by auditors unable to physically verify cash reserves</li>
+            <li><strong>Market Reality:</strong> 58% of risk managers report decreased visibility into operations since remote work expansion</li>
+          </ul>
+        </li>
+        <li>
+          <strong>4. Geopolitical Complexity</strong>
+          <ul>
+            <li><strong>Real Impact:</strong> Nord Stream 2 investments stranded due to sanctions, costing billions</li>
+            <li><strong>Market Reality:</strong> Cross-border transactions increased 34% while regional risk expertise declined 18%</li>
+          </ul>
+        </li>
+        <li>
+          <strong>5. Cost-Cutting Measures</strong>
+          <ul>
+            <li><strong>Real Impact:</strong> Deutsche Bank compliance cutbacks preceded multiple regulatory actions</li>
+            <li><strong>Market Reality:</strong> Risk and compliance budgets flat or decreasing at 47% of financial institutions despite increasing complexity</li>
+          </ul>
+        </li>
+      </ul>
+  
+      <h3>Why Risk Advisory Services Fall Short</h3>
+      <h4>The 4 Critical Limitations</h4>
+      <ul>
+        <li>
+          <strong>1. Methodology Limitations</strong>
+          <ul>
+            <li><strong>Real Impact:</strong> Credit rating agencies gave AAA ratings to ultimately worthless mortgage-backed securities</li>
+            <li><strong>Market Reality:</strong> 68% of risk models remain backward-looking and rule-based in a world demanding predictive, adaptive approaches</li>
+          </ul>
+        </li>
+        <li>
+          <strong>2. Data Silos</strong>
+          <ul>
+            <li><strong>Real Impact:</strong> HSBC's segregated systems allowed cross-jurisdictional money laundering to go undetected</li>
+            <li><strong>Market Reality:</strong> Average enterprise uses 16+ disparate systems containing risk-relevant data with minimal integration</li>
+          </ul>
+        </li>
+        <li>
+          <strong>3. Staffing Challenges</strong>
+          <ul>
+            <li><strong>Real Impact:</strong> VC firms lacking crypto expertise failed to detect fundamental problems at FTX</li>
+            <li><strong>Market Reality:</strong> 82% shortage in professionals with combined regional expertise and technical risk assessment skills</li>
+          </ul>
+        </li>
+        <li>
+          <strong>4. Client Resistance</strong>
+          <ul>
+            <li><strong>Real Impact:</strong> BP Deepwater Horizon management repeatedly overrode safety concerns before catastrophic spill</li>
+            <li><strong>Market Reality:</strong> 71% of risk professionals report having warnings discounted by management due to commercial pressures</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  
+    <section id="solution">
+      <h2>The EchoFrame Solution</h2>
+      <h3>A New Approach to Emerging Market Intelligence</h3>
+      <p style="text-align: center;">
+        <img src="https://ef.design/" alt="EF Architecture Logo" width="400">
+      </p>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <i class="flow-icon">📰</i>
+          <h4 class="flow-title">Archives = Nervous System</h4>
+          <p class="flow-desc">Ingest comprehensive local news archives spanning 3-5 years. Convert every past article into a live "sensor" detecting policy shifts, market moves, social tensions. Process diverse source types: RSS feeds, PDF archives, CMS exports.</p>
+        </div>
+        <div class="flow-step">
+          <i class="flow-icon">🧠</i>
+          <h4 class="flow-title">LLM = Brain</h4>
+          <p class="flow-desc">Advanced AI reads incoming signals, spots risk-relevant patterns. Identifies early indicators: new tax proposals, labor protests, currency fluctuations. Drafts concise risk summaries or alerts with precise citation.</p>
+        </div>
+        <div class="flow-step">
+          <i class="flow-icon">🤖</i>
+          <h4 class="flow-title">Automation = Hands</h4>
+          <p class="flow-desc">Packages insights into ready-to-send formats: Regulatory Change Alerts, Economic Climate Briefs, Supply Chain Disruption Warnings. Delivers via email, SMS, or dashboard widgets.</p>
+        </div>
+      </div>
+    </section>
+  
+    <section id="media-requirements">
+      <h2>Media Content Requirements</h2>
+      <h3>Optimal News Sources for Maximum Effectiveness</h3>
+      <h4>Content Diversity &amp; Depth</h4>
+      <ul>
+        <li>National and regional newspapers across all economic centers</li>
+        <li>Specialized business/economic publications</li>
+        <li>Industry-specific publications covering key sectors</li>
+        <li>Political/policy journals focused on regulatory actions</li>
+      </ul>
+      <h4>Coverage Requirements</h4>
+      <ul>
+        <li>Regulatory announcements and government decisions</li>
+        <li>Local business activities including expansion/contraction</li>
+        <li>Infrastructure developments affecting commerce</li>
+        <li>Labor conditions including strikes and workforce trends</li>
+        <li>Security situations relevant to operations</li>
+        <li>Supply chain reporting on logistics and commodity flows</li>
+        <li>Political relationship mapping between business and government</li>
+      </ul>
+    </section>
+  
+    <section id="products">
+      <h2>Premium Risk Products</h2>
+      <h3>Actionable Intelligence for Decision Makers</h3>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-header">
+            <i class="product-icon">🏛️</i>
+            <h3>Policy Pulse Alerts</h3>
+          </div>
+          <div class="product-body">
+            <p class="product-desc">Immediate notifications when local authorities propose changes affecting specific industries.</p>
+            <ul class="product-features">
+              <li>Real-time regulatory updates</li>
+              <li>Industry-specific focus</li>
+              <li>Actionable insights on potential impact</li>
+              <li>Example: "New import tariffs in Barranquilla Port effective May 3 targeting electronic components"</li>
+            </ul>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-header">
+            <i class="product-icon">📈</i>
+            <h3>Regional Investment Briefs</h3>
+          </div>
+          <div class="product-body">
+            <p class="product-desc">Monthly reports on economic indicators, business sentiment, and emerging opportunity zones.</p>
+            <ul class="product-features">
+              <li>Economic trend analysis</li>
+              <li>Business climate assessment</li>
+              <li>Identification of growth areas</li>
+              <li>Example: "Q2 Investment Climate: Antioquia (region in Colombia) Mining Sector - Permitting Acceleration and Community Relations"</li>
+            </ul>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-header">
+            <i class="product-icon">⚠️</i>
+            <h3>Operational Risk Dashboards</h3>
+          </div>
+          <div class="product-body">
+            <p class="product-desc">Real-time feeds of events that could disrupt logistics or staffing.</p>
+            <ul class="product-features">
+              <li>Logistics disruption monitoring</li>
+              <li>Labor unrest alerts</li>
+              <li>Security risk updates</li>
+              <li>Example: "Strike activity spreading to southern transport routes - 72-hour disruption forecast"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="competitive-advantage">
+      <h2>Competitive Advantage</h2>
+      <h3>How Echoframe Addresses Critical Gaps</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Traditional Risk Advisory</th>
+            <th>Echoframe Advantage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Point-in-time assessments</td>
+            <td>Continuous monitoring with historical context</td>
+          </tr>
+          <tr>
+            <td>Generalized country risk</td>
+            <td>Hyper-regional insights with specific locations</td>
+          </tr>
+          <tr>
+            <td>Backward-looking analysis</td>
+            <td>Predictive intelligence based on pattern recognition</td>
+          </tr>
+          <tr>
+            <td>Expensive human analyst teams</td>
+            <td>AI-augmented intelligence with lower cost structure</td>
+          </tr>
+          <tr>
+            <td>Generic reports</td>
+            <td>Industry and location-specific actionable alerts</td>
+          </tr>
+          <tr>
+            <td>Information silos</td>
+            <td>Integrated view across regulatory, economic, social domains</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  
+    <section id="go-to-market">
+      <h2>Go-To-Market Strategy</h2>
+      <h3>Initial Target Markets</h3>
+      <h4>Priority Countries</h4>
+      <ol>
+        <li><strong>Colombia</strong>: Deep media landscape, diverse economic zones, complex risk environment</li>
+        <li><strong>Peru</strong>: Critical extractive industries, regional diversity, political volatility</li>
+        <li><strong>Mexico</strong>: Scale opportunity, U.S. business connections, comprehensive media coverage</li>
+      </ol>
+      <h4>Priority Industries</h4>
+      <ol>
+        <li><strong>Extractive Industries</strong>: Mining, oil & gas with high regulatory risk exposure</li>
+        <li><strong>Manufacturing</strong>: Supply chain and labor risk monitoring</li>
+        <li><strong>Financial Services</strong>: KYC enhancement and regulatory compliance</li>
+        <li><strong>Infrastructure</strong>: Project risk assessment and monitoring</li>
+      </ol>
+    </section>
+  
+    <section id="implementation-timeline">
+      <h2>Implementation Timeline</h2>
+      <h3>Roadmap to Market</h3>
+      <h4>Phase 1: Foundation (3 months)</h4>
+      <ul>
+        <li>Secure partnerships with 3-5 key media groups per country</li>
+        <li>Develop core NLP models for Spanish language risk detection</li>
+        <li>Establish baseline taxonomies for risk categorization</li>
+      </ul>
+      <h4>Phase 2: Pilot (4 months)</h4>
+      <ul>
+        <li>Launch with 3-5 enterprise clients per priority country</li>
+        <li>Refine alert mechanisms and delivery systems</li>
+        <li>Validate ROI through risk event prediction accuracy</li>
+      </ul>
+      <h4>Phase 3: Scale (6 months)</h4>
+      <ul>
+        <li>Expand media partnerships to 20+ outlets per country</li>
+        <li>Launch self-serve platform for SME market segment</li>
+        <li>Introduce API offering for integration with existing risk management systems</li>
+      </ul>
+    </section>
+  
+    <section id="investment-opportunity">
+      <h2>Investment Opportunity</h2>
+      <h3>Financial Projection Highlights</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Year 1</th>
+            <th>Year 3</th>
+            <th>Year 5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Revenue</td>
+            <td>$1.2M</td>
+            <td>$8.7M</td>
+            <td>$24.5M</td>
+        </tr>
+        </tbody>
