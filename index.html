@@ -26,11 +26,19 @@
       box-sizing: border-box;
     }
 
+    /* General Mobile Improvements */
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px; /* Account for fixed nav */
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg-dark);
       color: var(--text-primary);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* Navigation */
@@ -382,13 +390,71 @@
       border-bottom: none;
     }
 
-    /* Footer */
-    footer {
-      background: var(--bg-medium);
-      color: var(--text-secondary);
-      text-align: center;
-      padding: 3rem 2rem;
-      border-top: 1px solid var(--border-color);
+    /* Table Mobile Styles */
+    @media (max-width: 768px) {
+      .comparison-table {
+        display: block;
+        overflow-x: auto;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+        min-width: 200px;
+      }
+    }
+
+    /* Button Mobile Styles */
+    @media (max-width: 768px) {
+      .cta-button {
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 100;
+      cursor: pointer;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+      }
     }
 
     /* Problem Section */
@@ -433,9 +499,55 @@
       margin-bottom: 2rem;
     }
 
-    @media (max-width: 1024px) {
+    /* Mobile Grid Adjustments */
+    @media (max-width: 768px) {
+      .problem-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
       .problem-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .solution-flow {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .stat-card {
+        padding: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .problem-card {
+        padding: 1.25rem;
+      }
+
+      .product-card {
+        margin: 0;
+      }
+
+      .product-header {
+        padding: 1.5rem 1rem;
+      }
+
+      .product-body {
+        padding: 1.5rem;
+      }
+
+      .flow-step {
+        padding: 1.5rem;
       }
     }
 
@@ -501,13 +613,17 @@
 
   <nav>
     <div class="nav-container">
-      <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" alt="EchoFrame Logo" class="nav-logo">
-      <div class="nav-links">
-        <a href="#overview">Overview</a>
-        <a href="#problem">Problem</a>
-        <a href="#solution">Solution</a>
-        <a href="#products">Products</a>
-        <a href="#contact">Contact</a>
+      <a href="#home" style="display: flex; align-items: center;">
+        <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" alt="EchoFrame Logo" class="nav-logo">
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#overview" onclick="closeMenu()">Overview</a>
+        <a href="#problem" onclick="closeMenu()">Problem</a>
+        <a href="#solution" onclick="closeMenu()">Solution</a>
+        <a href="#products" onclick="closeMenu()">Products</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
       </div>
     </div>
   </nav>
@@ -704,14 +820,46 @@
     <h2 class="section-title">Ready to Transform Your Risk Assessment?</h2>
     <p class="section-subtitle">Join leading organizations using EchoFrame to navigate emerging markets with confidence</p>
     <div style="text-align: center;">
-      <a href="mailto:simon@echoframe.com" class="cta-button">Contact Simon</a>
-      <p style="margin-top: 1rem; color: var(--text-secondary);">simon@echoframe.com</p>
+      <a href="mailto:robert@echoframe.com" class="cta-button">Contact Robert</a>
+      <p style="margin-top: 1rem; color: var(--text-secondary);">robert@echoframe.com</p>
     </div>
   </section>
+
+  <button class="back-to-top" onclick="scrollToTop()">↑</button>
 
   <footer>
     <p>&copy; 2025 EchoFrame. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    function closeMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.remove('active');
+    }
+
+    // Back to top functionality
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Show/hide back to top button
+    window.addEventListener('scroll', function() {
+      const backToTopButton = document.querySelector('.back-to-top');
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+  </script>
 
 </body>
 </html>
