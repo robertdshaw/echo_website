@@ -54,6 +54,11 @@
     /* Mobile Responsive Improvements */
     .nav-container {
       padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .nav-logo {
@@ -410,29 +415,314 @@
       border-bottom: none;
     }
 
-    /* Table Mobile Styles */
+    /* Demo Styles */
+    .demo-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .demo-controls {
+      background: var(--bg-medium);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      align-items: end;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .control-group label {
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .control-group select {
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      color: var(--text-primary);
+      padding: 0.75rem;
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+
+    .control-group select:hover {
+      border-color: var(--primary);
+    }
+
+    .control-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+
+    .process-status {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .status-step {
+      background: var(--bg-medium);
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .status-step.active {
+      border-color: var(--primary);
+      background: rgba(37, 99, 235, 0.1);
+    }
+
+    .status-step.complete {
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .status-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .status-text {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .status-step.active .status-text {
+      color: var(--primary);
+    }
+
+    .status-step.complete .status-text {
+      color: #10b981;
+    }
+
+    .progress-indicator {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: var(--primary);
+      width: 0;
+      transition: width 1s ease;
+    }
+
+    .status-step.complete .progress-indicator {
+      background: #10b981;
+      width: 100% !important;
+    }
+
+    .demo-output {
+      background: var(--bg-medium);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      min-height: 400px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .loading {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .loading.active {
+      display: block;
+    }
+
+    .loader {
+      width: 48px;
+      height: 48px;
+      border: 4px solid var(--bg-light);
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .output-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .output-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .output-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .report-type {
+      background: var(--bg-light);
+      color: var(--text-secondary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .risk-level {
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.25rem;
+    }
+
+    .risk-high {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .risk-medium {
+      background: rgba(251, 146, 60, 0.1);
+      color: #fb923c;
+      border: 1px solid rgba(251, 146, 60, 0.2);
+    }
+
+    .risk-low {
+      background: rgba(34, 197, 94, 0.1);
+      color: #22c55e;
+      border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+
+    .report-summary {
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .summary-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-content {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .signal-item {
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .signal-item:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .signal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .signal-type {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1.125rem;
+    }
+
+    .signal-date {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+
+    .signal-content {
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .signal-metadata {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .signal-leadtime {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Mobile Adjustments */
     @media (max-width: 768px) {
-      .comparison-table {
-        display: block;
-        overflow-x: auto;
+      .demo-controls {
+        grid-template-columns: 1fr;
       }
 
-      .comparison-table th,
-      .comparison-table td {
-        padding: 0.75rem;
-        font-size: 0.875rem;
-        min-width: 200px;
+      .process-status {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .signal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .signal-metadata {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
       }
     }
 
-    /* Button Mobile Styles */
-    @media (max-width: 768px) {
-      .cta-button {
-        padding: 0.75rem 2rem;
-        font-size: 1rem;
-        width: 100%;
-        max-width: 300px;
-      }
+    /* Footer */
+    footer {
+      background: var(--bg-medium);
+      border-top: 1px solid var(--border-color);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-secondary);
     }
 
     /* Back to Top Button */
@@ -519,58 +809,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Mobile Grid Adjustments */
-    @media (max-width: 768px) {
-      .problem-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .problem-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .product-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-
-      .solution-flow {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .stat-card {
-        padding: 1.5rem;
-      }
-
-      .stat-number {
-        font-size: 2rem;
-      }
-
-      .problem-card {
-        padding: 1.25rem;
-      }
-
-      .product-card {
-        margin: 0;
-      }
-
-      .product-header {
-        padding: 1.5rem 1rem;
-      }
-
-      .product-body {
-        padding: 1.5rem;
-      }
-
-      .flow-step {
-        padding: 1.5rem;
-      }
-    }
-
     .problem-card {
       background: var(--bg-medium);
       border: 1px solid var(--border-color);
@@ -625,6 +863,83 @@
 
       .hero p {
         font-size: 1rem;
+      }
+    }
+
+    /* Mobile Grid Adjustments */
+    @media (max-width: 768px) {
+      .problem-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .solution-flow {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .stat-card {
+        padding: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .problem-card {
+        padding: 1.25rem;
+      }
+
+      .product-card {
+        margin: 0;
+      }
+
+      .product-header {
+        padding: 1.5rem 1rem;
+      }
+
+      .product-body {
+        padding: 1.5rem;
+      }
+
+      .flow-step {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Table Mobile Styles */
+    @media (max-width: 768px) {
+      .comparison-table {
+        display: block;
+        overflow-x: auto;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+        min-width: 200px;
+      }
+    }
+
+    /* Button Mobile Styles */
+    @media (max-width: 768px) {
+      .cta-button {
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
       }
     }
   </style>
@@ -698,738 +1013,3 @@
       <div class="problem-card">
         <h4>Geopolitical Complexity</h4>
         <p>Cross-border transactions increased 34% while regional risk expertise declined 18%, leading to losses like Nord Stream 2 investments.</p>
-      </div>
-    </div>
-
-    <h3 class="section-subtitle mt-3 mb-2">Why Risk Advisory Services Fall Short</h3>
-    
-    <div class="problem-grid">
-      <div class="problem-card">
-        <h4>Outdated Methodologies</h4>
-        <p>68% of risk models remain backward-looking and rule-based in a world demanding predictive, adaptive approaches.</p>
-      </div>
-      
-      <div class="problem-card">
-        <h4>Data Silos</h4>
-        <p>Average enterprise uses 16+ disparate systems containing risk-relevant data with minimal integration.</p>
-      </div>
-      
-      <div class="problem-card">
-        <h4>Staffing Shortages</h4>
-        <p>82% shortage in professionals with combined regional expertise and technical risk assessment skills.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="solution">
-    <h2 class="section-title">The EchoFrame Solution</h2>
-    <p class="section-subtitle">A revolutionary approach to emerging market intelligence</p>
-    
-    <div class="solution-flow">
-      <div class="flow-step">
-        <div class="flow-icon">📰</div>
-        <h3 class="flow-title">Archives = Nervous System</h3>
-        <p class="flow-description">Ingest comprehensive local news archives spanning 3-5 years. Convert every article into a live sensor detecting policy shifts, market moves, and social tensions.</p>
-      </div>
-      
-      <div class="flow-step">
-        <div class="flow-icon">🧠</div>
-        <h3 class="flow-title">LLM = Brain</h3>
-        <p class="flow-description">Advanced AI reads signals, identifies patterns, and spots early indicators of risk. Drafts concise summaries and alerts with precise citation.</p>
-      </div>
-      
-      <div class="flow-step">
-        <div class="flow-icon">🤖</div>
-        <h3 class="flow-title">Automation = Hands</h3>
-        <p class="flow-description">Packages insights into ready-to-send formats: alerts, briefs, and warnings. Delivers via email, SMS, or dashboard widgets.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="products">
-    <h2 class="section-title">Premium Risk Products</h2>
-    <p class="section-subtitle">Actionable intelligence designed for decision makers</p>
-    
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon">🏛️</div>
-          <h3 class="product-title">Policy Pulse Alerts</h3>
-        </div>
-        <div class="product-body">
-          <p class="product-description">Immediate notifications when local authorities propose changes affecting specific industries.</p>
-          <ul class="product-features">
-            <li>Real-time regulatory updates</li>
-            <li>Industry-specific focus</li>
-            <li>Actionable impact insights</li>
-            <li>Example: "New import tariffs in Barranquilla Port targeting electronics"</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon">📈</div>
-          <h3 class="product-title">Regional Investment Briefs</h3>
-        </div>
-        <div class="product-body">
-          <p class="product-description">Monthly reports on economic indicators, business sentiment, and emerging opportunities.</p>
-          <ul class="product-features">
-            <li>Economic trend analysis</li>
-            <li>Business climate assessment</li>
-            <li>Growth area identification</li>
-            <li>Example: "Q2 Investment Climate: Mining Sector Analysis"</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon">⚠️</div>
-          <h3 class="product-title">Operational Risk Dashboards</h3>
-        </div>
-        <div class="product-body">
-          <p class="product-description">Real-time feeds of events that could disrupt logistics or staffing.</p>
-          <ul class="product-features">
-            <li>Logistics disruption monitoring</li>
-            <li>Labor unrest alerts</li>
-            <li>Security risk updates</li>
-            <li>Example: "Strike activity on southern transport routes"</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="competitive">
-    <h2 class="section-title">Competitive Advantage</h2>
-    <p class="section-subtitle">How EchoFrame outperforms traditional risk advisory</p>
-    
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Traditional Risk Advisory</th>
-          <th>EchoFrame Advantage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Point-in-time assessments</td>
-          <td>Continuous monitoring with historical context</td>
-        </tr>
-        <tr>
-          <td>Generalized country risk</td>
-          <td>Hyper-regional insights with specific locations</td>
-        </tr>
-        <tr>
-          <td>Backward-looking analysis</td>
-          <td>Predictive intelligence based on pattern recognition</td>
-        </tr>
-        <tr>
-          <td>Expensive human analyst teams</td>
-          <td>AI-augmented intelligence with lower cost structure</td>
-        </tr>
-        <tr>
-          <td>Generic reports</td>
-          <td>Industry and location-specific actionable alerts</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="demo">
-    <h2 class="section-title">Risk Intelligence Dashboard</h2>
-    <p class="section-subtitle">Generate real-time intelligence reports powered by AI analysis</p>
-    
-    <div class="demo-container">
-      <div class="demo-controls">
-        <div class="control-group">
-          <label for="client-select">Select Client</label>
-          <select id="client-select">
-            <option value="mining">Barrick Gold - Mining (Peru)</option>
-            <option value="energy">Exxon - Energy (Colombia)</option>
-            <option value="finance">JP Morgan - Finance (Chile)</option>
-          </select>
-        </div>
-        <div class="control-group">
-          <label for="timeframe">Report Type</label>
-          <select id="timeframe">
-            <option value="daily">Daily Alert</option>
-            <option value="weekly">Weekly Summary</option>
-            <option value="monthly">Monthly Analysis</option>
-          </select>
-        </div>
-        <button id="generate-btn" onclick="generateReport()" class="cta-button">Generate Report</button>
-      </div>
-
-      <div class="process-status">
-        <div class="status-step" id="step-1">
-          <div class="status-icon">📰</div>
-          <div class="status-text">Scanning</div>
-        </div>
-        <div class="status-step" id="step-2">
-          <div class="status-icon">🔍</div>
-          <div class="status-text">Detecting</div>
-        </div>
-        <div class="status-step" id="step-3">
-          <div class="status-icon">🤖</div>
-          <div class="status-text">Analyzing</div>
-        </div>
-        <div class="status-step" id="step-4">
-          <div class="status-icon">📊</div>
-          <div class="status-text">Generating</div>
-        </div>
-      </div>
-
-      <div class="demo-output" id="output">
-        <div class="loading" id="loading">
-          <div class="loader"></div>
-          <p>Generating intelligence report...</p>
-        </div>
-        <div id="report-content" style="display: none;">
-          <!-- Report content will be inserted here -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2 class="section-title">Ready to Transform Your Risk Assessment?</h2>
-    <p class="section-subtitle">Join leading organizations using EchoFrame to navigate emerging markets with confidence</p>
-    <div style="text-align: center;">
-      <a href="mailto:simon@echoframe.com" class="cta-button">Contact Simon</a>
-      <p style="margin-top: 1rem; color: var(--text-secondary);">simon@echoframe.com</p>
-    </div>
-  </section>
-
-  <button class="back-to-top" onclick="scrollToTop()">↑</button>
-
-  <footer>
-    <p>&copy; 2025 EchoFrame. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
-      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-    }
-
-    function closeMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Back to top functionality
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-
-    // Show/hide back to top button
-    window.addEventListener('scroll', function() {
-      const backToTopButton = document.querySelector('.back-to-top');
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('visible');
-      } else {
-        backToTopButton.classList.remove('visible');
-      }
-    });
-
-    // Close menu on window resize
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 768) {
-        closeMenu();
-      }
-    });
-
-    // Demo functionality
-    const reports = {
-      mining: {
-        daily: {
-          title: "Barrick Gold - Daily Mining Alert",
-          summary: "Critical regulatory changes detected in Peru's mining sector with immediate implications for operations.",
-          riskLevel: "high",
-          signals: [
-            {
-              type: "Urgent Regulatory Alert",
-              date: "2 hours ago",
-              content: "BREAKING: Peru's Ministry of Energy and Mines issued emergency directive requiring all copper extraction operations to submit updated environmental impact assessments within 30 days.",
-              source: "El Comercio, Ministry Bulletin",
-              leadTime: "Immediate action required"
-            },
-            {
-              type: "Operational Risk",
-              date: "4 hours ago",
-              content: "Labor union representatives in Cajamarca announced potential strike action starting Monday if wage negotiations fail. 3,200 workers affected.",
-              source: "La República, Union Statement",
-              leadTime: "3 days to prepare"
-            }
-          ]
-        },
-        weekly: {
-          title: "Barrick Gold - Weekly Risk Summary",
-          summary: "Analysis of 47 risk signals detected across Peru's mining regions, with focus on regulatory shifts and community relations.",
-          riskLevel: "medium",
-          signals: [
-            {
-              type: "Regulatory Trend Analysis",
-              date: "This week",
-              content: "Ministry of Environment increased inspection frequency by 40% in southern mining regions. Pattern analysis suggests new compliance framework announcement within 60 days.",
-              source: "Ministry Database, Regional Reports",
-              leadTime: "6-8 weeks preparation window"
-            },
-            {
-              type: "Permit Anomaly Pattern",
-              date: "Past 7 days",
-              content: "Permit approval rates dropped to 22% in Arequipa region (historical average: 65%). Similar patterns preceded 2023 regulatory overhaul.",
-              source: "Permit Database Analysis",
-              leadTime: "3-4 months before policy change"
-            },
-            {
-              type: "Community Sentiment Shift",
-              date: "This week",
-              content: "Local media coverage of mining operations turned 35% more negative. Key themes: water usage, employment practices, environmental concerns.",
-              source: "Media Sentiment Analysis (142 articles)",
-              leadTime: "2-3 months before protests"
-            }
-          ]
-        },
-        monthly: {
-          title: "Barrick Gold - Monthly Strategic Analysis",
-          summary: "Comprehensive analysis of 312 risk signals with predictive modeling for next quarter's operational environment.",
-          riskLevel: "medium",
-          signals: [
-            {
-              type: "Strategic Risk Forecast",
-              date: "30-day analysis",
-              content: "Predictive model indicates 75% probability of new taxation framework for copper exports by Q3 2025. Government hiring patterns show 8 new positions in mineral taxation department.",
-              source: "AI Pattern Recognition, Government HR Data",
-              leadTime: "6-9 months advance warning"
-            },
-            {
-              type: "Political Landscape Shift",
-              date: "Monthly trend",
-              content: "Opposition coalition gaining support in mining regions (+12% approval). Platform includes stricter environmental controls and increased royalties. Regional elections in 8 months.",
-              source: "Political Polling, Regional News Analysis",
-              leadTime: "8 months to election impact"
-            },
-            {
-              type: "Long-term Permit Trends",
-              date: "90-day pattern",
-              content: "Systematic increase in environmental documentation requirements across all regions. Average approval time increased from 45 to 127 days. Suggests major regulatory overhaul in preparation.",
-              source: "Historical Permit Data, Regulatory Filings",
-              leadTime: "4-6 months before implementation"
-            },
-            {
-              type: "Investment Climate Indicator",
-              date: "Quarterly analysis",
-              content: "Foreign mining investment applications down 34% vs. previous quarter. Capital flight patterns similar to pre-2019 regulatory changes.",
-              source: "Investment Board Data, Economic Indicators",
-              leadTime: "5-7 months economic impact"
-            }
-          ]
-        }
-      },
-      energy: {
-        daily: {
-          title: "Exxon - Daily Energy Alert",
-          summary: "Immediate regulatory and operational risks detected in Colombia's energy sector.",
-          riskLevel: "high",
-          signals: [
-            {
-              type: "Contract Risk Alert",
-              date: "1 hour ago",
-              content: "URGENT: Ecopetrol CEO召开紧急会议讨论'合同现代化'。消息人士透露将影响所有现有生产分成协议。",
-              source: "Portafolio, Industry Sources",
-              leadTime: "Immediate attention required"
-            },
-            {
-              type: "Security Alert",
-              date: "3 hours ago",
-              content: "Pipeline security threat elevated in Putumayo region. Military increasing patrols near key infrastructure.",
-              source: "Defense Ministry Alert, El Tiempo",
-              leadTime: "24-48 hours"
-            }
-          ]
-        },
-        weekly: {
-          title: "Exxon - Weekly Energy Analysis",
-          summary: "Comprehensive review of regulatory shifts and market dynamics in Colombia's energy sector.",
-          riskLevel: "medium",
-          signals: [
-            {
-              type: "Policy Development",
-              date: "This week",
-              content: "Ministry of Mines hiring surge detected: 7 renewable energy experts and 3 carbon pricing specialists. Job descriptions emphasize 'energy transition frameworks'.",
-              source: "Government HR Portal, LinkedIn Analysis",
-              leadTime: "6-8 months before policy rollout"
-            },
-            {
-              type: "Market Intelligence",
-              date: "7-day trend",
-              content: "State oil company exploring partnerships with renewable firms. 4 preliminary meetings documented. Signals potential mandate for fossil fuel companies to diversify.",
-              source: "Corporate Filings, Business Press",
-              leadTime: "4-5 months strategic window"
-            },
-            {
-              type: "Infrastructure Analysis",
-              date: "Weekly review",
-              content: "Environmental reviews for 3 pipeline projects extended by 90 days. Pattern consistent with upcoming stricter environmental standards.",
-              source: "Regulatory Filings, Environmental Ministry",
-              leadTime: "3-4 months before new requirements"
-            }
-          ]
-        },
-        monthly: {
-          title: "Exxon - Monthly Strategic Report",
-          summary: "Long-term risk analysis and predictive intelligence for Colombia's evolving energy landscape.",
-          riskLevel: "medium",
-          signals: [
-            {
-              type: "Regulatory Forecast",
-              date: "30-day analysis",
-              content: "AI model predicts 80% probability of carbon tax implementation by Q4 2025. Government budget documents show revenue projections from 'environmental levies'.",
-              source: "Budget Analysis, AI Prediction Model",
-              leadTime: "9-12 months preparation time"
-            },
-            {
-              type: "Contract Restructuring Signal",
-              date: "Monthly pattern",
-              content: "Analysis of 47 government communications reveals systematic preparation for PSA renegotiations. Key terms: 'environmental obligations', 'local content', 'revenue sharing'.",
-              source: "Document Analysis, Legal Filings",
-              leadTime: "6-8 months before formal process"
-            },
-            {
-              type: "Energy Transition Indicators",
-              date: "90-day trend",
-              content: "Government tenders for renewable projects increased 200%. Signals mandatory renewable portfolio requirements for oil companies within 18 months.",
-              source: "Tender Database, Policy Documents",
-              leadTime: "12-18 months strategic planning"
-            }
-          ]
-        }
-      },
-      finance: {
-        daily: {
-          title: "JP Morgan - Daily Financial Alert",
-          summary: "Immediate regulatory changes affecting banking operations in Chile.",
-          riskLevel: "medium",
-          signals: [
-            {
-              type: "Regulatory Announcement",
-              date: "This morning",
-              content: "Central Bank announced surprise consultation on digital currency framework. Banks given 30 days to respond to proposed regulations.",
-              source: "Central Bank Bulletin, Diario Financiero",
-              leadTime: "30 days to prepare response"
-            },
-            {
-              type: "Market Alert",
-              date: "2 hours ago",
-              content: "Finance Ministry considering emergency measures to address dollar shortage. Potential impact on FX operations.",
-              source: "Ministry Sources, Bloomberg Chile",
-              leadTime: "Immediate monitoring required"
-            }
-          ]
-        },
-        weekly: {
-          title: "JP Morgan - Weekly Financial Review",
-          summary: "Analysis of regulatory developments and market trends in Chile's financial sector.",
-          riskLevel: "low",
-          signals: [
-            {
-              type: "Tax Policy Signal",
-              date: "This week",
-              content: "Finance Ministry recruiting 5 international tax experts specializing in OECD compliance. Focus on global minimum tax implementation.",
-              source: "Government Hiring Data, LinkedIn",
-              leadTime: "6-9 months before tax changes"
-            },
-            {
-              type: "Banking Regulation Trend",
-              date: "7-day analysis",
-              content: "Regulatory sandbox applications for fintech increased 40%. Signals upcoming framework for digital banking competition.",
-              source: "Regulatory Filings, Fintech Analysis",
-              leadTime: "4-6 months regulatory clarity"
-            }
-          ]
-        },
-        monthly: {
-          title: "JP Morgan - Monthly Strategic Analysis",
-          summary: "Comprehensive outlook on Chile's financial regulatory environment and market dynamics.",
-          riskLevel: "low",
-          signals: [
-            {
-              type: "Regulatory Roadmap",
-              date: "30-day forecast",
-              content: "Pattern analysis indicates comprehensive banking reform package by Q3 2025. Focus areas: digital transformation, cybersecurity, customer protection.",
-              source: "Legislative tracking, Policy documents",
-              leadTime: "8-10 months implementation window"
-            },
-            {
-              type: "Market Structure Evolution",
-              date: "Quarterly trend",
-              content: "Central Bank exploring real-time payment infrastructure. Technical committees formed with major banks. Implementation timeline: 18-24 months.",
-              source: "Central Bank Communications, Technical Papers",
-              leadTime: "18-24 months preparation"
-            },
-            {
-              type: "Compliance Forecast",
-              date: "90-day analysis",
-              content: "AML/KYC requirements strengthening. New beneficial ownership rules expected by year-end. Banking association preparing unified response.",
-              source: "Regulatory Pipeline, Industry Meetings",
-              leadTime: "6-8 months compliance window"
-            }
-          ]
-        }
-      }
-    };
-
-    function generateReport() {
-      const clientSelect = document.getElementById('client-select');
-      const timeframeSelect = document.getElementById('timeframe');
-      const selectedClient = clientSelect.value;
-      const selectedTimeframe = timeframeSelect.value;
-      const generateBtn = document.getElementById('generate-btn');
-      const loading = document.getElementById('loading');
-      const reportContent = document.getElementById('report-content');
-      
-      // Disable button and show loading
-      generateBtn.disabled = true;
-      loading.classList.add('active');
-      reportContent.style.display = 'none';
-      
-      // Reset all steps
-      for (let i = 1; i <= 4; i++) {
-        const step = document.getElementById(`step-${i}`);
-        step.classList.remove('active', 'complete');
-        step.querySelector('.progress-indicator').style.width = '0';
-      }
-      
-      // Simulate process steps
-      let currentStep = 1;
-      const stepInterval = setInterval(() => {
-        if (currentStep <= 4) {
-          const step = document.getElementById(`step-${currentStep}`);
-          step.classList.add('active');
-          
-          // Animate progress bar
-          setTimeout(() => {
-            step.querySelector('.progress-indicator').style.width = '100%';
-          }, 100);
-          
-          // Mark as complete after progress
-          setTimeout(() => {
-            step.classList.remove('active');
-            step.classList.add('complete');
-            currentStep++;
-            
-            if (currentStep > 4) {
-              clearInterval(stepInterval);
-              showReport(selectedClient, selectedTimeframe);
-            }
-          }, 1000);
-        }
-      }, 1200);
-    }
-
-    function showReport(clientType, timeframe) {
-      const loading = document.getElementById('loading');
-      const reportContent = document.getElementById('report-content');
-      const generateBtn = document.getElementById('generate-btn');
-      const report = reports[clientType][timeframe];
-      
-      // Generate report HTML
-      let reportHTML = `
-        <div class="output-header">
-          <div class="output-title">${report.title}</div>
-          <div class="output-meta">
-            <span class="report-type">${timeframe.toUpperCase()} REPORT</span>
-            <div class="risk-level risk-${report.riskLevel}">Risk Level: ${report.riskLevel.toUpperCase()}</div>
-          </div>
-        </div>
-        <div class="report-summary">
-          <div class="summary-title">Executive Summary</div>
-          <div class="summary-content">${report.summary}</div>
-        </div>
-      `;
-      
-      report.signals.forEach(signal => {
-        reportHTML += `
-          <div class="signal-item">
-            <div class="signal-header">
-              <div class="signal-type">${signal.type}</div>
-              <div class="signal-date">${signal.date}</div>
-            </div>
-            <div class="signal-content">
-              <p>${signal.content}</p>
-            </div>
-            <div class="signal-metadata">
-              <div class="signal-source">Source: ${signal.source}</div>
-              <div class="signal-leadtime">${signal.leadTime}</div>
-            </div>
-          </div>
-        `;
-      });
-      
-      // Show report
-      setTimeout(() => {
-        loading.classList.remove('active');
-        reportContent.innerHTML = reportHTML;
-        reportContent.style.display = 'block';
-        generateBtn.disabled = false;
-      }, 500);
-    }
-  </script>
-
-</body>
-</html>d = false;
-      }, 500);
-    }{
-            type: "Permit Anomaly Detected",
-            date: "Yesterday",
-            content: "Analysis shows 78% rejection rate for new mining permits in Cajamarca region over past 3 weeks, compared to historical average of 22%. Pattern suggests unannounced policy shift.",
-            source: "Regional permit database analysis",
-            leadTime: "3-4 months before formal announcement"
-          },
-          {
-            type: "Community Relations",
-            date: "3 days ago",
-            content: "Local communities in Arequipa organized meetings with regional authorities discussing water usage concerns. Mining operations mentioned in 4 of 6 documented grievances.",
-            source: "La República (regional edition)",
-            leadTime: "2-3 months before potential protests"
-          }
-        ]
-      },
-      energy: {
-        title: "Exxon - Colombia Energy Sector Update",
-        riskLevel: "medium",
-        signals: [
-          {
-            type: "Policy Signal",
-            date: "This morning",
-            content: "Ministry of Mines and Energy hiring 3 renewable energy specialists and 2 carbon tax experts. Job postings emphasize 'transitional energy frameworks' experience.",
-            source: "Government job portal, LinkedIn",
-            leadTime: "7-9 months before policy changes"
-          },
-          {
-            type: "Contract Alert",
-            date: "Yesterday",
-            content: "Ecopetrol executives meeting with government officials regarding 'contract modernization initiative.' Sources indicate focus on environmental compliance clauses.",
-            source: "Portafolio, Bloomberg Colombia",
-            leadTime: "4-5 months before contract revisions"
-          }
-        ]
-      },
-      finance: {
-        title: "JP Morgan - Chile Financial Sector Brief",
-        riskLevel: "low",
-        signals: [
-          {
-            type: "Regulatory Update",
-            date: "Today",
-            content: "Central Bank of Chile announced consultation period for digital currency framework. Banking sector given 60 days to submit feedback on proposed regulations.",
-            source: "Diario Financiero, Central Bank bulletin",
-            leadTime: "8-10 months before implementation"
-          },
-          {
-            type: "Tax Policy Signal",
-            date: "This week",
-            content: "Finance Ministry recruiting international tax specialists with focus on 'global minimum tax implementation.' 5 positions opened simultaneously.",
-            source: "Government hiring portal, La Tercera",
-            leadTime: "6-7 months before tax changes"
-          }
-        ]
-      }
-    };
-
-    function generateReport() {
-      const clientSelect = document.getElementById('client-select');
-      const selectedClient = clientSelect.value;
-      const generateBtn = document.getElementById('generate-btn');
-      const loading = document.getElementById('loading');
-      const reportContent = document.getElementById('report-content');
-      
-      // Disable button and show loading
-      generateBtn.disabled = true;
-      loading.classList.add('active');
-      reportContent.style.display = 'none';
-      
-      // Reset all steps
-      for (let i = 1; i <= 4; i++) {
-        const step = document.getElementById(`step-${i}`);
-        step.classList.remove('active', 'complete');
-        step.querySelector('.progress-indicator').style.width = '0';
-      }
-      
-      // Simulate process steps
-      let currentStep = 1;
-      const stepInterval = setInterval(() => {
-        if (currentStep <= 4) {
-          const step = document.getElementById(`step-${currentStep}`);
-          step.classList.add('active');
-          
-          // Animate progress bar
-          setTimeout(() => {
-            step.querySelector('.progress-indicator').style.width = '100%';
-          }, 100);
-          
-          // Mark as complete after progress
-          setTimeout(() => {
-            step.classList.remove('active');
-            step.classList.add('complete');
-            currentStep++;
-            
-            if (currentStep > 4) {
-              clearInterval(stepInterval);
-              showReport(selectedClient);
-            }
-          }, 1000);
-        }
-      }, 1200);
-    }
-
-    function showReport(clientType) {
-      const loading = document.getElementById('loading');
-      const reportContent = document.getElementById('report-content');
-      const generateBtn = document.getElementById('generate-btn');
-      const report = reports[clientType];
-      
-      // Generate report HTML
-      let reportHTML = `
-        <div class="output-header">
-          <div class="output-title">${report.title}</div>
-          <div class="risk-level risk-${report.riskLevel}">Risk Level: ${report.riskLevel.toUpperCase()}</div>
-        </div>
-      `;
-      
-      report.signals.forEach(signal => {
-        reportHTML += `
-          <div class="signal-item">
-            <div class="signal-header">
-              <div class="signal-type">${signal.type}</div>
-              <div class="signal-date">${signal.date}</div>
-            </div>
-            <div class="signal-content">
-              <p>${signal.content}</p>
-              <p><strong>Lead Time:</strong> ${signal.leadTime}</p>
-            </div>
-            <div class="signal-source">Source: ${signal.source}</div>
-          </div>
-        `;
-      });
-      
-      // Show report
-      setTimeout(() => {
-        loading.classList.remove('active');
-        reportContent.innerHTML = reportHTML;
-        reportContent.style.display = 'block';
-        generateBtn.disabled = false;
-      }, 500);
-    }
-  </script>
-
-</body>
-</html>
