@@ -838,116 +838,53 @@
   </section>
 
   <section id="demo">
-    <h2 class="section-title">Live Demo</h2>
-    <p class="section-subtitle">Experience EchoFrame's AI-powered risk intelligence in action</p>
+    <h2 class="section-title">Risk Intelligence Dashboard</h2>
+    <p class="section-subtitle">Generate real-time intelligence reports powered by AI analysis</p>
     
     <div class="demo-container">
-      <div class="demo-header">
-        <div class="demo-info">
-          <h3>Risk Intelligence Dashboard</h3>
-          <p>Select a client profile and report type to see how EchoFrame transforms local news into actionable insights</p>
-        </div>
-        <div class="demo-stats">
-          <div class="stat-box">
-            <div class="stat-number">2,847</div>
-            <div class="stat-label">Articles Analyzed</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number">142</div>
-            <div class="stat-label">Risk Signals</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number">3-9</div>
-            <div class="stat-label">Months Lead Time</div>
-          </div>
-        </div>
-      </div>
-
       <div class="demo-controls">
         <div class="control-group">
-          <label for="client-select">Client Profile</label>
-          <div class="select-wrapper">
-            <select id="client-select">
-              <option value="mining">🏔️ Barrick Gold - Mining (Peru)</option>
-              <option value="energy">⚡ Exxon - Energy (Colombia)</option>
-              <option value="finance">🏦 JP Morgan - Finance (Chile)</option>
-            </select>
-          </div>
+          <label for="client-select">Select Client</label>
+          <select id="client-select">
+            <option value="mining">Barrick Gold - Mining (Peru)</option>
+            <option value="energy">Exxon - Energy (Colombia)</option>
+            <option value="finance">JP Morgan - Finance (Chile)</option>
+          </select>
         </div>
         <div class="control-group">
           <label for="timeframe">Report Type</label>
-          <div class="select-wrapper">
-            <select id="timeframe">
-              <option value="daily">📅 Daily Alert</option>
-              <option value="weekly">📊 Weekly Summary</option>
-              <option value="monthly">📈 Monthly Analysis</option>
-            </select>
-          </div>
+          <select id="timeframe">
+            <option value="daily">Daily Alert</option>
+            <option value="weekly">Weekly Summary</option>
+            <option value="monthly">Monthly Analysis</option>
+          </select>
         </div>
-        <button id="generate-btn" onclick="generateReport()" class="cta-button">
-          <span class="button-text">Generate Report</span>
-          <span class="button-icon">→</span>
-        </button>
+        <button id="generate-btn" onclick="generateReport()" class="cta-button">Generate Report</button>
       </div>
 
-      <div class="demo-process">
-        <div class="process-step" id="step-1">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
-            </svg>
-          </div>
-          <div class="step-title">Scanning Sources</div>
-          <div class="step-description">Analyzing news archives</div>
-          <div class="progress-indicator"></div>
+      <div class="process-status">
+        <div class="status-step" id="step-1">
+          <div class="status-icon">📰</div>
+          <div class="status-text">Scanning</div>
         </div>
-        <div class="process-arrow">→</div>
-        <div class="process-step" id="step-2">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="M21 21l-4.35-4.35"></path>
-            </svg>
-          </div>
-          <div class="step-title">Detecting Signals</div>
-          <div class="step-description">Identifying patterns</div>
-          <div class="progress-indicator"></div>
+        <div class="status-step" id="step-2">
+          <div class="status-icon">🔍</div>
+          <div class="status-text">Detecting</div>
         </div>
-        <div class="process-arrow">→</div>
-        <div class="process-step" id="step-3">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <div class="step-title">AI Analysis</div>
-          <div class="step-description">Processing insights</div>
-          <div class="progress-indicator"></div>
+        <div class="status-step" id="step-3">
+          <div class="status-icon">🤖</div>
+          <div class="status-text">Analyzing</div>
         </div>
-        <div class="process-arrow">→</div>
-        <div class="process-step" id="step-4">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-          </div>
-          <div class="step-title">Report Generation</div>
-          <div class="step-description">Creating intelligence</div>
-          <div class="progress-indicator"></div>
+        <div class="status-step" id="step-4">
+          <div class="status-icon">📊</div>
+          <div class="status-text">Generating</div>
         </div>
       </div>
 
       <div class="demo-output" id="output">
         <div class="loading" id="loading">
-          <div class="loader-container">
-            <div class="loader"></div>
-            <div class="loader-pulse"></div>
-          </div>
-          <p>Analyzing risk signals and generating intelligence report...</p>
+          <div class="loader"></div>
+          <p>Generating intelligence report...</p>
         </div>
         <div id="report-content" style="display: none;">
           <!-- Report content will be inserted here -->
