@@ -643,6 +643,7 @@
         <a href="#problem" onclick="closeMenu()">Problem</a>
         <a href="#solution" onclick="closeMenu()">Solution</a>
         <a href="#products" onclick="closeMenu()">Products</a>
+        <a href="#demo" onclick="closeMenu()">Live Demo</a>
         <a href="#contact" onclick="closeMenu()">Contact</a>
       </div>
     </div>
@@ -836,6 +837,70 @@
     </table>
   </section>
 
+  <section id="demo">
+    <h2 class="section-title">Live Demo</h2>
+    <p class="section-subtitle">See EchoFrame generate real-time risk intelligence reports</p>
+    
+    <div class="demo-container">
+      <div class="demo-controls">
+        <div class="control-group">
+          <label for="client-select">Select Client Profile</label>
+          <select id="client-select">
+            <option value="mining">Barrick Gold - Mining Operations (Peru)</option>
+            <option value="energy">Exxon - Energy Sector (Colombia)</option>
+            <option value="finance">JP Morgan - Financial Services (Chile)</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="timeframe">Report Timeframe</label>
+          <select id="timeframe">
+            <option value="daily">Daily Alert</option>
+            <option value="weekly">Weekly Summary</option>
+            <option value="monthly">Monthly Analysis</option>
+          </select>
+        </div>
+        <button id="generate-btn" onclick="generateReport()" class="cta-button">Generate Report</button>
+      </div>
+
+      <div class="demo-process">
+        <div class="process-step" id="step-1">
+          <div class="step-icon">📰</div>
+          <div class="step-title">Scanning Sources</div>
+          <div class="step-description">Analyzing news articles from local sources</div>
+          <div class="progress-indicator"></div>
+        </div>
+        <div class="process-step" id="step-2">
+          <div class="step-icon">🔍</div>
+          <div class="step-title">Detecting Signals</div>
+          <div class="step-description">Identifying risk patterns</div>
+          <div class="progress-indicator"></div>
+        </div>
+        <div class="process-step" id="step-3">
+          <div class="step-icon">🤖</div>
+          <div class="step-title">AI Analysis</div>
+          <div class="step-description">Processing for client context</div>
+          <div class="progress-indicator"></div>
+        </div>
+        <div class="process-step" id="step-4">
+          <div class="step-icon">📊</div>
+          <div class="step-title">Report Generation</div>
+          <div class="step-description">Creating intelligence brief</div>
+          <div class="progress-indicator"></div>
+        </div>
+      </div>
+
+      <div class="demo-output" id="output">
+        <div class="loading" id="loading">
+          <div class="loader"></div>
+          <p>Generating your intelligence report...</p>
+        </div>
+        <div id="report-content" style="display: none;">
+          <!-- Report content will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="contact">
     <h2 class="section-title">Ready to Transform Your Risk Assessment?</h2>
     <p class="section-subtitle">Join leading organizations using EchoFrame to navigate emerging markets with confidence</p>
@@ -888,6 +953,162 @@
         closeMenu();
       }
     });
+
+    // Demo functionality
+    const reports = {
+      mining: {
+        title: "Barrick Gold - Peru Mining Risk Alert",
+        riskLevel: "high",
+        signals: [
+          {
+            type: "Regulatory Alert",
+            date: "2 hours ago",
+            content: "Peru's Ministry of Energy and Mines announced upcoming consultations for new environmental regulations affecting copper extraction methods. Industry representatives have been summoned for March 15th discussions.",
+            source: "El Comercio, Gestión",
+            leadTime: "6-8 months before implementation"
+          },
+          {
+            type: "Permit Anomaly Detected",
+            date: "Yesterday",
+            content: "Analysis shows 78% rejection rate for new mining permits in Cajamarca region over past 3 weeks, compared to historical average of 22%. Pattern suggests unannounced policy shift.",
+            source: "Regional permit database analysis",
+            leadTime: "3-4 months before formal announcement"
+          },
+          {
+            type: "Community Relations",
+            date: "3 days ago",
+            content: "Local communities in Arequipa organized meetings with regional authorities discussing water usage concerns. Mining operations mentioned in 4 of 6 documented grievances.",
+            source: "La República (regional edition)",
+            leadTime: "2-3 months before potential protests"
+          }
+        ]
+      },
+      energy: {
+        title: "Exxon - Colombia Energy Sector Update",
+        riskLevel: "medium",
+        signals: [
+          {
+            type: "Policy Signal",
+            date: "This morning",
+            content: "Ministry of Mines and Energy hiring 3 renewable energy specialists and 2 carbon tax experts. Job postings emphasize 'transitional energy frameworks' experience.",
+            source: "Government job portal, LinkedIn",
+            leadTime: "7-9 months before policy changes"
+          },
+          {
+            type: "Contract Alert",
+            date: "Yesterday",
+            content: "Ecopetrol executives meeting with government officials regarding 'contract modernization initiative.' Sources indicate focus on environmental compliance clauses.",
+            source: "Portafolio, Bloomberg Colombia",
+            leadTime: "4-5 months before contract revisions"
+          }
+        ]
+      },
+      finance: {
+        title: "JP Morgan - Chile Financial Sector Brief",
+        riskLevel: "low",
+        signals: [
+          {
+            type: "Regulatory Update",
+            date: "Today",
+            content: "Central Bank of Chile announced consultation period for digital currency framework. Banking sector given 60 days to submit feedback on proposed regulations.",
+            source: "Diario Financiero, Central Bank bulletin",
+            leadTime: "8-10 months before implementation"
+          },
+          {
+            type: "Tax Policy Signal",
+            date: "This week",
+            content: "Finance Ministry recruiting international tax specialists with focus on 'global minimum tax implementation.' 5 positions opened simultaneously.",
+            source: "Government hiring portal, La Tercera",
+            leadTime: "6-7 months before tax changes"
+          }
+        ]
+      }
+    };
+
+    function generateReport() {
+      const clientSelect = document.getElementById('client-select');
+      const selectedClient = clientSelect.value;
+      const generateBtn = document.getElementById('generate-btn');
+      const loading = document.getElementById('loading');
+      const reportContent = document.getElementById('report-content');
+      
+      // Disable button and show loading
+      generateBtn.disabled = true;
+      loading.classList.add('active');
+      reportContent.style.display = 'none';
+      
+      // Reset all steps
+      for (let i = 1; i <= 4; i++) {
+        const step = document.getElementById(`step-${i}`);
+        step.classList.remove('active', 'complete');
+        step.querySelector('.progress-indicator').style.width = '0';
+      }
+      
+      // Simulate process steps
+      let currentStep = 1;
+      const stepInterval = setInterval(() => {
+        if (currentStep <= 4) {
+          const step = document.getElementById(`step-${currentStep}`);
+          step.classList.add('active');
+          
+          // Animate progress bar
+          setTimeout(() => {
+            step.querySelector('.progress-indicator').style.width = '100%';
+          }, 100);
+          
+          // Mark as complete after progress
+          setTimeout(() => {
+            step.classList.remove('active');
+            step.classList.add('complete');
+            currentStep++;
+            
+            if (currentStep > 4) {
+              clearInterval(stepInterval);
+              showReport(selectedClient);
+            }
+          }, 1000);
+        }
+      }, 1200);
+    }
+
+    function showReport(clientType) {
+      const loading = document.getElementById('loading');
+      const reportContent = document.getElementById('report-content');
+      const generateBtn = document.getElementById('generate-btn');
+      const report = reports[clientType];
+      
+      // Generate report HTML
+      let reportHTML = `
+        <div class="output-header">
+          <div class="output-title">${report.title}</div>
+          <div class="risk-level risk-${report.riskLevel}">Risk Level: ${report.riskLevel.toUpperCase()}</div>
+        </div>
+      `;
+      
+      report.signals.forEach(signal => {
+        reportHTML += `
+          <div class="signal-item">
+            <div class="signal-header">
+              <div class="signal-type">${signal.type}</div>
+              <div class="signal-date">${signal.date}</div>
+            </div>
+            <div class="signal-content">
+              <p>${signal.content}</p>
+              <p><strong>Lead Time:</strong> ${signal.leadTime}</p>
+            </div>
+            <div class="signal-source">Source: ${signal.source}</div>
+          </div>
+        `;
+      });
+      
+      // Show report
+      setTimeout(() => {
+        loading.classList.remove('active');
+        reportContent.innerHTML = reportHTML;
+        reportContent.style.display = 'block';
+        generateBtn.disabled = false;
+      }, 500);
+    }
   </script>
 
 </body>
