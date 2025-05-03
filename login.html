@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - EchoFrame</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-container h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #1976D2;
+        }
+
+        .error-message {
+            color: #f44336;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>EchoFrame Login</h1>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit-button">Login</button>
+            <div id="errorMessage" class="error-message">Invalid username or password</div>
+        </form>
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Authentication configuration
+        const AUTH_CONFIG = {
+            validCredentials: [
+                { 
+                    username: 'gmtl', 
+                    password: 'gmtl2024', 
+                    allowedPages: ['gmtl-data-collection.html'],
+                    redirectTo: 'gmtl-data-collection.html'
+                },
+                { 
+                    username: 'latinnews', 
+                    password: 'latin2024', 
+                    allowedPages: ['latinnews-data-collection.html'],
+                    redirectTo: 'latinnews-data-collection.html'
+                },
+                { 
+                    username: 'admin', 
+                    password: 'admin2024', 
+                    allowedPages: ['gmtl-data-collection.html', 'latinnews-data-collection.html'],
+                    redirectTo: 'gmtl-data-collection.html'
+                }
+            ]
+        };
+
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Find user
+            const user = AUTH_CONFIG.validCredentials.find(
+                cred => cred.username === username && cred.password === password
+            );
+            
+            if (user) {
+                // Create session
+                localStorage.setItem('echoframe_token', 'authenticated');
+                localStorage.setItem('echoframe_username', username);
+                localStorage.setItem('echoframe_allowed_pages', JSON.stringify(user.allowedPages));
+                
+                // Redirect to appropriate page
+                window.location.href = user.redirectTo;
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        // Check if already logged in
+        window.addEventListener('load', function() {
+            const token = localStorage.getItem('echoframe_token');
+            if (token === 'authenticated') {
+                const username = localStorage.getItem('echoframe_username');
+                const user = AUTH_CONFIG.validCredentials.find(cred => cred.username === username);
+                if (user) {
+                    window.location.href = user.redirectTo;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
