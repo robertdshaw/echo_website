@@ -90,13 +90,13 @@
     </style>
 </head>
 <body>
-    <!-- <div class="login-container">
+    <div class="login-container">
         <h1>EchoFrame Login</h1>
         <form id="loginForm" onsubmit="handleLogin(event)">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
-            </div> -->
+            </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
@@ -141,29 +141,25 @@
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('errorMessage');
             
-            // Find user
             const user = AUTH_CONFIG.validCredentials.find(
                 cred => cred.username === username && cred.password === password
             );
             
             if (user) {
-                // Create session
                 localStorage.setItem('echoframe_token', 'authenticated');
                 localStorage.setItem('echoframe_username', username);
                 localStorage.setItem('echoframe_allowed_pages', JSON.stringify(user.allowedPages));
                 
-                // Redirect to appropriate page
                 window.location.href = user.redirectTo;
             } else {
                 errorMessage.style.display = 'block';
             }
         }
 
-        // Check if already logged in
         window.addEventListener('load', function() {
             const token = localStorage.getItem('echoframe_token');
-            if (token === 'authenticated') {
-                const username = localStorage.getItem('echoframe_username');
+            const username = localStorage.getItem('echoframe_username');
+            if (token === 'authenticated' && username) {
                 const user = AUTH_CONFIG.validCredentials.find(cred => cred.username === username);
                 if (user) {
                     window.location.href = user.redirectTo;
