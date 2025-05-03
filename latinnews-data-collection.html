@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LatinNews Data Request - EchoFrame</title>
+    <style>
+        /* ... existing styles ... */
+        
+        .info-box {
+            background: #f0f7ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .section-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .add-item-container {
+            margin-bottom: 20px;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-brand">EchoFrame</div>
+        <div class="navbar-menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gmtl-data-collection.html">GMTL Advisory</a>
+            <a href="latinnews-data-collection.html" class="active">LatinNews</a>
+            <button class="login-button" onclick="showLoginForm()">Login</button>
+            <button class="logout-button" onclick="logout()" style="display: none;">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Protected Content -->
+    <div class="protected-content" id="protectedContent">
+        <h1>LatinNews Content Access Request</h1>
+        
+        <div class="info-box">
+            <h3>About This Request</h3>
+            <p>LatinNews has been providing specialized Latin America intelligence since 1967. We're requesting access to their archive to build ECHOFRAME's historical pattern detection system. This form helps us specify exactly what content we need for our prototype.</p>
+        </div>
+
+        <form id="latinNewsForm">
+            <!-- Section 1: Content Access -->
+            <div class="form-section">
+                <h3>1. Archive Access Request</h3>
+                <p class="section-description">
+                    We need access to LatinNews publications to train ECHOFRAME on historical patterns in Latin American political and economic events.
+                </p>
+                
+                <div class="form-group">
+                    <label>Which publications do we need for the prototype?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="pub_weekly" name="publications[]" value="weekly_report">
+                            <label for="pub_weekly">Latin American Weekly Report (Priority for pattern detection)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="pub_security" name="publications[]" value="security_review">
+                            <label for="pub_security">Security & Strategic Review (For risk pattern analysis)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="pub_economy" name="publications[]" value="economy_business">
+                            <label for="pub_economy">Economy & Business (For economic indicators)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="pub_regional" name="publications[]" value="regional_reports">
+                            <label for="pub_regional">Regional Reports (Brazil & Southern Cone, Andean Group)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Time Period Needed:</label>
+                    <input type="text" name="time_period" placeholder="e.g., Last 3 years (2021-2024) for pattern training">
+                    <small>We need sufficient historical data to identify recurring patterns</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>Preferred Access Method:</label>
+                    <select name="access_method">
+                        <option value="api">API Access (Best for automation)</option>
+                        <option value="database">Database Export</option>
+                        <option value="bulk_download">Bulk Download (PDF/HTML)</option>
+                        <option value="web_scraping">Web Scraping Permission</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Section 2: Content Structure -->
+            <div class="form-section">
+                <h3>2. Content Organization</h3>
+                <p class="section-description">
+                    Understanding how LatinNews structures their content will help us parse and categorize it effectively.
+                </p>
+                
+                <div class="form-group">
+                    <label>How are articles tagged/categorized?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="tag_country" name="tagging[]" value="country">
+                            <label for="tag_country">By Country</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="tag_topic" name="tagging[]" value="topic">
+                            <label for="tag_topic">By Topic (Politics, Economy, Security)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="tag_date" name="tagging[]" value="date">
+                            <label for="tag_date">By Date</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="tag_special" name="tagging[]" value="special">
+                            <label for="tag_special">Special Tags (Crisis, Elections, etc.)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Article Metadata Available:</label>
+                    <textarea name="metadata_structure" placeholder="e.g., Article ID, Author, Publication Date, Country Tags, Topic Tags, Related Articles"></textarea>
+                </div>
+            </div>
+
+            <!-- Section 3: Specific Content Needs -->
+            <div class="form-section">
+                <h3>3. Content for Pattern Detection</h3>
+                <p class="section-description">
+                    We're particularly interested in content that helps identify recurring patterns in Latin American events.
+                </p>
+                
+                <div class="form-group">
+                    <label>Priority Content Types for Our Prototype:</label>
+                    <div id="priority-content-container">
+                        <div class="dynamic-field">
+                            <input type="text" name="priority_content[]" placeholder="e.g., Political crisis coverage in Brazil (2015-2023)">
+                            <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-button" onclick="addPriorityContent()">Add Priority Content Type</button>
+                </div>
+                
+                <div class="form-group">
+                    <label>Historical Events We Want to Analyze:</label>
+                    <div id="historical-events-container">
+                        <div class="dynamic-field">
+                            <input type="text" name="historical_events[]" placeholder="e.g., Chile protests (2019) - pattern of escalation">
+                            <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-button" onclick="addHistoricalEvent()">Add Historical Event</button>
+                </div>
+            </div>
+
+            <!-- Section 4: Technical Integration -->
+            <div class="form-section">
+                <h3>4. Technical Requirements</h3>
+                <p class="section-description">
+                    Details about how we'll integrate LatinNews content into ECHOFRAME.
+                </p>
+                
+                <div class="form-group">
+                    <label>What format works best for our AI processing?</label>
+                    <select name="preferred_format">
+                        <option value="json">JSON (Structured data)</option>
+                        <option value="xml">XML</option>
+                        <option value="csv">CSV (For tabular data)</option>
+                        <option value="plain_text">Plain Text</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>API Requirements (if available):</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="api_search" name="api_needs[]" value="search">
+                            <label for="api_search">Search by date range</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="api_filter" name="api_needs[]" value="filter">
+                            <label for="api_filter">Filter by country/topic</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="api_full" name="api_needs[]" value="full_text">
+                            <label for="api_full">Access to full article text</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="api_meta" name="api_needs[]" value="metadata">
+                            <label for="api_meta">Article metadata</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Prototype Scope -->
+            <div class="form-section">
+                <h3>5. Prototype Partnership Proposal</h3>
+                <p class="section-description">
+                    How we envision using LatinNews content for our initial ECHOFRAME prototype.
+                </p>
+                
+                <div class="form-group">
+                    <label>Prototype Timeline:</label>
+                    <input type="text" name="prototype_timeline" placeholder="e.g., 3-6 months initial development">
+                </div>
+                
+                <div class="form-group">
+                    <label>What We'll Build:</label>
+                    <textarea name="prototype_description" rows="4">1. Pattern detection system for political events
+2. Risk signal identification based on historical precedents
+3. Timeline visualization of recurring events
+4. Early warning system based on LatinNews reporting patterns</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Value to LatinNews:</label>
+                    <textarea name="value_proposition" rows="4">1. Enhanced analytics capabilities for your content
+2. New ways to surface historical patterns in your archive
+3. Potential new product offering for your clients
+4. Demonstration of your archive's predictive value</textarea>
+                </div>
+            </div>
+
+            <!-- Section 6: Contact Information -->
+            <div class="form-section">
+                <h3>6. Contact Information</h3>
+                
+                <div class="form-group">
+                    <label>Primary Contact at LatinNews:</label>
+                    <input type="text" name="latinnews_contact" placeholder="e.g., Client Services Director">
+                </div>
+                
+                <div class="form-group">
+                    <label>Our Technical Contact:</label>
+                    <input type="text" name="our_tech_contact" placeholder="Your name and email">
+                </div>
+                
+                <div class="form-group">
+                    <label>Preferred Next Steps:</label>
+                    <textarea name="next_steps" rows="3">1. Initial call to discuss prototype scope
+2. Technical discussion about API/data access
+3. Review sample data structure
+4. Agree on pilot terms</textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button">Submit LatinNews Request</button>
+        </form>
+    </div>
+
+    <script>
+        // Authentication code
+        const AUTH_CONFIG = {
+            validCredentials: [
+                { username: 'admin', password: 'echoframe2024' }
+            ],
+            tokenName: 'echoframe_auth_token',
+            tokenExpiry: 24 * 60 * 60 * 1000
+        };
+
+        // ... (authentication functions remain the same) ...
+
+        // Dynamic field functions
+        function addPriorityContent() {
+            const container = document.getElementById('priority-content-container');
+            const newField = document.createElement('div');
+            newField.className = 'dynamic-field';
+            newField.innerHTML = `
+                <input type="text" name="priority_content[]" placeholder="Add another priority content type">
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+            `;
+            container.appendChild(newField);
+        }
+
+        function addHistoricalEvent() {
+            const container = document.getElementById('historical-events-container');
+            const newField = document.createElement('div');
+            newField.className = 'dynamic-field';
+            newField.innerHTML = `
+                <input type="text" name="historical_events[]" placeholder="Add another historical event to analyze">
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+            `;
+            container.appendChild(newField);
+        }
+
+        function removeField(button) {
+            button.parentElement.remove();
+        }
+
+        // Form submission
+        document.getElementById('latinNewsForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (!data[key]) {
+                    data[key] = value;
+                } else {
+                    if (!Array.isArray(data[key])) {
+                        data[key] = [data[key]];
+                    }
+                    data[key].push(value);
+                }
+            });
+            
+            const submissionData = {
+                formType: 'LatinNews Request',
+                username: localStorage.getItem('echoframe_username') || 'Anonymous',
+                formData: data,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                // Submit to Google Sheets
+                const response = await fetch('https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(submissionData)
+                });
+                
+                alert('Request submitted successfully!');
+                // this.reset(); // Uncomment to reset form after submission
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please try again.');
+            } finally {
+                submitBtn.textContent = 'Submit LatinNews Request';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

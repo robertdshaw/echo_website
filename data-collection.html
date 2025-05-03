@@ -284,7 +284,13 @@
         <div class="navbar-menu">
             <a href="index.html">Home</a>
             <!-- <a href="about.html">About</a> -->
-            <a href="data-collection.html" class="protected-link">Data Collection</a>
+            <div class="dropdown">
+                <button class="dropbtn">Data Collection ▼</button>
+                <div class="dropdown-content">
+                    <a href="gmtl-data-collection.html">GMTL Advisory</a>
+                    <a href="latinnews-data-collection.html">LatinNews</a>
+                </div>
+            </div>
             <button class="login-button" onclick="showLoginForm()">Login</button>
             <button class="logout-button" onclick="logout()" style="display: none;">Logout</button>
         </div>
