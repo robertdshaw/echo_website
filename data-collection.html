@@ -275,6 +275,92 @@
             margin-bottom: 15px;
             font-style: italic;
         }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .navbar-menu {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            .navbar-menu a, .dropbtn {
+                width: 100%;
+                text-align: left;
+                padding: 10px;
+            }
+            
+            .dropdown {
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                position: relative;
+                width: 100%;
+                box-shadow: none;
+            }
+            
+            .checkbox-group {
+                flex-direction: column;
+            }
+            
+            .form-container {
+                padding: 15px;
+            }
+            
+            .dynamic-field {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
@@ -690,18 +776,71 @@
             tokenExpiry: 24 * 60 * 60 * 1000 // 24 hours
         };
 
+        // Storage wrapper to handle sandboxed environments
+        const storage = {
+            isAvailable: function() {
+                try {
+                    const test = '__test__';
+                    localStorage.setItem(test, test);
+                    localStorage.removeItem(test);
+                    return true;
+                } catch(e) {
+                    return false;
+                }
+            },
+            getItem: function(key) {
+                if (this.isAvailable()) {
+                    return localStorage.getItem(key);
+                }
+                // Fallback to sessionStorage or memory
+                try {
+                    return sessionStorage.getItem(key);
+                } catch(e) {
+                    // Use in-memory storage as last resort
+                    return window.__memoryStorage?.[key] || null;
+                }
+            },
+            setItem: function(key, value) {
+                if (this.isAvailable()) {
+                    return localStorage.setItem(key, value);
+                }
+                // Fallback to sessionStorage
+                try {
+                    return sessionStorage.setItem(key, value);
+                } catch(e) {
+                    // Use in-memory storage as last resort
+                    if (!window.__memoryStorage) window.__memoryStorage = {};
+                    window.__memoryStorage[key] = value;
+                }
+            },
+            removeItem: function(key) {
+                if (this.isAvailable()) {
+                    return localStorage.removeItem(key);
+                }
+                // Fallback to sessionStorage
+                try {
+                    return sessionStorage.removeItem(key);
+                } catch(e) {
+                    // Use in-memory storage as last resort
+                    if (window.__memoryStorage) {
+                        delete window.__memoryStorage[key];
+                    }
+                }
+            }
+        };
+
         // Check if user is already logged in
         function checkAuth() {
-            const token = localStorage.getItem(AUTH_CONFIG.tokenName);
-            const tokenExpiry = localStorage.getItem(AUTH_CONFIG.tokenName + '_expiry');
+            const token = storage.getItem(AUTH_CONFIG.tokenName);
+            const tokenExpiry = storage.getItem(AUTH_CONFIG.tokenName + '_expiry');
             
             if (token && tokenExpiry && new Date().getTime() < parseInt(tokenExpiry)) {
                 return true;
             }
             
             // Clear expired token
-            localStorage.removeItem(AUTH_CONFIG.tokenName);
-            localStorage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
+            storage.removeItem(AUTH_CONFIG.tokenName);
+            storage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
             return false;
         }
 
@@ -749,13 +888,16 @@
             );
             
             if (validUser) {
+                // Store username for form submissions
+                storage.setItem('echoframe_username', username);
+                
                 // Create token (in a real app, this would come from the server)
                 const token = btoa(username + ':' + new Date().getTime());
                 const expiry = new Date().getTime() + AUTH_CONFIG.tokenExpiry;
                 
-                // Store in localStorage
-                localStorage.setItem(AUTH_CONFIG.tokenName, token);
-                localStorage.setItem(AUTH_CONFIG.tokenName + '_expiry', expiry);
+                // Store in storage
+                storage.setItem(AUTH_CONFIG.tokenName, token);
+                storage.setItem(AUTH_CONFIG.tokenName + '_expiry', expiry);
                 
                 // Hide login form and update UI
                 document.getElementById('loginForm').style.display = 'none';
@@ -768,12 +910,14 @@
 
         // Handle logout
         function logout() {
-            localStorage.removeItem(AUTH_CONFIG.tokenName);
-            localStorage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
-            localStorage.removeItem('echoframe_username'); // Also remove this
+            storage.removeItem(AUTH_CONFIG.tokenName);
+            storage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
+            storage.removeItem('echoframe_username');
             updateUIBasedOnAuth();
-            window.location.href = 'index.html'; // Or whichever is your login landing
-
+            // Don't redirect in sandboxed environment
+            if (!document.location.href.includes('sandbox')) {
+                window.location.href = 'index.html';
+            }
         }
 
         // Tab functionality
@@ -789,264 +933,235 @@
             }
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
-            }
-
-            // Dynamic field functions
-    function addRiskCategory() {
-        const container = document.getElementById('riskTaxonomyContainer');
-        const newCategory = document.createElement('div');
-        newCategory.className = 'risk-category';
-        newCategory.innerHTML = `
-            <h4>Custom Risk Category</h4>
-            <div class="form-group">
-                <label>Category Name:</label>
-                <input type="text" name="custom_category_name[]" placeholder="e.g., Climate Risk">
-            </div>
-            <div class="form-group">
-                <label>Subcategories and Indicators:</label>
-                <textarea name="custom_category_indicators[]" placeholder="List subcategories and their indicators"></textarea>
-            </div>
-            <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>
-        `;
-        container.appendChild(newCategory);
-    }
-
-    function addRiskSignal() {
-        const container = document.getElementById('riskSignalsContainer');
-        const newSignal = document.createElement('div');
-        newSignal.className = 'risk-category';
-        newSignal.innerHTML = `
-            <div class="form-group">
-                <label>Risk Type:</label>
-                <input type="text" name="signal_risk_type[]" placeholder="e.g., Government Collapse">
-            </div>
-            <div class="form-group">
-                <label>Early Warning Signals:</label>
-                <textarea name="signal_early[]" placeholder="e.g., Cabinet resignations, coalition tensions"></textarea>
-            </div>
-            <div class="form-group">
-                <label>Crisis Indicators:</label>
-                <textarea name="signal_crisis[]" placeholder="e.g., Mass protests, military statements"></textarea>
-            </div>
-            <div class="form-group">
-                <label>Typical Timeline:</label>
-                <select name="signal_timeline[]">
-                    <option value="days">Days</option>
-                    <option value="weeks">Weeks</option>
-                    <option value="months">Months</option>
-                    <option value="years">Years</option>
-                </select>
-            </div>
-            <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>
-        `;
-        container.appendChild(newSignal);
-    }
-
-    function addHistoricalCase() {
-        const container = document.getElementById('historicalCasesContainer');
-        const newCase = document.createElement('div');
-        newCase.className = 'risk-category';
-        newCase.innerHTML = `
-            <div class="form-group">
-                <label>Event Name:</label>
-                <input type="text" name="case_name[]" placeholder="e.g., 2019 Chile Protests">
-            </div>
-            <div class="form-group">
-                <label>Country:</label>
-                <select name="case_country[]">
-                    <option value="">Select Country</option>
-                    <option value="Argentina">Argentina</option>
-                    <option value="Brazil">Brazil</option>
-                    <option value="Chile">Chile</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="Mexico">Mexico</option>
-                    <option value="Peru">Peru</option>
-                    <option value="Venezuela">Venezuela</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Date Range:</label>
-                <input type="text" name="case_date[]" placeholder="e.g., October 2019 - March 2020">
-            </div>
-            <div class="form-group">
-                <label>Early Indicators You Identified:</label>
-                <textarea name="case_indicators[]" placeholder="What signals did you detect before others?"></textarea>
-            </div>
-            <div class="form-group">
-                <label>Lessons Learned:</label>
-                <textarea name="case_lessons[]" placeholder="What patterns emerged?"></textarea>
-            </div>
-            <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>
-        `;
-        container.appendChild(newCase);
-    }
-
-    function addClientQuestion() {
-        const container = document.getElementById('clientQuestionsContainer');
-        const newQuestion = document.createElement('div');
-        newQuestion.className = 'dynamic-field';
-        newQuestion.innerHTML = `
-            <input type="text" name="client_questions[]" placeholder="Add another common client question" style="flex: 1;">
-            <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-        `;
-        container.appendChild(newQuestion);
-    }
-
-    function removeField(button) {
-        button.parentElement.remove();
-    }
-// Replace the existing form submission handlers with these:
-
-document.getElementById('gmtlForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    // Show loading message
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Submitting...';
-    submitBtn.disabled = true;
-    
-    // Collect form data
-    const formData = new FormData(this);
-    const data = {};
-    formData.forEach((value, key) => {
-        if (!data[key]) {
-            data[key] = value;
-        } else {
-            if (!Array.isArray(data[key])) {
-                data[key] = [data[key]];
-            }
-            data[key].push(value);
         }
-    });
-    
-    // Prepare submission data
-    const submissionData = {
-        formType: 'GMTL Risk Framework',
-        username: localStorage.getItem('echoframe_username') || 'Anonymous',
-        formData: data
-    };
-    
-    try {
-        // Submit to Google Sheets
-        const response = await fetch('https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec', {
-            method: 'POST',
-            mode: 'no-cors', // Important for Google Scripts
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(submissionData)
-        });
-        
-        // Show success message
-        alert('Form submitted successfully! Thank you for your response.');
-        
-        // Optionally reset form
-        // this.reset();
-        
-    } catch (error) {
-        console.error('Error:', error);
-        alert('There was an error submitting the form. Please try again.');
-    } finally {
-        // Restore button
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
-});
 
-document.getElementById('latinNewsForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    // Show loading message
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Submitting...';
-    submitBtn.disabled = true;
-    
-    // Collect form data
-    const formData = new FormData(this);
-    const data = {};
-    formData.forEach((value, key) => {
-        if (!data[key]) {
-            data[key] = value;
-        } else {
-            if (!Array.isArray(data[key])) {
-                data[key] = [data[key]];
-            }
-            data[key].push(value);
+        // Dynamic field functions
+        function addRiskCategory() {
+            const container = document.getElementById('riskTaxonomyContainer');
+            const newCategory = document.createElement('div');
+            newCategory.className = 'risk-category';
+            newCategory.innerHTML = `
+                <h4>Custom Risk Category</h4>
+                <div class="form-group">
+                    <label>Category Name:</label>
+                    <input type="text" name="custom_category_name[]" placeholder="e.g., Climate Risk">
+                </div>
+                <div class="form-group">
+                    <label>Subcategories and Indicators:</label>
+                    <textarea name="custom_category_indicators[]" placeholder="List subcategories and their indicators"></textarea>
+                </div>
+                <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>
+            `;
+            container.appendChild(newCategory);
         }
-    });
-    
-    // Prepare submission data
-    const submissionData = {
-        formType: 'LatinNews Request',
-        username: localStorage.getItem('echoframe_username') || 'Anonymous',
-        formData: data
-    };
-    
-    try {
-        // Submit to Google Sheets
-        const response = await fetch('https://shttps://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec', {
-            method: 'POST',
-            mode: 'no-cors', // Important for Google Scripts
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(submissionData)
+
+        function addRiskSignal() {
+            const container = document.getElementById('riskSignalsContainer');
+            const newSignal = document.createElement('div');
+            newSignal.className = 'risk-category';
+            newSignal.innerHTML = `
+                <div class="form-group">
+                    <label>Risk Type:</label>
+                    <input type="text" name="signal_risk_type[]" placeholder="e.g., Government Collapse">
+                </div>
+                <div class="form-group">
+                    <label>Early Warning Signals:</label>
+                    <textarea name="signal_early[]" placeholder="e.g., Cabinet resignations, coalition tensions"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Crisis Indicators:</label>
+                    <textarea name="signal_crisis[]" placeholder="e.g., Mass protests, military statements"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Typical Timeline:</label>
+                    <select name="signal_timeline[]">
+                        <option value="days">Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months</option>
+                        <option value="years">Years</option>
+                    </select>
+                </div>
+                <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>
+            `;
+            container.appendChild(newSignal);
+        }
+
+        function addHistoricalCase() {
+            const container = document.getElementById('historicalCasesContainer');
+            const newCase = document.createElement('div');
+            newCase.className = 'risk-category';
+            newCase.innerHTML = `
+                <div class="form-group">
+                    <label>Event Name:</label>
+                    <input type="text" name="case_name[]" placeholder="e.g., 2019 Chile Protests">
+                </div>
+                <div class="form-group">
+                    <label>Country:</label>
+                    <select name="case_country[]">
+                        <option value="">Select Country</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Peru">Peru</option>
+                        <option value="Venezuela">Venezuela</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Date Range:</label>
+                    <input type="text" name="case_date[]" placeholder="e.g., October 2019 - March 2020">
+                </div>
+                <div class="form-group">
+                    <label>Early Indicators You Identified:</label>
+                    <textarea name="case_indicators[]" placeholder="What signals did you detect before others?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Lessons Learned:</label>
+                    <textarea name="case_lessons[]" placeholder="What patterns emerged?"></textarea>
+                </div>
+                <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>
+            `;
+            container.appendChild(newCase);
+        }
+
+        function addClientQuestion() {
+            const container = document.getElementById('clientQuestionsContainer');
+            const newQuestion = document.createElement('div');
+            newQuestion.className = 'dynamic-field';
+            newQuestion.innerHTML = `
+                <input type="text" name="client_questions[]" placeholder="Add another common client question" style="flex: 1;">
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+            `;
+            container.appendChild(newQuestion);
+        }
+
+        function removeField(button) {
+            button.parentElement.remove();
+        }
+
+        // Form submission handlers
+        document.getElementById('gmtlForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading message
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (!data[key]) {
+                    data[key] = value;
+                } else {
+                    if (!Array.isArray(data[key])) {
+                        data[key] = [data[key]];
+                    }
+                    data[key].push(value);
+                }
+            });
+            
+            // Prepare submission data
+            const submissionData = {
+                formType: 'GMTL Risk Framework',
+                username: storage.getItem('echoframe_username') || 'Anonymous',
+                formData: data
+            };
+            
+            try {
+                // Submit to Google Sheets
+                const response = await fetch('https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec', {
+                    method: 'POST',
+                    mode: 'no-cors', // Important for Google Scripts
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(submissionData)
+                });
+                
+                // Show success message
+                alert('Form submitted successfully! Thank you for your response.');
+                
+                // Optionally reset form
+                // this.reset();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please try again.');
+            } finally {
+                // Restore button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         });
-        
-        // Show success message
-        alert('Form submitted successfully! Thank you for your response.');
-        
-        // Optionally reset form
-        // this.reset();
-        
-    } catch (error) {
-        console.error('Error:', error);
-        alert('There was an error submitting the form. Please try again.');
-    } finally {
-        // Restore button
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
-});
 
-// Update login function to store username
-function handleLogin(event) {
-    event.preventDefault();
-    
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const errorMessage = document.getElementById('errorMessage');
-    
-    // Check credentials
-    const validUser = AUTH_CONFIG.validCredentials.find(
-        cred => cred.username === username && cred.password === password
-    );
-    
-    if (validUser) {
-        // Store username for form submissions
-        localStorage.setItem('echoframe_username', username);
-        
-        // Create token
-        const token = btoa(username + ':' + new Date().getTime());
-        const expiry = new Date().getTime() + AUTH_CONFIG.tokenExpiry;
-        
-        // Store in localStorage
-        localStorage.setItem(AUTH_CONFIG.tokenName, token);
-        localStorage.setItem(AUTH_CONFIG.tokenName + '_expiry', expiry);
-        
-        // Hide login form and update UI
-        document.getElementById('loginForm').style.display = 'none';
-        errorMessage.style.display = 'none';
-        updateUIBasedOnAuth();
-    } else {
-        errorMessage.style.display = 'block';
-    }
-}
+        document.getElementById('latinNewsForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading message
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (!data[key]) {
+                    data[key] = value;
+                } else {
+                    if (!Array.isArray(data[key])) {
+                        data[key] = [data[key]];
+                    }
+                    data[key].push(value);
+                }
+            });
+            
+            // Prepare submission data
+            const submissionData = {
+                formType: 'LatinNews Request',
+                username: storage.getItem('echoframe_username') || 'Anonymous',
+                formData: data
+            };
+            
+            try {
+                // Submit to Google Sheets (Fixed URL)
+                const response = await fetch('https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec', {
+                    method: 'POST',
+                    mode: 'no-cors', // Important for Google Scripts
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(submissionData)
+                });
+                
+                // Show success message
+                alert('Form submitted successfully! Thank you for your response.');
+                
+                // Optionally reset form
+                // this.reset();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please try again.');
+            } finally {
+                // Restore button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
 
-    // Periodically check if token is still valid
-    setInterval(updateUIBasedOnAuth, 60000); // Check every minute
-</script>
+        // Initialize on page load
+        window.addEventListener('load', function() {
+            updateUIBasedOnAuth();
+        });
+
+        // Periodically check if token is still valid
+        setInterval(updateUIBasedOnAuth, 60000); // Check every minute
+    </script>
 </body>
 </html>
