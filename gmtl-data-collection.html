@@ -537,27 +537,45 @@ function logout() {
 }
 
 // Check authentication on page load
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     if (!checkAuth()) {
         return;
     }
-    
-    // Update UI to show username
-    const username = localStorage.getItem('echoframe_username');
-if (username) {
-    const welcomeEl = document.getElementById('welcomeUser');
-    if (welcomeEl) {
-        welcomeEl.textContent = `Welcome, ${username}`;
-    }
 
-    const navbarMenu = document.querySelector('.navbar-menu');
-    if (navbarMenu) {
-        navbarMenu.innerHTML += `
-            <span style="color: white; margin-right: 15px;">Welcome, ${username}</span>
-            <button onclick="logout()" style="background: #f44336; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Logout</button>
-        `;
+    const username = localStorage.getItem('echoframe_username');
+    if (username) {
+        // Update the welcome message if an element with ID exists
+        const welcomeEl = document.getElementById('welcomeUser');
+        if (welcomeEl) {
+            welcomeEl.textContent = `Welcome, ${username}`;
+        }
+
+        // Optionally add to navbar if you need dynamic rendering (but avoid duplicating)
+        const navbarMenu = document.querySelector('.navbar-menu');
+        if (navbarMenu && !navbarMenu.querySelector('.welcome-msg')) {
+            const welcomeSpan = document.createElement('span');
+            welcomeSpan.className = 'welcome-msg';
+            welcomeSpan.style.color = 'white';
+            welcomeSpan.style.marginRight = '15px';
+            welcomeSpan.textContent = `Welcome, ${username}`;
+
+            const logoutButton = document.createElement('button');
+            logoutButton.textContent = 'Logout';
+            logoutButton.className = 'logout-button';
+            logoutButton.style.background = '#f44336';
+            logoutButton.style.color = 'white';
+            logoutButton.style.border = 'none';
+            logoutButton.style.padding = '8px 16px';
+            logoutButton.style.borderRadius = '4px';
+            logoutButton.style.cursor = 'pointer';
+            logoutButton.onclick = logout;
+
+            navbarMenu.appendChild(welcomeSpan);
+            navbarMenu.appendChild(logoutButton);
+        }
     }
-}
+});
+
 
 // Protect form visibility
 document.addEventListener('DOMContentLoaded', function() {
