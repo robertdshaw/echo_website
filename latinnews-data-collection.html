@@ -274,7 +274,6 @@
         <div class="navbar-menu">
             <a href="index.html">Home</a>
             <!-- Only show their allowed page -->
-            <a href="gmtl-data-collection.html" id="gmtl-link" style="display: none;">GMTL Advisory</a>
             <a href="latinnews-data-collection.html" id="latinnews-link" style="display: none;">LatinNews</a>
             <!-- Logout button will be added dynamically -->
         </div>
@@ -285,10 +284,6 @@
 // Show only allowed navigation links
 window.addEventListener('load', function() {
     const allowedPages = JSON.parse(localStorage.getItem('echoframe_allowed_pages') || '[]');
-    
-    if (allowedPages.includes('gmtl-data-collection.html')) {
-        document.getElementById('gmtl-link').style.display = 'inline-block';
-    }
     if (allowedPages.includes('latinnews-data-collection.html')) {
         document.getElementById('latinnews-link').style.display = 'inline-block';
     }
