@@ -1,1075 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EchoFrame | Emerging Markets Risk Intelligence</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EchoFrame - Data Collection</title>
   <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --accent: #0891b2;
-      --accent-dark: #0e7490;
-      --bg-dark: #0f172a;
-      --bg-medium: #1e293b;
-      --bg-light: #334155;
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --border-color: rgba(255, 255, 255, 0.1);
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-
-    * {
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      background-color: #f5f5f5;
     }
 
-    /* General Mobile Improvements */
-    html {
-      -webkit-text-size-adjust: 100%;
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px; /* Account for fixed nav */
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Navigation */
-    nav {
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    /* Mobile Responsive Improvements */
-    .nav-container {
-      padding: 1rem;
-    }
-
-    .nav-logo {
-      height: 60px;
-      width: auto;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        position: fixed;
-        width: 100%;
-      }
-
-      .nav-container {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .nav-logo {
-        height: 40px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .mobile-menu-btn {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--text-primary);
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0.5rem;
-      }
-
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--bg-dark);
-        padding: 1rem;
-        border-top: 1px solid var(--border-color);
-        border-bottom: 1px solid var(--border-color);
-        gap: 1rem;
-        max-height: calc(100vh - 80px);
-        overflow-y: auto;
-        z-index: 1000;
-      }
-
-      .nav-links.active a {
-        padding: 0.75rem 1rem;
-        border-radius: 0.5rem;
-        transition: background-color 0.2s ease;
-      }
-
-      .nav-links.active a:hover {
-        background-color: var(--bg-medium);
-      }
-    }
-
-    .mobile-menu-btn {
-      display: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-      padding: 0.25rem 0;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 90vh;
-      background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)),
-                  url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero h2 {
-      font-size: 1.75rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero p {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-button {
-      display: inline-block;
-      background: var(--primary);
+    .navbar {
+      background: #333;
+      padding: 15px;
       color: white;
-      padding: 0.875rem 2.5rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .cta-button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
     }
 
-    /* Section Mobile Styles */
-    section {
-      padding: 4rem 1rem;
+    .navbar-menu {
+      display: flex;
+      gap: 20px;
+      align-items: center;
     }
 
-    @media (max-width: 768px) {
-      section {
-        padding: 3rem 1rem;
-      }
-
-      .section-title {
-        font-size: 1.875rem;
-        margin-bottom: 0.75rem;
-      }
-
-      .section-subtitle {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-      }
-    }
-
-    .section-title {
-      font-size: 2.25rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 1rem;
-      color: var(--text-primary);
-    }
-
-    .section-subtitle {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
-      text-align: center;
-      margin-bottom: 3rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Cards */
-    .card {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-
-    /* Product Grid */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .product-card {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-
-    .product-header {
-      padding: 2rem;
-      background: linear-gradient(135deg, var(--bg-light), var(--bg-medium));
-      text-align: center;
-    }
-
-    .product-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: inline-block;
-    }
-
-    .product-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .product-body {
-      padding: 2rem;
-    }
-
-    .product-description {
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-    }
-
-    .product-features {
-      list-style: none;
-    }
-
-    .product-features li {
-      color: var(--text-secondary);
-      margin-bottom: 0.75rem;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .product-features li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    /* Solution Flow */
-    .solution-flow {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .flow-step {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .flow-step:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-
-    .flow-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-
-    .flow-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      color: var(--text-primary);
-    }
-
-    .flow-description {
-      color: var(--text-secondary);
-      font-size: 0.9375rem;
-    }
-
-    /* Tables */
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-      background: var(--bg-medium);
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-
-    .comparison-table th,
-    .comparison-table td {
-      padding: 1rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .comparison-table th {
-      background: var(--bg-light);
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .comparison-table td {
-      color: var(--text-secondary);
-    }
-
-    .comparison-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .faq-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      margin-bottom: 1.5rem;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .faq-item:hover {
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    .faq-question {
-      padding: 1.5rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      cursor: pointer;
-      margin: 0;
-    }
-
-    .faq-answer {
-      padding: 0 1.5rem 1.5rem;
-      color: var(--text-secondary);
-    }
-
-    .faq-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 1rem 0;
-    }
-
-    .faq-list li {
-      padding: 0.5rem 0;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .faq-list li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    .faq-list li strong {
-      color: var(--text-primary);
-    }
-
-    @media (max-width: 768px) {
-      .faq-question {
-        font-size: 1.1rem;
-        padding: 1.25rem;
-      }
-      
-      .faq-answer {
-        padding: 0 1.25rem 1.25rem;
-      }
-    }
-
-    /* Table Mobile Styles */
-    @media (max-width: 768px) {
-      .comparison-table {
-        display: block;
-        overflow-x: auto;
-      }
-
-      .comparison-table th,
-      .comparison-table td {
-        padding: 0.75rem;
-        font-size: 0.875rem;
-        min-width: 200px;
-      }
-    }
-
-    /* Button Mobile Styles */
-    @media (max-width: 768px) {
-      .cta-button {
-        padding: 0.75rem 2rem;
-        font-size: 1rem;
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--primary);
+    .navbar-menu a {
       color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
       text-decoration: none;
-      box-shadow: var(--shadow);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 100;
+      padding: 8px 16px;
+    }
+
+    .navbar-menu a:hover {
+      background: #555;
+      border-radius: 4px;
+    }
+
+    .login-button,
+    .logout-button {
+      background: #2196f3;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
       cursor: pointer;
     }
 
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
+    .logout-button {
+      background: #f44336;
     }
 
-    .back-to-top:hover {
-      background: var(--primary-dark);
-      transform: translateY(-3px);
+    #welcomeUser {
+      color: white;
+      margin-right: 15px;
     }
 
-    @media (max-width: 768px) {
-      .back-to-top {
-        width: 40px;
-        height: 40px;
-        bottom: 15px;
-        right: 15px;
-      }
-    }
-
-    /* Problem Section */
-    .problem-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .stat-card {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      color: var(--text-secondary);
-      font-size: 0.9375rem;
-    }
-
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    /* Mobile Grid Adjustments */
-    @media (max-width: 768px) {
-      .problem-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .problem-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .product-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-
-      .solution-flow {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .stat-card {
-        padding: 1.5rem;
-      }
-
-      .stat-number {
-        font-size: 2rem;
-      }
-
-      .problem-card {
-        padding: 1.25rem;
-      }
-
-      .product-card {
-        margin: 0;
-      }
-
-      .product-header {
-        padding: 1.5rem 1rem;
-      }
-
-      .product-body {
-        padding: 1.5rem;
-      }
-
-      .flow-step {
-        padding: 1.5rem;
-      }
-    }
-
-    .problem-card {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .problem-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-
-    .problem-card h4 {
-      color: var(--text-primary);
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .problem-card p {
-      color: var(--text-secondary);
-      font-size: 0.9375rem;
-      line-height: 1.5;
-    }
-
-    /* Utility Classes */
-    .text-accent {
-      color: var(--accent);
-    }
-
-    .mb-1 { margin-bottom: 1rem; }
-    .mb-2 { margin-bottom: 2rem; }
-    .mb-3 { margin-bottom: 3rem; }
-    .mt-3 { margin-top: 3rem; }
-
-    /* Hero Mobile Styles */
-    @media (max-width: 768px) {
-      .hero {
-        min-height: 80vh;
-        padding: 6rem 1rem 2rem 1rem; /* Added top padding for fixed nav */
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero h2 {
-        font-size: 1.5rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-    }
-
-    /* Demo Section Styles (updated) */
-    .demo-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: var(--bg-medium);
-      border-radius: 1rem;
-      overflow: hidden;
-      border: 1px solid var(--border-color);
-    }
-
-    .demo-controls {
-      padding: 2rem;
-      background: var(--bg-light);
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      gap: 2rem;
-      align-items: flex-end;
-    }
-
-    @media (max-width: 768px) {
-      .demo-controls {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: stretch;
-      }
-    }
-
-    .control-group {
-      flex: 1;
-    }
-
-    .control-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    select {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      border: 1px solid var(--border-color);
-      background: var(--bg-medium);
-      color: var(--text-primary);
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    select:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-
-    .process-status {
-      display: flex;
-      justify-content: space-between;
-      padding: 1.5rem 2rem;
-      background: var(--bg-dark);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    @media (max-width: 768px) {
-      .process-status {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        padding: 1rem;
-      }
-    }
-
-    .status-step {
-      text-align: center;
-      opacity: 0.5;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .status-step.active {
-      opacity: 1;
-    }
-
-    .status-step.active::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 3px;
-      background: var(--primary);
-      animation: progressBar 1s ease forwards;
-    }
-
-    @keyframes progressBar {
-      to {
-        width: 80%;
-      }
-    }
-
-    .status-step.complete {
-      opacity: 1;
-      color: var(--accent);
-    }
-
-    .status-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .status-text {
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-
-    .demo-output {
-      padding: 2rem;
-      min-height: 400px;
-      background: var(--bg-dark);
-    }
-
-    .loading {
-      display: none;
-      text-align: center;
-      padding: 3rem;
-    }
-
-    .loading.active {
-      display: block;
-    }
-
-    .loader {
-      border: 4px solid var(--border-color);
-      border-top: 4px solid var(--primary);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 1rem;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .output-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    @media (max-width: 768px) {
-      .output-header {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
-      }
-    }
-
-    .output-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-
-    .output-meta {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .report-type {
-      background: var(--bg-light);
-      padding: 0.25rem 0.75rem;
-      border-radius: 1rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-
-    .risk-level {
-      font-weight: 600;
-      padding: 0.25rem 0.75rem;
-      border-radius: 1rem;
-    }
-
-    .risk-high {
-      background: rgba(239, 68, 68, 0.1);
-      color: #ef4444;
-    }
-
-    .risk-medium {
-      background: rgba(245, 158, 11, 0.1);
-      color: #f59e0b;
-    }
-
-    .risk-low {
-      background: rgba(16, 185, 129, 0.1);
-      color: #10b981;
-    }
-
-    .report-summary {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: var(--bg-medium);
-      border-radius: 0.5rem;
-      border-left: 4px solid var(--primary);
-    }
-
-    .summary-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-    }
-
-    .summary-content {
-      color: var(--text-secondary);
-    }
-
-    .signal-item {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .signal-item:hover {
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    .signal-header {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
-      background: var(--bg-light);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .signal-type {
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .signal-date {
-      color: var(--text-secondary);
-      font-size: 0.875rem;
-    }
-
-    .signal-content {
-      padding: 1.5rem;
-    }
-
-    .signal-content p {
-      margin-bottom: 0.5rem;
-    }
-
-    .signal-content p:last-child {
-      margin-bottom: 0;
-    }
-
-    .signal-metadata {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
-      background: var(--bg-dark);
-      border-top: 1px solid var(--border-color);
-      font-size: 0.875rem;
-    }
-
-    @media (max-width: 768px) {
-      .signal-metadata {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-    }
-
-    .signal-source {
-      color: var(--text-secondary);
-    }
-
-    .signal-leadtime {
-      color: var(--accent);
-      font-weight: 500;
-    }
-    
     .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-    
-      .dropbtn {
-        background-color: transparent;
-        color: #e0e0e0;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        font-family: inherit;
-        transition: color 0.3s ease;
-      }
-    
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: rgba(30, 30, 30, 0.98);
-        min-width: 200px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-        border-radius: 5px;
-        overflow: hidden;
-      }
-    
-      .dropdown-content a {
-        color: #e0e0e0;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        transition: background-color 0.3s ease;
-      }
-    
-      .dropdown-content a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: #ffffff;
-      }
-    
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-    
-      .dropdown:hover .dropbtn {
-        color: #ffffff;
-      }
-    
-      /* Mobile styles for dropdown */
-      @media (max-width: 768px) {
-        .dropdown {
-          width: 100%;
-        }
-        
-        .dropbtn {
-          width: 100%;
-          text-align: left;
-          padding: 10px;
-        }
-        
-        .dropdown-content {
-          position: relative;
-          width: 100%;
-          box-shadow: none;
-          background-color: rgba(40, 40, 40, 0.98);
-        }
-        
-        .dropdown-content a {
-          padding-left: 30px;
-        }
-      }
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      background-color: #333;
+      color: white;
+      padding: 8px 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
   </style>
 </head>
 <body>
-
- <nav>
-  <div class="nav-container">
-    <a href="#home" style="display: flex; align-items: center;">
-      <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" alt="EchoFrame Logo" class="nav-logo">
-    </a>
-    <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-    <!-- In your index.html navigation -->
-<div class="nav-links" id="navLinks">
-  <a href="#home" onclick="closeMenu()">Home</a>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-brand">EchoFrame</div>
+    <div class="navbar-menu">
+      <a href="index.html">Home</a>
       <div class="dropdown">
         <button class="dropbtn">Data Collection ▼</button>
         <div class="dropdown-content">
@@ -1077,631 +114,73 @@
           <a href="latinnews-data-collection.html">LatinNews</a>
         </div>
       </div>
-      
-      <a href="#overview" onclick="closeMenu()">Overview</a>
-      <a href="#problem" onclick="closeMenu()">Problem</a>
-      <a href="#solution" onclick="closeMenu()">Solution</a>
-      <a href="#products" onclick="closeMenu()">Products</a>
-      <a href="#demo" onclick="closeMenu()">Live Demo</a>
-      <a href="#faq" onclick="closeMenu()">FAQ</a>
-      <a href="#contact" onclick="closeMenu()">Contact</a>
+      <span id="welcomeUser"></span>
+      <button class="login-button" onclick="showLoginForm()">Login</button>
+      <button class="logout-button" onclick="logout()" style="display: none;">Logout</button>
     </div>
-  </div>
-</nav>
-
-  <header class="hero" id="home">
-    <div class="hero-content">
-      <h1>EchoFrame</h1>
-      <h2>The Future of Risk Intelligence</h2>
-      <p>Transform untapped local news archives into premium risk intelligence products. Where traditional due diligence fails, EchoFrame delivers predictive insights for emerging markets.</p>
-      <a href="#contact" class="cta-button">Schedule Demo</a>
-    </div>
-  </header>
-
-  <section id="overview">
-    <h2 class="section-title">Overview</h2>
-    <p class="section-subtitle">EchoFrame transforms local news archives in emerging markets into actionable political and economic risk intelligence. We convert untapped regional media value into premium risk products for global businesses.</p>
-  </section>
-
-  <section id="problem">
-    <h2 class="section-title">The Crisis in Risk Analysis</h2>
-    <p class="section-subtitle">Traditional due diligence is failing at an alarming rate</p>
-    
-    <div class="problem-stats mb-3">
-      <div class="stat-card">
-        <div class="stat-number">$900M</div>
-        <div class="stat-label">Stenn fintech collapse</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">$32B</div>
-        <div class="stat-label">FTX due diligence failure</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">€200B</div>
-        <div class="stat-label">Danske Bank scandal</div>
-      </div>
-    </div>
-
-    <h3 class="section-subtitle mb-2">Why Traditional Due Diligence Fails</h3>
-    
-    <div class="problem-grid">
-      <div class="problem-card">
-        <h4>Pressure to Close Deals</h4>
-        <p>73% of M&A professionals report increased pressure to accelerate due diligence timelines, leading to oversights like WeWork's $40B valuation loss.</p>
-      </div>
-      
-      <div class="problem-card">
-        <h4>Digital Transformation Gaps</h4>
-        <p>64% of companies report gaps between digital transformation and risk assessment capabilities, exemplified by the SolarWinds breach.</p>
-      </div>
-      
-      <div class="problem-card">
-        <h4>Geopolitical Complexity</h4>
-        <p>Cross-border transactions increased 34% while regional risk expertise declined 18%, leading to losses like Nord Stream 2 investments.</p>
-      </div>
-    </div>
-
-    <h3 class="section-subtitle mt-3 mb-2">Why Risk Advisory Services Fall Short</h3>
-    
-    <div class="problem-grid">
-      <div class="problem-card">
-        <h4>Outdated Methodologies</h4>
-        <p>68% of risk models remain backward-looking and rule-based in a world demanding predictive, adaptive approaches.</p>
-      </div>
-      
-      <div class="problem-card">
-        <h4>Data Silos</h4>
-        <p>Average enterprise uses 16+ disparate systems containing risk-relevant data with minimal integration.</p>
-      </div>
-      
-      <div class="problem-card">
-        <h4>Staffing Shortages</h4>
-        <p>82% shortage in professionals with combined regional expertise and technical risk assessment skills.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Add this new section after the "Problem" section and before the "Solution" section -->
-
-<section id="llm-limitations">
-  <h2 class="section-title">Why LLMs Alone Aren't Enough</h2>
-  <p class="section-subtitle">Traditional AI models are smart—but they forget everything they read</p>
-  
-  <div class="solution-flow mb-3">
-    <div class="flow-step">
-      <div class="flow-icon">🧠</div>
-      <h3 class="flow-title">The Memory Problem</h3>
-      <p class="flow-description">LLMs process information brilliantly but lack systematic memory. For real risk foresight, you need historical context and pattern recognition across time.</p>
-    </div>
-    
-    <div class="flow-step">
-      <div class="flow-icon">📚</div>
-      <h3 class="flow-title">Archive-Based Intelligence</h3>
-      <p class="flow-description">EchoFrame turns historical news archives into a strategic memory system, collecting articles from Latin America and training models to detect patterns over time.</p>
-    </div>
-    
-    <div class="flow-step">
-      <div class="flow-icon">📊</div>
-      <h3 class="flow-title">Enriched Risk Signals</h3>
-      <p class="flow-description">LLM-assisted timelines track issues like protests, corruption, and regulation. Signals are enriched with source, date, sentiment, and topic data.</p>
-    </div>
-  </div>
-
-  <div class="card mt-3">
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Capability</th>
-          <th>Claude/GPT</th>
-          <th>EchoFrame</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Indexes past news systematically</td>
-          <td><span style="color: var(--danger);">✗</span></td>
-          <td><span style="color: var(--success);">✓</span></td>
-        </tr>
-        <tr>
-          <td>Tracks narratives across years</td>
-          <td><span style="color: var(--danger);">✗</span></td>
-          <td><span style="color: var(--success);">✓</span></td>
-        </tr>
-        <tr>
-          <td>Risk signals enriched by archived context</td>
-          <td><span style="color: var(--danger);">✗</span></td>
-          <td><span style="color: var(--success);">✓</span></td>
-        </tr>
-        <tr>
-          <td>Provides analyst-grade historical context</td>
-          <td><span style="color: var(--secondary);">Limited</span></td>
-          <td><span style="color: var(--success);">✓</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="text-align: center; margin-top: 1.5rem; font-style: italic; color: var(--text-secondary);">
-      Claude answers questions today. EchoFrame gives you patterns across time.
-    </p>
-  </div>
-</section>
-
-<section id="why-now">
-  <h2 class="section-title">Why Start Now</h2>
-  <p class="section-subtitle">The perfect timing for historical intelligence innovation</p>
-  
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">🔍</div>
-      <h3 class="feature-title">Underleveraged Opportunity</h3>
-      <p class="feature-description">Archive-based signals remain largely untapped in risk advisory services, creating a significant competitive advantage.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="feature-icon">🌎</div>
-      <h3 class="feature-title">Emerging Market Gap</h3>
-      <p class="feature-description">Latin American markets lack vibrant news archiving systems—prove value-add by filling this critical intelligence gap.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="feature-icon">⏰</div>
-      <h3 class="feature-title">First-Mover Advantage</h3>
-      <p class="feature-description">Establish leadership in historical intelligence before competitors recognize the opportunity. Even limited access builds proof of concept.</p>
-    </div>
-  </div>
-</section>
-
-  <section id="solution">
-    <h2 class="section-title">The EchoFrame Solution</h2>
-    <p class="section-subtitle">A revolutionary approach to emerging market intelligence</p>
-    
-    <div class="solution-flow">
-      <div class="flow-step">
-        <div class="flow-icon">📰</div>
-        <h3 class="flow-title">Archives = Nervous System</h3>
-        <p class="flow-description">Ingest comprehensive local news archives spanning 3-5 years. Convert every article into a live sensor detecting policy shifts, market moves, and social tensions.</p>
-      </div>
-      
-      <div class="flow-step">
-        <div class="flow-icon">🧠</div>
-        <h3 class="flow-title">LLM = Brain</h3>
-        <p class="flow-description">Advanced AI reads signals, identifies patterns, and spots early indicators of risk. Drafts concise summaries and alerts with precise citation.</p>
-      </div>
-      
-      <div class="flow-step">
-        <div class="flow-icon">🤖</div>
-        <h3 class="flow-title">Automation = Hands</h3>
-        <p class="flow-description">Packages insights into ready-to-send formats: alerts, briefs, and warnings. Delivers via email, SMS, or dashboard widgets.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="products">
-    <h2 class="section-title">Premium Risk Products</h2>
-    <p class="section-subtitle">Actionable intelligence designed for decision makers</p>
-    
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon">🏛️</div>
-          <h3 class="product-title">Policy Pulse Alerts</h3>
-        </div>
-        <div class="product-body">
-          <p class="product-description">Immediate notifications when local authorities propose changes affecting specific industries.</p>
-          <ul class="product-features">
-            <li>Real-time regulatory updates</li>
-            <li>Industry-specific focus</li>
-            <li>Actionable impact insights</li>
-            <li>Example: "New import tariffs in Barranquilla Port targeting electronics"</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon">📈</div>
-          <h3 class="product-title">Regional Investment Briefs</h3>
-        </div>
-        <div class="product-body">
-          <p class="product-description">Monthly reports on economic indicators, business sentiment, and emerging opportunities.</p>
-          <ul class="product-features">
-            <li>Economic trend analysis</li>
-            <li>Business climate assessment</li>
-            <li>Growth area identification</li>
-            <li>Example: "Q2 Investment Climate: Mining Sector Analysis"</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon">⚠️</div>
-          <h3 class="product-title">Operational Risk Dashboards</h3>
-        </div>
-        <div class="product-body">
-          <p class="product-description">Real-time feeds of events that could disrupt logistics or staffing.</p>
-          <ul class="product-features">
-            <li>Logistics disruption monitoring</li>
-            <li>Labor unrest alerts</li>
-            <li>Security risk updates</li>
-            <li>Example: "Strike activity on southern transport routes"</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="competitive">
-    <h2 class="section-title">Competitive Advantage</h2>
-    <p class="section-subtitle">How EchoFrame outperforms traditional risk advisory</p>
-    
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Traditional Risk Advisory</th>
-          <th>EchoFrame Advantage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Point-in-time assessments</td>
-          <td>Continuous monitoring with historical context</td>
-        </tr>
-        <tr>
-          <td>Generalized country risk</td>
-          <td>Hyper-regional insights with specific locations</td>
-        </tr>
-        <tr>
-          <td>Backward-looking analysis</td>
-          <td>Predictive intelligence based on pattern recognition</td>
-        </tr>
-        <tr>
-          <td>Expensive human analyst teams</td>
-          <td>AI-augmented intelligence with lower cost structure</td>
-        </tr>
-        <tr>
-          <td>Generic reports</td>
-          <td>Industry and location-specific actionable alerts</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="demo">
-    <h2 class="section-title">Dashboard Demo</h2>
-    <p class="section-subtitle">Generate real-time intelligence reports powered by AI analysis</p>
-    
-    <div class="demo-container">
-      <div class="demo-controls">
-        <div class="control-group">
-          <label for="client-select">Select Client</label>
-          <select id="client-select">
-            <option value="mining">Barrick Gold - Mining (Peru)</option>
-            <option value="energy">Exxon - Energy (Colombia)</option>
-            <option value="finance">JP Morgan - Finance (Chile)</option>
-          </select>
-        </div>
-        <button id="generate-btn" onclick="generateReport()" class="cta-button">Generate Report</button>
-      </div>
-
-      <div class="process-status">
-        <div class="status-step" id="step-1">
-          <div class="status-icon">📰</div>
-          <div class="status-text">Scanning Local News</div>
-        </div>
-        <div class="status-step" id="step-2">
-          <div class="status-icon">🔍</div>
-          <div class="status-text">Detecting Signals</div>
-        </div>
-        <div class="status-step" id="step-3">
-          <div class="status-icon">🤖</div>
-          <div class="status-text">AI Analysis</div>
-        </div>
-        <div class="status-step" id="step-4">
-          <div class="status-icon">📊</div>
-          <div class="status-text">Report Generation</div>
-        </div>
-      </div>
-
-      <div class="demo-output" id="output">
-        <div class="loading" id="loading">
-          <div class="loader"></div>
-          <p>Generating intelligence report...</p>
-        </div>
-        <div id="report-content" style="display: none;">
-          <!-- Report content will be inserted here -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-<section id="faq">
-  <h2 class="section-title">Frequently Asked Questions</h2>
-  <p class="section-subtitle">Understanding EchoFrame's unique approach to risk intelligence</p>
-  
-  <div class="faq-container">
-    <div class="faq-item">
-      <h3 class="faq-question">Why can't we just use existing LLMs like Claude or GPT for risk analysis?</h3>
-      <div class="faq-answer">
-        <p>While LLMs are powerful, they have critical limitations for risk intelligence:</p>
-        <ul class="faq-list">
-          <li>They don't systematically index historical news</li>
-          <li>They can't track narratives across years</li>
-          <li>They lack archived context for risk signals</li>
-          <li>They provide only point-in-time analysis</li>
-        </ul>
-        <p class="mt-2">EchoFrame builds on LLM capabilities by adding systematic memory and pattern recognition across time, turning historical news archives into strategic intelligence.</p>
-      </div>
-    </div>
-
-    <!-- <div class="faq-item">
-      <h3 class="faq-question">How is EchoFrame different from traditional risk advisory services?</h3>
-      <div class="faq-answer">
-        <p>EchoFrame uniquely combines AI with historical news archives to deliver:</p>
-        <ul class="faq-list">
-          <li>Continuous monitoring vs. point-in-time assessments</li>
-          <li>Predictive signals with 3-9 months advance warning</li>
-          <li>Hyper-regional insights vs. generalized country reports</li>
-          <li>AI-powered pattern detection across years of data</li>
-          <li>Source-verified intelligence with full citation trails</li>
-        </ul>
-      </div>
-    </div> -->
-
-    <div class="faq-item">
-      <h3 class="faq-question">Why is now the right time to invest in this technology?</h3>
-      <div class="faq-answer">
-        <p>Three key factors make this the optimal time:</p>
-        <ul class="faq-list">
-          <li><strong>Untapped opportunity:</strong> Archive-based signals remain underleveraged in risk advisory</li>
-          <li><strong>Market gap:</strong> Emerging markets lack robust news archiving systems</li>
-          <li><strong>First-mover advantage:</strong> Early leadership in historical intelligence before competitors recognize the opportunity</li>
-        </ul>
-        <p class="mt-2">Even with limited initial access, we can build proof of concept and establish market position.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <h3 class="faq-question">What makes EchoFrame's approach technically superior?</h3>
-      <div class="faq-answer">
-        <p>Our system transforms static archives into dynamic intelligence through:</p>
-        <ul class="faq-list">
-          <li>LLM-assisted timeline construction tracking protests, corruption, regulatory changes</li>
-          <li>Risk signals enriched with source, date, sentiment, and topic metadata</li>
-          <li>Pattern recognition across years of historical data</li>
-          <li>Automated alert generation with predictive lead times</li>
-        </ul>
-        <p class="mt-2">While others answer questions about today, EchoFrame reveals patterns across time.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <h3 class="faq-question">How does EchoFrame handle data accuracy and verification?</h3>
-      <div class="faq-answer">
-        <p>We maintain high standards of accuracy through:</p>
-        <ul class="faq-list">
-          <li>Multi-source verification of all signals</li>
-          <li>Full citation trails to original news sources</li>
-          <li>Historical pattern validation against known outcomes</li>
-          <li>Continuous model refinement based on prediction accuracy</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <section id="contact">
-    <h2 class="section-title">Ready to Transform Your Risk Assessment?</h2>
-    <p class="section-subtitle">Join leading organizations using EchoFrame to navigate emerging markets with confidence</p>
-    <div style="text-align: center;">
-      <a href="mailto:robert@echoframe.com" class="cta-button">Contact Robert</a>
-      <p style="margin-top: 1rem; color: var(--text-secondary);">robert@echoframe.com</p>
-    </div>
-  </section>
-
-  <button class="back-to-top" onclick="scrollToTop()">↑</button>
-
-  <footer>
-    <p>&copy; 2025 EchoFrame. All rights reserved.</p>
-  </footer>
+  </nav>
 
   <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
-      
-      // Close dropdown when closing mobile menu
-      const dropdowns = document.getElementsByClassName('dropdown-content');
-      for (let i = 0; i < dropdowns.length; i++) {
-        dropdowns[i].style.display = 'none';
-      }
-    }
-  
-    function closeMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.remove('active');
-    }
-  
-    // Add this new function for mobile dropdown
-    function toggleDropdown(event) {
-      event.preventDefault();
-      const dropdown = event.currentTarget.nextElementSibling;
-      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-    }
-  
-    // Add this code to handle mobile dropdown clicks
-    window.addEventListener('DOMContentLoaded', function() {
-      if (window.innerWidth <= 768) {
-        const dropBtn = document.querySelector('.dropbtn');
-        if (dropBtn) {
-          dropBtn.onclick = toggleDropdown;
-        }
-      }
-    });
-  
-    // Update dropdown behavior on window resize
-    window.addEventListener('resize', function() {
-      const dropBtn = document.querySelector('.dropbtn');
-      if (dropBtn) {
-        if (window.innerWidth <= 768) {
-          dropBtn.onclick = toggleDropdown;
-        } else {
-          dropBtn.onclick = null;
-        }
-      }
-    });
+    function updateUIBasedOnAuth() {
+      const token = localStorage.getItem('echoframe_auth_token');
+      const expiry = localStorage.getItem('echoframe_auth_token_expiry');
+      const username = localStorage.getItem('echoframe_username');
+      const isAuthenticated = token && expiry && new Date().getTime() < parseInt(expiry);
 
-    // Demo functionality
-    const reports = {
-      mining: {
-        title: "Barrick Gold - Peru Mining Sector Update",
-        riskLevel: "high",
-        signals: [
-          {
-            type: "Regulatory Change",
-            date: "Today",
-            content: "Ministry of Energy and Mines announced upcoming environmental regulation changes affecting water usage in mining operations. Public consultation period begins next week.",
-            source: "El Comercio, Ministry Press Release",
-            leadTime: "8-12 weeks before implementation"
-          },
-          {
-            type: "Permit Anomaly Detected",
-            date: "Yesterday",
-            content: "Analysis shows 78% rejection rate for new mining permits in Cajamarca region over past 3 weeks, compared to historical average of 22%. Pattern suggests unannounced policy shift.",
-            source: "Regional permit database analysis",
-            leadTime: "3-4 months before formal announcement"
-          },
-          {
-            type: "Community Relations",
-            date: "3 days ago",
-            content: "Local communities in Arequipa organized meetings with regional authorities discussing water usage concerns. Mining operations mentioned in 4 of 6 documented grievances.",
-            source: "La República (regional edition)",
-            leadTime: "2-3 months before potential protests"
-          }
-        ]
-      },
-      energy: {
-        title: "Exxon - Colombia Energy Sector Update",
-        riskLevel: "medium",
-        signals: [
-          {
-            type: "Policy Signal",
-            date: "This morning",
-            content: "Ministry of Mines and Energy hiring 3 renewable energy specialists and 2 carbon tax experts. Job postings emphasize 'transitional energy frameworks' experience.",
-            source: "Government job portal, LinkedIn",
-            leadTime: "7-9 months before policy changes"
-          },
-          {
-            type: "Contract Alert",
-            date: "Yesterday",
-            content: "Ecopetrol executives meeting with government officials regarding 'contract modernization initiative.' Sources indicate focus on environmental compliance clauses.",
-            source: "Portafolio, Bloomberg Colombia",
-            leadTime: "4-5 months before contract revisions"
-          }
-        ]
-      },
-      finance: {
-        title: "JP Morgan - Chile Financial Sector Brief",
-        riskLevel: "low",
-        signals: [
-          {
-            type: "Regulatory Update",
-            date: "Today",
-            content: "Central Bank of Chile announced consultation period for digital currency framework. Banking sector given 60 days to submit feedback on proposed regulations.",
-            source: "Diario Financiero, Central Bank bulletin",
-            leadTime: "8-10 months before implementation"
-          },
-          {
-            type: "Tax Policy Signal",
-            date: "This week",
-            content: "Finance Ministry recruiting international tax specialists with focus on 'global minimum tax implementation.' 5 positions opened simultaneously.",
-            source: "Government hiring portal, La Tercera",
-            leadTime: "6-7 months before tax changes"
-          }
-        ]
-      }
-    };
+      // Toggle buttons
+      const loginBtn = document.querySelector('.login-button');
+      const logoutBtn = document.querySelector('.logout-button');
+      if (loginBtn) loginBtn.style.display = isAuthenticated ? 'none' : 'inline-block';
+      if (logoutBtn) logoutBtn.style.display = isAuthenticated ? 'inline-block' : 'none';
 
-    function generateReport() {
-      const clientSelect = document.getElementById('client-select');
-      const selectedClient = clientSelect.value;
-      const generateBtn = document.getElementById('generate-btn');
-      const loading = document.getElementById('loading');
-      const reportContent = document.getElementById('report-content');
-      
-      // Disable button and show loading
-      generateBtn.disabled = true;
-      loading.classList.add('active');
-      reportContent.style.display = 'none';
-      
-      // Reset all steps
-      for (let i = 1; i <= 4; i++) {
-        const step = document.getElementById(`step-${i}`);
-        step.classList.remove('active', 'complete');
+      // Welcome text
+      const welcomeUser = document.getElementById('welcomeUser');
+      if (welcomeUser) {
+        welcomeUser.textContent = isAuthenticated && username ? `Welcome, ${username}` : '';
       }
-      
-      // Simulate process steps
-      let currentStep = 1;
-      const stepInterval = setInterval(() => {
-        if (currentStep <= 4) {
-          const step = document.getElementById(`step-${currentStep}`);
-          step.classList.add('active');
-          
-          // Mark as complete after delay
-          setTimeout(() => {
-            step.classList.remove('active');
-            step.classList.add('complete');
-            currentStep++;
-            
-            if (currentStep > 4) {
-              clearInterval(stepInterval);
-              showReport(selectedClient);
-            }
-          }, 1000);
-        }
-      }, 1200);
+
+      // Page content visibility (optional)
+      const loginForm = document.getElementById('loginForm');
+      const protectedContent = document.getElementById('protectedContent');
+      const accessDenied = document.getElementById('accessDenied');
+
+      if (protectedContent && accessDenied) {
+        protectedContent.style.display = isAuthenticated ? 'block' : 'none';
+        accessDenied.style.display = isAuthenticated ? 'none' : 'block';
+      }
+
+      if (loginForm) {
+        loginForm.style.display = 'none';
+      }
+
+      // Optional: restrict tabs per user
+      /*
+      if (username === 'gmtl') {
+        document.querySelector('a[href="latinnews-data-collection.html"]').style.display = 'none';
+      } else if (username === 'latinnews') {
+        document.querySelector('a[href="gmtl-data-collection.html"]').style.display = 'none';
+      }
+      */
     }
 
-    function showReport(clientType) {
-      const loading = document.getElementById('loading');
-      const reportContent = document.getElementById('report-content');
-      const generateBtn = document.getElementById('generate-btn');
-      const report = reports[clientType];
-      
-      // Generate report HTML
-      let reportHTML = `
-        <div class="output-header">
-          <div class="output-title">${report.title}</div>
-          <div class="risk-level risk-${report.riskLevel}">Risk Level: ${report.riskLevel.toUpperCase()}</div>
-        </div>
-      `;
-      
-      report.signals.forEach(signal => {
-        reportHTML += `
-          <div class="signal-item">
-            <div class="signal-header">
-              <div class="signal-type">${signal.type}</div>
-              <div class="signal-date">${signal.date}</div>
-            </div>
-            <div class="signal-content">
-              <p>${signal.content}</p>
-            </div>
-            <div class="signal-metadata">
-              <div class="signal-source">Source: ${signal.source}</div>
-              <div class="signal-leadtime">Lead Time: ${signal.leadTime}</div>
-            </div>
-          </div>
-        `;
-      });
-      
-      // Show report
-      setTimeout(() => {
-        loading.classList.remove('active');
-        reportContent.innerHTML = reportHTML;
-        reportContent.style.display = 'block';
-        generateBtn.disabled = false;
-      }, 500);
+    function showLoginForm() {
+      const form = document.getElementById('loginForm');
+      if (form) {
+        form.style.display = 'block';
+        window.scrollTo(0, 0);
+      }
     }
+
+    function logout() {
+      localStorage.removeItem('echoframe_auth_token');
+      localStorage.removeItem('echoframe_auth_token_expiry');
+      localStorage.removeItem('echoframe_username');
+      updateUIBasedOnAuth();
+      window.location.href = 'index.html'; // Or adjust to your landing page
+    }
+
+    window.addEventListener('load', updateUIBasedOnAuth);
+    setInterval(updateUIBasedOnAuth, 60000); // Refresh auth UI every minute
   </script>
-
 </body>
 </html>
