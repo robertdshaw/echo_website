@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GMTL Advisory Data Request - EchoFrame</title>
+    <title>EchoFrame - Data Collection</title>
     <style>
-        /* Base styles */
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -13,6 +13,55 @@
             background-color: #f5f5f5;
         }
 
+        /* Login Page Styles */
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .login-container h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .login-form button {
+            width: 100%;
+            padding: 12px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .login-form button:hover {
+            background: #1976D2;
+        }
+        
+        .error-message {
+            color: #f44336;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        /* Navigation Bar with Login/Logout */
         .navbar {
             background: #333;
             padding: 15px;
@@ -21,69 +70,93 @@
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .navbar-brand {
             font-size: 24px;
             font-weight: bold;
         }
-
+        
         .navbar-menu {
             display: flex;
             gap: 20px;
             align-items: center;
         }
-
+        
         .navbar-menu a {
             color: white;
             text-decoration: none;
             padding: 8px 16px;
         }
-
-        .navbar-menu a.active {
+        
+        .navbar-menu a:hover {
             background: #555;
             border-radius: 4px;
         }
-
+        
+        .login-button, .logout-button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .logout-button {
+            background: #f44336;
+        }
+        
+        /* Protected Content */
         .protected-content {
+            display: none;
             max-width: 1200px;
             margin: 40px auto;
             padding: 20px;
         }
+        
+        .access-denied {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 18px;
+            color: #666;
+        }
 
-        .info-box {
-            background: #f0f7ff;
-            border-left: 4px solid #2196F3;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
+        /* Form Styles */
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
         }
 
         .form-section {
-            background: white;
             margin-bottom: 30px;
             border: 1px solid #ddd;
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: bold;
-            color: #333;
+            color: #555;
         }
 
-        input[type="text"],
-        input[type="email"],
-        select,
+        input[type="text"], 
+        select, 
         textarea {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 14px;
@@ -91,20 +164,30 @@
         }
 
         textarea {
-            height: 120px;
+            height: 100px;
             resize: vertical;
         }
 
         .checkbox-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .checkbox-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+        }
+
+        .checkbox-item input {
+            margin-right: 5px;
+        }
+
+        .risk-category {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
         }
 
         .add-button {
@@ -135,594 +218,578 @@
             background: #1976D2;
         }
 
+        .tab {
+            overflow: hidden;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        .tab button {
+            background-color: #f1f1f1;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 20px 0;
+        }
+
+        .tabcontent.active {
+            display: block;
+        }
+
         .dynamic-field {
             display: flex;
             gap: 10px;
             margin-bottom: 10px;
-            align-items: flex-start;
-        }
-
-        .dynamic-field input,
-        .dynamic-field textarea {
-            flex: 1;
         }
 
         .remove-button {
             background: #f44336;
             color: white;
             border: none;
-            padding: 8px 12px;
+            padding: 5px 10px;
             border-radius: 4px;
             cursor: pointer;
-            white-space: nowrap;
         }
 
-        .section-description {
-            color: #666;
-            margin-bottom: 20px;
+        .why-needed {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 10px;
+            margin-bottom: 15px;
             font-style: italic;
         }
 
-        .example-box {
-            background: #f9f9f9;
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            padding: 10px;
-            margin-top: 5px;
-            font-size: 13px;
-            color: #666;
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
         }
 
-        h3 {
-            color: #333;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #2196F3;
-            padding-bottom: 10px;
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .navbar-menu {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            .navbar-menu a, .dropbtn {
+                width: 100%;
+                text-align: left;
+                padding: 10px;
+            }
+            
+            .dropdown {
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                position: relative;
+                width: 100%;
+                box-shadow: none;
+            }
+            
+            .checkbox-group {
+                flex-direction: column;
+            }
+            
+            .form-container {
+                padding: 15px;
+            }
+            
+            .dynamic-field {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-brand">EchoFrame</div>
         <div class="navbar-menu">
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="gmtl-data-collection.html" class="active">GMTL Advisory</a>
-            <a href="latinnews-data-collection.html">LatinNews</a>
+            <div class="dropdown">
+                <button class="dropbtn">Data Collection ▼</button>
+                <div class="dropdown-content">
+                    <a href="gmtl-data-collection.html">GMTL Advisory</a>
+                    <a href="latinnews-data-collection.html">LatinNews</a>
+                </div>
+            </div>
             <button class="login-button" onclick="showLoginForm()">Login</button>
             <button class="logout-button" onclick="logout()" style="display: none;">Logout</button>
         </div>
     </nav>
 
-    <!-- Protected Content -->
-    <div class="protected-content" id="protectedContent">
-        <h1>GMTL Advisory Information Request</h1>
-        
-        <div class="info-box">
-            <h3>About This Request</h3>
-            <p>GMTL Advisory specializes in strategic intelligence and risk advisory for emerging markets. This form helps us understand GMTL's methodology to build ECHOFRAME as a complementary tool that automates time-consuming research tasks while maintaining GMTL's high analytical standards.</p>
-        </div>
-
-        <form id="gmtlForm">
-            <!-- Section 1: Sample Reports -->
-            <div class="form-section">
-                <h3>1. Sample Client Reports (Redacted)</h3>
-                <p class="section-description">
-                    We need 2-3 redacted examples of your reports to understand your format, style, and depth of analysis. This helps us match ECHOFRAME's output to your professional standards.
-                </p>
-                
-                <div class="form-group">
-                    <label>Types of reports you can share:</label>
-                    <div class="checkbox-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="report_weekly" name="report_types[]" value="weekly_monitoring">
-                            <label for="report_weekly">Weekly monitoring report</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="report_strategic" name="report_types[]" value="strategic_advisory">
-                            <label for="report_strategic">Strategic advisory report</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="report_dd" name="report_types[]" value="due_diligence">
-                            <label for="report_dd">Due diligence report</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="report_regulatory" name="report_types[]" value="regulatory_advisory">
-                            <label for="report_regulatory">Regulatory advisory report</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Typical report sections/structure:</label>
-                    <textarea name="report_structure" placeholder="e.g., Executive Summary, Risk Assessment, Market Analysis, Recommendations"></textarea>
-                    <div class="example-box">
-                        Example: "Executive Summary (1 page), Situation Analysis (3-4 pages), Risk Assessment (2 pages), Strategic Recommendations (1-2 pages), Appendices"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 2: Current Monitoring -->
-            <div class="form-section">
-                <h3>2. What GMTL Currently Monitors</h3>
-                <p class="section-description">
-                    Understanding what you track helps us focus ECHOFRAME on the right sources and signals.
-                </p>
-                
-                <div class="form-group">
-                    <label>Regions/Countries you actively monitor:</label>
-                    <div id="regions-container">
-                        <div class="dynamic-field">
-                            <input type="text" name="regions[]" placeholder="e.g., Middle East (10+ countries weekly)">
-                            <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-                        </div>
-                    </div>
-                    <button type="button" class="add-button" onclick="addRegion()">Add Region</button>
-                    <div class="example-box">
-                        Example: "Brazil, Argentina, Chile (weekly)", "Saudi Arabia, UAE, Qatar (daily during crisis)"
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Key topics/sectors you track:</label>
-                    <div id="topics-container">
-                        <div class="dynamic-field">
-                            <input type="text" name="topics[]" placeholder="e.g., Energy sector regulatory changes">
-                            <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-                        </div>
-                    </div>
-                    <button type="button" class="add-button" onclick="addTopic()">Add Topic</button>
-                    <div class="example-box">
-                        Examples: "Defense procurement policies", "Mining sector protests", "Banking regulatory changes"
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Information sources you rely on:</label>
-                    <textarea name="info_sources" placeholder="Government websites, industry publications, local contacts, etc."></textarea>
-                    <div class="example-box">
-                        Example: "Official gazettes, parliamentary records, local business newspapers (Financial Times, Bloomberg), industry association reports, network of local contacts"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 3: Risk Indicators -->
-            <div class="form-section">
-                <h3>3. Risk Indicators & Red Flags</h3>
-                <p class="section-description">
-                    Your experience in identifying early warning signals is invaluable. We'll use these to train ECHOFRAME's alert system.
-                </p>
-                
-                <div class="form-group">
-                    <label>Top political risk indicators you watch for:</label>
-                    <div id="political-indicators-container">
-                        <div class="dynamic-field">
-                            <textarea name="political_indicators[]" placeholder="Indicator and why it matters"></textarea>
-                            <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-                        </div>
-                    </div>
-                    <button type="button" class="add-button" onclick="addPoliticalIndicator()">Add Indicator</button>
-                    <div class="example-box">
-                        Example: "Cabinet reshuffles involving finance minister - Often signals policy shifts affecting foreign investment"
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Key regulatory/economic risk signals:</label>
-                    <div id="economic-indicators-container">
-                        <div class="dynamic-field">
-                            <textarea name="economic_indicators[]" placeholder="Indicator and why it matters"></textarea>
-                            <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-                        </div>
-                    </div>
-                    <button type="button" class="add-button" onclick="addEconomicIndicator()">Add Indicator</button>
-                    <div class="example-box">
-                        Example: "Draft legislation in official gazette - Provides 30-60 day warning before laws change"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 4: Time-Consuming Tasks -->
-            <div class="form-section">
-                <h3>4. Time-Consuming Research Tasks</h3>
-                <p class="section-description">
-                    Help us understand where ECHOFRAME can save your team the most time.
-                </p>
-                
-                <div class="form-group">
-                    <label>Tasks that take your analysts the most time:</label>
-                    <div id="tasks-container">
-                        <div class="dynamic-field">
-                            <textarea name="time_consuming_tasks[]" placeholder="Task description and time required"></textarea>
-                            <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-                        </div>
-                    </div>
-                    <button type="button" class="add-button" onclick="addTask()">Add Task</button>
-                    <div class="example-box">
-                        Example: "Daily scanning of 15-20 regional newspapers for policy mentions - Takes 2-3 hours daily"
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Common client questions requiring extensive research:</label>
-                    <div id="client-questions-container">
-                        <div class="dynamic-field">
-                            <textarea name="client_questions[]" placeholder="Question and typical research time"></textarea>
-                            <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-                        </div>
-                    </div>
-                    <button type="button" class="add-button" onclick="addClientQuestion()">Add Question</button>
-                    <div class="example-box">
-                        Example: "What's the 5-year history of mining protests in Peru? - Currently requires 2-3 days of research"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 5: Specific Case Examples -->
-            <div class="form-section">
-                <h3>5. Recent Project Examples</h3>
-                <p class="section-description">
-                    Understanding your past projects helps us see patterns in client needs and research requirements.
-                </p>
-                
-                <div class="form-group">
-                    <label>Types of projects (without client details):</label>
-                    <div class="checkbox-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="project_dd" name="project_types[]" value="due_diligence">
-                            <label for="project_dd">Pre-investment due diligence</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="project_market" name="project_types[]" value="market_entry">
-                            <label for="project_market">Market entry assessment</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="project_competitor" name="project_types[]" value="competitor_analysis">
-                            <label for="project_competitor">Competitor strategy analysis</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="project_crisis" name="project_types[]" value="crisis_management">
-                            <label for="project_crisis">Crisis management support</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="project_regulatory" name="project_types[]" value="regulatory_advisory">
-                            <label for="project_regulatory">Regulatory compliance advisory</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Example project challenges (generalized):</label>
-                    <textarea name="project_challenges" placeholder="What made these projects challenging? What research was most difficult?"></textarea>
-                    <div class="example-box">
-                        Example: "Italian biochemicals due diligence - Needed to uncover supply chain risks not visible in public records; required extensive local source network"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 6: Deliverable Preferences -->
-            <div class="form-section">
-                <h3>6. Client Deliverable Preferences</h3>
-                <p class="section-description">
-                    Help us understand how your clients prefer to receive intelligence.
-                </p>
-                
-                <div class="form-group">
-                    <label>Preferred output formats:</label>
-                    <div class="checkbox-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="format_pdf" name="output_formats[]" value="pdf_report">
-                            <label for="format_pdf">PDF Reports</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="format_ppt" name="output_formats[]" value="powerpoint">
-                            <label for="format_ppt">PowerPoint Presentations</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="format_excel" name="output_formats[]" value="excel_dashboard">
-                            <label for="format_excel">Excel Dashboards</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="format_email" name="output_formats[]" value="email_alerts">
-                            <label for="format_email">Email Alerts</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Risk scoring/rating system:</label>
-                    <select name="risk_scoring">
-                        <option value="">Select your system</option>
-                        <option value="high_medium_low">High/Medium/Low</option>
-                        <option value="1_5">1-5 Scale</option>
-                        <option value="1_10">1-10 Scale</option>
-                        <option value="traffic_light">Red/Amber/Green</option>
-                        <option value="custom">Custom System</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label>If custom, please describe:</label>
-                    <input type="text" name="custom_scoring" placeholder="Describe your risk scoring system">
-                </div>
-            </div>
-
-            <!-- Section 7: ECHOFRAME Integration -->
-            <div class="form-section">
-                <h3>7. How ECHOFRAME Can Help</h3>
-                <p class="section-description">
-                    Let's discuss how ECHOFRAME can best support GMTL's work.
-                </p>
-                
-                <div class="form-group">
-                    <label>Where would automation help most?</label>
-                    <div class="checkbox-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="auto_monitoring" name="automation_needs[]" value="daily_monitoring">
-                            <label for="auto_monitoring">Daily news monitoring</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="auto_alerts" name="automation_needs[]" value="risk_alerts">
-                            <label for="auto_alerts">Risk event alerts</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="auto_historical" name="automation_needs[]" value="historical_research">
-                            <label for="auto_historical">Historical pattern analysis</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="auto_regulatory" name="automation_needs[]" value="regulatory_tracking">
-                            <label for="auto_regulatory">Regulatory change tracking</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>What features would be most valuable?</label>
-                    <textarea name="desired_features" placeholder="What would make ECHOFRAME most useful for your team?"></textarea>
-                </div>
-            </div>
-
-            <!-- Contact Information -->
-            <div class="form-section">
-                <h3>8. Contact Information</h3>
-                
-                <div class="form-group">
-                    <label>Best person to discuss technical integration:</label>
-                    <input type="text" name="tech_contact" placeholder="Name and role">
-                </div>
-                
-                <div class="form-group">
-                    <label>Preferred next steps:</label>
-                    <textarea name="next_steps" placeholder="How should we proceed with the ECHOFRAME prototype?"></textarea>
-                </div>
-            </div>
-
-            <button type="submit" class="submit-button">Submit GMTL Information</button>
+    <!-- Login Form -->
+    <div class="login-container" id="loginForm" style="display: none;">
+        <h1>Login to EchoFrame</h1>
+        <form class="login-form" onsubmit="handleLogin(event)">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <div class="error-message" id="errorMessage">Invalid credentials</div>
         </form>
     </div>
 
+    <!-- Protected Content (Data Collection Forms) -->
+    <div class="protected-content" id="protectedContent">
+        <h1>EchoFrame Data Collection Portal</h1>
+        
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'GMTL')">GMTL Advisory Form</button>
+            <button class="tablinks" onclick="openTab(event, 'LatinNews')">LatinNews Form</button>
+        </div>
+
+        <!-- GMTL Form -->
+        <div id="GMTL" class="tabcontent active">
+            <div class="form-container">
+                <h2>GMTL Advisory - Risk Intelligence Framework</h2>
+                
+                <form id="gmtlForm">
+                    <!-- Risk Taxonomy Section -->
+                    <div class="form-section">
+                        <h3>1. Comprehensive Risk Taxonomy</h3>
+                        <div class="why-needed">Why we need this: To build ECHOFRAME's classification engine that automatically categorizes news and events into your risk framework</div>
+                        
+                        <div id="riskTaxonomyContainer">
+                            <div class="risk-category">
+                                <h4>Political Risk</h4>
+                                <div class="form-group">
+                                    <label>Government Stability Indicators:</label>
+                                    <input type="text" name="political_gov_stability" placeholder="e.g., cabinet reshuffles, decree usage, constitutional amendments">
+                                </div>
+                                <div class="form-group">
+                                    <label>Electoral Risk Indicators:</label>
+                                    <input type="text" name="political_electoral" placeholder="e.g., polling volatility, campaign violence, voter fraud allegations">
+                                </div>
+                                <div class="form-group">
+                                    <label>Social Unrest Indicators:</label>
+                                    <input type="text" name="political_social" placeholder="e.g., protest frequency, union strikes, roadblocks">
+                                </div>
+                            </div>
+                            
+                            <div class="risk-category">
+                                <h4>Economic Risk</h4>
+                                <div class="form-group">
+                                    <label>Macroeconomic Indicators:</label>
+                                    <input type="text" name="economic_macro" placeholder="e.g., inflation rates, GDP growth, unemployment">
+                                </div>
+                                <div class="form-group">
+                                    <label>Currency Risk Indicators:</label>
+                                    <input type="text" name="economic_currency" placeholder="e.g., exchange rate volatility, forex reserves, capital controls">
+                                </div>
+                            </div>
+                            
+                            <div class="risk-category">
+                                <h4>Security Risk</h4>
+                                <div class="form-group">
+                                    <label>Organized Crime Indicators:</label>
+                                    <input type="text" name="security_crime" placeholder="e.g., cartel activity, kidnapping rates, extortion">
+                                </div>
+                                <div class="form-group">
+                                    <label>Civil Conflict Indicators:</label>
+                                    <input type="text" name="security_conflict" placeholder="e.g., armed group activity, territorial disputes">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-button" onclick="addRiskCategory()">Add Custom Risk Category</button>
+                    </div>
+
+                    <!-- Risk Signal Detection Section -->
+                    <div class="form-section">
+                        <h3>2. Risk Signal Detection Patterns</h3>
+                        <div class="why-needed">Why we need this: To train ECHOFRAME's AI to detect early warning signals and risk patterns in news content</div>
+                        
+                        <div id="riskSignalsContainer">
+                            <div class="risk-category">
+                                <div class="form-group">
+                                    <label>Risk Type:</label>
+                                    <input type="text" name="signal_risk_type[]" placeholder="e.g., Government Collapse">
+                                </div>
+                                <div class="form-group">
+                                    <label>Early Warning Signals:</label>
+                                    <textarea name="signal_early[]" placeholder="e.g., Cabinet resignations, coalition tensions, approval rating drops"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Crisis Indicators:</label>
+                                    <textarea name="signal_crisis[]" placeholder="e.g., Mass protests, military statements, emergency decrees"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Typical Timeline (early warning to crisis):</label>
+                                    <select name="signal_timeline[]">
+                                        <option value="days">Days</option>
+                                        <option value="weeks">Weeks</option>
+                                        <option value="months">Months</option>
+                                        <option value="years">Years</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-button" onclick="addRiskSignal()">Add Another Risk Signal Pattern</button>
+                    </div>
+
+                    <!-- Historical Cases Section -->
+                    <div class="form-section">
+                        <h3>3. Historical Risk Cases</h3>
+                        <div class="why-needed">Why we need this: To train ECHOFRAME on real-world examples and validate our pattern detection</div>
+                        
+                        <div id="historicalCasesContainer">
+                            <div class="risk-category">
+                                <div class="form-group">
+                                    <label>Event Name:</label>
+                                    <input type="text" name="case_name[]" placeholder="e.g., 2019 Chile Protests">
+                                </div>
+                                <div class="form-group">
+                                    <label>Country:</label>
+                                    <select name="case_country[]">
+                                        <option value="">Select Country</option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Brazil">Brazil</option>
+                                        <option value="Chile">Chile</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="Mexico">Mexico</option>
+                                        <option value="Peru">Peru</option>
+                                        <option value="Venezuela">Venezuela</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date Range:</label>
+                                    <input type="text" name="case_date[]" placeholder="e.g., October 2019 - March 2020">
+                                </div>
+                                <div class="form-group">
+                                    <label>Early Indicators You Identified:</label>
+                                    <textarea name="case_indicators[]" placeholder="What signals did you detect before others?"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Lessons Learned:</label>
+                                    <textarea name="case_lessons[]" placeholder="What patterns emerged that can be applied to future analysis?"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-button" onclick="addHistoricalCase()">Add Another Case Study</button>
+                    </div>
+
+                    <!-- Client Intelligence Needs -->
+                    <div class="form-section">
+                        <h3>4. Client Intelligence Requirements</h3>
+                        <div class="why-needed">Why we need this: To ensure ECHOFRAME's outputs match client expectations and deliver actionable intelligence</div>
+                        
+                        <div class="form-group">
+                            <label>Most Common Client Questions (list your top 10):</label>
+                            <div id="clientQuestionsContainer">
+                                <div class="dynamic-field">
+                                    <input type="text" name="client_questions[]" placeholder="e.g., What's the 5-year history of mining protests in Peru?" style="flex: 1;">
+                                    <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+                                </div>
+                            </div>
+                            <button type="button" class="add-button" onclick="addClientQuestion()">Add Question</button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Preferred Output Formats:</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="format_pdf" name="output_formats[]" value="pdf">
+                                    <label for="format_pdf">PDF Reports</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="format_excel" name="output_formats[]" value="excel">
+                                    <label for="format_excel">Excel Dashboards</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="format_email" name="output_formats[]" value="email">
+                                    <label for="format_email">Email Alerts</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="format_ppt" name="output_formats[]" value="powerpoint">
+                                    <label for="format_ppt">PowerPoint</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="format_web" name="output_formats[]" value="web">
+                                    <label for="format_web">Web Dashboard</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Risk Scoring System:</label>
+                            <select name="risk_scoring">
+                                <option value="high_medium_low">High/Medium/Low</option>
+                                <option value="1_5">1-5 Scale</option>
+                                <option value="1_10">1-10 Scale</option>
+                                <option value="color">Red/Yellow/Green</option>
+                                <option value="custom">Custom (please specify)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">Submit GMTL Data</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- LatinNews Form -->
+        <div id="LatinNews" class="tabcontent">
+            <div class="form-container">
+                <h2>LatinNews - Content Access Request</h2>
+                
+                <form id="latinNewsForm">
+                    <!-- Content Access Section -->
+                    <div class="form-section">
+                        <h3>1. Content Access Request</h3>
+                        <div class="why-needed">Why we need this: To obtain the right type and amount of content for our prototype development</div>
+                        
+                        <div class="form-group">
+                            <label>Which publication(s) would you like to access?</label>
+                            <select name="publication" multiple>
+                                <option value="weekly_report">Latin American Weekly Report</option>
+                                <option value="daily">LatinNews Daily</option>
+                                <option value="brazil_report">Brazil & Southern Cone Report</option>
+                                <option value="mexico_report">Mexico & NAFTA Report</option>
+                                <option value="security_review">Security & Strategic Review</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Time Period Needed:</label>
+                            <input type="text" name="time_period" placeholder="e.g., January 2024 - June 2024">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Preferred Format:</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="format_ln_pdf" name="content_format[]" value="pdf">
+                                    <label for="format_ln_pdf">PDF</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="format_ln_html" name="content_format[]" value="html">
+                                    <label for="format_ln_html">HTML</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="format_ln_api" name="content_format[]" value="api">
+                                    <label for="format_ln_api">API</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="format_ln_xml" name="content_format[]" value="xml">
+                                    <label for="format_ln_xml">XML</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Structure Section -->
+                    <div class="form-section">
+                        <h3>2. Content Structure Information</h3>
+                        <div class="why-needed">Why we need this: To understand how to parse and organize your content in our system</div>
+                        
+                        <div class="form-group">
+                            <label>What metadata is included with each article?</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="meta_date" name="metadata[]" value="date">
+                                    <label for="meta_date">Publication Date</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="meta_author" name="metadata[]" value="author">
+                                    <label for="meta_author">Author</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="meta_country" name="metadata[]" value="country">
+                                    <label for="meta_country">Country Tags</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="meta_topic" name="metadata[]" value="topic">
+                                    <label for="meta_topic">Topic Tags</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="meta_id" name="metadata[]" value="id">
+                                    <label for="meta_id">Article ID</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>How are countries tagged? (e.g., "Brazil", "BR", "BRA")</label>
+                            <input type="text" name="country_format" placeholder="Please specify format">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>What topic categories do you use?</label>
+                            <textarea name="topic_categories" placeholder="e.g., Politics, Economy, Security, Trade, Energy"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Usage Rights Section -->
+                    <div class="form-section">
+                        <h3>3. Usage Rights Clarification</h3>
+                        <div class="why-needed">Why we need this: To ensure we comply with your terms while building our prototype</div>
+                        
+                        <div class="form-group">
+                            <label>For prototype development, we need permission to:</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="store_full" name="permissions[]" value="store_full">
+                                    <label for="store_full">Store full article text in our database</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="store_entities" name="permissions[]" value="store_entities">
+                                    <label for="store_entities">Store extracted entities (people, orgs, locations)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="store_summaries" name="permissions[]" value="store_summaries">
+                                    <label for="store_summaries">Store AI-generated summaries</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="create_index" name="permissions[]" value="create_index">
+                                    <label for="create_index">Create searchable indexes</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="show_excerpts" name="permissions[]" value="show_excerpts">
+                                    <label for="show_excerpts">Display short excerpts in demos</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Attribution requirements:</label>
+                            <textarea name="attribution" placeholder="How should we credit LatinNews in outputs?"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Technical Integration Section -->
+                    <div class="form-section">
+                        <h3>4. Technical Integration</h3>
+                        <div class="why-needed">Why we need this: To set up automated content ingestion for the prototype</div>
+                        
+                        <div class="form-group">
+                            <label>Available access methods:</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="access_api" name="access_methods[]" value="api">
+                                    <label for="access_api">API Access</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="access_ftp" name="access_methods[]" value="ftp">
+                                    <label for="access_ftp">FTP/SFTP</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="access_email" name="access_methods[]" value="email">
+                                    <label for="access_email">Email Delivery</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="access_portal" name="access_methods[]" value="portal">
+                                    <label for="access_portal">Web Portal</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Technical contact person:</label>
+                            <input type="text" name="tech_contact" placeholder="Name and email">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">Submit LatinNews Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Access Denied Message -->
+    <div class="access-denied" id="accessDenied" style="display: none;">
+        <h2>Access Denied</h2>
+        <p>Please login to access the data collection forms.</p>
+        <button class="login-button" onclick="showLoginForm()">Login</button>
+    </div>
+
     <script>
-        // Authentication check - Add this to BOTH collection pages
-function checkAuth() {
-    const token = localStorage.getItem('echoframe_token');
-    const username = localStorage.getItem('echoframe_username');
-    const allowedPages = JSON.parse(localStorage.getItem('echoframe_allowed_pages') || '[]');
-    const currentPage = window.location.pathname.split('/').pop();
-    
-    if (token !== 'authenticated' || !username || !allowedPages.includes(currentPage)) {
-        window.location.href = 'login.html';
-        return false;
-    }
-    return true;
-}
-
-function logout() {
-    localStorage.removeItem('echoframe_token');
-    localStorage.removeItem('echoframe_username');
-    localStorage.removeItem('echoframe_allowed_pages');
-    window.location.href = 'login.html';
-}
-
-// Check authentication on page load
-window.addEventListener('load', function() {
-    if (!checkAuth()) {
-        return;
-    }
-    
-    // Update UI to show username
-    const username = localStorage.getItem('echoframe_username');
-    const navbarMenu = document.querySelector('.navbar-menu');
-    if (navbarMenu) {
-        navbarMenu.innerHTML += `
-            <span style="color: white; margin-right: 15px;">Welcome, ${username}</span>
-            <button onclick="logout()" style="background: #f44336; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Logout</button>
-        `;
-    }
-});
-
-// Protect form visibility
-document.addEventListener('DOMContentLoaded', function() {
-    const mainContent = document.querySelector('.main-content');
-    if (mainContent) {
-        mainContent.style.display = checkAuth() ? 'block' : 'none';
-    }
-});
-        // Authentication configuration
+        // Configuration - Change these values!
         const AUTH_CONFIG = {
             validCredentials: [
                 { username: 'simon', password: 'gmtl2024' },
+                { username: 'latinnews', password: 'news2024' },
                 { username: 'admin', password: 'echoframe2024' }
             ],
             tokenName: 'echoframe_auth_token',
             tokenExpiry: 24 * 60 * 60 * 1000 // 24 hours
         };
 
-        // Authentication functions (same as before)
-        function checkAuth() {
-            const token = localStorage.getItem(AUTH_CONFIG.tokenName);
-            const tokenExpiry = localStorage.getItem(AUTH_CONFIG.tokenName + '_expiry');
-            
-            if (token && tokenExpiry && new Date().getTime() < parseInt(tokenExpiry)) {
-                return true;
-            }
-            
-            localStorage.removeItem(AUTH_CONFIG.tokenName);
-            localStorage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
-            return false;
-        }
-
-        function updateUIBasedOnAuth() {
-            const isAuthenticated = checkAuth();
-            const loginButton = document.querySelector('.login-button');
-            const logoutButton = document.querySelector('.logout-button');
-            const protectedContent = document.getElementById('protectedContent');
-            
-            if (isAuthenticated) {
-                if (loginButton) loginButton.style.display = 'none';
-                if (logoutButton) logoutButton.style.display = 'block';
-                if (protectedContent) protectedContent.style.display = 'block';
-            } else {
-                if (loginButton) loginButton.style.display = 'block';
-                if (logoutButton) logoutButton.style.display = 'none';
-                if (protectedContent) protectedContent.style.display = 'none';
-                
-                // Redirect to login page or show login form
-                window.location.href = 'login.html';
-            }
-        }
-
-        // Dynamic field functions
-        function addRegion() {
-            const container = document.getElementById('regions-container');
-            const div = document.createElement('div');
-            div.className = 'dynamic-field';
-            div.innerHTML = `
-                <input type="text" name="regions[]" placeholder="e.g., Middle East (10+ countries weekly)">
-                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-            `;
-            container.appendChild(div);
-        }
-
-        function addTopic() {
-            const container = document.getElementById('topics-container');
-            const div = document.createElement('div');
-            div.className = 'dynamic-field';
-            div.innerHTML = `
-                <input type="text" name="topics[]" placeholder="e.g., Energy sector regulatory changes">
-                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-            `;
-            container.appendChild(div);
-        }
-
-        function addPoliticalIndicator() {
-            const container = document.getElementById('political-indicators-container');
-            const div = document.createElement('div');
-            div.className = 'dynamic-field';
-            div.innerHTML = `
-                <textarea name="political_indicators[]" placeholder="Indicator and why it matters"></textarea>
-                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-            `;
-            container.appendChild(div);
-        }
-
-        function addEconomicIndicator() {
-            const container = document.getElementById('economic-indicators-container');
-            const div = document.createElement('div');
-            div.className = 'dynamic-field';
-            div.innerHTML = `
-                <textarea name="economic_indicators[]" placeholder="Indicator and why it matters"></textarea>
-                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-            `;
-            container.appendChild(div);
-        }
-
-        function addTask() {
-            const container = document.getElementById('tasks-container');
-            const div = document.createElement('div');
-            div.className = 'dynamic-field';
-            div.innerHTML = `
-                <textarea name="time_consuming_tasks[]" placeholder="Task description and time required"></textarea>
-                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-            `;
-            container.appendChild(div);
-        }
-
-        function addClientQuestion() {
-            const container = document.getElementById('client-questions-container');
-            const div = document.createElement('div');
-            div.className = 'dynamic-field';
-            div.innerHTML = `
-                <textarea name="client_questions[]" placeholder="Question and typical research time"></textarea>
-                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
-            `;
-            container.appendChild(div);
-        }
-
-        function removeField(button) {
-            button.parentElement.remove();
-        }
-
-        // Form submission
-        document.getElementById('gmtlForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = this.querySelector('button[type="submit"]');
-            submitBtn.textContent = 'Submitting...';
-            submitBtn.disabled = true;
-            
-            const formData = new FormData(this);
-            const data = {};
-            
-            // Process form data
-            formData.forEach((value, key) => {
-                if (!data[key]) {
-                    data[key] = value;
-                } else {
-                    if (!Array.isArray(data[key])) {
-                        data[key] = [data[key]];
-                    }
-                    data[key].push(value);
+        // Storage wrapper to handle sandboxed environments
+        const storage = {
+            isAvailable: function() {
+                try {
+                    const test = '__test__';
+                    localStorage.setItem(test, test);
+                    localStorage.removeItem(test);
+                    return true;
+                } catch(e) {
+                    return false;
                 }
-            });
-            
-            // Add metadata
-            const submissionData = {
-                formType: 'GMTL Advisory Information Request',
-                username: localStorage.getItem('echoframe_username') || 'Anonymous',
-                formData: data,
-                timestamp: new Date().toISOString()
-            };
-            
-            try {
-                // Submit to your backend (Google Sheets or other)
-                const response = await fetch('https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec', {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(submissionData)
-                });
-                
-                alert('Thank you! Your information has been submitted successfully.');
-                
-                // Optionally reset form
-                // this.reset();
-                
-            } catch (error) {
-                console.error('Error:', error);
-                alert('There was an error submitting the form. Please try again.');
-            } finally {
-                submitBtn.textContent = 'Submit GMTL Information';
-                submitBtn.disabled = false;
-            }
-        });
-
-        // Check authentication on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            updateUIBasedOnAuth();
-        });
-    </script>
-</body>
-</html>
+            },
+            getItem: function(key) {
+                if (this.isAvailable()) {
+                    return localStorage.getItem(key);
+                }
+                // Fallback to sessionStorage
