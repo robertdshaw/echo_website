@@ -770,8 +770,10 @@
         function logout() {
             localStorage.removeItem(AUTH_CONFIG.tokenName);
             localStorage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
+            localStorage.removeItem('echoframe_username'); // Also remove this
             updateUIBasedOnAuth();
-            location.reload();
+            window.location.href = 'index.html'; // Or whichever is your login landing
+
         }
 
         // Tab functionality
