@@ -410,6 +410,73 @@
       border-bottom: none;
     }
 
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--bg-medium);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .faq-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+
+    .faq-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .faq-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .faq-list li strong {
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+      .faq-question {
+        font-size: 1.1rem;
+        padding: 1.25rem;
+      }
+      
+      .faq-answer {
+        padding: 0 1.25rem 1.25rem;
+      }
+    }
+
     /* Table Mobile Styles */
     @media (max-width: 768px) {
       .comparison-table {
@@ -932,11 +999,10 @@
         <a href="#home" onclick="closeMenu()">Home</a>
         <a href="#overview" onclick="closeMenu()">Overview</a>
         <a href="#problem" onclick="closeMenu()">Problem</a>
-        <a href="#llm-limitations" onclick="closeMenu()">Why Not Just LLMs</a>
-        <a href="#why-now" onclick="closeMenu()">Why Now</a>
         <a href="#solution" onclick="closeMenu()">Solution</a>
         <a href="#products" onclick="closeMenu()">Products</a>
         <a href="#demo" onclick="closeMenu()">Live Demo</a>
+        <a href="#faq" onclick="closeMenu()">FAQ</a>
         <a href="#contact" onclick="closeMenu()">Contact</a>
       </div>
     </div>
@@ -1266,6 +1332,81 @@
       </div>
     </div>
   </section>
+
+<section id="faq">
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <p class="section-subtitle">Understanding EchoFrame's unique approach to risk intelligence</p>
+  
+  <div class="faq-container">
+    <div class="faq-item">
+      <h3 class="faq-question">Why can't we just use existing LLMs like Claude or GPT for risk analysis?</h3>
+      <div class="faq-answer">
+        <p>While LLMs are powerful, they have critical limitations for risk intelligence:</p>
+        <ul class="faq-list">
+          <li>They don't systematically index historical news</li>
+          <li>They can't track narratives across years</li>
+          <li>They lack archived context for risk signals</li>
+          <li>They provide only point-in-time analysis</li>
+        </ul>
+        <p class="mt-2">EchoFrame builds on LLM capabilities by adding systematic memory and pattern recognition across time, turning historical news archives into strategic intelligence.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">How is EchoFrame different from traditional risk advisory services?</h3>
+      <div class="faq-answer">
+        <p>EchoFrame uniquely combines AI with historical news archives to deliver:</p>
+        <ul class="faq-list">
+          <li>Continuous monitoring vs. point-in-time assessments</li>
+          <li>Predictive signals with 3-9 months advance warning</li>
+          <li>Hyper-regional insights vs. generalized country reports</li>
+          <li>AI-powered pattern detection across years of data</li>
+          <li>Source-verified intelligence with full citation trails</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">Why is now the right time to invest in this technology?</h3>
+      <div class="faq-answer">
+        <p>Three key factors make this the optimal time:</p>
+        <ul class="faq-list">
+          <li><strong>Untapped opportunity:</strong> Archive-based signals remain underleveraged in risk advisory</li>
+          <li><strong>Market gap:</strong> Emerging markets lack robust news archiving systems</li>
+          <li><strong>First-mover advantage:</strong> Early leadership in historical intelligence before competitors recognize the opportunity</li>
+        </ul>
+        <p class="mt-2">Even with limited initial access, we can build proof of concept and establish market position.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">What makes EchoFrame's approach technically superior?</h3>
+      <div class="faq-answer">
+        <p>Our system transforms static archives into dynamic intelligence through:</p>
+        <ul class="faq-list">
+          <li>LLM-assisted timeline construction tracking protests, corruption, regulatory changes</li>
+          <li>Risk signals enriched with source, date, sentiment, and topic metadata</li>
+          <li>Pattern recognition across years of historical data</li>
+          <li>Automated alert generation with predictive lead times</li>
+        </ul>
+        <p class="mt-2">While others answer questions about today, EchoFrame reveals patterns across time.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">How does EchoFrame handle data accuracy and verification?</h3>
+      <div class="faq-answer">
+        <p>We maintain high standards of accuracy through:</p>
+        <ul class="faq-list">
+          <li>Multi-source verification of all signals</li>
+          <li>Full citation trails to original news sources</li>
+          <li>Historical pattern validation against known outcomes</li>
+          <li>Continuous model refinement based on prediction accuracy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
   <section id="contact">
     <h2 class="section-title">Ready to Transform Your Risk Assessment?</h2>
