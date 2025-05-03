@@ -18,6 +18,9 @@
       --text-secondary: #cbd5e1;
       --border-color: rgba(255, 255, 255, 0.1);
       --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --success: #10b981;
+      --danger: #ef4444;
+      --secondary: #6b7280;
     }
 
     * {
@@ -51,11 +54,17 @@
       border-bottom: 1px solid var(--border-color);
     }
 
-    /* Mobile Responsive Improvements */
+    /* Fix missing nav-container styles */
     .nav-container {
-      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
+    /* Mobile Responsive Improvements */
     .nav-logo {
       height: 60px;
       width: auto;
@@ -70,6 +79,7 @@
       .nav-container {
         flex-direction: row;
         justify-content: space-between;
+        padding: 1rem;
       }
 
       .nav-logo {
@@ -209,6 +219,8 @@
       text-decoration: none;
       transition: all 0.3s ease;
       box-shadow: var(--shadow);
+      cursor: pointer;
+      border: none;
     }
 
     .cta-button:hover {
@@ -220,6 +232,8 @@
     /* Section Mobile Styles */
     section {
       padding: 4rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     @media (max-width: 768px) {
@@ -665,6 +679,46 @@
       line-height: 1.5;
     }
 
+    /* Fix missing features-grid styles */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: var(--bg-medium);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .feature-description {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+    }
+
     /* Utility Classes */
     .text-accent {
       color: var(--accent);
@@ -673,6 +727,7 @@
     .mb-1 { margin-bottom: 1rem; }
     .mb-2 { margin-bottom: 2rem; }
     .mb-3 { margin-bottom: 3rem; }
+    .mt-2 { margin-top: 2rem; }
     .mt-3 { margin-top: 3rem; }
 
     /* Hero Mobile Styles */
@@ -993,7 +1048,7 @@
     
       .dropbtn {
         background-color: transparent;
-        color: #e0e0e0;
+        color: var(--text-secondary);
         padding: 10px 20px;
         border: none;
         cursor: pointer;
@@ -1005,7 +1060,7 @@
       .dropdown-content {
         display: none;
         position: absolute;
-        background-color: rgba(30, 30, 30, 0.98);
+        background-color: rgba(30, 41, 59, 0.98);
         min-width: 200px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
@@ -1013,17 +1068,9 @@
         overflow: hidden;
       }
     
-      .dropdown-content a {
-        color: #e0e0e0;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        transition: background-color 0.3s ease;
-      }
-    
       .dropdown-content a:hover {
         background-color: rgba(255, 255, 255, 0.1);
-        color: #ffffff;
+        color: var(--text-primary);
       }
     
       .dropdown:hover .dropdown-content {
@@ -1031,7 +1078,7 @@
       }
     
       .dropdown:hover .dropbtn {
-        color: #ffffff;
+        color: var(--text-primary);
       }
     
       /* Mobile styles for dropdown */
@@ -1057,37 +1104,45 @@
           padding-left: 30px;
         }
       }
+
+      /* Footer styles */
+      footer {
+        background: var(--bg-dark);
+        padding: 2rem;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
   </style>
 </head>
 <body>
 
- <nav>
-  <div class="nav-container">
-    <a href="#home" style="display: flex; align-items: center;">
-      <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" alt="EchoFrame Logo" class="nav-logo">
-    </a>
-    <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-    <!-- In your index.html navigation -->
-<div class="nav-links" id="navLinks">
-  <a href="#home" onclick="closeMenu()">Home</a>
-      <div class="dropdown">
-        <button class="dropbtn">Data Collection ▼</button>
-        <div class="dropdown-content">
-          <a href="gmtl-data-collection.html">GMTL Advisory</a>
-          <a href="latinnews-data-collection.html">LatinNews</a>
+  <nav>
+    <div class="nav-container">
+      <a href="#home" style="display: flex; align-items: center;">
+        <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" alt="EchoFrame Logo" class="nav-logo">
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <div class="dropdown">
+          <button class="dropbtn">Data Collection ▼</button>
+          <div class="dropdown-content">
+            <a href="gmtl-data-collection.html">GMTL Advisory</a>
+            <a href="latinnews-data-collection.html">LatinNews</a>
+          </div>
         </div>
+        
+        <a href="#overview" onclick="closeMenu()">Overview</a>
+        <a href="#problem" onclick="closeMenu()">Problem</a>
+        <a href="#solution" onclick="closeMenu()">Solution</a>
+        <a href="#products" onclick="closeMenu()">Products</a>
+        <a href="#demo" onclick="closeMenu()">Live Demo</a>
+        <a href="#faq" onclick="closeMenu()">FAQ</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
       </div>
-      
-      <a href="#overview" onclick="closeMenu()">Overview</a>
-      <a href="#problem" onclick="closeMenu()">Problem</a>
-      <a href="#solution" onclick="closeMenu()">Solution</a>
-      <a href="#products" onclick="closeMenu()">Products</a>
-      <a href="#demo" onclick="closeMenu()">Live Demo</a>
-      <a href="#faq" onclick="closeMenu()">FAQ</a>
-      <a href="#contact" onclick="closeMenu()">Contact</a>
     </div>
-  </div>
-</nav>
+  </nav>
 
   <header class="hero" id="home">
     <div class="hero-content">
@@ -1161,94 +1216,92 @@
     </div>
   </section>
 
-  <!-- Add this new section after the "Problem" section and before the "Solution" section -->
+  <section id="llm-limitations">
+    <h2 class="section-title">Why LLMs Alone Aren't Enough</h2>
+    <p class="section-subtitle">Traditional AI models are smart—but they forget everything they read</p>
+    
+    <div class="solution-flow mb-3">
+      <div class="flow-step">
+        <div class="flow-icon">🧠</div>
+        <h3 class="flow-title">The Memory Problem</h3>
+        <p class="flow-description">LLMs process information brilliantly but lack systematic memory. For real risk foresight, you need historical context and pattern recognition across time.</p>
+      </div>
+      
+      <div class="flow-step">
+        <div class="flow-icon">📚</div>
+        <h3 class="flow-title">Archive-Based Intelligence</h3>
+        <p class="flow-description">EchoFrame turns historical news archives into a strategic memory system, collecting articles from Latin America and training models to detect patterns over time.</p>
+      </div>
+      
+      <div class="flow-step">
+        <div class="flow-icon">📊</div>
+        <h3 class="flow-title">Enriched Risk Signals</h3>
+        <p class="flow-description">LLM-assisted timelines track issues like protests, corruption, and regulation. Signals are enriched with source, date, sentiment, and topic data.</p>
+      </div>
+    </div>
 
-<section id="llm-limitations">
-  <h2 class="section-title">Why LLMs Alone Aren't Enough</h2>
-  <p class="section-subtitle">Traditional AI models are smart—but they forget everything they read</p>
-  
-  <div class="solution-flow mb-3">
-    <div class="flow-step">
-      <div class="flow-icon">🧠</div>
-      <h3 class="flow-title">The Memory Problem</h3>
-      <p class="flow-description">LLMs process information brilliantly but lack systematic memory. For real risk foresight, you need historical context and pattern recognition across time.</p>
+    <div class="card mt-3">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>Claude/GPT</th>
+            <th>EchoFrame</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Indexes past news systematically</td>
+            <td><span style="color: var(--danger);">✗</span></td>
+            <td><span style="color: var(--success);">✓</span></td>
+          </tr>
+          <tr>
+            <td>Tracks narratives across years</td>
+            <td><span style="color: var(--danger);">✗</span></td>
+            <td><span style="color: var(--success);">✓</span></td>
+          </tr>
+          <tr>
+            <td>Risk signals enriched by archived context</td>
+            <td><span style="color: var(--danger);">✗</span></td>
+            <td><span style="color: var(--success);">✓</span></td>
+          </tr>
+          <tr>
+            <td>Provides analyst-grade historical context</td>
+            <td><span style="color: var(--secondary);">Limited</span></td>
+            <td><span style="color: var(--success);">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="text-align: center; margin-top: 1.5rem; font-style: italic; color: var(--text-secondary);">
+        Claude answers questions today. EchoFrame gives you patterns across time.
+      </p>
     </div>
-    
-    <div class="flow-step">
-      <div class="flow-icon">📚</div>
-      <h3 class="flow-title">Archive-Based Intelligence</h3>
-      <p class="flow-description">EchoFrame turns historical news archives into a strategic memory system, collecting articles from Latin America and training models to detect patterns over time.</p>
-    </div>
-    
-    <div class="flow-step">
-      <div class="flow-icon">📊</div>
-      <h3 class="flow-title">Enriched Risk Signals</h3>
-      <p class="flow-description">LLM-assisted timelines track issues like protests, corruption, and regulation. Signals are enriched with source, date, sentiment, and topic data.</p>
-    </div>
-  </div>
+  </section>
 
-  <div class="card mt-3">
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Capability</th>
-          <th>Claude/GPT</th>
-          <th>EchoFrame</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Indexes past news systematically</td>
-          <td><span style="color: var(--danger);">✗</span></td>
-          <td><span style="color: var(--success);">✓</span></td>
-        </tr>
-        <tr>
-          <td>Tracks narratives across years</td>
-          <td><span style="color: var(--danger);">✗</span></td>
-          <td><span style="color: var(--success);">✓</span></td>
-        </tr>
-        <tr>
-          <td>Risk signals enriched by archived context</td>
-          <td><span style="color: var(--danger);">✗</span></td>
-          <td><span style="color: var(--success);">✓</span></td>
-        </tr>
-        <tr>
-          <td>Provides analyst-grade historical context</td>
-          <td><span style="color: var(--secondary);">Limited</span></td>
-          <td><span style="color: var(--success);">✓</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="text-align: center; margin-top: 1.5rem; font-style: italic; color: var(--text-secondary);">
-      Claude answers questions today. EchoFrame gives you patterns across time.
-    </p>
-  </div>
-</section>
-
-<section id="why-now">
-  <h2 class="section-title">Why Start Now</h2>
-  <p class="section-subtitle">The perfect timing for historical intelligence innovation</p>
-  
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">🔍</div>
-      <h3 class="feature-title">Underleveraged Opportunity</h3>
-      <p class="feature-description">Archive-based signals remain largely untapped in risk advisory services, creating a significant competitive advantage.</p>
-    </div>
+  <section id="why-now">
+    <h2 class="section-title">Why Start Now</h2>
+    <p class="section-subtitle">The perfect timing for historical intelligence innovation</p>
     
-    <div class="feature-card">
-      <div class="feature-icon">🌎</div>
-      <h3 class="feature-title">Emerging Market Gap</h3>
-      <p class="feature-description">Latin American markets lack vibrant news archiving systems—prove value-add by filling this critical intelligence gap.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3 class="feature-title">Underleveraged Opportunity</h3>
+        <p class="feature-description">Archive-based signals remain largely untapped in risk advisory services, creating a significant competitive advantage.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🌎</div>
+        <h3 class="feature-title">Emerging Market Gap</h3>
+        <p class="feature-description">Latin American markets lack vibrant news archiving systems—prove value-add by filling this critical intelligence gap.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">⏰</div>
+        <h3 class="feature-title">First-Mover Advantage</h3>
+        <p class="feature-description">Establish leadership in historical intelligence before competitors recognize the opportunity. Even limited access builds proof of concept.</p>
+      </div>
     </div>
-    
-    <div class="feature-card">
-      <div class="feature-icon">⏰</div>
-      <h3 class="feature-title">First-Mover Advantage</h3>
-      <p class="feature-description">Establish leadership in historical intelligence before competitors recognize the opportunity. Even limited access builds proof of concept.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
   <section id="solution">
     <h2 class="section-title">The EchoFrame Solution</h2>
@@ -1414,80 +1467,66 @@
     </div>
   </section>
 
-<section id="faq">
-  <h2 class="section-title">Frequently Asked Questions</h2>
-  <p class="section-subtitle">Understanding EchoFrame's unique approach to risk intelligence</p>
-  
-  <div class="faq-container">
-    <div class="faq-item">
-      <h3 class="faq-question">Why can't we just use existing LLMs like Claude or GPT for risk analysis?</h3>
-      <div class="faq-answer">
-        <p>While LLMs are powerful, they have critical limitations for risk intelligence:</p>
-        <ul class="faq-list">
-          <li>They don't systematically index historical news</li>
-          <li>They can't track narratives across years</li>
-          <li>They lack archived context for risk signals</li>
-          <li>They provide only point-in-time analysis</li>
-        </ul>
-        <p class="mt-2">EchoFrame builds on LLM capabilities by adding systematic memory and pattern recognition across time, turning historical news archives into strategic intelligence.</p>
+  <section id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-subtitle">Understanding EchoFrame's unique approach to risk intelligence</p>
+    
+    <div class="faq-container">
+      <div class="faq-item">
+        <h3 class="faq-question">Why can't we just use existing LLMs like Claude or GPT for risk analysis?</h3>
+        <div class="faq-answer">
+          <p>While LLMs are powerful, they have critical limitations for risk intelligence:</p>
+          <ul class="faq-list">
+            <li>They don't systematically index historical news</li>
+            <li>They can't track narratives across years</li>
+            <li>They lack archived context for risk signals</li>
+            <li>They provide only point-in-time analysis</li>
+          </ul>
+          <p class="mt-2">EchoFrame builds on LLM capabilities by adding systematic memory and pattern recognition across time, turning historical news archives into strategic intelligence.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Why is now the right time to invest in this technology?</h3>
+        <div class="faq-answer">
+          <p>Three key factors make this the optimal time:</p>
+          <ul class="faq-list">
+            <li><strong>Untapped opportunity:</strong> Archive-based signals remain underleveraged in risk advisory</li>
+            <li><strong>Market gap:</strong> Emerging markets lack robust news archiving systems</li>
+            <li><strong>First-mover advantage:</strong> Early leadership in historical intelligence before competitors recognize the opportunity</li>
+          </ul>
+          <p class="mt-2">Even with limited initial access, we can build proof of concept and establish market position.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What makes EchoFrame's approach technically superior?</h3>
+        <div class="faq-answer">
+          <p>Our system transforms static archives into dynamic intelligence through:</p>
+          <ul class="faq-list">
+            <li>LLM-assisted timeline construction tracking protests, corruption, regulatory changes</li>
+            <li>Risk signals enriched with source, date, sentiment, and topic metadata</li>
+            <li>Pattern recognition across years of historical data</li>
+            <li>Automated alert generation with predictive lead times</li>
+          </ul>
+          <p class="mt-2">While others answer questions about today, EchoFrame reveals patterns across time.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How does EchoFrame handle data accuracy and verification?</h3>
+        <div class="faq-answer">
+          <p>We maintain high standards of accuracy through:</p>
+          <ul class="faq-list">
+            <li>Multi-source verification of all signals</li>
+            <li>Full citation trails to original news sources</li>
+            <li>Historical pattern validation against known outcomes</li>
+            <li>Continuous model refinement based on prediction accuracy</li>
+          </ul>
+        </div>
       </div>
     </div>
-
-    <!-- <div class="faq-item">
-      <h3 class="faq-question">How is EchoFrame different from traditional risk advisory services?</h3>
-      <div class="faq-answer">
-        <p>EchoFrame uniquely combines AI with historical news archives to deliver:</p>
-        <ul class="faq-list">
-          <li>Continuous monitoring vs. point-in-time assessments</li>
-          <li>Predictive signals with 3-9 months advance warning</li>
-          <li>Hyper-regional insights vs. generalized country reports</li>
-          <li>AI-powered pattern detection across years of data</li>
-          <li>Source-verified intelligence with full citation trails</li>
-        </ul>
-      </div>
-    </div> -->
-
-    <div class="faq-item">
-      <h3 class="faq-question">Why is now the right time to invest in this technology?</h3>
-      <div class="faq-answer">
-        <p>Three key factors make this the optimal time:</p>
-        <ul class="faq-list">
-          <li><strong>Untapped opportunity:</strong> Archive-based signals remain underleveraged in risk advisory</li>
-          <li><strong>Market gap:</strong> Emerging markets lack robust news archiving systems</li>
-          <li><strong>First-mover advantage:</strong> Early leadership in historical intelligence before competitors recognize the opportunity</li>
-        </ul>
-        <p class="mt-2">Even with limited initial access, we can build proof of concept and establish market position.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <h3 class="faq-question">What makes EchoFrame's approach technically superior?</h3>
-      <div class="faq-answer">
-        <p>Our system transforms static archives into dynamic intelligence through:</p>
-        <ul class="faq-list">
-          <li>LLM-assisted timeline construction tracking protests, corruption, regulatory changes</li>
-          <li>Risk signals enriched with source, date, sentiment, and topic metadata</li>
-          <li>Pattern recognition across years of historical data</li>
-          <li>Automated alert generation with predictive lead times</li>
-        </ul>
-        <p class="mt-2">While others answer questions about today, EchoFrame reveals patterns across time.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <h3 class="faq-question">How does EchoFrame handle data accuracy and verification?</h3>
-      <div class="faq-answer">
-        <p>We maintain high standards of accuracy through:</p>
-        <ul class="faq-list">
-          <li>Multi-source verification of all signals</li>
-          <li>Full citation trails to original news sources</li>
-          <li>Historical pattern validation against known outcomes</li>
-          <li>Continuous model refinement based on prediction accuracy</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <section id="contact">
     <h2 class="section-title">Ready to Transform Your Risk Assessment?</h2>
@@ -1498,13 +1537,31 @@
     </div>
   </section>
 
-  <button class="back-to-top" onclick="scrollToTop()">↑</button>
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
 
   <footer>
     <p>&copy; 2025 EchoFrame. All rights reserved.</p>
   </footer>
 
   <script>
+    // Back to top button functionality
+    window.onscroll = function() {
+      const backToTopButton = document.getElementById('backToTop');
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Mobile menu functionality
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
       navLinks.classList.toggle('active');
@@ -1704,4 +1761,4 @@
   </script>
 
 </body>
-</html>
+</html> 
