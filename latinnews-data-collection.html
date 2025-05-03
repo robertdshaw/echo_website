@@ -5,72 +5,283 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LatinNews Data Request - EchoFrame</title>
     <style>
-        /* ... existing styles ... */
-        
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        /* Navigation styles */
+        .navbar {
+            background: #333;
+            padding: 15px;
+            color: white;
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar-menu a:hover {
+            background-color: #555;
+            border-radius: 4px;
+        }
+
+        .navbar-menu a.active {
+            background-color: #555;
+            border-radius: 4px;
+        }
+
+        /* Main content styles */
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        /* Info box */
         .info-box {
             background: #f0f7ff;
             border-left: 4px solid #2196F3;
-            padding: 15px;
-            margin: 20px 0;
+            padding: 20px;
+            margin-bottom: 30px;
             border-radius: 4px;
         }
-        
+
+        .info-box h3 {
+            margin-top: 0;
+            color: #1976D2;
+        }
+
+        /* Form styles */
+        .form-section {
+            background: white;
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2196F3;
+        }
+
         .section-description {
             color: #666;
             margin-bottom: 20px;
             font-style: italic;
         }
-        
-        .add-item-container {
+
+        .form-group {
             margin-bottom: 20px;
         }
-        
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        
-        .dropdown:hover .dropdown-content {
+
+        .form-group label {
             display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
         }
-        
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-group small {
             display: block;
+            margin-top: 5px;
+            color: #666;
+            font-size: 14px;
         }
-        
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
+
+        /* Checkbox styles */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-top: 4px;
+        }
+
+        .checkbox-item label {
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+
+        /* Dynamic field styles */
+        .dynamic-field {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: flex-start;
+        }
+
+        .dynamic-field input,
+        .dynamic-field textarea {
+            flex: 1;
+        }
+
+        /* Button styles */
+        .add-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .add-button:hover {
+            background: #45a049;
+        }
+
+        .remove-button {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .remove-button:hover {
+            background: #da190b;
+        }
+
+        .submit-button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #1976D2;
+        }
+
+        .submit-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .navbar-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-menu {
+                margin-top: 15px;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar-menu a {
+                width: 100%;
+                text-align: left;
+                padding: 10px;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .dynamic-field {
+                flex-direction: column;
+            }
+
+            .remove-button {
+                align-self: flex-start;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="navbar-brand">EchoFrame</div>
-        <div class="navbar-menu">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="gmtl-data-collection.html">GMTL Advisory</a>
-            <a href="latinnews-data-collection.html" class="active">LatinNews</a>
-            <button class="login-button" onclick="showLoginForm()">Login</button>
-            <button class="logout-button" onclick="logout()" style="display: none;">Logout</button>
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-brand">EchoFrame</a>
+            <div class="navbar-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gmtl-data-collection.html">GMTL Advisory</a>
+                <a href="latinnews-data-collection.html" class="active">LatinNews</a>
+                <a href="login.html">Login</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Protected Content -->
-    <div class="protected-content" id="protectedContent">
+    <!-- Main Content -->
+    <div class="main-content">
         <h1>LatinNews Content Access Request</h1>
         
         <div class="info-box">
@@ -78,8 +289,8 @@
             <p>LatinNews has been providing specialized Latin America intelligence since 1967. We're requesting access to their archive to build ECHOFRAME's historical pattern detection system. This form helps us specify exactly what content we need for our prototype.</p>
         </div>
 
-        <form id="latinNewsForm">
-            <!-- Section 1: Content Access -->
+        <form id="latinNewsForm" onsubmit="handleSubmit(event)">
+            <!-- Section 1: Archive Access -->
             <div class="form-section">
                 <h3>1. Archive Access Request</h3>
                 <p class="section-description">
@@ -109,14 +320,14 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Time Period Needed:</label>
-                    <input type="text" name="time_period" placeholder="e.g., Last 3 years (2021-2024) for pattern training">
+                    <label for="time_period">Time Period Needed:</label>
+                    <input type="text" id="time_period" name="time_period" placeholder="e.g., Last 3 years (2021-2024) for pattern training">
                     <small>We need sufficient historical data to identify recurring patterns</small>
                 </div>
                 
                 <div class="form-group">
-                    <label>Preferred Access Method:</label>
-                    <select name="access_method">
+                    <label for="access_method">Preferred Access Method:</label>
+                    <select id="access_method" name="access_method">
                         <option value="api">API Access (Best for automation)</option>
                         <option value="database">Database Export</option>
                         <option value="bulk_download">Bulk Download (PDF/HTML)</option>
@@ -125,7 +336,7 @@
                 </div>
             </div>
 
-            <!-- Section 2: Content Structure -->
+            <!-- Section 2: Content Organization -->
             <div class="form-section">
                 <h3>2. Content Organization</h3>
                 <p class="section-description">
@@ -155,8 +366,8 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Article Metadata Available:</label>
-                    <textarea name="metadata_structure" placeholder="e.g., Article ID, Author, Publication Date, Country Tags, Topic Tags, Related Articles"></textarea>
+                    <label for="metadata_structure">Article Metadata Available:</label>
+                    <textarea id="metadata_structure" name="metadata_structure" placeholder="e.g., Article ID, Author, Publication Date, Country Tags, Topic Tags, Related Articles"></textarea>
                 </div>
             </div>
 
@@ -198,8 +409,8 @@
                 </p>
                 
                 <div class="form-group">
-                    <label>What format works best for our AI processing?</label>
-                    <select name="preferred_format">
+                    <label for="preferred_format">What format works best for our AI processing?</label>
+                    <select id="preferred_format" name="preferred_format">
                         <option value="json">JSON (Structured data)</option>
                         <option value="xml">XML</option>
                         <option value="csv">CSV (For tabular data)</option>
@@ -238,21 +449,21 @@
                 </p>
                 
                 <div class="form-group">
-                    <label>Prototype Timeline:</label>
-                    <input type="text" name="prototype_timeline" placeholder="e.g., 3-6 months initial development">
+                    <label for="prototype_timeline">Prototype Timeline:</label>
+                    <input type="text" id="prototype_timeline" name="prototype_timeline" placeholder="e.g., 3-6 months initial development">
                 </div>
                 
                 <div class="form-group">
-                    <label>What We'll Build:</label>
-                    <textarea name="prototype_description" rows="4">1. Pattern detection system for political events
+                    <label for="prototype_description">What We'll Build:</label>
+                    <textarea id="prototype_description" name="prototype_description" rows="4">1. Pattern detection system for political events
 2. Risk signal identification based on historical precedents
 3. Timeline visualization of recurring events
 4. Early warning system based on LatinNews reporting patterns</textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label>Value to LatinNews:</label>
-                    <textarea name="value_proposition" rows="4">1. Enhanced analytics capabilities for your content
+                    <label for="value_proposition">Value to LatinNews:</label>
+                    <textarea id="value_proposition" name="value_proposition" rows="4">1. Enhanced analytics capabilities for your content
 2. New ways to surface historical patterns in your archive
 3. Potential new product offering for your clients
 4. Demonstration of your archive's predictive value</textarea>
@@ -264,40 +475,31 @@
                 <h3>6. Contact Information</h3>
                 
                 <div class="form-group">
-                    <label>Primary Contact at LatinNews:</label>
-                    <input type="text" name="latinnews_contact" placeholder="e.g., Client Services Director">
+                    <label for="latinnews_contact">Primary Contact at LatinNews:</label>
+                    <input type="text" id="latinnews_contact" name="latinnews_contact" placeholder="e.g., Client Services Director">
                 </div>
                 
                 <div class="form-group">
-                    <label>Our Technical Contact:</label>
-                    <input type="text" name="our_tech_contact" placeholder="Your name and email">
+                    <label for="our_tech_contact">Our Technical Contact:</label>
+                    <input type="text" id="our_tech_contact" name="our_tech_contact" placeholder="Your name and email">
                 </div>
                 
                 <div class="form-group">
-                    <label>Preferred Next Steps:</label>
-                    <textarea name="next_steps" rows="3">1. Initial call to discuss prototype scope
+                    <label for="next_steps">Preferred Next Steps:</label>
+                    <textarea id="next_steps" name="next_steps" rows="3">1. Initial call to discuss prototype scope
 2. Technical discussion about API/data access
 3. Review sample data structure
 4. Agree on pilot terms</textarea>
                 </div>
             </div>
 
-            <button type="submit" class="submit-button">Submit LatinNews Request</button>
+            <div style="text-align: center; margin-top: 30px;">
+                <button type="submit" class="submit-button">Submit LatinNews Request</button>
+            </div>
         </form>
     </div>
 
     <script>
-        // Authentication code
-        const AUTH_CONFIG = {
-            validCredentials: [
-                { username: 'admin', password: 'echoframe2024' }
-            ],
-            tokenName: 'echoframe_auth_token',
-            tokenExpiry: 24 * 60 * 60 * 1000
-        };
-
-        // ... (authentication functions remain the same) ...
-
         // Dynamic field functions
         function addPriorityContent() {
             const container = document.getElementById('priority-content-container');
@@ -325,16 +527,17 @@
             button.parentElement.remove();
         }
 
-        // Form submission
-        document.getElementById('latinNewsForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
+        // Form submission handler
+        async function handleSubmit(event) {
+            event.preventDefault();
             
-            const submitBtn = this.querySelector('button[type="submit"]');
+            const submitBtn = event.target.querySelector('button[type="submit"]');
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
             
-            const formData = new FormData(this);
+            const formData = new FormData(event.target);
             const data = {};
+            
             formData.forEach((value, key) => {
                 if (!data[key]) {
                     data[key] = value;
@@ -346,16 +549,16 @@
                 }
             });
             
+            // Add metadata
             const submissionData = {
                 formType: 'LatinNews Request',
-                username: localStorage.getItem('echoframe_username') || 'Anonymous',
                 formData: data,
                 timestamp: new Date().toISOString()
             };
             
             try {
-                // Submit to Google Sheets
-                const response = await fetch('https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec', {
+                // Replace with your Google Apps Script URL
+                const response = await fetch('YOUR_GOOGLE_SCRIPT_URL', {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
@@ -365,7 +568,8 @@
                 });
                 
                 alert('Request submitted successfully!');
-                // this.reset(); // Uncomment to reset form after submission
+                // Optionally reset form
+                // event.target.reset();
                 
             } catch (error) {
                 console.error('Error:', error);
@@ -374,7 +578,7 @@
                 submitBtn.textContent = 'Submit LatinNews Request';
                 submitBtn.disabled = false;
             }
-        });
+        }
     </script>
 </body>
 </html>
