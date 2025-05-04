@@ -837,7 +837,7 @@
 
     <script>
         // 1) Your Apps-Script URL
-        const WEBAPP_URL = 'https://script.google.com/macros/s/…/exec';
+        const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec';
       
         // 2) Auth state + users
         let currentUser = null;
@@ -848,7 +848,7 @@
           admin:     { password: 'admin2024',  access: ['gmtl','latinnews'] },
         };
       
-        // 3) Original, unmodified handleLogin
+        // 3) Login handler (unchanged)
         function handleLogin(event) {
           event.preventDefault();
           const username = document.getElementById('username').value;
@@ -857,7 +857,7 @@
           if (user && user.password === password) {
             currentUser = { username, access: user.access };
             updateNavigation();
-            if (user.access.includes('gmtl')) showPage('gmtl');
+            if      (user.access.includes('gmtl'))      showPage('gmtl');
             else if (user.access.includes('latinnews')) showPage('latinnews');
             document.getElementById('errorMessage').style.display = 'none';
           } else {
@@ -866,31 +866,148 @@
           return false;
         }
       
-        // 4) updateNavigation, showPage, logout (unchanged)
-        function updateNavigation() { /* … */ }
-        function showPage(page)       { /* … */ }
-        function logout()             { /* … */ }
+        // 4) Navigation & page-switching
+        function updateNavigation() {
+          const welcomeUser    = document.getElementById('welcomeUser');
+          const protectedLinks = document.getElementById('protectedLinks');
+          const gmtlLink       = document.getElementById('gmtlLink');
+          const latinnewsLink  = document.getElementById('latinnewsLink');
+          const logoutBtn      = document.getElementById('logoutBtn');
       
-        // 5) Your new GMTL submit handler
+          if (currentUser) {
+            welcomeUser.textContent        = `Welcome, ${currentUser.username}`;
+            protectedLinks.style.display   = 'inline';
+            logoutBtn.style.display        = 'inline-block';
+            gmtlLink.style.display         = 'none';
+            latinnewsLink.style.display    = 'none';
+            if (currentUser.access.includes('gmtl'))      gmtlLink.style.display      = 'inline-block';
+            if (currentUser.access.includes('latinnews')) latinnewsLink.style.display = 'inline-block';
+          } else {
+            welcomeUser.textContent      = '';
+            protectedLinks.style.display = 'none';
+            logoutBtn.style.display      = 'none';
+          }
+        }
+      
+        function showPage(page) {
+          if (page !== 'home' && (!currentUser || !currentUser.access.includes(page))) {
+            alert('You do not have access to this page.');
+            return;
+          }
+      
+          document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+          document.getElementById(page + 'Page').classList.add('active');
+      
+          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+          document.querySelector(`.nav-link[onclick="showPage('${page}')"]`)?.classList.add('active');
+      
+          currentPage = page;
+        }
+      
+        function logout() {
+          currentUser = null;
+          updateNavigation();
+          showPage('home');
+        }
+      
+        // 5) GMTL submit → POST JSON
         function handleGMTLSubmit(event) {
           event.preventDefault();
-          /* … gather formData … */
-          /* … fetch(WEBAPP_URL) … */
+          const formData = new FormData(event.target), data = {};
+          formData.forEach((value, key) => {
+            if (!data[key]) data[key] = value;
+            else data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
+          });
+      
+          const submissionData = {
+            formType:  'GMTL Risk Framework',
+            username:  currentUser?.username || 'Anonymous',
+            formData:  data,
+            timestamp: new Date().toISOString()
+          };
+      
+          fetch(WEBAPP_URL, {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify(submissionData)
+          })
+          .then(r => r.json())
+          .then(resp => {
+            if (resp.status === 'success') alert('GMTL form submitted successfully!');
+            else                          alert('Submission error: ' + (resp.message||'Unknown'));
+          })
+          .catch(err => {
+            console.error(err);
+            alert('Network error: ' + err.message);
+          });
+      
           return false;
         }
       
-        // 6) Your new LatinNews submit handler
+        // 6) LatinNews submit → POST JSON
         function handleLatinNewsSubmit(event) {
-          /* … identical pattern … */
+          event.preventDefault();
+          const formData = new FormData(event.target), data = {};
+          formData.forEach((value, key) => {
+            if (!data[key]) data[key] = value;
+            else data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
+          });
+      
+          const submissionData = {
+            formType:  'LatinNews Request',
+            username:  currentUser?.username || 'Anonymous',
+            formData:  data,
+            timestamp: new Date().toISOString()
+          };
+      
+          fetch(WEBAPP_URL, {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify(submissionData)
+          })
+          .then(r => r.json())
+          .then(resp => {
+            if (resp.status === 'success') alert('LatinNews form submitted successfully!');
+            else                          alert('Submission error: ' + (resp.message||'Unknown'));
+          })
+          .catch(err => {
+            console.error(err);
+            alert('Network error: ' + err.message);
+          });
+      
           return false;
         }
       
-        // 7) All the addRegion(), addTopic(), removeField(), etc.
-        function addRegion()          { /* … */ }
-        function addTopic()           { /* … */ }
-        /* … */
+        // 7) Dynamic-field helpers
+        function addRegion() {
+          const c = document.getElementById('regions-container');
+          const d = document.createElement('div'); d.className='dynamic-field';
+          d.innerHTML=`
+            <input type="text" name="regions[]" placeholder="Add another region">
+            <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+          `;
+          c.appendChild(d);
+        }
+        function addTopic()           { const c=document.getElementById('topics-container');           addDynamic(c, 'topics[]',       'Add another topic'); }
+        function addPoliticalIndicator(){ const c=document.getElementById('political-indicators-container'); addDynamic(c, 'political_indicators[]', 'Add another political indicator', true); }
+        function addEconomicIndicator(){ const c=document.getElementById('economic-indicators-container');  addDynamic(c, 'economic_indicators[]',  'Add another economic indicator',  true); }
+        function addTask()            { const c=document.getElementById('tasks-container');            addDynamic(c, 'time_consuming_tasks[]', 'Add another task',            true); }
+        function addClientQuestion()  { const c=document.getElementById('client-questions-container'); addDynamic(c, 'client_questions[]',      'Add another client question',  true); }
+        function addPriorityContent() { const c=document.getElementById('priority-content-container'); addDynamic(c, 'priority_content[]',      'Add another priority content type'); }
+        function addHistoricalEvent() { const c=document.getElementById('historical-events-container'); addDynamic(c, 'historical_events[]',      'Add another historical event'); }
       
-        // 8) Finally, kick things off
+        function addDynamic(container, name, placeholder, isTextarea=false) {
+          const d = document.createElement('div'); d.className='dynamic-field';
+          d.innerHTML = isTextarea
+            ? `<textarea name="${name}" placeholder="${placeholder}"></textarea>
+               <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>`
+            : `<input type="text" name="${name}" placeholder="${placeholder}">
+               <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>`;
+          container.appendChild(d);
+        }
+        function removeField(btn) { btn.parentElement.remove(); }
+      
+        // 8) Kick off nav
         updateNavigation();
       </script>
       
