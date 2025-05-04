@@ -726,8 +726,86 @@
                 try { sessionStorage.removeItem(key); }
                 catch { delete window.__memoryStorage[key]; }
             }
-        };
-
+        };  
+            function addRegion() {
+              const container = document.getElementById('regions-container');
+              const div = document.createElement('div');
+              div.className = 'dynamic-field';
+              div.innerHTML = `
+                <input type="text" name="regions[]" placeholder="Add another region">
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+              `;
+              container.appendChild(div);
+            }
+          
+            function addTopic() {
+              const container = document.getElementById('topics-container');
+              const div = document.createElement('div');
+              div.className = 'dynamic-field';
+              div.innerHTML = `
+                <input type="text" name="topics[]" placeholder="Add another topic">
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+              `;
+              container.appendChild(div);
+            }
+          
+            function addTask() {
+              const container = document.getElementById('tasks-container');
+              const div = document.createElement('div');
+              div.className = 'dynamic-field';
+              div.innerHTML = `
+                <textarea name="time_consuming_tasks[]" placeholder="Add another task"></textarea>
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+              `;
+              container.appendChild(div);
+            }
+          
+            // you should already have this:
+            function removeField(btn) {
+              btn.parentElement.remove();
+            }
+        
+            // … your existing auth + form‐submission code …
+          
+            function addRegion() {
+              const container = document.getElementById('regions-container');
+              const div = document.createElement('div');
+              div.className = 'dynamic-field';
+              div.innerHTML = `
+                <input type="text" name="regions[]" placeholder="Add another region">
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+              `;
+              container.appendChild(div);
+            }
+          
+            function addTopic() {
+              const container = document.getElementById('topics-container');
+              const div = document.createElement('div');
+              div.className = 'dynamic-field';
+              div.innerHTML = `
+                <input type="text" name="topics[]" placeholder="Add another topic">
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+              `;
+              container.appendChild(div);
+            }
+          
+            function addTask() {
+              const container = document.getElementById('tasks-container');
+              const div = document.createElement('div');
+              div.className = 'dynamic-field';
+              div.innerHTML = `
+                <textarea name="time_consuming_tasks[]" placeholder="Add another task"></textarea>
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+              `;
+              container.appendChild(div);
+            }
+          
+            // you should already have this:
+            function removeField(btn) {
+              btn.parentElement.remove();
+            }
+          
+          
         // 4) Auth check with redirect + return false
         function checkAuth() {
             const token = storage.getItem(AUTH_CONFIG.tokenName);
