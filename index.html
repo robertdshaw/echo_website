@@ -29,6 +29,56 @@
       box-sizing: border-box;
     }
 
+    /* Fix for nav links appearing blue with underline */
+    .nav-links a {
+      color: var(--text-secondary) !important;
+      text-decoration: none !important;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.25rem 0;
+    }
+
+    .nav-links a:visited {
+      color: var(--text-secondary) !important;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent) !important;
+      text-decoration: none !important;
+    }
+
+    /* Optional: If you want the hover underline effect, keep this */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Additional fix for dropdown links */
+    .dropdown-content a {
+      color: white !important;
+      text-decoration: none !important;
+    }
+
+    .dropdown-content a:visited {
+      color: white !important;
+    }
+
+    .dropdown-content a:hover {
+      color: var(--text-primary) !important;
+      text-decoration: none !important;
+    }
+
     /* General Mobile Improvements */
     html {
       -webkit-text-size-adjust: 100%;
