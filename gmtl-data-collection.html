@@ -754,11 +754,11 @@
             const welcomeSpan       = document.getElementById('welcomeUser');
           
             // Show “Welcome, USERNAME” if logged in; otherwise clear it
+            // Show “Welcome, USERNAME” if logged in; otherwise clear it
             if (isAuthenticated && username) {
-              welcomeSpan.textContent = `Welcome, ${username}`;
-            } else {
-              welcomeSpan.textContent = '';
-            }
+                welcomeSpan.textContent = `Welcome, ${username}`;
+              } else {
+                welcomeSpan.textContent = '';
           
             if (isAuthenticated) {
               loginButton.style.display      = 'none';
