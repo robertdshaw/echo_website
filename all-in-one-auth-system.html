@@ -176,27 +176,27 @@
             font-style: italic;
         }
 
+        /* Checkbox styles */
         .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
             margin-top: 10px;
         }
-        
+
         .checkbox-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 10px;
         }
-        
+
         .checkbox-item input[type="checkbox"] {
-            margin: 0;
-            flex-shrink: 0;
+            margin-top: 4px;
         }
-        
+
         .checkbox-item label {
-            margin: 0;
-            cursor: pointer;
+            font-weight: normal;
+            margin-bottom: 0;
         }
 
         .dynamic-field {
