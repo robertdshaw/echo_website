@@ -1046,14 +1046,35 @@
                         formData:data
                     };
 
-                    try {
-                        await fetch(
-                          'https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec',
-                          {method:'POST',
-                           headers:{'Content-Type':'application/json'},
-                           body:JSON.stringify(payload)}
-                        );
-                        alert('Form submitted successfully!');
+                        try {
+                            const res = await fetch(
+                              'https://script.google.com/macros/s/…/exec',
+                              {
+                                method: 'POST',
+                                mode:   'cors',                  // ← allow CORS
+                                headers:{
+                                  'Content-Type': 'application/json',
+                                  'Accept':       'application/json'
+                                },
+                                body: JSON.stringify(payload)
+                              }
+                            );
+                          
+                            // parse JSON response
+                            const json = await res.json();
+                          
+                            if (res.ok && json.status === 'success') {
+                              alert('Form submitted successfully!');
+                            } else {
+                              console.error('❌ submission error:', json);
+                              alert(`Error: ${json.message || res.statusText}`);
+                            }
+                          
+                          } catch (err) {
+                            console.error('🚨 network or parsing error:', err);
+                            alert('There was an error submitting the form. Check console for details.');
+                          }
+                          
                     } catch(err){
                         console.error(err);
                         alert('There was an error submitting the form. Please try again.');
