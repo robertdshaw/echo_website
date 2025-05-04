@@ -344,6 +344,10 @@
         <div class="navbar-brand">EchoFrame</div>
         <div class="navbar-menu">
             <a href="index.html">Home</a>
+            <span id="welcomeUser" style="color:white; margin:0 15px;"></span>
+            <div class="dropdown">…</div>
+            <button class="login-button" …>Login</button>
+            <button class="logout-button" …>Logout</button>
             <div class="dropdown">
                 <button class="dropbtn">Data Collection ▼</button>
                 <div class="dropdown-content">
@@ -725,34 +729,40 @@
         };
 
         // 4) Auth check with redirect + return false
-        function checkAuth() {
-            const token = storage.getItem(AUTH_CONFIG.tokenName);
-          
-            if (token === 'authenticated') {
-              return true;
-            }
-          
-            // no valid token → send to login
-            storage.removeItem(AUTH_CONFIG.tokenName);
-            window.location.href = 'login.html';
-            return false;
-          }             
+        // 1) Auth check with redirect + return false
+function checkAuth() {
+    const token = storage.getItem(AUTH_CONFIG.tokenName);
+
+    // only check for 'authenticated'
+    if (token === 'authenticated') {
+        return true;
+    }
+
+    // no valid token → cleanup and redirect
+    storage.removeItem(AUTH_CONFIG.tokenName);
+    storage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
+    window.location.href = 'login.html';
+    return false;
+}
+       
 
         // 5) Show/hide UI
-        function updateUIBasedOnAuth() {
-            const auth = checkAuth(),
-                  loginBtn = document.querySelector('.login-button'),
-                  logoutBtn= document.querySelector('.logout-button'),
-                  pc = document.getElementById('protectedContent'),
-                  ad = document.getElementById('accessDenied'),
-                  lf = document.getElementById('loginForm');
+        // 1) Auth check with redirect + return false
+function checkAuth() {
+    const token = storage.getItem(AUTH_CONFIG.tokenName);
 
-            loginBtn.style.display   = auth ? 'none' : 'inline-block';
-            logoutBtn.style.display  = auth ? 'inline-block' : 'none';
-            pc.style.display         = auth ? 'block' : 'none';
-            ad.style.display         = auth ? 'none' : 'block';
-            lf.style.display         = 'none';
-        }
+    // only check for 'authenticated'
+    if (token === 'authenticated') {
+        return true;
+    }
+
+    // no valid token → cleanup and redirect
+    storage.removeItem(AUTH_CONFIG.tokenName);
+    storage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
+    window.location.href = 'login.html';
+    return false;
+}
+
 
         // 6) Show login form
         function showLoginForm() {
