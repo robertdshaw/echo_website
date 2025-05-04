@@ -836,6 +836,7 @@
     </div>
 
     <script>
+        const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec';
         // Simple auth state
         let currentUser = null;
         let currentPage = 'home';
@@ -848,38 +849,51 @@
         };
 
         // Handle login
-        function handleLogin(event) {
+        function handleGMTLSubmit(event) {
             event.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
-            
-            const user = users[username];
-            
-            if (user && user.password === password) {
-                currentUser = {
-                    username: username,
-                    access: user.access
-                };
-                
-                // Update UI
-                updateNavigation();
-                
-                // Show appropriate page
-                if (user.access.includes('gmtl')) {
-                    showPage('gmtl');
-                } else if (user.access.includes('latinnews')) {
-                    showPage('latinnews');
-                }
-                
-                errorMessage.style.display = 'none';
-            } else {
-                errorMessage.style.display = 'block';
-            }
-            
+        
+            // 1) Gather form fields exactly as before
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => {
+              if (!data[key]) {
+                data[key] = value;
+              } else {
+                data[key] = Array.isArray(data[key])
+                            ? data[key].concat(value)
+                            : [data[key], value];
+              }
+            });
+        
+            // 2) Add your metadata object exactly as before
+            const submissionData = {
+              formType:  'GMTL Risk Framework',
+              username:  currentUser?.username || 'Anonymous',
+              formData:  data,
+              timestamp: new Date().toISOString()
+            };
+        
+            // 3) POST to your Apps Script URL instead of console.log()/alert()
+            fetch(WEBAPP_URL, {
+              method:  'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body:    JSON.stringify(submissionData)
+            })
+            .then(res => res.json())
+            .then(resp => {
+              if (resp.status === 'success') {
+                alert('GMTL form submitted successfully!');
+              } else {
+                alert('Submission error: ' + (resp.message || 'Unknown error'));
+              }
+            })
+            .catch(err => {
+              console.error('Network error:', err);
+              alert('Network error: ' + err.message);
+            });
+        
             return false;
-        }
+          }
 
         // Update navigation based on login state
         function updateNavigation() {
