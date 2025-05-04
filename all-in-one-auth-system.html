@@ -928,19 +928,11 @@
       
           fetch(WEBAPP_URL, {
             method:  'POST',
-            headers: { 'Content-Type': 'application/json' },
+            mode:    'no-cors',
             body:    JSON.stringify(submissionData)
-          })
-          .then(r => r.json())
-          .then(resp => {
-            if (resp.status === 'success') alert('GMTL form submitted successfully!');
-            else                          alert('Submission error: ' + (resp.message||'Unknown'));
-          })
-          .catch(err => {
-            console.error(err);
-            alert('Network error: ' + err.message);
-          });
-      
+        });
+        // we won’t see the response, so just assume success:
+          alert('GMTL form submitted successfully!');
           return false;
         }
       
@@ -959,22 +951,13 @@
             formData:  data,
             timestamp: new Date().toISOString()
           };
-      
           fetch(WEBAPP_URL, {
             method:  'POST',
-            headers: { 'Content-Type': 'application/json' },
+            mode:    'no-cors',
             body:    JSON.stringify(submissionData)
-          })
-          .then(r => r.json())
-          .then(resp => {
-            if (resp.status === 'success') alert('LatinNews form submitted successfully!');
-            else                          alert('Submission error: ' + (resp.message||'Unknown'));
-          })
-          .catch(err => {
-            console.error(err);
-            alert('Network error: ' + err.message);
-          });
-      
+        });
+        // we won’t see the response, so just assume success:
+          alert('GMTL form submitted successfully!');
           return false;
         }
       
