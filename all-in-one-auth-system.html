@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EchoFrame Data Collection System</title>
     <style>
+        
+        /* Base styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -13,11 +15,11 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
+        /* Navigation styles */
         .navbar {
             background: #333;
-            color: white;
             padding: 15px;
+            color: white;
         }
 
         .navbar-content {
@@ -33,11 +35,6 @@
             font-weight: bold;
             color: white;
             text-decoration: none;
-            cursor: pointer;
-        }
-
-        .navbar-brand:hover {
-            color: #ddd;
         }
 
         .navbar-menu {
@@ -46,101 +43,51 @@
             align-items: center;
         }
 
-        .nav-link {
+        .navbar-menu a {
             color: white;
             text-decoration: none;
             padding: 8px 16px;
-            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .nav-link:hover, .nav-link.active {
-            background: #555;
+        .navbar-menu a:hover {
+            background-color: #555;
             border-radius: 4px;
         }
 
-        .logout-button {
-            background: #f44336;
-            color: white;
-            border: none;
-            padding: 8px 16px;
+        .navbar-menu a.active {
+            background-color: #555;
             border-radius: 4px;
-            cursor: pointer;
         }
 
-        /* Page Sections */
-        .page-section {
-            display: none;
+        /* Main content styles */
+        .main-content {
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        .page-section.active {
-            display: block;
-        }
-
-        /* Login Form */
-        .login-container {
-            max-width: 400px;
-            margin: 100px auto;
-            padding: 40px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .login-container h1 {
-            text-align: center;
+        h1 {
             color: #333;
             margin-bottom: 30px;
+            font-size: 2.5em;
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: bold;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
+        /* Info box */
+        .info-box {
+            background: #f0f7ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin-bottom: 30px;
             border-radius: 4px;
-            box-sizing: border-box;
         }
 
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
+        .info-box h3 {
+            margin-top: 0;
+            color: #1976D2;
         }
 
-        .submit-button {
-            width: 100%;
-            padding: 12px;
-            background: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .submit-button:hover {
-            background: #1976D2;
-        }
-
-        .error-message {
-            color: #f44336;
-            text-align: center;
-            margin-top: 15px;
-            display: none;
-        }
-
-        /* Form Styles */
+        /* Form styles */
         .form-section {
             background: white;
             margin-bottom: 30px;
@@ -157,23 +104,45 @@
             border-bottom: 2px solid #2196F3;
         }
 
-        .info-box {
-            background: #f0f7ff;
-            border-left: 4px solid #2196F3;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 4px;
-        }
-
-        .info-box h3 {
-            margin-top: 0;
-            color: #1976D2;
-        }
-
         .section-description {
             color: #666;
             margin-bottom: 20px;
             font-style: italic;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 5px;
+            color: #666;
+            font-size: 14px;
         }
 
         /* Checkbox styles */
@@ -199,16 +168,20 @@
             margin-bottom: 0;
         }
 
+        /* Dynamic field styles */
         .dynamic-field {
             display: flex;
             gap: 10px;
             margin-bottom: 10px;
+            align-items: flex-start;
         }
 
-        .dynamic-field input, .dynamic-field textarea {
+        .dynamic-field input,
+        .dynamic-field textarea {
             flex: 1;
         }
 
+        /* Button styles */
         .add-button {
             background: #4CAF50;
             color: white;
@@ -216,7 +189,13 @@
             padding: 8px 16px;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 14px;
             margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .add-button:hover {
+            background: #45a049;
         }
 
         .remove-button {
@@ -226,41 +205,63 @@
             padding: 8px 12px;
             border-radius: 4px;
             cursor: pointer;
-        }
-
-        .example-box {
-            background: #fffbe6;
-            padding: 10px;
-            border-left: 4px solid #ffc107;
-            font-style: italic;
-            margin-top: 10px;
             font-size: 14px;
-            color: #555;
+            transition: background-color 0.3s;
         }
 
-        /* Responsive */
+        .remove-button:hover {
+            background: #da190b;
+        }
+
+        .submit-button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #1976D2;
+        }
+
+        .submit-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
             .navbar-content {
                 flex-direction: column;
+                align-items: flex-start;
             }
-            
+
             .navbar-menu {
+                margin-top: 15px;
                 flex-direction: column;
                 width: 100%;
-                margin-top: 15px;
             }
-            
-            .nav-link {
+
+            .navbar-menu a {
                 width: 100%;
-                text-align: center;
+                text-align: left;
+                padding: 10px;
             }
 
             .checkbox-group {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
 
             .dynamic-field {
                 flex-direction: column;
+            }
+
+            .remove-button {
+                align-self: flex-start;
             }
         }
     </style>
