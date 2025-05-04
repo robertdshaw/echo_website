@@ -467,6 +467,7 @@
                 </p>
                 
                 <div class="form-group">
+                    <div id="riskTaxonomyContainer"></div>
                     <label>Top political risk indicators you watch for:</label>
                     <div id="political-indicators-container">
                         <div class="dynamic-field">
@@ -863,6 +864,7 @@
             const newSignal = document.createElement('div');
             newSignal.className = 'risk-category';
             newSignal.innerHTML = `
+                <div id="riskSignalsContainer"></div>
                 <div class="form-group">
                     <label>Risk Type:</label>
                     <input type="text" name="signal_risk_type[]" placeholder="e.g., Government Collapse">
@@ -894,6 +896,7 @@
             const newCase = document.createElement('div');
             newCase.className = 'risk-category';
             newCase.innerHTML = `
+                <div id="historicalCasesContainer"></div>
                 <div class="form-group">
                     <label>Event Name:</label>
                     <input type="text" name="case_name[]" placeholder="e.g., 2019 Chile Protests">
@@ -929,6 +932,7 @@
         }
 
         function addClientQuestion() {
+            <div id="clientQuestionsContainer"></div>
             const container = document.getElementById('clientQuestionsContainer');
             const newQuestion = document.createElement('div');
             newQuestion.className = 'dynamic-field';
