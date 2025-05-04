@@ -135,10 +135,17 @@
     }
 
     @media (max-width: 768px) {
-      nav {
-        position: fixed;
-        width: 100%;
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;           /* allow links to wrap to next line */
+        justify-content: center;   /* center them on each “row” */
+        gap: 0.5rem 1rem;          /* tighten up the spacing */
       }
+      .nav-links a {
+        font-size: 0.875rem;       /* a little smaller text */
+        padding: 0.5rem 0.75rem;   /* less padding so more fit */
+      }
+    }    
 
       .nav-container {
         flex-direction: row;
