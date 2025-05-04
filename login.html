@@ -110,25 +110,102 @@
     </div>
 
     <script>
+        // Storage wrapper that works in sandboxed environments
+        const storage = {
+            // In-memory fallback
+            memoryStorage: {},
+            
+            // Check if localStorage is available
+            isLocalStorageAvailable() {
+                try {
+                    const test = '__test__';
+                    localStorage.setItem(test, test);
+                    localStorage.removeItem(test);
+                    return true;
+                } catch(e) {
+                    return false;
+                }
+            },
+            
+            // Check if sessionStorage is available
+            isSessionStorageAvailable() {
+                try {
+                    const test = '__test__';
+                    sessionStorage.setItem(test, test);
+                    sessionStorage.removeItem(test);
+                    return true;
+                } catch(e) {
+                    return false;
+                }
+            },
+            
+            // Get item from available storage
+            getItem(key) {
+                if (this.isLocalStorageAvailable()) {
+                    return localStorage.getItem(key);
+                } else if (this.isSessionStorageAvailable()) {
+                    return sessionStorage.getItem(key);
+                } else {
+                    return this.memoryStorage[key] || null;
+                }
+            },
+            
+            // Set item in available storage
+            setItem(key, value) {
+                if (this.isLocalStorageAvailable()) {
+                    localStorage.setItem(key, value);
+                } else if (this.isSessionStorageAvailable()) {
+                    sessionStorage.setItem(key, value);
+                } else {
+                    this.memoryStorage[key] = value;
+                }
+            },
+            
+            // Remove item from available storage
+            removeItem(key) {
+                if (this.isLocalStorageAvailable()) {
+                    localStorage.removeItem(key);
+                } else if (this.isSessionStorageAvailable()) {
+                    sessionStorage.removeItem(key);
+                } else {
+                    delete this.memoryStorage[key];
+                }
+            },
+            
+            // Clear all storage
+            clear() {
+                if (this.isLocalStorageAvailable()) {
+                    localStorage.clear();
+                } else if (this.isSessionStorageAvailable()) {
+                    sessionStorage.clear();
+                } else {
+                    this.memoryStorage = {};
+                }
+            }
+        };
+
         // Authentication configuration
         const AUTH_CONFIG = {
             validCredentials: [
                 { 
                     username: 'simon', 
                     password: 'gmtl2024', 
+                    role: 'gmtl',
                     allowedPages: ['gmtl-data-collection.html'],
                     redirectTo: 'gmtl-data-collection.html'
                 },
                 { 
                     username: 'latinnews', 
                     password: 'latin2024', 
+                    role: 'latinnews',
                     allowedPages: ['latinnews-data-collection.html'],
                     redirectTo: 'latinnews-data-collection.html'
                 },
                 { 
                     username: 'admin', 
                     password: 'admin2024', 
-                    allowedPages: ['gmtl-data-collection.html', 'latinnews-data-collection.html', 'data_collection.html'],
+                    role: 'admin',
+                    allowedPages: ['gmtl-data-collection.html', 'latinnews-data-collection.html'],
                     redirectTo: 'gmtl-data-collection.html'
                 }
             ]
@@ -147,13 +224,26 @@
             );
             
             if (user) {
-                // Create session
-                localStorage.setItem('echoframe_token', 'authenticated');
-                localStorage.setItem('echoframe_username', username);
-                localStorage.setItem('echoframe_allowed_pages', JSON.stringify(user.allowedPages));
+                // Create session data
+                const sessionData = {
+                    username: user.username,
+                    role: user.role,
+                    allowedPages: user.allowedPages,
+                    loginTime: new Date().toISOString(),
+                    token: 'authenticated'
+                };
                 
-                // Redirect to appropriate page
-                window.location.href = user.redirectTo;
+                // For sandboxed environment, use URL parameter
+                if (!storage.isLocalStorageAvailable() && !storage.isSessionStorageAvailable()) {
+                    const authToken = btoa(JSON.stringify(sessionData));
+                    window.location.href = `${user.redirectTo}?auth=${encodeURIComponent(authToken)}`;
+                } else {
+                    // Store session data
+                    storage.setItem('echoframe_session', JSON.stringify(sessionData));
+                    
+                    // Redirect to appropriate page
+                    window.location.href = user.redirectTo;
+                }
             } else {
                 errorMessage.style.display = 'block';
             }
@@ -161,12 +251,22 @@
 
         // Check if already logged in
         window.addEventListener('load', function() {
-            const token = localStorage.getItem('echoframe_token');
-            if (token === 'authenticated') {
-                const username = localStorage.getItem('echoframe_username');
-                const user = AUTH_CONFIG.validCredentials.find(cred => cred.username === username);
-                if (user) {
-                    window.location.href = user.redirectTo;
+            const session = storage.getItem('echoframe_session');
+            if (session) {
+                try {
+                    const sessionData = JSON.parse(session);
+                    if (sessionData.token === 'authenticated') {
+                        // Find user config to get redirect
+                        const userConfig = AUTH_CONFIG.validCredentials.find(
+                            cred => cred.username === sessionData.username
+                        );
+                        if (userConfig) {
+                            window.location.href = userConfig.redirectTo;
+                        }
+                    }
+                } catch (e) {
+                    // Invalid session data, clear it
+                    storage.removeItem('echoframe_session');
                 }
             }
         });
