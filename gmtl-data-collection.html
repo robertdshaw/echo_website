@@ -764,7 +764,34 @@
             function removeField(btn) {
               btn.parentElement.remove();
             }
-        
+
+            function addPoliticalIndicator() {
+                const container = document.getElementById('political-indicators-container');
+                const div = document.createElement('div');
+                div.className = 'dynamic-field';
+                div.innerHTML = `
+                <textarea name="political_indicators[]" placeholder="Add another political indicator"></textarea>
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+                `;
+                container.appendChild(div);
+                }
+              
+            function addEconomicIndicator() {
+                const container = document.getElementById('economic-indicators-container');
+                const div = document.createElement('div');
+                div.className = 'dynamic-field';
+                div.innerHTML = `
+                <textarea name="economic_indicators[]" placeholder="Add another economic indicator"></textarea>
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+                `;
+                container.appendChild(div);
+                }
+              
+                // your existing removeField:
+            function removeField(btn) {
+                btn.parentElement.remove();
+                }
+              
             // … your existing auth + form‐submission code …
           
             function addRegion() {
