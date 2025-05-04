@@ -367,7 +367,7 @@
         </form>
     </div>
         
-        <!-- Protected Content -->
+    <!-- Protected Content -->
     <div class="protected-content" id="protectedContent">
         <h1>GMTL Advisory Information Request</h1>
         
@@ -461,13 +461,12 @@
 
             <!-- Section 3: Risk Indicators -->
             <div class="form-section">
-                <h3>3. Risk Indicators & Red Flags</h3>
+                <h3>3. Risk Indicators &amp; Red Flags</h3>
                 <p class="section-description">
                     Your experience in identifying early warning signals is invaluable. We'll use these to train ECHOFRAME's alert system.
                 </p>
                 
                 <div class="form-group">
-                    <div id="riskTaxonomyContainer"></div>
                     <label>Top political risk indicators you watch for:</label>
                     <div id="political-indicators-container">
                         <div class="dynamic-field">
@@ -477,7 +476,7 @@
                     </div>
                     <button type="button" class="add-button" onclick="addPoliticalIndicator()">Add Indicator</button>
                     <div class="example-box">
-                        Example: "Cabinet reshuffles involving finance minister - Often signals policy shifts affecting foreign investment"
+                        Example: "Cabinet reshuffles involving finance minister – Often signals policy shifts affecting foreign investment"
                     </div>
                 </div>
                 
@@ -491,7 +490,7 @@
                     </div>
                     <button type="button" class="add-button" onclick="addEconomicIndicator()">Add Indicator</button>
                     <div class="example-box">
-                        Example: "Draft legislation in official gazette - Provides 30-60 day warning before laws change"
+                        Example: "Draft legislation in official gazette – Provides 30–60 day warning before laws change"
                     </div>
                 </div>
             </div>
@@ -513,7 +512,7 @@
                     </div>
                     <button type="button" class="add-button" onclick="addTask()">Add Task</button>
                     <div class="example-box">
-                        Example: "Daily scanning of 15-20 regional newspapers for policy mentions - Takes 2-3 hours daily"
+                        Example: "Daily scanning of 15–20 regional newspapers – Takes 2–3 hours daily"
                     </div>
                 </div>
                 
@@ -527,12 +526,12 @@
                     </div>
                     <button type="button" class="add-button" onclick="addClientQuestion()">Add Question</button>
                     <div class="example-box">
-                        Example: "What's the 5-year history of mining protests in Peru? - Currently requires 2-3 days of research"
+                        Example: "What's the 5-year history of mining protests in Peru? – Currently requires 2–3 days of research"
                     </div>
                 </div>
             </div>
 
-            <!-- Section 5: Specific Case Examples -->
+            <!-- Section 5: Recent Projects -->
             <div class="form-section">
                 <h3>5. Recent Project Examples</h3>
                 <p class="section-description">
@@ -569,12 +568,12 @@
                     <label>Example project challenges (generalized):</label>
                     <textarea name="project_challenges" placeholder="What made these projects challenging? What research was most difficult?"></textarea>
                     <div class="example-box">
-                        Example: "Italian biochemicals due diligence - Needed to uncover supply chain risks not visible in public records; required extensive local source network"
+                        Example: "Italian biochemicals due diligence – Needed to uncover supply chain risks not visible in public records; required extensive local source network"
                     </div>
                 </div>
             </div>
 
-            <!-- Section 6: Deliverable Preferences -->
+            <!-- Section 6: Deliverables -->
             <div class="form-section">
                 <h3>6. Client Deliverable Preferences</h3>
                 <p class="section-description">
@@ -608,8 +607,8 @@
                     <select name="risk_scoring">
                         <option value="">Select your system</option>
                         <option value="high_medium_low">High/Medium/Low</option>
-                        <option value="1_5">1-5 Scale</option>
-                        <option value="1_10">1-10 Scale</option>
+                        <option value="1_5">1–5 Scale</option>
+                        <option value="1_10">1–10 Scale</option>
                         <option value="traffic_light">Red/Amber/Green</option>
                         <option value="custom">Custom System</option>
                     </select>
@@ -625,7 +624,7 @@
             <div class="form-section">
                 <h3>7. How ECHOFRAME Can Help</h3>
                 <p class="section-description">
-                    Let's discuss how ECHOFRAME can best support GMTL's work.
+                    Let’s discuss how ECHOFRAME can best support GMTL’s work.
                 </p>
                 
                 <div class="form-group">
@@ -656,7 +655,7 @@
                 </div>
             </div>
 
-            <!-- Contact Information -->
+            <!-- Section 8: Contact Information -->
             <div class="form-section">
                 <h3>8. Contact Information</h3>
                 
@@ -682,9 +681,8 @@
         <button class="login-button" onclick="showLoginForm()">Login</button>
     </div>
 
-
     <script>
-        // Configuration - Change these values!
+        // 1) Auth configuration
         const AUTH_CONFIG = {
             validCredentials: [
                 { username: 'simon', password: 'gmtl2024' },
@@ -694,388 +692,252 @@
             tokenName: 'echoframe_auth_token',
             tokenExpiry: 24 * 60 * 60 * 1000 // 24 hours
         };
+
+        // 2) In-memory fallback
         if (!window.__memoryStorage) window.__memoryStorage = {};
 
-        // Storage wrapper to handle sandboxed environments
+        // 3) Storage wrapper
         const storage = {
-            isAvailable: function() {
+            isAvailable() {
                 try {
-                    const test = '__test__';
-                    localStorage.setItem(test, test);
-                    localStorage.removeItem(test);
+                    localStorage.setItem('__test__','x');
+                    localStorage.removeItem('__test__');
                     return true;
-                } catch(e) {
+                } catch {
                     return false;
                 }
             },
-            getItem: function(key) {
-                if (this.isAvailable()) {
-                    return localStorage.getItem(key);
-                }
-                // Fallback to sessionStorage or memory
-                try {
-                    return sessionStorage.getItem(key);
-                } catch(e) {
-                    // Use in-memory storage as last resort
-                    return window.__memoryStorage?.[key] || null;
-                }
+            getItem(key) {
+                if (this.isAvailable()) return localStorage.getItem(key);
+                try { return sessionStorage.getItem(key); }
+                catch { return window.__memoryStorage[key] || null; }
             },
-            setItem: function(key, value) {
-                if (this.isAvailable()) {
-                    return localStorage.setItem(key, value);
-                }
-                // Fallback to sessionStorage
-                try {
-                    return sessionStorage.setItem(key, value);
-                } catch(e) {
-                    // Use in-memory storage as last resort
-                    if (!window.__memoryStorage) window.__memoryStorage = {};
-                    window.__memoryStorage[key] = value;
-                }
+            setItem(key,val) {
+                if (this.isAvailable()) return localStorage.setItem(key,val);
+                try { return sessionStorage.setItem(key,val); }
+                catch { window.__memoryStorage[key]=val; }
             },
-            removeItem: function(key) {
-                if (this.isAvailable()) {
-                    return localStorage.removeItem(key);
-                }
-                // Fallback to sessionStorage
-                try {
-                    return sessionStorage.removeItem(key);
-                } catch(e) {
-                    // Use in-memory storage as last resort
-                    if (window.__memoryStorage) {
-                        delete window.__memoryStorage[key];
-                    }
-                }
+            removeItem(key) {
+                if (this.isAvailable()) localStorage.removeItem(key);
+                try { sessionStorage.removeItem(key); }
+                catch { delete window.__memoryStorage[key]; }
             }
         };
 
-        // Check if user is already logged in
+        // 4) Auth check with redirect + return false
         function checkAuth() {
-            const token = storage.getItem(AUTH_CONFIG.tokenName);
-            const tokenExpiry = storage.getItem(AUTH_CONFIG.tokenName + '_expiry');
-            
-            if (token && tokenExpiry && new Date().getTime() < parseInt(tokenExpiry)) {
-                return true;
-            }
-            
-            // Clear expired token
+            const token = storage.getItem(AUTH_CONFIG.tokenName),
+                  expiry = storage.getItem(AUTH_CONFIG.tokenName + '_expiry');
+            if (token && expiry && Date.now() < parseInt(expiry)) return true;
+
             storage.removeItem(AUTH_CONFIG.tokenName);
             storage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
             window.location.href = 'https://echo-website-git-main-rob-shaws-projects-8a8a35f9.vercel.app/login.html';
-;
+            return false;
         }
 
-        // Show/hide content based on auth status
+        // 5) Show/hide UI
         function updateUIBasedOnAuth() {
-            const isAuthenticated = checkAuth();
-            const loginButton = document.querySelector('.login-button');
-            const logoutButton = document.querySelector('.logout-button');
-            const protectedContent = document.getElementById('protectedContent');
-            const accessDenied = document.getElementById('accessDenied');
-            const loginForm = document.getElementById('loginForm');
-            
-            if (isAuthenticated) {
-                loginButton.style.display = 'none';
-                logoutButton.style.display = 'block';
-                protectedContent.style.display = 'block';
-                accessDenied.style.display = 'none';
-                loginForm.style.display = 'none';
-            } else {
-                loginButton.style.display = 'block';
-                logoutButton.style.display = 'none';
-                protectedContent.style.display = 'none';
-                accessDenied.style.display = 'block';
-            }
+            const auth = checkAuth(),
+                  loginBtn = document.querySelector('.login-button'),
+                  logoutBtn= document.querySelector('.logout-button'),
+                  pc = document.getElementById('protectedContent'),
+                  ad = document.getElementById('accessDenied'),
+                  lf = document.getElementById('loginForm');
+
+            loginBtn.style.display   = auth ? 'none' : 'inline-block';
+            logoutBtn.style.display  = auth ? 'inline-block' : 'none';
+            pc.style.display         = auth ? 'block' : 'none';
+            ad.style.display         = auth ? 'none' : 'block';
+            lf.style.display         = 'none';
         }
 
-        // Show login form
+        // 6) Show login form
         function showLoginForm() {
-            const loginForm = document.getElementById('loginForm');
-            loginForm.style.display = 'block';
-            window.scrollTo(0, 0);
+            document.getElementById('loginForm').style.display = 'block';
+            window.scrollTo(0,0);
         }
 
-        // Handle login
-        function handleLogin(event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
-            
-            // Check credentials
-            const validUser = AUTH_CONFIG.validCredentials.find(
-                cred => cred.username === username && cred.password === password
-            );
-            
-            if (validUser) {
-                // Store username for form submissions
-                storage.setItem('echoframe_username', username);
-                
-                // Create token (in a real app, this would come from the server)
-                const token = btoa(username + ':' + new Date().getTime());
-                const expiry = new Date().getTime() + AUTH_CONFIG.tokenExpiry;
-                
-                // Store in storage
-                storage.setItem(AUTH_CONFIG.tokenName, token);
-                storage.setItem(AUTH_CONFIG.tokenName + '_expiry', expiry);
-                
-                // Hide login form and update UI
-                document.getElementById('loginForm').style.display = 'none';
-                errorMessage.style.display = 'none';
-                updateUIBasedOnAuth();
-            } else {
-                errorMessage.style.display = 'block';
+        // 7) Handle login
+        function handleLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('username').value,
+                  p = document.getElementById('password').value,
+                  em= document.getElementById('errorMessage');
+
+            const user = AUTH_CONFIG.validCredentials.find(c=>c.username===u&&c.password===p);
+            if (!user) {
+                em.style.display='block';
+                return;
             }
+
+            storage.setItem('echoframe_username',u);
+            const tok = btoa(u+':'+Date.now()),
+                  exp = Date.now()+AUTH_CONFIG.tokenExpiry;
+            storage.setItem(AUTH_CONFIG.tokenName,tok);
+            storage.setItem(AUTH_CONFIG.tokenName+'_expiry',exp.toString());
+            em.style.display='none';
+            updateUIBasedOnAuth();
         }
 
-        // Handle logout
+        // 8) Handle logout
         function logout() {
             storage.removeItem(AUTH_CONFIG.tokenName);
-            storage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
+            storage.removeItem(AUTH_CONFIG.tokenName+'_expiry');
             storage.removeItem('echoframe_username');
             updateUIBasedOnAuth();
-            // Don't redirect in sandboxed environment
-            if (!document.location.href.includes('sandbox')) {
+            if (!location.href.includes('sandbox')) {
                 window.location.href = 'https://echo-website-git-main-rob-shaws-projects-8a8a35f9.vercel.app/login.html';
-;
             }
         }
 
-        // Dynamic field functions
+        // 9) Dynamic-field helpers (no stray container divs)
         function addRiskCategory() {
-            const container = document.getElementById('riskTaxonomyContainer');
-            const newCategory = document.createElement('div');
-            newCategory.className = 'risk-category';
-            newCategory.innerHTML = `
+            const c=document.getElementById('riskTaxonomyContainer'),
+                  d=document.createElement('div');
+            d.className='risk-category';
+            d.innerHTML=`
                 <h4>Custom Risk Category</h4>
                 <div class="form-group">
-                    <label>Category Name:</label>
-                    <input type="text" name="custom_category_name[]" placeholder="e.g., Climate Risk">
+                  <label>Category Name:</label>
+                  <input type="text" name="custom_category_name[]" placeholder="e.g., Climate Risk">
                 </div>
                 <div class="form-group">
-                    <label>Subcategories and Indicators:</label>
-                    <textarea name="custom_category_indicators[]" placeholder="List subcategories and their indicators"></textarea>
+                  <label>Subcategories and Indicators:</label>
+                  <textarea name="custom_category_indicators[]" placeholder="List subcategories and their indicators"></textarea>
                 </div>
-                <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>
-            `;
-            container.appendChild(newCategory);
-        }
-
-        function addRiskSignal() {
-            const container = document.getElementById('riskSignalsContainer');
-            const newSignal = document.createElement('div');
-            newSignal.className = 'risk-category';
-            newSignal.innerHTML = `
-                <div id="riskSignalsContainer"></div>
-                <div class="form-group">
-                    <label>Risk Type:</label>
-                    <input type="text" name="signal_risk_type[]" placeholder="e.g., Government Collapse">
-                </div>
-                <div class="form-group">
-                    <label>Early Warning Signals:</label>
-                    <textarea name="signal_early[]" placeholder="e.g., Cabinet resignations, coalition tensions"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Crisis Indicators:</label>
-                    <textarea name="signal_crisis[]" placeholder="e.g., Mass protests, military statements"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Typical Timeline:</label>
-                    <select name="signal_timeline[]">
-                        <option value="days">Days</option>
-                        <option value="weeks">Weeks</option>
-                        <option value="months">Months</option>
-                        <option value="years">Years</option>
-                    </select>
-                </div>
-                <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>
-            `;
-            container.appendChild(newSignal);
-        }
-
-        function addHistoricalCase() {
-            const container = document.getElementById('historicalCasesContainer');
-            const newCase = document.createElement('div');
-            newCase.className = 'risk-category';
-            newCase.innerHTML = `
-                <div id="historicalCasesContainer"></div>
-                <div class="form-group">
-                    <label>Event Name:</label>
-                    <input type="text" name="case_name[]" placeholder="e.g., 2019 Chile Protests">
-                </div>
-                <div class="form-group">
-                    <label>Country:</label>
-                    <select name="case_country[]">
-                        <option value="">Select Country</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Brazil">Brazil</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Mexico">Mexico</option>
-                        <option value="Peru">Peru</option>
-                        <option value="Venezuela">Venezuela</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Date Range:</label>
-                    <input type="text" name="case_date[]" placeholder="e.g., October 2019 - March 2020">
-                </div>
-                <div class="form-group">
-                    <label>Early Indicators You Identified:</label>
-                    <textarea name="case_indicators[]" placeholder="What signals did you detect before others?"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Lessons Learned:</label>
-                    <textarea name="case_lessons[]" placeholder="What patterns emerged?"></textarea>
-                </div>
-                <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>
-            `;
-            container.appendChild(newCase);
-        }
-
-        function addClientQuestion() {
-            <div id="clientQuestionsContainer"></div>
-            const container = document.getElementById('clientQuestionsContainer');
-            const newQuestion = document.createElement('div');
-            newQuestion.className = 'dynamic-field';
-            newQuestion.innerHTML = `
-                <input type="text" name="client_questions[]" placeholder="Add another common client question" style="flex: 1;">
                 <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
             `;
-            container.appendChild(newQuestion);
+            c.appendChild(d);
         }
-
-        function removeField(button) {
-            button.parentElement.remove();
+        function addRiskSignal() {
+            const c=document.getElementById('riskSignalsContainer'),
+                  d=document.createElement('div');
+            d.className='risk-category';
+            d.innerHTML=`
+                <div class="form-group">
+                  <label>Risk Type:</label>
+                  <input type="text" name="signal_risk_type[]" placeholder="e.g., Government Collapse">
+                </div>
+                <div class="form-group">
+                  <label>Early Warning Signals:</label>
+                  <textarea name="signal_early[]" placeholder="e.g., Cabinet resignations, coalition tensions"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Crisis Indicators:</label>
+                  <textarea name="signal_crisis[]" placeholder="e.g., Mass protests, military statements"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Typical Timeline:</label>
+                  <select name="signal_timeline[]">
+                    <option value="days">Days</option>
+                    <option value="weeks">Weeks</option>
+                    <option value="months">Months</option>
+                    <option value="years">Years</option>
+                  </select>
+                </div>
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+            `;
+            c.appendChild(d);
         }
+        function addHistoricalCase() {
+            const c=document.getElementById('historicalCasesContainer'),
+                  d=document.createElement('div');
+            d.className='risk-category';
+            d.innerHTML=`
+                <div class="form-group">
+                  <label>Event Name:</label>
+                  <input type="text" name="case_name[]" placeholder="e.g., 2019 Chile Protests">
+                </div>
+                <div class="form-group">
+                  <label>Country:</label>
+                  <select name="case_country[]">
+                    <option value="">Select Country</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Peru">Peru</option>
+                    <option value="Venezuela">Venezuela</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Date Range:</label>
+                  <input type="text" name="case_date[]" placeholder="e.g., October 2019 – March 2020">
+                </div>
+                <div class="form-group">
+                  <label>Early Indicators You Identified:</label>
+                  <textarea name="case_indicators[]" placeholder="What signals did you detect before others?"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Lessons Learned:</label>
+                  <textarea name="case_lessons[]" placeholder="What patterns emerged?"></textarea>
+                </div>
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+            `;
+            c.appendChild(d);
+        }
+        function addClientQuestion() {
+            const c=document.getElementById('client-questions-container'),
+                  d=document.createElement('div');
+            d.className='dynamic-field';
+            d.innerHTML=`
+                <input type="text" name="client_questions[]" placeholder="Add another common client question" style="flex:1;">
+                <button type="button" class="remove-button" onclick="removeField(this)">Remove</button>
+            `;
+            c.appendChild(d);
+        }
+        function removeField(btn){ btn.parentElement.remove(); }
 
-        // Form submission handler
+        // 10) DOMContentLoaded: UI init + form handler
         document.addEventListener('DOMContentLoaded', function() {
+            updateUIBasedOnAuth();
             const form = document.getElementById('gmtlForm');
-            
             if (form) {
                 form.addEventListener('submit', async function(e) {
                     e.preventDefault();
-                    
-                    // Show loading message
-                    const submitBtn = this.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.textContent;
+                    const submitBtn = this.querySelector('button[type="submit"]'),
+                          originalText = submitBtn.textContent;
                     submitBtn.textContent = 'Submitting...';
                     submitBtn.disabled = true;
-                    
-                    // Collect form data
-                    const formData = new FormData(this);
-                    const data = {};
-                    formData.forEach((value, key) => {
-                        if (!data[key]) {
-                            data[key] = value;
-                        } else {
-                            if (!Array.isArray(data[key])) {
-                                data[key] = [data[key]];
-                            }
-                            data[key].push(value);
+
+                    const formData = new FormData(this), data={};
+                    formData.forEach((v,k)=>{
+                        if (!data[k]) data[k]=v;
+                        else {
+                            if (!Array.isArray(data[k])) data[k]=[data[k]];
+                            data[k].push(v);
                         }
                     });
-                    
-                    // Prepare submission data
-                    const submissionData = {
-                        formType: 'GMTL Risk Framework',
-                        username: storage.getItem('echoframe_username') || 'Anonymous',
-                        formData: data
+
+                    const payload = {
+                        formType:'GMTL Risk Framework',
+                        username:storage.getItem('echoframe_username')||'Anonymous',
+                        formData:data
                     };
-                    
 
-
-                    
                     try {
-                        // Submit to Google Sheets
-                        const response = await fetch('https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec', {
-                            method: 'POST',           
-                            mode: 'no-cors', // Important for Google Scripts
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(submissionData)
-                        });
-                        
-                        // Show success message
-                        alert('Form submitted successfully! Thank you for your response.');
-                        
-                        // Optionally reset form
-                        // this.reset();
-                        
-                    } catch (error) {
-                        console.error('Error:', error);
+                        await fetch(
+                          'https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec',
+                          {method:'POST',mode:'no-cors',
+                           headers:{'Content-Type':'application/json'},
+                           body:JSON.stringify(payload)}
+                        );
+                        alert('Form submitted successfully!');
+                    } catch(err){
+                        console.error(err);
                         alert('There was an error submitting the form. Please try again.');
                     } finally {
-                        // Restore button
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
+                        submitBtn.textContent=originalText;
+                        submitBtn.disabled=false;
                     }
                 });
             }
+        });
 
-            document.addEventListener('DOMContentLoaded', function() {
-                const form = document.getElementById('gmtlForm');
-                
-                if (form) {
-                    form.addEventListener('submit', async function(e) {
-                        e.preventDefault();
-                        
-                        const submitBtn = this.querySelector('button[type="submit"]');
-                        const originalText = submitBtn.textContent;
-                        submitBtn.textContent = 'Submitting...';
-                        submitBtn.disabled = true;
-            
-                        const formData = new FormData(this);
-                        const data = {};
-            
-                        formData.forEach((value, key) => {
-                            if (!data[key]) {
-                                data[key] = value;
-                            } else {
-                                if (!Array.isArray(data[key])) {
-                                    data[key] = [data[key]];
-                                }
-                                data[key].push(value);
-                            }
-                        });
-            
-                        const submissionData = {
-                            formType: 'GMTL Risk Framework',
-                            username: storage.getItem('echoframe_username') || 'Anonymous',
-                            formData: data
-                        };
-            
-                        try {
-                            await fetch('https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec', {
-                                method: 'POST',
-                                mode: 'no-cors',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(submissionData)
-                            });
-            
-                            alert('Form submitted successfully! Thank you for your response.');
-                            // this.reset(); // optionally re-enable this
-                        } catch (error) {
-                            console.error('Error:', error);
-                            alert('There was an error submitting the form. Please try again.');
-                        } finally {
-                            submitBtn.textContent = originalText;
-                            submitBtn.disabled = false;
-                        }
-                    });
-                }
-            
-                updateUIBasedOnAuth();
-            });
-            
-          
-        // Periodically check if token is still valid
-        setInterval(updateUIBasedOnAuth, 60000); // Check every minute
+        // 11) Periodic auth check
+        setInterval(updateUIBasedOnAuth, 60000);
     </script>
 </body>
 </html>
