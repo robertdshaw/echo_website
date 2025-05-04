@@ -79,6 +79,20 @@
       text-decoration: none !important;
     }
 
+    /* Fix for nav links appearing blue with underline */ 
+    .nav-links a { 
+      color: var(--text-secondary) !important; 
+      text-decoration: none !important; 
+      font-weight: 500; 
+      transition: color 0.3s ease; position: relative; padding: 0.25rem 0; } 
+      
+      .nav-links a:visited { 
+        color: var(--text-secondary) !important; 
+      } 
+      
+      .nav-links a:hover { color: var(--accent) !important; 
+        text-decoration: none !important; }
+
     /* General Mobile Improvements */
     html {
       -webkit-text-size-adjust: 100%;
