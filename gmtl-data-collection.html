@@ -1016,8 +1016,60 @@
                 });
             }
 
-            // Initialize on page load
-            window.addEventListener('load', function() {
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('gmtlForm');
+                
+                if (form) {
+                    form.addEventListener('submit', async function(e) {
+                        e.preventDefault();
+                        
+                        const submitBtn = this.querySelector('button[type="submit"]');
+                        const originalText = submitBtn.textContent;
+                        submitBtn.textContent = 'Submitting...';
+                        submitBtn.disabled = true;
+            
+                        const formData = new FormData(this);
+                        const data = {};
+            
+                        formData.forEach((value, key) => {
+                            if (!data[key]) {
+                                data[key] = value;
+                            } else {
+                                if (!Array.isArray(data[key])) {
+                                    data[key] = [data[key]];
+                                }
+                                data[key].push(value);
+                            }
+                        });
+            
+                        const submissionData = {
+                            formType: 'GMTL Risk Framework',
+                            username: storage.getItem('echoframe_username') || 'Anonymous',
+                            formData: data
+                        };
+            
+                        try {
+                            await fetch('https://script.google.com/macros/s/AKfycbwzNEVbEAKvMSVW2qFfAb7WTOeGt61xzoi7hhBFQlpPxdZY_7ayuy4fcj6AC11922cL/exec', {
+                                method: 'POST',
+                                mode: 'no-cors',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(submissionData)
+                            });
+            
+                            alert('Form submitted successfully! Thank you for your response.');
+                            // this.reset(); // optionally re-enable this
+                        } catch (error) {
+                            console.error('Error:', error);
+                            alert('There was an error submitting the form. Please try again.');
+                        } finally {
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                        }
+                    });
+                }
+            
                 updateUIBasedOnAuth();
             });
             
