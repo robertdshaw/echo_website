@@ -851,8 +851,8 @@
         // Handle login
         function handleGMTLSubmit(event) {
             event.preventDefault();
-        
-            // 1) Gather form fields exactly as before
+          
+            // 1) Gather form data
             const formData = new FormData(event.target);
             const data = {};
             formData.forEach((value, key) => {
@@ -860,20 +860,20 @@
                 data[key] = value;
               } else {
                 data[key] = Array.isArray(data[key])
-                            ? data[key].concat(value)
-                            : [data[key], value];
+                             ? data[key].concat(value)
+                             : [data[key], value];
               }
             });
-        
-            // 2) Add your metadata object exactly as before
+          
+            // 2) Build your submission object
             const submissionData = {
               formType:  'GMTL Risk Framework',
               username:  currentUser?.username || 'Anonymous',
               formData:  data,
               timestamp: new Date().toISOString()
             };
-        
-            // 3) POST to your Apps Script URL instead of console.log()/alert()
+          
+            // 3) POST it to Apps Script
             fetch(WEBAPP_URL, {
               method:  'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -891,9 +891,9 @@
               console.error('Network error:', err);
               alert('Network error: ' + err.message);
             });
-        
+          
             return false;
-          }
+          }          
 
         // Update navigation based on login state
         function updateNavigation() {
@@ -1053,67 +1053,6 @@
 
         function removeField(button) {
             button.parentElement.remove();
-        }
-
-        // Handle form submissions
-        function handleGMTLSubmit(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const data = {};
-            
-            formData.forEach((value, key) => {
-                if (!data[key]) {
-                    data[key] = value;
-                } else {
-                    if (!Array.isArray(data[key])) {
-                        data[key] = [data[key]];
-                    }
-                    data[key].push(value);
-                }
-            });
-            
-            // Add metadata
-            const submissionData = {
-                formType: 'GMTL Risk Framework',
-                username: currentUser ? currentUser.username : 'Anonymous',
-                formData: data,
-                timestamp: new Date().toISOString()
-            };
-            
-            console.log('GMTL form data:', submissionData);
-            alert('GMTL form submitted successfully!');
-            return false;
-        }
-
-        function handleLatinNewsSubmit(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const data = {};
-            
-            formData.forEach((value, key) => {
-                if (!data[key]) {
-                    data[key] = value;
-                } else {
-                    if (!Array.isArray(data[key])) {
-                        data[key] = [data[key]];
-                    }
-                    data[key].push(value);
-                }
-            });
-            
-            // Add metadata
-            const submissionData = {
-                formType: 'LatinNews Request',
-                username: currentUser ? currentUser.username : 'Anonymous',
-                formData: data,
-                timestamp: new Date().toISOString()
-            };
-            
-            console.log('LatinNews form data:', submissionData);
-            alert('LatinNews form submitted successfully!');
-            return false;
         }
 
         // Initialize
