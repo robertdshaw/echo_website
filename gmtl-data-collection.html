@@ -727,23 +727,16 @@
         // 4) Auth check with redirect + return false
         function checkAuth() {
             const token = storage.getItem(AUTH_CONFIG.tokenName);
-            const expiry = storage.getItem(AUTH_CONFIG.tokenName + '_expiry');
-            const isLoginPage = window.location.pathname.endsWith('login.html');
-            
-            if (token && expiry && Date.now() < parseInt(expiry)) {
+          
+            if (token === 'authenticated') {
               return true;
             }
-            
-            // Clear expired token
+          
+            // no valid token → send to login
             storage.removeItem(AUTH_CONFIG.tokenName);
-            storage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
-            
-            // only redirect if we’re _not_ already on login.html
-            if (!isLoginPage) {
-              window.location.href = 'https://echo-website-git-main-rob-shaws-projects-8a8a35f9.vercel.app/login.html';
-            }
+            window.location.href = 'login.html';
             return false;
-          }          
+          }             
 
         // 5) Show/hide UI
         function updateUIBasedOnAuth() {
