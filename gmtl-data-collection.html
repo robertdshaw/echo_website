@@ -729,40 +729,51 @@
         };
 
         // 4) Auth check with redirect + return false
-        // 1) Auth check with redirect + return false
-function checkAuth() {
-    const token = storage.getItem(AUTH_CONFIG.tokenName);
-
-    // only check for 'authenticated'
-    if (token === 'authenticated') {
-        return true;
-    }
-
-    // no valid token → cleanup and redirect
-    storage.removeItem(AUTH_CONFIG.tokenName);
-    storage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
-    window.location.href = 'login.html';
-    return false;
-}
-       
+        function checkAuth() {
+            const token = storage.getItem(AUTH_CONFIG.tokenName);
+          
+            if (token === 'authenticated') {
+              return true;
+            }
+          
+            // no valid token → send to login
+            storage.removeItem(AUTH_CONFIG.tokenName);
+            window.location.href = 'login.html';
+            return false;
+          }             
 
         // 5) Show/hide UI
-        // 1) Auth check with redirect + return false
-function checkAuth() {
-    const token = storage.getItem(AUTH_CONFIG.tokenName);
-
-    // only check for 'authenticated'
-    if (token === 'authenticated') {
-        return true;
-    }
-
-    // no valid token → cleanup and redirect
-    storage.removeItem(AUTH_CONFIG.tokenName);
-    storage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
-    window.location.href = 'login.html';
-    return false;
-}
-
+        function updateUIBasedOnAuth() {
+            const isAuthenticated   = checkAuth();
+            const username          = storage.getItem('echoframe_username');  // grab saved username
+            const loginButton       = document.querySelector('.login-button');
+            const logoutButton      = document.querySelector('.logout-button');
+            const protectedContent  = document.getElementById('protectedContent');
+            const accessDenied      = document.getElementById('accessDenied');
+            const loginForm         = document.getElementById('loginForm');
+            const welcomeSpan       = document.getElementById('welcomeUser');
+          
+            // Show “Welcome, USERNAME” if logged in; otherwise clear it
+            if (isAuthenticated && username) {
+              welcomeSpan.textContent = `Welcome, ${username}`;
+            } else {
+              welcomeSpan.textContent = '';
+            }
+          
+            if (isAuthenticated) {
+              loginButton.style.display      = 'none';
+              logoutButton.style.display     = 'block';
+              protectedContent.style.display = 'block';
+              accessDenied.style.display     = 'none';
+              loginForm.style.display        = 'none';
+            } else {
+              loginButton.style.display      = 'block';
+              logoutButton.style.display     = 'none';
+              protectedContent.style.display = 'none';
+              accessDenied.style.display     = 'block';
+            }
+          }
+          
 
         // 6) Show login form
         function showLoginForm() {
