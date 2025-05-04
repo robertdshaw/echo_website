@@ -617,50 +617,50 @@
 
         <form id="latinNewsForm" onsubmit="return handleLatinNewsSubmit(event)">
             <!-- Section 1: Archive Access -->
-            <div class="form-section">
-                <h3>1. Archive Access Request</h3>
-                <p class="section-description">
-                    We need access to LatinNews publications to train ECHOFRAME on historical patterns in Latin American political and economic events.
-                </p>
-                
-                <div class="form-group">
-                    <label>Which publications do we need for the prototype?</label>
-                    <div class="checkbox-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="pub_weekly" name="publications[]" value="weekly_report">
-                            <label for="pub_weekly">Latin American Weekly Report (Priority for pattern detection)</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="pub_security" name="publications[]" value="security_review">
-                            <label for="pub_security">Security & Strategic Review (For risk pattern analysis)</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="pub_economy" name="publications[]" value="economy_business">
-                            <label for="pub_economy">Economy & Business (For economic indicators)</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="pub_regional" name="publications[]" value="regional_reports">
-                            <label for="pub_regional">Regional Reports (Brazil & Southern Cone, Andean Group)</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="time_period">Time Period Needed:</label>
-                    <input type="text" id="time_period" name="time_period" placeholder="e.g., Last 3 years (2021-2024) for pattern training">
-                    <small style="display: block; margin-top: 5px; color: #666;">We need sufficient historical data to identify recurring patterns</small>
-                </div>
-                
-                <div class="form-group">
-                    <label for="access_method">Preferred Access Method:</label>
-                    <select id="access_method" name="access_method">
-                        <option value="api">API Access (Best for automation)</option>
-                        <option value="database">Database Export</option>
-                        <option value="bulk_download">Bulk Download (PDF/HTML)</option>
-                        <option value="web_scraping">Web Scraping Permission</option>
-                    </select>
-                </div>
+<div class="form-section">
+    <h3>1. Archive Access Request</h3>
+    <p class="section-description">
+        We need access to LatinNews publications to train ECHOFRAME on historical patterns in Latin American political and economic events.
+    </p>
+    
+    <div class="form-group">
+        <label>Which publications do we need for the prototype?</label>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="pub_weekly" name="publications[]" value="weekly_report">
+                <label for="pub_weekly">Latin American Weekly Report (Priority for pattern detection)</label>
             </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="pub_security" name="publications[]" value="security_review">
+                <label for="pub_security">Security & Strategic Review (For risk pattern analysis)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="pub_economy" name="publications[]" value="economy_business">
+                <label for="pub_economy">Economy & Business (For economic indicators)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="pub_regional" name="publications[]" value="regional_reports">
+                <label for="pub_regional">Regional Reports (Brazil & Southern Cone, Andean Group)</label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="time_period">Time Period Needed:</label>
+        <input type="text" id="time_period" name="time_period" placeholder="e.g., Last 3 years (2021-2024) for pattern training">
+        <small style="display: block; margin-top: 5px; color: #666;">We need sufficient historical data to identify recurring patterns</small>
+    </div>
+    
+    <div class="form-group">
+        <label for="access_method">Preferred Access Method:</label>
+        <select id="access_method" name="access_method">
+            <option value="api">API Access (Best for automation)</option>
+            <option value="database">Database Export</option>
+            <option value="bulk_download">Bulk Download (PDF/HTML)</option>
+            <option value="web_scraping">Web Scraping Permission</option>
+        </select>
+    </div>
+</div>
 
             <!-- Section 2: Content Organization -->
             <div class="form-section">
