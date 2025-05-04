@@ -682,6 +682,7 @@
         <button class="login-button" onclick="showLoginForm()">Login</button>
     </div>
 
+
     <script>
         // Configuration - Change these values!
         const AUTH_CONFIG = {
@@ -760,7 +761,8 @@
             // Clear expired token
             storage.removeItem(AUTH_CONFIG.tokenName);
             storage.removeItem(AUTH_CONFIG.tokenName + '_expiry');
-            return false;
+            window.location.href = 'https://echo-website-git-main-rob-shaws-projects-8a8a35f9.vercel.app/login.html';
+;
         }
 
         // Show/hide content based on auth status
@@ -1015,9 +1017,11 @@
             }
 
             // Initialize on page load
-            updateUIBasedOnAuth();
-        });
-
+            window.addEventListener('load', function() {
+                updateUIBasedOnAuth();
+            });
+            
+          
         // Periodically check if token is still valid
         setInterval(updateUIBasedOnAuth, 60000); // Check every minute
     </script>
