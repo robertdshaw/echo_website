@@ -692,6 +692,7 @@
             tokenName: 'echoframe_auth_token',
             tokenExpiry: 24 * 60 * 60 * 1000 // 24 hours
         };
+        if (!window.__memoryStorage) window.__memoryStorage = {};
 
         // Storage wrapper to handle sandboxed environments
         const storage = {
