@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoFrame Data Collection System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #333;
+            color: white;
+            padding: 15px;
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: #555;
+            border-radius: 4px;
+        }
+
+        .logout-button {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Page Sections */
+        .page-section {
+            display: none;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Login Form */
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .login-container h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background: #1976D2;
+        }
+
+        .error-message {
+            color: #f44336;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        /* Form Styles */
+        .form-section {
+            background: white;
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2196F3;
+        }
+
+        .info-box {
+            background: #f0f7ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+            color: #1976D2;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar-content {
+                flex-direction: column;
+            }
+            
+            .navbar-menu {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .nav-link {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">EchoFrame</div>
+            <div class="navbar-menu" id="navMenu">
+                <a class="nav-link" onclick="showPage('home')">Home</a>
+                <span id="welcomeUser" style="color: white; margin: 0 15px;"></span>
+                <span id="protectedLinks" style="display: none;">
+                    <a class="nav-link" id="gmtlLink" onclick="showPage('gmtl')" style="display: none;">GMTL Data</a>
+                    <a class="nav-link" id="latinnewsLink" onclick="showPage('latinnews')" style="display: none;">LatinNews Data</a>
+                </span>
+                <button class="logout-button" id="logoutBtn" onclick="logout()" style="display: none;">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home/Login Page -->
+    <div id="homePage" class="page-section active">
+        <div class="login-container">
+            <h1>EchoFrame Login</h1>
+            <form onsubmit="return handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="submit-button">Login</button>
+                <div id="errorMessage" class="error-message">Invalid username or password</div>
+            </form>
+            
+            <div style="margin-top: 30px; text-align: center; color: #666;">
+                <p>Demo Credentials:</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li>simon / gmtl2024 (GMTL Access)</li>
+                    <li>latinnews / latin2024 (LatinNews Access)</li>
+                    <li>admin / admin2024 (Full Access)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- GMTL Data Collection Page -->
+    <div id="gmtlPage" class="page-section">
+        <h1>GMTL Advisory Information Request</h1>
+        
+        <div class="info-box">
+            <h3>About This Request</h3>
+            <p>GMTL Advisory specializes in strategic intelligence and risk advisory for emerging markets. This form helps us understand GMTL's methodology to build ECHOFRAME as a complementary tool.</p>
+        </div>
+
+        <form id="gmtlForm" onsubmit="return handleGMTLSubmit(event)">
+            <div class="form-section">
+                <h3>1. Sample Client Reports</h3>
+                <div class="form-group">
+                    <label>Types of reports you can share:</label>
+                    <div style="margin-left: 20px;">
+                        <div>
+                            <input type="checkbox" id="report_weekly" name="report_types[]" value="weekly_monitoring">
+                            <label for="report_weekly" style="display: inline;">Weekly monitoring report</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="report_strategic" name="report_types[]" value="strategic_advisory">
+                            <label for="report_strategic" style="display: inline;">Strategic advisory report</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Report structure:</label>
+                    <textarea name="report_structure" style="width: 100%; height: 100px; padding: 8px;"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button" style="width: auto; padding: 12px 24px;">Submit GMTL Information</button>
+        </form>
+    </div>
+
+    <!-- LatinNews Data Collection Page -->
+    <div id="latinnewsPage" class="page-section">
+        <h1>LatinNews Content Access Request</h1>
+        
+        <div class="info-box">
+            <h3>About This Request</h3>
+            <p>LatinNews has been providing specialized Latin America intelligence since 1967. We're requesting access to their archive to build ECHOFRAME's historical pattern detection system.</p>
+        </div>
+
+        <form id="latinNewsForm" onsubmit="return handleLatinNewsSubmit(event)">
+            <div class="form-section">
+                <h3>1. Archive Access Request</h3>
+                <div class="form-group">
+                    <label>Time Period Needed:</label>
+                    <input type="text" name="time_period" placeholder="e.g., Last 3 years (2021-2024)">
+                </div>
+                
+                <div class="form-group">
+                    <label>Preferred Access Method:</label>
+                    <select name="access_method" style="width: 100%; padding: 8px;">
+                        <option value="api">API Access</option>
+                        <option value="database">Database Export</option>
+                        <option value="bulk_download">Bulk Download</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button" style="width: auto; padding: 12px 24px;">Submit LatinNews Request</button>
+        </form>
+    </div>
+
+    <script>
+        // Simple auth state
+        let currentUser = null;
+        let currentPage = 'home';
+
+        // Available users
+        const users = {
+            'simon': { password: 'gmtl2024', access: ['gmtl'] },
+            'latinnews': { password: 'latin2024', access: ['latinnews'] },
+            'admin': { password: 'admin2024', access: ['gmtl', 'latinnews'] }
+        };
+
+        // Handle login
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            const user = users[username];
+            
+            if (user && user.password === password) {
+                currentUser = {
+                    username: username,
+                    access: user.access
+                };
+                
+                // Update UI
+                updateNavigation();
+                
+                // Show appropriate page
+                if (user.access.includes('gmtl')) {
+                    showPage('gmtl');
+                } else if (user.access.includes('latinnews')) {
+                    showPage('latinnews');
+                }
+                
+                errorMessage.style.display = 'none';
+            } else {
+                errorMessage.style.display = 'block';
+            }
+            
+            return false;
+        }
+
+        // Update navigation based on login state
+        function updateNavigation() {
+            const welcomeUser = document.getElementById('welcomeUser');
+            const protectedLinks = document.getElementById('protectedLinks');
+            const gmtlLink = document.getElementById('gmtlLink');
+            const latinnewsLink = document.getElementById('latinnewsLink');
+            const logoutBtn = document.getElementById('logoutBtn');
+            
+            if (currentUser) {
+                welcomeUser.textContent = `Welcome, ${currentUser.username}`;
+                protectedLinks.style.display = 'inline';
+                logoutBtn.style.display = 'inline-block';
+                
+                // Show/hide links based on access
+                if (currentUser.access.includes('gmtl')) {
+                    gmtlLink.style.display = 'inline-block';
+                }
+                if (currentUser.access.includes('latinnews')) {
+                    latinnewsLink.style.display = 'inline-block';
+                }
+            } else {
+                welcomeUser.textContent = '';
+                protectedLinks.style.display = 'none';
+                logoutBtn.style.display = 'none';
+            }
+        }
+
+        // Show specific page
+        function showPage(page) {
+            // Check access
+            if (page !== 'home' && !currentUser) {
+                showPage('home');
+                return;
+            }
+            
+            if (page !== 'home' && !currentUser.access.includes(page)) {
+                alert('You do not have access to this page.');
+                return;
+            }
+            
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(page + 'Page').classList.add('active');
+            
+            // Update nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            currentPage = page;
+        }
+
+        // Handle logout
+        function logout() {
+            currentUser = null;
+            updateNavigation();
+            showPage('home');
+        }
+
+        // Handle form submissions
+        function handleGMTLSubmit(event) {
+            event.preventDefault();
+            alert('GMTL form submitted successfully! (In production, this would send data to the server)');
+            return false;
+        }
+
+        function handleLatinNewsSubmit(event) {
+            event.preventDefault();
+            alert('LatinNews form submitted successfully! (In production, this would send data to the server)');
+            return false;
+        }
+
+        // Initialize
+        updateNavigation();
+    </script>
+</body>
+</html>
