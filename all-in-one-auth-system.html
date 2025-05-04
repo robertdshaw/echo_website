@@ -180,34 +180,36 @@
          /* ————————————————————————————————————————
    Checkbox styles: 2-col desktop, 1-col mobile
    ———————————————————————————————————————— */
-.checkbox-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;          /* space between items */
-    margin-top: 1rem;   /* keep your spacing */
-  }
+        /* Checkbox styles: 2-column desktop, 1-column mobile, flush alignment */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;           /* space between items */
+            margin-top: 1rem;    /* match your form spacing */
+        }
   
-  .checkbox-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
+        .checkbox-item {
+            display: flex;
+            align-items: center; /* vertical center of box & text */
+            gap: 0.25rem;        /* tight 4px gap between checkbox & label */
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            margin: 0;           /* remove any extra margins */
+        }
+        
+        .checkbox-item label {
+            margin: 0;
+            line-height: 1.4;    /* nice multi-line wrap */
+        }
+        
+        /* Collapse to single column on tablets & phones */
+        @media (max-width: 768px) {
+            .checkbox-group {
+            grid-template-columns: 1fr;
+            }
+        }
   
-  .checkbox-item input[type="checkbox"] {
-    margin-top: 4px;
-  }
-  
-  .checkbox-item label {
-    margin: 0;
-    line-height: 1.4;   /* ensure multi-line labels wrap nicely */
-  }
-  
-  /* Force one-column under 768px */
-  @media (max-width: 768px) {
-    .checkbox-group {
-      grid-template-columns: 1fr;
-    }
-  }  
         .dynamic-field {
             display: flex;
             gap: 10px;
