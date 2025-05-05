@@ -133,7 +133,14 @@
       height: 60px;
       width: auto;
     }
-
+    .logo-text {
+      color: var(--text-primary);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-left: 0.75rem;
+    }
+    
     @media (max-width: 768px) {
       .nav-links {
         display: flex;
@@ -168,7 +175,7 @@
         font-size: 1.25rem;
         margin-left: 0.75rem;
       }
-      
+
       .mobile-menu-btn {
         display: block;
         background: none;
@@ -455,7 +462,57 @@
       left: 0;
       color: var(--accent);
     }
+/* Mobile Navigation Fixes */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0.75rem;
+  }
+  
+  /* Create hamburger menu for mobile */
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--bg-dark);
+    flex-direction: column;
+    padding: 1rem;
+    z-index: 100;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links a {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  /* Hero section fixes */
+  .hero {
+    padding: 2rem 1rem;
+    min-height: 70vh;
+  }
+  
+  .dynamic-tagline {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+}
 
+/* Make sure hero title doesn't get cut off */
+@media (max-width: 480px) {
+  .hero {
+    padding-bottom: 4rem;
+  }
+}
     /* Solution Flow */
     .solution-flow {
       display: grid;
@@ -1876,6 +1933,17 @@
         generateBtn.disabled = false;
       }, 500);
     }
+
+    // Mobile menu functionality
+function toggleMenu() {
+  const navLinks = document.getElementById('navLinks');
+  navLinks.classList.toggle('active');
+}
+
+function closeMenu() {
+  const navLinks = document.getElementById('navLinks');
+  navLinks.classList.remove('active');
+}
   </script>
 
 </body>
