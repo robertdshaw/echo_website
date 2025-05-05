@@ -236,8 +236,8 @@
       width: 100%;
     }
 
-/* Add this to the head section to import Poppins font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Add this to the head section to import Poppins font with more weights */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Hero Section */
 .hero {
@@ -269,12 +269,29 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.hero h2 {
-  font-size: 1.75rem;
-  font-weight: 500;
-  color: var(--text-secondary);
+/* Enhanced styling for the tagline */
+.dynamic-tagline {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
   margin-bottom: 1.5rem;
   font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dynamic-tagline::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  background: white;
+  bottom: -8px;
+  left: 20%;
+  border-radius: 2px;
 }
 
 .hero p {
@@ -1227,7 +1244,7 @@
   <header class="hero" id="home">
     <div class="hero-content">
       <h1>EchoFrame</h1>
-      <h2>Framing the Future of Media</h2>
+      <h2 class="dynamic-tagline">Framing the Future of Media</h2>
       <p>Unlocking hidden value in your content through AI. We transform media archives into profitable revenue streams that traditional platforms miss.</p>
       <a href="#contact" class="cta-button">Schedule Demo</a>
     </div>
