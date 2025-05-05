@@ -29,6 +29,12 @@
       box-sizing: border-box;
     }
 
+    .top-border, .bottom-border {
+      height: 20px; /* Adjust height as needed */
+      background: var(--bg-dark);
+      width: 100%;
+    }
+
     /* Fix for nav links appearing blue with underline */
     .nav-links a {
       color: var(--text-secondary) !important;
@@ -140,7 +146,7 @@
       font-size: 1.25rem;
       margin-left: 0.75rem;
     }
-    
+
     @media (max-width: 768px) {
       .nav-links {
         display: flex;
@@ -256,7 +262,9 @@
 
 /* Hero Section with deeper magenta */
 .hero {
-  min-height: 90vh;
+  margin-top: 0;
+  margin-bottom: 0;
+  min-height: 80vh;
   background: linear-gradient(rgba(157, 23, 77, 0.9), rgba(131, 24, 67, 0.95)),
               url('https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=2000&q=80');
   background-size: cover;
@@ -1308,6 +1316,8 @@
     </div>
   </nav>
 
+  <div class="top-border"></div>
+
   <header class="hero" id="home">
     <div class="hero-content">
       <h1>EchoFrame</h1>
@@ -1316,7 +1326,8 @@
       <a href="#contact" class="cta-button">Schedule Demo</a>
     </div>
   </header>
-
+  <div class="bottom-border"></div>
+  
   <section id="overview">
     <h2 class="section-title">Overview</h2>
     <p class="section-subtitle">EchoFrame transforms local news archives in emerging markets into actionable political and economic risk intelligence. We convert untapped regional media value into premium risk products for global businesses.</p>
