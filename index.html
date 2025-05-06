@@ -1382,6 +1382,50 @@
   <header class="hero" id="home">
     <div class="hero-content">
       <h1>EchoFrame</h1>
+      <style>
+        header {
+            position: relative;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .language-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .language-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .language-switcher {
+                position: static;
+                text-align: center;
+                margin-top: 1rem;
+            }
+        }
+        </style>
+        
+        <!-- 2. Add the button inside the header -->
+        <div class="language-switcher">
+            <a href="/es/" class="language-btn">Español</a>
+        </div>
+        
       <h2 class="dynamic-tagline">Framing the Future of Media</h2>
       <p>AI-driven content monetization for media and analytics.</p>
       <a href="#contact" class="cta-button">Schedule Demo</a>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoFrame - Inteligencia de Riesgo Impulsada por IA</title>
+    <style>
+        /* Mantener el mismo esquema de colores del sitio original */
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ff6b6b;
+            --text-color: #333;
+            --light-text: #666;
+            --background: #fff;
+            --card-bg: #f8f9fa;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .language-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .language-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        nav a {
+            margin: 0 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table th {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .check-icon {
+            color: green;
+            font-weight: bold;
+        }
+
+        .x-icon {
+            color: red;
+            font-weight: bold;
+        }
+
+        .cta {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin: 3rem 0;
+        }
+
+        .cta h2 {
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--accent-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            color: var(--light-text);
+        }
+
+        /* Animación para la sección de "Generando informe..." */
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        .generating {
+            padding: 2rem;
+            background-color: var(--secondary-color);
+            border-radius: var(--border-radius);
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                margin: 0.5rem;
+            }
+            
+            .language-switcher {
+                position: static;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EchoFrame</h1>
+        <div class="language-switcher">
+            <a href="/" class="language-btn">English</a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#overview">Visión General</a>
+        <a href="#problem">El Problema</a>
+        <a href="#solution">Nuestra Solución</a>
+        <a href="#advantages">Ventajas</a>
+        <a href="#contact">Contacto</a>
+    </nav>
+
+    <section class="hero" id="overview">
+        <h1>Desbloqueando el valor oculto en su contenido a través de la IA</h1>
+        <p>Transformamos archivos de medios en flujos de ingresos rentables que las plataformas tradicionales pasan por alto.</p>
+        <p>EchoFrame transforma los archivos de noticias locales en mercados emergentes en inteligencia de riesgo político y económico accionable. Convertimos el valor no aprovechado de los medios regionales en productos premium de riesgo para empresas globales.</p>
+    </section>
+
+    <section id="problem">
+        <h2>La diligencia debida tradicional está fallando a un ritmo alarmante</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>73%</h3>
+                <p>de los profesionales de M&A reportan mayor presión para acelerar los plazos de diligencia debida, lo que lleva a descuidos como la pérdida de valoración de WeWork de $40B.</p>
+            </div>
+            <div class="card">
+                <h3>64%</h3>
+                <p>de las empresas reportan brechas entre la transformación digital y las capacidades de evaluación de riesgos, ejemplificadas por la brecha de SolarWinds.</p>
+            </div>
+            <div class="card">
+                <h3>34%</h3>
+                <p>Las transacciones transfronterizas aumentaron un 34% mientras que la experiencia en riesgos regionales disminuyó un 18%, lo que llevó a pérdidas como las inversiones en Nord Stream 2.</p>
+            </div>
+            <div class="card">
+                <h3>68%</h3>
+                <p>de los modelos de riesgo siguen siendo retrospectivos y basados en reglas en un mundo que exige enfoques predictivos y adaptativos.</p>
+            </div>
+            <div class="card">
+                <h3>16+</h3>
+                <p>La empresa promedio utiliza más de 16 sistemas dispares que contienen datos relevantes para el riesgo con una integración mínima.</p>
+            </div>
+            <div class="card">
+                <h3>82%</h3>
+                <p>Escasez de profesionales con experiencia regional combinada y habilidades técnicas de evaluación de riesgos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Los modelos de IA tradicionales son inteligentes, pero olvidan todo lo que leen</h2>
+        <p>Los LLMs procesan información brillantemente pero carecen de memoria sistemática. Para una verdadera previsión de riesgos, necesita contexto histórico y reconocimiento de patrones a lo largo del tiempo.</p>
+        <p>EchoFrame convierte los archivos de noticias históricas en un sistema de memoria estratégica, recopilando artículos de mercados emergentes y entrenando modelos para detectar patrones a lo largo del tiempo.</p>
+        <p>Las cronologías asistidas por LLM rastrean problemas como protestas, corrupción y regulación. Las señales se enriquecen con datos de fuente, fecha, sentimiento y tema.</p>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Capacidad</th>
+                    <th>Claude/GPT</th>
+                    <th>EchoFrame</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Indexa noticias pasadas sistemáticamente</td>
+                    <td class="x-icon">✗</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Rastrea narrativas a lo largo de años</td>
+                    <td class="x-icon">✗</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Señales de riesgo enriquecidas por contexto archivado</td>
+                    <td class="x-icon">✗</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Proporciona contexto histórico a nivel de analista</td>
+                    <td>Limitado</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p><strong>Claude responde preguntas hoy. EchoFrame te da patrones a lo largo del tiempo.</strong></p>
+    </section>
+
+    <section>
+        <h2>El momento perfecto para la innovación en inteligencia histórica</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>Ventaja competitiva</h3>
+                <p>Las señales basadas en archivos siguen siendo en gran parte inexploradas en los servicios de asesoramiento de riesgos, creando una ventaja competitiva significativa.</p>
+            </div>
+            <div class="card">
+                <h3>Mercados emergentes</h3>
+                <p>Los mercados emergentes carecen de sistemas vibrantes de archivo de noticias—demuestre valor añadido llenando esta brecha crítica de inteligencia.</p>
+            </div>
+            <div class="card">
+                <h3>Liderazgo</h3>
+                <p>Establezca liderazgo en inteligencia histórica antes de que los competidores reconozcan la oportunidad. Incluso el acceso limitado construye prueba de concepto.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution">
+        <h2>Un enfoque revolucionario para la inteligencia de mercados emergentes</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>Ingestión</h3>
+                <p>Ingerimos archivos completos de noticias locales que abarcan 3-5 años. Convertimos cada artículo en un sensor vivo que detecta cambios de política, movimientos de mercado y tensiones sociales.</p>
+            </div>
+            <div class="card">
+                <h3>Análisis</h3>
+                <p>IA avanzada lee señales, identifica patrones y detecta indicadores tempranos de riesgo. Redacta resúmenes concisos y alertas con citas precisas.</p>
+            </div>
+            <div class="card">
+                <h3>Entrega</h3>
+                <p>Empaqueta conocimientos en formatos listos para enviar: alertas, informes y advertencias. Entrega vía email, SMS o widgets de panel.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Inteligencia accionable diseñada para tomadores de decisiones</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>Notificaciones inmediatas</h3>
+                <p>Cuando las autoridades locales proponen cambios que afectan a industrias específicas.</p>
+            </div>
+            <div class="card">
+                <h3>Informes mensuales</h3>
+                <p>Sobre indicadores económicos, sentimiento empresarial y oportunidades emergentes.</p>
+            </div>
+            <div class="card">
+                <h3>Feeds en tiempo real</h3>
+                <p>De eventos que podrían interrumpir la logística o la dotación de personal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="advantages">
+        <h2>Cómo EchoFrame supera al asesoramiento de riesgo tradicional</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Asesoramiento de Riesgo Tradicional</th>
+                    <th>Ventaja de EchoFrame</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Evaluaciones puntuales</td>
+                    <td>Monitoreo continuo con contexto histórico</td>
+                </tr>
+                <tr>
+                    <td>Riesgo país generalizado</td>
+                    <td>Conocimientos hiperregionales con ubicaciones específicas</td>
+                </tr>
+                <tr>
+                    <td>Análisis retrospectivo</td>
+                    <td>Inteligencia predictiva basada en reconocimiento de patrones</td>
+                </tr>
+                <tr>
+                    <td>Costosos equipos de analistas humanos</td>
+                    <td>Inteligencia aumentada por IA con estructura de costos más baja</td>
+                </tr>
+                <tr>
+                    <td>Informes genéricos</td>
+                    <td>Alertas accionables específicas por industria y ubicación</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Genere informes de inteligencia en tiempo real impulsados por análisis de IA</h2>
+        <div class="generating">
+            <h3>Generando informe de inteligencia...</h3>
+        </div>
+    </section>
+
+    <section>
+        <h2>Entendiendo el enfoque único de EchoFrame para la inteligencia de riesgo</h2>
+        <p>Aunque los LLMs son poderosos, tienen limitaciones críticas para la inteligencia de riesgo:</p>
+        <p>EchoFrame se basa en las capacidades de LLM agregando memoria sistemática y reconocimiento de patrones a lo largo del tiempo, convirtiendo los archivos de noticias históricas en inteligencia estratégica.</p>
+        
+        <h3>Tres factores clave hacen que este sea el momento óptimo:</h3>
+        <p>Incluso con acceso inicial limitado, podemos construir prueba de concepto y establecer posición de mercado.</p>
+        
+        <h3>Nuestro sistema transforma archivos estáticos en inteligencia dinámica a través de:</h3>
+        <p>Mientras otros responden preguntas sobre hoy, EchoFrame revela patrones a lo largo del tiempo.</p>
+        
+        <h3>Mantenemos altos estándares de precisión a través de:</h3>
+    </section>
+
+    <section class="cta" id="contact">
+        <h2>Únase a las organizaciones líderes que utilizan EchoFrame para navegar por los mercados emergentes con confianza</h2>
+        <a href="mailto:robert@echoframe.co" class="btn">Contáctenos</a>
+    </section>
+
+    <footer>
+        <p>© 2025 EchoFrame. Todos los derechos reservados.</p>
+        <p>robert@echoframe.co</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Función para manejar el desplazamiento suave
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Simulación de generación de informe
+            const generateButton = document.querySelector('.generating');
+            if (generateButton) {
+                setTimeout(() => {
+                    generateButton.innerHTML = '<h3>Informe generado</h3><p>Se ha completado el análisis de inteligencia de riesgo para la región seleccionada.</p>';
+                    generateButton.style.animation = 'none';
+                    generateButton.style.backgroundColor = '#e6f7e6';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

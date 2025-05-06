@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "routes": [
+      {
+        "src": "/",
+        "has": {
+          "header": {
+            "accept-language": "es.*"
+          }
+        },
+        "dest": "/es"
+      },
+      {
+        "handle": "filesystem"
+      }
+    ]
+  }
