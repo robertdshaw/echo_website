@@ -1784,92 +1784,176 @@
   </section>
   
   <script>
-    const reportData = {
-      research: {
-        title: "Political Trends Analysis - Colombia",
-        riskLevel: "medium",
-        reportStyle: "academic",
-        signals: [
-          {
-            type: "Policy Trend",
-            date: "Last 3 Months",
-            content: "Systematic analysis of regional news sources indicates a 42% increase in discussions about decentralization policy.",
-            source: "6 Regional News Sources, 124 Articles",
-            leadTime: "12–18 months before policy implementation"
-          },
-          {
-            type: "Emerging Public Discourse",
-            date: "Last 6 Weeks",
-            content: "67% surge in electoral reform discussions correlating with declining trust in institutions (r=0.73).",
-            source: "Social Media + 3 University Publications",
-            leadTime: "8–10 months before mainstream adoption"
-          },
-          {
-            type: "Historical Pattern Recognition",
-            date: "5-Year Analysis",
-            content: "Current discourse mirrors 2016 peace accord rhetoric with 78% linguistic match.",
-            source: "Archive + Academic Journals",
-            leadTime: "6–9 months before political realignment"
-          }
-        ]
-      },
-      government: {
-        title: "Security Assessment - Mexico Border Region",
-        riskLevel: "high",
-        reportStyle: "security",
-        signals: [
-          {
-            type: "CRITICAL ALERT",
-            date: "48 Hours Ago",
-            content: "Unusual comms patterns suggest pre-operational planning in Sonora.",
-            source: "RESTRICTED - Multiple Sources",
-            leadTime: "72–96 hours before potential activity"
-          },
-          {
-            type: "MOVEMENT DETECTED",
-            date: "5 Days Ago",
-            content: "Anomalous vehicle movements align with pre-incident patterns.",
-            source: "Local Reports + Pattern Analysis",
-            leadTime: "10–14 days before escalation"
-          },
-          {
-            type: "ECONOMIC SIGNAL",
-            date: "2 Weeks Monitoring",
-            content: "87% increase in cross-border transaction types tied to disruption prep.",
-            source: "Financial Monitoring + History",
-            leadTime: "3–4 weeks before potential disruption"
-          }
-        ]
-      },
-      corporate: {
-        title: "Market Entry Strategy - Brazil Retail Sector",
-        riskLevel: "low",
-        reportStyle: "business",
-        signals: [
-          {
-            type: "Regulatory Analysis",
-            date: "This Quarter",
-            content: "Municipal reforms cut permit times from 267 to 142 days in key metros.",
-            source: "Business Press + Filings",
-            leadTime: "Next 6–9 months"
-          },
-          {
-            type: "Consumer Sentiment",
-            date: "Ongoing Monitoring",
-            content: "34% rise in positive sentiment for foreign brands; omnichannel preferred.",
-            source: "Surveys + Social Analytics",
-            leadTime: "Q1–Q2 2025 peak"
-          },
-          {
-            type: "Supply Chain Intelligence",
-            date: "Last 60 Days",
-            content: "São Paulo hubs cut delivery times by 41% and costs by 17%.",
-            source: "Industry Reports + Logistics Data",
-            leadTime: "12-month advantage window"
-          }
-        ]
-      }
-    };
+      const reportData = {
+        research: {
+          title: "Political Trends Analysis - Colombia",
+          riskLevel: "medium",
+          reportStyle: "academic",
+          signals: [
+            {
+              type: "Policy Trend",
+              date: "Last 3 Months",
+              content: "Systematic analysis of regional news sources indicates a 42% increase in discussions about decentralization policy.",
+              source: "6 Regional News Sources, 124 Articles",
+              leadTime: "12–18 months before policy implementation"
+            },
+            {
+              type: "Emerging Public Discourse",
+              date: "Last 6 Weeks",
+              content: "67% surge in electoral reform discussions correlating with declining trust in institutions (r=0.73).",
+              source: "Social Media + 3 University Publications",
+              leadTime: "8–10 months before mainstream adoption"
+            },
+            {
+              type: "Historical Pattern Recognition",
+              date: "5-Year Analysis",
+              content: "Current discourse mirrors 2016 peace accord rhetoric with 78% linguistic match.",
+              source: "Archive + Academic Journals",
+              leadTime: "6–9 months before political realignment"
+            }
+          ]
+        },
+        government: {
+          title: "Security Assessment - Mexico Border Region",
+          riskLevel: "high",
+          reportStyle: "security",
+          signals: [
+            {
+              type: "CRITICAL ALERT",
+              date: "48 Hours Ago",
+              content: "Unusual comms patterns suggest pre-operational planning in Sonora.",
+              source: "RESTRICTED - Multiple Sources",
+              leadTime: "72–96 hours before potential activity"
+            },
+            {
+              type: "MOVEMENT DETECTED",
+              date: "5 Days Ago",
+              content: "Anomalous vehicle movements align with pre-incident patterns.",
+              source: "Local Reports + Pattern Analysis",
+              leadTime: "10–14 days before escalation"
+            },
+            {
+              type: "ECONOMIC SIGNAL",
+              date: "2 Weeks Monitoring",
+              content: "87% increase in cross-border transaction types tied to disruption prep.",
+              source: "Financial Monitoring + History",
+              leadTime: "3–4 weeks before potential disruption"
+            }
+          ]
+        },
+        corporate: {
+          title: "Market Entry Strategy - Brazil Retail Sector",
+          riskLevel: "low",
+          reportStyle: "business",
+          signals: [
+            {
+              type: "Regulatory Analysis",
+              date: "This Quarter",
+              content: "Municipal reforms cut permit times from 267 to 142 days in key metros.",
+              source: "Business Press + Filings",
+              leadTime: "Next 6–9 months"
+            },
+            {
+              type: "Consumer Sentiment",
+              date: "Ongoing Monitoring",
+              content: "34% rise in positive sentiment for foreign brands; omnichannel preferred.",
+              source: "Surveys + Social Analytics",
+              leadTime: "Q1–Q2 2025 peak"
+            },
+            {
+              type: "Supply Chain Intelligence",
+              date: "Last 60 Days",
+              content: "São Paulo hubs cut delivery times by 41% and costs by 17%.",
+              source: "Industry Reports + Logistics Data",
+              leadTime: "12-month advantage window"
+            }
+          ]
+        },
+        mining: {
+          title: "Strategic Operations Overview - Mining (Peru)",
+          riskLevel: "medium",
+          reportStyle: "operations",
+          signals: [
+            {
+              type: "Labor Movement",
+              date: "Last 2 Weeks",
+              content: "Increased union activity in Cajamarca signals potential strike action.",
+              source: "Regional News + Labor Reports",
+              leadTime: "10–14 days before disruption"
+            },
+            {
+              type: "Environmental Regulation",
+              date: "Last Month",
+              content: "Proposed tightening of environmental controls in Apurímac region.",
+              source: "Government Briefings + NGOs",
+              leadTime: "1–2 months before enforcement"
+            },
+            {
+              type: "Community Sentiment",
+              date: "Last 90 Days",
+              content: "Negative sentiment in mining regions up 28%, mirroring 2018 protest dynamics.",
+              source: "Social Media + Local News",
+              leadTime: "6–8 weeks before escalation"
+            }
+          ]
+        },
+        energy: {
+          title: "Market Analysis - Energy Sector (Argentina)",
+          riskLevel: "high",
+          reportStyle: "market",
+          signals: [
+            {
+              type: "Price Volatility",
+              date: "Last 3 Months",
+              content: "Fuel price hikes exceeded 19%, creating tension in supply agreements.",
+              source: "Industry Reports + Government Releases",
+              leadTime: "3–6 months before major renegotiations"
+            },
+            {
+              type: "Policy Change",
+              date: "This Week",
+              content: "New subsidy caps announced affecting large industrial users.",
+              source: "Official Gazettes + Analyst Commentary",
+              leadTime: "1 month until full impact"
+            },
+            {
+              type: "Infrastructure Risk",
+              date: "Ongoing",
+              content: "Power outages linked to deferred grid upgrades in Córdoba region.",
+              source: "Technical Assessments + Local Media",
+              leadTime: "2–4 weeks before reliability crises"
+            }
+          ]
+        },
+        finance: {
+          title: "Risk Assessment - Financial Sector (Chile)",
+          riskLevel: "low",
+          reportStyle: "finance",
+          signals: [
+            {
+              type: "Regulatory Watch",
+              date: "Last 60 Days",
+              content: "Central bank softening reserve rules for fintech challengers.",
+              source: "Central Bank Releases + Think Tanks",
+              leadTime: "6–12 months before measurable change"
+            },
+            {
+              type: "Macroeconomic Trends",
+              date: "Q1 Overview",
+              content: "Credit expansion up 11% driven by SME lending surge.",
+              source: "Economic Indicators + Banking Data",
+              leadTime: "Ongoing quarterly tracking"
+            },
+            {
+              type: "Reputation Risk",
+              date: "Last 30 Days",
+              content: "Major bank under scrutiny for AML deficiencies tied to Caribbean transfers.",
+              source: "Investigative Journalism + Watchdog Reports",
+              leadTime: "1–2 months before formal inquiry"
+            }
+          ]
+        }
+      };    
     
     function generateReport() {
       const client = document.getElementById('client-select').value;
