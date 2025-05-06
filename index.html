@@ -1282,6 +1282,61 @@
         border-top: 1px solid var(--border-color);
         color: var(--text-secondary);
       }
+
+      #overview {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 60px 20px;
+      }
+      
+      .section-title {
+        margin-bottom: 40px;
+        font-size: 2.5rem;
+      }
+      
+      .lead-text {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 30px;
+      }
+      
+      .client-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin: 40px 0;
+        text-align: center;
+      }
+      
+      .client-type {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 25px 20px;
+        transition: transform 0.3s ease;
+      }
+      
+      .client-type:hover {
+        transform: translateY(-5px);
+      }
+      
+      .client-type h3 {
+        margin-bottom: 12px;
+        font-size: 1.25rem;
+        color: #ff56a6; /* Your brand color */
+      }
+      
+      .transition-text {
+        font-size: 1.1rem;
+        font-style: italic;
+        max-width: 800px;
+        margin: 40px auto 0;
+      }
+      
+      @media (max-width: 768px) {
+        .client-grid {
+          grid-template-columns: 1fr;
+        }
+      }
   </style>
 </head>
 <body>
@@ -1328,21 +1383,42 @@
   </header>
   <div class="bottom-border"></div>
 
-  <section id="overview">
+  <section id="overview" class="text-center">
     <h2 class="section-title">Overview</h2>
     
-    <p>Unlocking hidden value in your content through AI. We transform media archives into profitable revenue streams that traditional platforms miss.</p>
-  
-    <p>EchoFrame converts untapped media archives into valuable intelligence and insights for diverse clients:</p>
+    <p class="lead-text mb-4">
+      Unlocking hidden value in your content through AI. We transform media archives into profitable revenue streams that traditional platforms miss.
+    </p>
     
-    <ul class="overview-bullets">
-      <li>For research institutes: Historical trend analysis and pattern recognition</li>
-      <li>For financial firms: Economic signals and market intelligence</li>
-      <li>For corporate strategists: Regional development monitoring and risk assessment</li>
-      <li>For government agencies: Policy evolution tracking and regulatory insight</li>
-    </ul>
-    <p class="section-intro">One critical application of our technology is addressing the growing failures in risk assessment and due diligence.</p>
-
+    <p class="mb-4">
+      EchoFrame converts untapped media archives into valuable intelligence and insights for diverse clients:
+    </p>
+    
+    <div class="client-grid">
+      <div class="client-type">
+        <h3>Research Institutes</h3>
+        <p>Historical trend analysis and pattern recognition</p>
+      </div>
+      
+      <div class="client-type">
+        <h3>Financial Firms</h3>
+        <p>Economic signals and market intelligence</p>
+      </div>
+      
+      <div class="client-type">
+        <h3>Corporate Strategists</h3>
+        <p>Regional development monitoring and risk assessment</p>
+      </div>
+      
+      <div class="client-type">
+        <h3>Government Agencies</h3>
+        <p>Policy evolution tracking and regulatory insight</p>
+      </div>
+    </div>
+    
+    <p class="transition-text mt-5">
+      One critical application of our technology is addressing the growing failures in risk assessment and due diligence.
+    </p>
   </section>
 
   <h2 class="section-title">The Crisis in Risk Analysis</h2>
