@@ -716,86 +716,88 @@
       };
     
 
-    function generateReport() {
-      const clientSelect = document.getElementById('client-select');
-      const selectedClient = clientSelect.value;
-      const generateBtn = document.getElementById('generate-btn');
-      const loading = document.getElementById('loading');
-      const reportContent = document.getElementById('report-content');
-      
-      // Desactivar botón y mostrar carga
-      generateBtn.disabled = true;
-      loading.classList.add('active');
-      reportContent.style.display = 'none';
-      
-      // Reiniciar todos los pasos
-      for (let i = 1; i <= 4; i++) {
-        const step = document.getElementById(`step-${i}`);
-        step.classList.remove('active', 'complete');
-      }
-      
-      // Simular pasos del proceso
-      let currentStep = 1;
-      const stepInterval = setInterval(() => {
-        if (currentStep <= 4) {
-          const step = document.getElementById(`step-${currentStep}`);
-          step.classList.add('active');
-          
-          // Marcar como completo después de retraso
-          setTimeout(() => {
-            step.classList.remove('active');
-            step.classList.add('complete');
-            currentStep++;
-            
-            if (currentStep > 4) {
-              clearInterval(stepInterval);
-              showReport(selectedClient);
-            }
-          }, 1000);
+      function generateReport() {
+        const clientSelect = document.getElementById('client-select');
+        const selectedClient = clientSelect.value;
+        const generateBtn = document.getElementById('generate-btn');
+        const loading = document.getElementById('loading');
+        const reportContent = document.getElementById('report-content');
+        
+        generateBtn.disabled = true;
+        loading.classList.add('active');
+        reportContent.style.display = 'none';
+        
+        for (let i = 1; i <= 4; i++) {
+          const step = document.getElementById(`step-${i}`);
+          step.classList.remove('active', 'complete');
         }
-      }, 1200);
-    }
-
-    function showReport(clientType) {
-      const loading = document.getElementById('loading');
-      const reportContent = document.getElementById('report-content');
-      const generateBtn = document.getElementById('generate-btn');
-      const report = reports[clientType];
-      
-      // Generar HTML del informe
-      let reportHTML = `
-        <div class="output-header">
-          <div class="output-title">${report.title}</div>
-          <div class="risk-level risk-${report.riskLevel}">Nivel de Riesgo: ${report.riskLevel === 'high' ? 'ALTO' : report.riskLevel === 'medium' ? 'MEDIO' : 'BAJO'}</div>
-        </div>
-      `;
-      
-      report.signals.forEach(signal => {
-        reportHTML += `
-          <div class="signal-item">
-            <div class="signal-header">
-              <div class="signal-type">${signal.type}</div>
-              <div class="signal-date">${signal.date}</div>
-            </div>
-            <div class="signal-content">
-              <p>${signal.content}</p>
-            </div>
-            <div class="signal-metadata">
-              <div class="signal-source">Fuente: ${signal.source}</div>
-              <div class="signal-leadtime">Tiempo de anticipación: ${signal.leadTime}</div>
+        
+        let currentStep = 1;
+        const stepInterval = setInterval(() => {
+          if (currentStep <= 4) {
+            const step = document.getElementById(`step-${currentStep}`);
+            step.classList.add('active');
+            
+            setTimeout(() => {
+              step.classList.remove('active');
+              step.classList.add('complete');
+              currentStep++;
+              
+              if (currentStep > 4) {
+                clearInterval(stepInterval);
+                showReport(selectedClient);
+              }
+            }, 1000);
+          }
+        }, 1200);
+      }
+    
+      function showReport(clientType) {
+        const loading = document.getElementById('loading');
+        const reportContent = document.getElementById('report-content');
+        const generateBtn = document.getElementById('generate-btn');
+        const report = reportData[clientType];
+    
+        let reportHTML = `
+          <div class="output-header">
+            <div class="output-title">${report.title}</div>
+            <div class="risk-level risk-${report.riskLevel}">
+              Nivel de Riesgo: ${
+                report.riskLevel === 'high'
+                  ? 'ALTO'
+                  : report.riskLevel === 'medium'
+                  ? 'MEDIO'
+                  : 'BAJO'
+              }
             </div>
           </div>
         `;
-      });
-      
-      // Mostrar informe
-      setTimeout(() => {
-        loading.classList.remove('active');
-        reportContent.innerHTML = reportHTML;
-        reportContent.style.display = 'block';
-        generateBtn.disabled = false;
-      }, 500);
-    }
+    
+        report.signals.forEach(signal => {
+          reportHTML += `
+            <div class="signal-item">
+              <div class="signal-header">
+                <div class="signal-type">${signal.type}</div>
+                <div class="signal-date">${signal.date}</div>
+              </div>
+              <div class="signal-content">
+                <p>${signal.content}</p>
+              </div>
+              <div class="signal-metadata">
+                <div class="signal-source">Fuente: ${signal.source}</div>
+                <div class="signal-leadtime">Tiempo de anticipación: ${signal.leadTime}</div>
+              </div>
+            </div>
+          `;
+        });
+    
+        setTimeout(() => {
+          loading.classList.remove('active');
+          reportContent.innerHTML = reportHTML;
+          reportContent.style.display = 'block';
+          generateBtn.disabled = false;
+        }, 500);
+      }
 
     // Funcionalidad del menú móvil
 function toggleMenu() {
