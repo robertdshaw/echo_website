@@ -1292,14 +1292,20 @@
       .section-title {
         margin-bottom: 40px;
         font-size: 2.5rem;
+        text-align: center; /* Ensure this stays centered */
+      }
+      
+      .overview-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: left; /* This will align both paragraphs to start from the same position */
       }
       
       .lead-text {
         font-size: 1.2rem;
-        max-width: 800px;
-        margin: 0 auto 30px;
+        margin-bottom: 1.5rem;
+        /* Remove the max-width and auto margins from here since they're now in overview-content */
       }
-      
       .client-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -1386,13 +1392,15 @@
   <section id="overview" class="text-center">
     <h2 class="section-title">Overview</h2>
     
-    <p class="lead-text mb-4">
-      Unlocking hidden value in your content through AI. We transform media archives into profitable revenue streams that traditional platforms miss.
-    </p>
-    
-    <p class="mb-4 text-center"> 
-      EchoFrame converts untapped media archives into valuable intelligence and insights for diverse clients:
-    </p>
+    <div class="overview-content">
+      <p class="lead-text mb-4">
+        Unlocking hidden value in your content through AI. We transform media archives into profitable revenue streams that traditional platforms miss.
+      </p>
+      
+      <p class="lead-text mb-4">
+        EchoFrame converts untapped media archives into valuable intelligence and insights for diverse clients:
+      </p>
+    </div>
     
     <div class="client-grid">
       <div class="client-type">
