@@ -1749,7 +1749,7 @@
         </div>
         <button id="generate-btn" onclick="generateReport()" class="cta-button">Generate Report</button>
       </div>
-
+  
       <div class="process-status">
         <div class="status-step" id="step-1">
           <div class="status-icon">📰</div>
@@ -1768,22 +1768,19 @@
           <div class="status-text">Report Generation</div>
         </div>
       </div>
-
+  
       <div class="demo-output" id="output">
         <div class="loading" id="loading">
           <div class="loader"></div>
           <p>Generating intelligence report...</p>
         </div>
-        <div id="report-content" style="display: none;">
-          <!-- Report content will be inserted here -->
-        </div>
+        <div id="report-content" style="display: none;"></div>
       </div>
     </div>
   </section>
-
+  
   <script>
-    // Demo functionality
-    const report = {
+    const reportData = {
       research: {
         title: "Political Trends Analysis - Colombia",
         riskLevel: "medium",
@@ -1792,23 +1789,23 @@
           {
             type: "Policy Trend",
             date: "Last 3 Months",
-            content: "Systematic analysis of regional news sources indicates a 42% increase in discussions about decentralization policy across Colombia's southern departments. Key terms with rising frequency include 'autonomía regional' and 'autogobierno local'.",
+            content: "Systematic analysis of regional news sources indicates a 42% increase in discussions about decentralization policy.",
             source: "6 Regional News Sources, 124 Articles",
-            leadTime: "12-18 months before policy implementation"
+            leadTime: "12–18 months before policy implementation"
           },
           {
             type: "Emerging Public Discourse",
             date: "Last 6 Weeks",
-            content: "Natural language processing of social media content shows a 67% surge in community-level discussion about electoral reform, particularly focused on direct democracy mechanisms. This correlates with declining trust in traditional political institutions (r=0.73).",
-            source: "Social Media Analysis, 3 University Publications",
-            leadTime: "8-10 months before mainstream adoption"
+            content: "67% surge in electoral reform discussions correlating with declining trust in institutions (r=0.73).",
+            source: "Social Media + 3 University Publications",
+            leadTime: "8–10 months before mainstream adoption"
           },
           {
             type: "Historical Pattern Recognition",
             date: "5-Year Analysis",
-            content: "Our pattern recognition algorithm has identified significant linguistic similarities between current discourse and pre-2016 peace accord rhetoric. Current public statements from regional politicians show a 78% linguistic match with pre-agreement positioning.",
-            source: "Historical Media Archive, Academic Journals",
-            leadTime: "6-9 months before political realignment"
+            content: "Current discourse mirrors 2016 peace accord rhetoric with 78% linguistic match.",
+            source: "Archive + Academic Journals",
+            leadTime: "6–9 months before political realignment"
           }
         ]
       },
@@ -1820,23 +1817,23 @@
           {
             type: "CRITICAL ALERT",
             date: "48 Hours Ago",
-            content: "Unusual communication patterns detected between previously unaffiliated groups across Sonora region. Communication volume increased 315% with specific geographic focus on transit corridors. Pattern consistent with pre-operational planning.",
+            content: "Unusual comms patterns suggest pre-operational planning in Sonora.",
             source: "RESTRICTED - Multiple Sources",
-            leadTime: "72-96 hours before potential activity"
+            leadTime: "72–96 hours before potential activity"
           },
           {
             type: "MOVEMENT DETECTED",
             date: "5 Days Ago",
-            content: "Anomalous vehicle movement patterns identified in strategic corridor. Timestamp analysis shows coordinated movements at 20:00-23:00 local time. Movement matches historical patterns before significant incidents in 2023.",
-            source: "Local Reporting Networks, Pattern Analysis",
-            leadTime: "10-14 days before escalation"
+            content: "Anomalous vehicle movements align with pre-incident patterns.",
+            source: "Local Reports + Pattern Analysis",
+            leadTime: "10–14 days before escalation"
           },
           {
             type: "ECONOMIC SIGNAL",
             date: "2 Weeks Monitoring",
-            content: "Currency exchange activity at 4 monitoring points shows 87% increase in specific transaction types associated with cross-border movement. Economic indicators suggest preparation for regional supply chain disruption.",
-            source: "Financial Analysis, Historical Comparison",
-            leadTime: "3-4 weeks before potential disruption"
+            content: "87% increase in cross-border transaction types tied to disruption prep.",
+            source: "Financial Monitoring + History",
+            leadTime: "3–4 weeks before potential disruption"
           }
         ]
       },
@@ -1848,184 +1845,101 @@
           {
             type: "Regulatory Analysis",
             date: "This Quarter",
-            content: "Our AI detected a 23% reduction in regulatory compliance burden for foreign retailers in 3 key metropolitan markets. Municipal-level reforms have streamlined permitting processes with average approval times decreasing from 267 to 142 days.",
-            source: "Local Business Publications, Regulatory Filings",
-            leadTime: "Key timing window: Next 6-9 months"
+            content: "Municipal reforms cut permit times from 267 to 142 days in key metros.",
+            source: "Business Press + Filings",
+            leadTime: "Next 6–9 months"
           },
           {
             type: "Consumer Sentiment",
             date: "Ongoing Monitoring",
-            content: "Sentiment analysis shows 34% increase in positive mentions of international retail brands, with particular emphasis on product variety and pricing transparency. Social media trend analysis indicates growing consumer preference for omnichannel retail experiences.",
-            source: "Consumer Surveys, Social Media Analytics",
-            leadTime: "Market receptivity peak: Q1-Q2 2025"
+            content: "34% rise in positive sentiment for foreign brands; omnichannel preferred.",
+            source: "Surveys + Social Analytics",
+            leadTime: "Q1–Q2 2025 peak"
           },
           {
             type: "Supply Chain Intelligence",
             date: "Last 60 Days",
-            content: "Logistics network analysis indicates significant improvements in last-mile delivery infrastructure in São Paulo state. New regional distribution hubs have reduced average delivery times by 41% while transportation costs have decreased 17% since 2022.",
-            source: "Industry Reports, Transportation Data",
-            leadTime: "12-month competitive advantage window"
+            content: "São Paulo hubs cut delivery times by 41% and costs by 17%.",
+            source: "Industry Reports + Logistics Data",
+            leadTime: "12-month advantage window"
           }
         ]
       }
     };
-
+    
     function generateReport() {
-      const clientSelect = document.getElementById('client-select');
-      const selectedClient = clientSelect.value;
+      const client = document.getElementById('client-select').value;
       const generateBtn = document.getElementById('generate-btn');
       const loading = document.getElementById('loading');
       const reportContent = document.getElementById('report-content');
-      
-      // Disable button and show loading
+    
       generateBtn.disabled = true;
       loading.classList.add('active');
       reportContent.style.display = 'none';
-      
-      // Reset all steps
+    
+      // Reset process steps
       for (let i = 1; i <= 4; i++) {
-        const step = document.getElementById(`step-${i}`);
-        step.classList.remove('active', 'complete');
+        document.getElementById(`step-${i}`).classList.remove('active', 'complete');
       }
-      
-      // Simulate process steps
+    
       let currentStep = 1;
       const stepInterval = setInterval(() => {
         if (currentStep <= 4) {
           const step = document.getElementById(`step-${currentStep}`);
           step.classList.add('active');
-          
-          // Mark as complete after delay
+    
           setTimeout(() => {
             step.classList.remove('active');
             step.classList.add('complete');
             currentStep++;
-            
             if (currentStep > 4) {
               clearInterval(stepInterval);
-              showReport(selectedClient);
+              showReport(client);
             }
           }, 1000);
         }
       }, 1200);
     }
-
+    
     function showReport(clientType) {
+      const data = reportData[clientType];
       const loading = document.getElementById('loading');
       const reportContent = document.getElementById('report-content');
       const generateBtn = document.getElementById('generate-btn');
-      const report = reports[clientType];
-      
-      // Generate report HTML based on client type style
-      let reportHTML = '';
-      
-      // Different header styles based on report type
-      if (report.reportStyle === 'academic') {
-        reportHTML = `
-          <div class="output-header" style="border-bottom: 2px solid var(--accent);">
-            <div class="output-title" style="font-family: 'Times New Roman', serif; font-size: 1.6rem;">${report.title}</div>
-            <div class="output-meta">
-              <div class="report-type" style="background: rgba(8, 145, 178, 0.1); color: var(--accent);">Academic Analysis</div>
-              <div class="risk-level risk-${report.riskLevel}">Risk Assessment: ${report.riskLevel.toUpperCase()}</div>
+    
+      let html = `
+        <div class="output-header">
+          <div class="output-title">${data.title}</div>
+          <div class="risk-level risk-${data.riskLevel}">Risk Level: ${data.riskLevel.toUpperCase()}</div>
+        </div>
+      `;
+    
+      data.signals.forEach(sig => {
+        html += `
+          <div class="signal-item">
+            <div class="signal-header">
+              <div class="signal-type">${sig.type}</div>
+              <div class="signal-date">${sig.date}</div>
             </div>
-          </div>
-          <div class="report-summary" style="font-style: italic; border-left-color: var(--accent);">
-            <div class="summary-title" style="color: var(--accent);">Research Abstract</div>
-            <div class="summary-content">This analysis presents empirical observations of emerging political trends in Colombia based on multi-source data collection and natural language processing across regional media.</div>
+            <div class="signal-content">
+              <p>${sig.content}</p>
+            </div>
+            <div class="signal-metadata">
+              <div class="signal-source">Source: ${sig.source}</div>
+              <div class="signal-leadtime">Lead Time: ${sig.leadTime}</div>
+            </div>
           </div>
         `;
-      } else if (report.reportStyle === 'security') {
-        reportHTML = `
-          <div class="output-header" style="border-bottom: 2px solid var(--danger); background: rgba(239, 68, 68, 0.05); padding: 1rem;">
-            <div class="output-title" style="font-family: 'Courier New', monospace; font-size: 1.5rem; text-transform: uppercase;">${report.title}</div>
-            <div class="output-meta">
-              <div class="report-type" style="background: rgba(239, 68, 68, 0.1); color: var(--danger);">SECURITY BRIEF</div>
-              <div class="risk-level risk-${report.riskLevel}" style="font-weight: 700;">THREAT LEVEL: ${report.riskLevel.toUpperCase()}</div>
-            </div>
-          </div>
-          <div class="report-summary" style="background: rgba(239, 68, 68, 0.05); border-left-color: var(--danger);">
-            <div class="summary-title" style="color: var(--danger);">SITUATION OVERVIEW</div>
-            <div class="summary-content">Multiple high-confidence indicators suggest elevated security concerns in the monitored region. Immediate review of contingency measures recommended.</div>
-          </div>
-        `;
-      } else if (report.reportStyle === 'business') {
-        reportHTML = `
-          <div class="output-header" style="border-bottom: 2px solid var(--success);">
-            <div class="output-title" style="font-family: 'Arial', sans-serif; font-size: 1.5rem;">${report.title}</div>
-            <div class="output-meta">
-              <div class="report-type" style="background: rgba(16, 185, 129, 0.1); color: var(--success);">Market Intelligence</div>
-              <div class="risk-level risk-${report.riskLevel}">Opportunity: HIGH | Risk: ${report.riskLevel.toUpperCase()}</div>
-            </div>
-          </div>
-          <div class="report-summary" style="border-left-color: var(--success); background: rgba(16, 185, 129, 0.05);">
-            <div class="summary-title" style="color: var(--success);">Executive Summary</div>
-            <div class="summary-content">Market conditions indicate a favorable entry window for retail operations in Brazil, with improving regulatory conditions and positive consumer sentiment toward international brands.</div>
-          </div>
-        `;
-      }
-      
-      // Add signal items with style variations based on report type
-      report.signals.forEach(signal => {
-        if (report.reportStyle === 'academic') {
-          reportHTML += `
-            <div class="signal-item" style="border-radius: 0; border-left: 4px solid var(--accent);">
-              <div class="signal-header" style="background: rgba(8, 145, 178, 0.1);">
-                <div class="signal-type" style="color: var(--accent); font-weight: 600;">${signal.type}</div>
-                <div class="signal-date" style="font-style: italic;">${signal.date}</div>
-              </div>
-              <div class="signal-content" style="font-size: 0.95rem; line-height: 1.7;">
-                <p>${signal.content}</p>
-              </div>
-              <div class="signal-metadata" style="font-size: 0.85rem; color: var(--text-secondary);">
-                <div class="signal-source"><strong>Sources:</strong> ${signal.source}</div>
-                <div class="signal-leadtime" style="color: var(--accent);">${signal.leadTime}</div>
-              </div>
-            </div>
-          `;
-        } else if (report.reportStyle === 'security') {
-          reportHTML += `
-            <div class="signal-item" style="border: 1px solid var(--danger); margin-bottom: 1.5rem;">
-              <div class="signal-header" style="background: rgba(239, 68, 68, 0.1); border-bottom: 1px solid var(--danger);">
-                <div class="signal-type" style="color: var(--danger); font-weight: 700; letter-spacing: 0.5px;">${signal.type}</div>
-                <div class="signal-date" style="font-weight: bold;">${signal.date}</div>
-              </div>
-              <div class="signal-content" style="font-family: 'Courier New', monospace; padding: 1rem; line-height: 1.5;">
-                <p>${signal.content}</p>
-              </div>
-              <div class="signal-metadata" style="background: rgba(15, 23, 42, 0.95); padding: 0.75rem 1.5rem;">
-                <div class="signal-source" style="font-size: 0.8rem; opacity: 0.8;">${signal.source}</div>
-                <div class="signal-leadtime" style="color: var(--danger); font-weight: 600; letter-spacing: 0.5px;">${signal.leadTime}</div>
-              </div>
-            </div>
-          `;
-        } else if (report.reportStyle === 'business') {
-          reportHTML += `
-            <div class="signal-item" style="border-radius: 0.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid rgba(16, 185, 129, 0.2);">
-              <div class="signal-header" style="background: white; border-bottom: 2px solid rgba(16, 185, 129, 0.2); padding: 1.25rem 1.5rem;">
-                <div class="signal-type" style="color: var(--success); font-weight: 600;">${signal.type}</div>
-                <div class="signal-date" style="color: var(--secondary);">${signal.date}</div>
-              </div>
-              <div class="signal-content" style="padding: 1.5rem; background: rgba(16, 185, 129, 0.03);">
-                <p>${signal.content}</p>
-              </div>
-              <div class="signal-metadata" style="display: flex; justify-content: space-between; padding: 1rem 1.5rem; background: white; border-top: 1px solid rgba(16, 185, 129, 0.1);">
-                <div class="signal-source" style="font-size: 0.875rem; color: var(--secondary);">${signal.source}</div>
-                <div class="signal-leadtime" style="color: var(--success); font-weight: 600;">${signal.leadTime}</div>
-              </div>
-            </div>
-          `;
-        }
       });
-      
-      // Show report
+    
       setTimeout(() => {
         loading.classList.remove('active');
-        reportContent.innerHTML = reportHTML;
+        reportContent.innerHTML = html;
         reportContent.style.display = 'block';
         generateBtn.disabled = false;
       }, 500);
     }
-  </script>
+    </script>    
 
   <section id="faq">
     <h2 class="section-title">Frequently Asked Questions</h2>
@@ -2178,167 +2092,6 @@
       }
     });
 
-      const reportData = {
-        research: {
-          title: "Political Trends Analysis - Colombia",
-          riskLevel: "medium",
-          reportStyle: "academic",
-          signals: [
-            {
-              type: "Policy Trend",
-              date: "Last 3 Months",
-              content: "Systematic analysis of regional news sources indicates a 42% increase in discussions about decentralization policy across Colombia's southern departments.",
-              source: "6 Regional News Sources, 124 Articles",
-              leadTime: "12-18 months before policy implementation"
-            },
-            {
-              type: "Emerging Public Discourse",
-              date: "Last 6 Weeks",
-              content: "NLP of social media shows 67% surge in community-level discussion about electoral reform, correlating with declining trust in institutions (r=0.73).",
-              source: "Social Media Analysis, 3 University Publications",
-              leadTime: "8-10 months before mainstream adoption"
-            },
-            {
-              type: "Historical Pattern Recognition",
-              date: "5-Year Analysis",
-              content: "Current public statements show 78% linguistic match with pre-2016 peace accord rhetoric.",
-              source: "Historical Media Archive, Academic Journals",
-              leadTime: "6-9 months before political realignment"
-            }
-          ]
-        },
-        government: {
-          title: "Security Assessment - Mexico Border Region",
-          riskLevel: "high",
-          reportStyle: "security",
-          signals: [
-            {
-              type: "CRITICAL ALERT",
-              date: "48 Hours Ago",
-              content: "Unusual comms patterns detected in Sonora region, suggesting pre-operational planning.",
-              source: "RESTRICTED - Multiple Sources",
-              leadTime: "72-96 hours before potential activity"
-            },
-            {
-              type: "MOVEMENT DETECTED",
-              date: "5 Days Ago",
-              content: "Anomalous vehicle movement matches pre-incident patterns from 2023.",
-              source: "Local Reporting Networks, Pattern Analysis",
-              leadTime: "10-14 days before escalation"
-            },
-            {
-              type: "ECONOMIC SIGNAL",
-              date: "2 Weeks Monitoring",
-              content: "Currency exchange activity spiked 87% at 4 points near Sonora region.",
-              source: "Financial Analysis, Historical Comparison",
-              leadTime: "3-4 weeks before disruption"
-            }
-          ]
-        },
-        corporate: {
-          title: "Market Entry Strategy - Brazil Retail Sector",
-          riskLevel: "low",
-          reportStyle: "business",
-          signals: [
-            {
-              type: "Regulatory Analysis",
-              date: "This Quarter",
-              content: "Municipal reforms cut permit times from 267 to 142 days in key cities.",
-              source: "Local Business Publications, Regulatory Filings",
-              leadTime: "Next 6-9 months"
-            },
-            {
-              type: "Consumer Sentiment",
-              date: "Ongoing Monitoring",
-              content: "Positive sentiment up 34% for foreign brands. Preference for omnichannel retail growing.",
-              source: "Consumer Surveys, Social Media Analytics",
-              leadTime: "Peak: Q1-Q2 2025"
-            },
-            {
-              type: "Supply Chain Intelligence",
-              date: "Last 60 Days",
-              content: "São Paulo’s new hubs cut delivery times by 41% and logistics cost by 17%.",
-              source: "Industry Reports, Transportation Data",
-              leadTime: "12-month advantage window"
-            }
-          ]
-        }
-      };
-    
-      function generateReport() {
-        const clientSelect = document.getElementById('client-select');
-        const selectedClient = clientSelect.value;
-        const generateBtn = document.getElementById('generate-btn');
-        const loading = document.getElementById('loading');
-        const reportContent = document.getElementById('report-content');
-    
-        generateBtn.disabled = true;
-        loading.classList.add('active');
-        reportContent.style.display = 'none';
-    
-        for (let i = 1; i <= 4; i++) {
-          const step = document.getElementById(`step-${i}`);
-          step.classList.remove('active', 'complete');
-        }
-    
-        let currentStep = 1;
-        const stepInterval = setInterval(() => {
-          if (currentStep <= 4) {
-            const step = document.getElementById(`step-${currentStep}`);
-            step.classList.add('active');
-    
-            setTimeout(() => {
-              step.classList.remove('active');
-              step.classList.add('complete');
-              currentStep++;
-    
-              if (currentStep > 4) {
-                clearInterval(stepInterval);
-                showReport(selectedClient);
-              }
-            }, 1000);
-          }
-        }, 1200);
-      }
-    
-      function showReport(clientType) {
-        const loading = document.getElementById('loading');
-        const reportContent = document.getElementById('report-content');
-        const generateBtn = document.getElementById('generate-btn');
-        const report = reportData[clientType];
-    
-        let reportHTML = `
-          <div class="output-header">
-            <div class="output-title">${report.title}</div>
-            <div class="risk-level risk-${report.riskLevel}">Risk Level: ${report.riskLevel.toUpperCase()}</div>
-          </div>
-        `;
-    
-        report.signals.forEach(signal => {
-          reportHTML += `
-            <div class="signal-item">
-              <div class="signal-header">
-                <div class="signal-type">${signal.type}</div>
-                <div class="signal-date">${signal.date}</div>
-              </div>
-              <div class="signal-content">
-                <p>${signal.content}</p>
-              </div>
-              <div class="signal-metadata">
-                <div class="signal-source">Source: ${signal.source}</div>
-                <div class="signal-leadtime">Lead Time: ${signal.leadTime}</div>
-              </div>
-            </div>
-          `;
-        });
-    
-        setTimeout(() => {
-          loading.classList.remove('active');
-          reportContent.innerHTML = reportHTML;
-          reportContent.style.display = 'block';
-          generateBtn.disabled = false;
-        }, 500);
-      }
 
     // Mobile menu functionality
 function toggleMenu() {
