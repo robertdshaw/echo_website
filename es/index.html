@@ -544,75 +544,177 @@
     });
 
     // Funcionalidad de demo
-    const reports = {
-      mining: {
-        title: "Barrick Gold - Actualización del Sector Minero de Perú",
-        riskLevel: "high",
-        signals: [
-          {
-            type: "Cambio Regulatorio",
-            date: "Hoy",
-            content: "El Ministerio de Energía y Minas anunció cambios próximos en la regulación ambiental que afectan el uso del agua en operaciones mineras. El período de consulta pública comienza la próxima semana.",
-            source: "El Comercio, Comunicado de Prensa del Ministerio",
-            leadTime: "8-12 semanas antes de la implementación"
-          },
-          {
-            type: "Anomalía de Permisos Detectada",
-            date: "Ayer",
-            content: "El análisis muestra un 78% de tasa de rechazo para nuevos permisos mineros en la región de Cajamarca durante las últimas 3 semanas, en comparación con el promedio histórico del 22%. El patrón sugiere un cambio de política no anunciado.",
-            source: "Análisis de base de datos de permisos regionales",
-            leadTime: "3-4 meses antes del anuncio formal"
-          },
-          {
-            type: "Relaciones Comunitarias",
-            date: "Hace 3 días",
-            content: "Comunidades locales en Arequipa organizaron reuniones con autoridades regionales para discutir preocupaciones por el uso del agua. Operaciones mineras mencionadas en 4 de 6 quejas documentadas.",
-            source: "La República (edición regional)",
-            leadTime: "2-3 meses antes de posibles protestas"
-          }
-        ]
-      },
-      energy: {
-        title: "Exxon - Actualización del Sector Energético de Colombia",
-        riskLevel: "medium",
-        signals: [
-          {
-            type: "Señal de Política",
-            date: "Esta mañana",
-            content: "El Ministerio de Minas y Energía está contratando 3 especialistas en energía renovable y 2 expertos en impuestos al carbono. Las ofertas de trabajo enfatizan experiencia en 'marcos de energía transicional'.",
-            source: "Portal de empleo gubernamental, LinkedIn",
-            leadTime: "7-9 meses antes de cambios de política"
-          },
-          {
-            type: "Alerta de Contrato",
-            date: "Ayer",
-            content: "Ejecutivos de Ecopetrol reunidos con funcionarios gubernamentales respecto a 'iniciativa de modernización de contratos'. Fuentes indican enfoque en cláusulas de cumplimiento ambiental.",
-            source: "Portafolio, Bloomberg Colombia",
-            leadTime: "4-5 meses antes de revisiones de contratos"
-          }
-        ]
-      },
-      finance: {
-        title: "JP Morgan - Informe del Sector Financiero de Chile",
-        riskLevel: "low",
-        signals: [
-          {
-            type: "Actualización Regulatoria",
-            date: "Hoy",
-            content: "El Banco Central de Chile anunció período de consulta para el marco de moneda digital. Sector bancario tiene 60 días para enviar comentarios sobre las regulaciones propuestas.",
-            source: "Diario Financiero, boletín del Banco Central",
-            leadTime: "8-10 meses antes de la implementación"
-          },
-          {
-            type: "Señal de Política Fiscal",
-            date: "Esta semana",
-            content: "El Ministerio de Finanzas está reclutando especialistas en impuestos internacionales con enfoque en 'implementación de impuesto mínimo global.' 5 posiciones abiertas simultáneamente.",
-            source: "Portal de contratación gubernamental, La Tercera",
-            leadTime: "6-7 meses antes de cambios fiscales"
-          }
-        ]
-      }
-    };
+      const reportData = {
+        research: {
+          title: "Análisis de Tendencias Políticas - Colombia",
+          riskLevel: "medium",
+          reportStyle: "academic",
+          signals: [
+            {
+              type: "Tendencia Política",
+              date: "Últimos 3 Meses",
+              content: "Análisis sistemático de fuentes regionales muestra un aumento del 42% en discusiones sobre descentralización.",
+              source: "6 medios regionales, 124 artículos",
+              leadTime: "12–18 meses antes de la implementación"
+            },
+            {
+              type: "Discurso Público Emergente",
+              date: "Últimas 6 Semanas",
+              content: "Incremento del 67% en debates sobre reforma electoral correlacionado con baja confianza institucional (r=0.73).",
+              source: "Redes sociales + 3 publicaciones académicas",
+              leadTime: "8–10 meses antes de adopción general"
+            },
+            {
+              type: "Reconocimiento de Patrones Históricos",
+              date: "Análisis de 5 Años",
+              content: "El discurso actual refleja el lenguaje del acuerdo de paz de 2016 con una coincidencia del 78%.",
+              source: "Archivo + revistas académicas",
+              leadTime: "6–9 meses antes de una realineación política"
+            }
+          ]
+        },
+        government: {
+          title: "Evaluación de Seguridad - Región Fronteriza de México",
+          riskLevel: "high",
+          reportStyle: "security",
+          signals: [
+            {
+              type: "ALERTA CRÍTICA",
+              date: "Hace 48 Horas",
+              content: "Patrones de comunicación inusuales sugieren planificación operativa en Sonora.",
+              source: "RESTRINGIDO - Múltiples fuentes",
+              leadTime: "72–96 horas antes de posible actividad"
+            },
+            {
+              type: "MOVIMIENTO DETECTADO",
+              date: "Hace 5 Días",
+              content: "Movimientos vehiculares anómalos coinciden con patrones pre-incidente.",
+              source: "Reportes locales + análisis de patrones",
+              leadTime: "10–14 días antes de una escalada"
+            },
+            {
+              type: "SEÑAL ECONÓMICA",
+              date: "Monitoreo de 2 Semanas",
+              content: "Aumento del 87% en tipos de transacciones transfronterizas vinculadas a preparación de disrupciones.",
+              source: "Monitoreo financiero + análisis histórico",
+              leadTime: "3–4 semanas antes de una posible disrupción"
+            }
+          ]
+        },
+        corporate: {
+          title: "Estrategia de Entrada al Mercado - Sector Minorista en Brasil",
+          riskLevel: "low",
+          reportStyle: "business",
+          signals: [
+            {
+              type: "Análisis Regulatorio",
+              date: "Este Trimestre",
+              content: "Reformas municipales reducen tiempos de permisos de 267 a 142 días en ciudades clave.",
+              source: "Prensa empresarial + registros oficiales",
+              leadTime: "Próximos 6–9 meses"
+            },
+            {
+              type: "Sentimiento del Consumidor",
+              date: "Monitoreo Continuo",
+              content: "Aumento del 34% en la preferencia por marcas extranjeras; se prefiere canal omnicanal.",
+              source: "Encuestas + análisis en redes sociales",
+              leadTime: "Pico esperado entre Q1–Q2 de 2025"
+            },
+            {
+              type: "Inteligencia de la Cadena de Suministro",
+              date: "Últimos 60 Días",
+              content: "Centros logísticos de São Paulo reducen tiempos de entrega en 41% y costos en 17%.",
+              source: "Informes industriales + datos logísticos",
+              leadTime: "Ventana de ventaja de 12 meses"
+            }
+          ]
+        },
+        mining: {
+          title: "Resumen de Operaciones Estratégicas - Minería (Perú)",
+          riskLevel: "medium",
+          reportStyle: "operations",
+          signals: [
+            {
+              type: "Movimiento Laboral",
+              date: "Últimas 2 Semanas",
+              content: "Aumento en la actividad sindical en Cajamarca indica posible huelga.",
+              source: "Prensa regional + informes laborales",
+              leadTime: "10–14 días antes de disrupción"
+            },
+            {
+              type: "Regulación Ambiental",
+              date: "Último Mes",
+              content: "Propuesta de endurecimiento en controles ambientales en la región de Apurímac.",
+              source: "Boletines gubernamentales + ONG",
+              leadTime: "1–2 meses antes de aplicación"
+            },
+            {
+              type: "Sentimiento Comunitario",
+              date: "Últimos 90 Días",
+              content: "Sentimiento negativo en zonas mineras aumenta 28%, similar a protestas de 2018.",
+              source: "Redes sociales + prensa local",
+              leadTime: "6–8 semanas antes de tensión"
+            }
+          ]
+        },
+        energy: {
+          title: "Análisis de Mercado - Sector Energético (Argentina)",
+          riskLevel: "high",
+          reportStyle: "market",
+          signals: [
+            {
+              type: "Volatilidad de Precios",
+              date: "Últimos 3 Meses",
+              content: "Incrementos de combustible superan el 19%, generando tensiones en acuerdos de suministro.",
+              source: "Informes del sector + comunicados oficiales",
+              leadTime: "3–6 meses antes de renegociaciones"
+            },
+            {
+              type: "Cambio de Política",
+              date: "Esta Semana",
+              content: "Nuevos topes a subsidios afectan a grandes consumidores industriales.",
+              source: "Boletines oficiales + análisis de expertos",
+              leadTime: "1 mes hasta impacto completo"
+            },
+            {
+              type: "Riesgo de Infraestructura",
+              date: "Monitoreo Continuo",
+              content: "Cortes eléctricos vinculados a retrasos en mantenimiento en la región de Córdoba.",
+              source: "Informes técnicos + prensa local",
+              leadTime: "2–4 semanas antes de crisis"
+            }
+          ]
+        },
+        finance: {
+          title: "Evaluación de Riesgo - Sector Financiero (Chile)",
+          riskLevel: "low",
+          reportStyle: "finance",
+          signals: [
+            {
+              type: "Alerta Regulatoria",
+              date: "Últimos 60 Días",
+              content: "El banco central flexibiliza reservas para nuevos actores fintech.",
+              source: "Boletines del banco central + centros de pensamiento",
+              leadTime: "6–12 meses antes de impacto"
+            },
+            {
+              type: "Tendencias Macroeconómicas",
+              date: "Resumen del Q1",
+              content: "Expansión del crédito del 11% impulsada por préstamos a PYMEs.",
+              source: "Indicadores económicos + datos bancarios",
+              leadTime: "Monitoreo continuo trimestral"
+            },
+            {
+              type: "Riesgo Reputacional",
+              date: "Últimos 30 Días",
+              content: "Banco principal bajo escrutinio por deficiencias AML ligadas a transferencias al Caribe.",
+              source: "Periodismo investigativo + informes de control",
+              leadTime: "1–2 meses antes de investigación formal"
+            }
+          ]
+        }
+      };
+    
 
     function generateReport() {
       const clientSelect = document.getElementById('client-select');
