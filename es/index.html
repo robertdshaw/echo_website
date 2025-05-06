@@ -5,41 +5,41 @@
   <div class="demo-container">
     <div class="demo-controls">
       <div class="control-group">
-        <label for="client-select">Seleccionar Tipo de Cliente</label>
-        <select id="client-select">
+        <label for="client-select-es">Seleccionar Tipo de Cliente</label>
+        <select id="client-select-es">
           <option value="research">Instituto de Investigación - Tendencias Políticas (Colombia)</option>
           <option value="government">Agencia Gubernamental - Evaluación de Seguridad (México)</option>
           <option value="corporate">Estrategia Corporativa - Entrada al Mercado (Brasil)</option>
         </select>
       </div>
-      <button id="generate-btn" onclick="generateReport()" class="cta-button">Generar Informe</button>
+      <button id="generate-btn-es" class="cta-button">Generar Informe</button>
     </div>
 
     <div class="process-status">
-      <div class="status-step" id="step-1">
+      <div class="status-step" id="step-1-es">
         <div class="status-icon">📰</div>
         <div class="status-text">Escaneando Noticias Locales</div>
       </div>
-      <div class="status-step" id="step-2">
+      <div class="status-step" id="step-2-es">
         <div class="status-icon">🔍</div>
         <div class="status-text">Detectando Señales</div>
       </div>
-      <div class="status-step" id="step-3">
+      <div class="status-step" id="step-3-es">
         <div class="status-icon">🤖</div>
         <div class="status-text">Análisis de IA</div>
       </div>
-      <div class="status-step" id="step-4">
+      <div class="status-step" id="step-4-es">
         <div class="status-icon">📊</div>
         <div class="status-text">Generación de Informe</div>
       </div>
     </div>
 
-    <div class="demo-output" id="output">
-      <div class="loading" id="loading">
+    <div class="demo-output" id="output-es">
+      <div class="loading" id="loading-es">
         <div class="loader"></div>
         <p>Generando informe de inteligencia...</p>
       </div>
-      <div id="report-content" style="display: none;">
+      <div id="report-content-es" style="display: none;">
         <!-- El contenido del informe se insertará aquí -->
       </div>
     </div>
@@ -47,249 +47,266 @@
 </section>
 
 <script>
-  // Función para generar informes - usando nombres diferentes para evitar conflictos
-  function generateReport() {
-    const clientSelect = document.getElementById('client-select');
-    const selectedClient = clientSelect.value;
-    const generateBtn = document.getElementById('generate-btn');
-    const loading = document.getElementById('loading');
-    const reportContent = document.getElementById('report-content');
-    
-    // Deshabilitar botón y mostrar carga
-    generateBtn.disabled = true;
-    loading.classList.add('active');
-    reportContent.style.display = 'none';
-    
-    // Reiniciar todos los pasos
-    for (let i = 1; i <= 4; i++) {
-      const step = document.getElementById(`step-${i}`);
-      step.classList.remove('active', 'complete');
-    }
-    
-    // Simular pasos del proceso
-    let currentStep = 1;
-    const stepInterval = setInterval(() => {
-      if (currentStep <= 4) {
-        const step = document.getElementById(`step-${currentStep}`);
-        step.classList.add('active');
-        
-        // Marcar como completo después de retraso
-        setTimeout(() => {
-          step.classList.remove('active');
-          step.classList.add('complete');
-          currentStep++;
-          
-          if (currentStep > 4) {
-            clearInterval(stepInterval);
-            showReportES(selectedClient);
-          }
-        }, 1000);
+// Código completamente aislado usando IIFE para evitar conflictos de variables
+(function() {
+// Datos de informes específicos para la versión española
+const reportsES = {
+  research: {
+    title: "Análisis de Tendencias Políticas - Colombia",
+    riskLevel: "medium",
+    reportStyle: "academic",
+    signals: [
+      {
+        type: "Tendencia de Política",
+        date: "Últimos 3 Meses",
+        content: "El análisis sistemático de fuentes de noticias regionales indica un aumento del 42% en las discusiones sobre política de descentralización en los departamentos del sur de Colombia. Los términos clave con frecuencia creciente incluyen 'autonomía regional' y 'autogobierno local'.",
+        source: "6 Fuentes de Noticias Regionales, 124 Artículos",
+        leadTime: "12-18 meses antes de implementación de políticas"
+      },
+      {
+        type: "Discurso Público Emergente",
+        date: "Últimas 6 Semanas",
+        content: "El procesamiento de lenguaje natural del contenido de redes sociales muestra un aumento del 67% en la discusión a nivel comunitario sobre reforma electoral, particularmente enfocada en mecanismos de democracia directa. Esto se correlaciona con la disminución de la confianza en las instituciones políticas tradicionales (r=0.73).",
+        source: "Análisis de Redes Sociales, 3 Publicaciones Universitarias",
+        leadTime: "8-10 meses antes de adopción generalizada"
+      },
+      {
+        type: "Reconocimiento de Patrones Históricos",
+        date: "Análisis de 5 Años",
+        content: "Nuestro algoritmo de reconocimiento de patrones ha identificado similitudes lingüísticas significativas entre el discurso actual y la retórica previa al acuerdo de paz de 2016. Las declaraciones públicas actuales de políticos regionales muestran una coincidencia lingüística del 78% con el posicionamiento previo al acuerdo.",
+        source: "Archivo Histórico de Medios, Revistas Académicas",
+        leadTime: "6-9 meses antes de realineamiento político"
       }
-    }, 1200);
+    ]
+  },
+  government: {
+    title: "Evaluación de Seguridad - Región Fronteriza de México",
+    riskLevel: "high",
+    reportStyle: "security",
+    signals: [
+      {
+        type: "ALERTA CRÍTICA",
+        date: "Hace 48 Horas",
+        content: "Patrones de comunicación inusuales detectados entre grupos previamente no afiliados en la región de Sonora. El volumen de comunicación aumentó un 315% con enfoque geográfico específico en corredores de tránsito. Patrón consistente con planificación preoperativa.",
+        source: "RESTRINGIDO - Múltiples Fuentes",
+        leadTime: "72-96 horas antes de actividad potencial"
+      },
+      {
+        type: "MOVIMIENTO DETECTADO",
+        date: "Hace 5 Días",
+        content: "Patrones anómalos de movimiento de vehículos identificados en corredor estratégico. El análisis de marca de tiempo muestra movimientos coordinados a las 20:00-23:00 hora local. El movimiento coincide con patrones históricos antes de incidentes significativos en 2023.",
+        source: "Redes de Reportes Locales, Análisis de Patrones",
+        leadTime: "10-14 días antes de escalamiento"
+      },
+      {
+        type: "SEÑAL ECONÓMICA",
+        date: "2 Semanas de Monitoreo",
+        content: "La actividad de cambio de divisas en 4 puntos de monitoreo muestra un aumento del 87% en tipos específicos de transacciones asociadas con movimiento transfronterizo. Los indicadores económicos sugieren preparación para interrupción de la cadena de suministro regional.",
+        source: "Análisis Financiero, Comparación Histórica",
+        leadTime: "3-4 semanas antes de posible interrupción"
+      }
+    ]
+  },
+  corporate: {
+    title: "Estrategia de Entrada al Mercado - Sector Minorista de Brasil",
+    riskLevel: "low",
+    reportStyle: "business",
+    signals: [
+      {
+        type: "Análisis Regulatorio",
+        date: "Este Trimestre",
+        content: "Nuestra IA detectó una reducción del 23% en la carga de cumplimiento regulatorio para minoristas extranjeros en 3 mercados metropolitanos clave. Las reformas a nivel municipal han agilizado los procesos de permisos con tiempos de aprobación promedio disminuyendo de 267 a 142 días.",
+        source: "Publicaciones Comerciales Locales, Presentaciones Regulatorias",
+        leadTime: "Ventana de tiempo clave: Próximos 6-9 meses"
+      },
+      {
+        type: "Sentimiento del Consumidor",
+        date: "Monitoreo Continuo",
+        content: "El análisis de sentimiento muestra un aumento del 34% en menciones positivas de marcas minoristas internacionales, con énfasis particular en variedad de productos y transparencia de precios. El análisis de tendencias en redes sociales indica una creciente preferencia del consumidor por experiencias minoristas omnicanal.",
+        source: "Encuestas a Consumidores, Análisis de Redes Sociales",
+        leadTime: "Pico de receptividad del mercado: Q1-Q2 2025"
+      },
+      {
+        type: "Inteligencia de Cadena de Suministro",
+        date: "Últimos 60 Días",
+        content: "El análisis de la red logística indica mejoras significativas en la infraestructura de entrega de última milla en el estado de São Paulo. Los nuevos centros de distribución regional han reducido los tiempos de entrega promedio en un 41%, mientras que los costos de transporte han disminuido un 17% desde 2022.",
+        source: "Informes de la Industria, Datos de Transporte",
+        leadTime: "Ventana de ventaja competitiva de 12 meses"
+      }
+    ]
   }
+};
 
-  // Definiendo los informes en español (con nombre diferente para evitar conflictos)
-  const reportsES = {
-    research: {
-      title: "Análisis de Tendencias Políticas - Colombia",
-      riskLevel: "medium",
-      reportStyle: "academic",
-      signals: [
-        {
-          type: "Tendencia de Política",
-          date: "Últimos 3 Meses",
-          content: "El análisis sistemático de fuentes de noticias regionales indica un aumento del 42% en las discusiones sobre política de descentralización en los departamentos del sur de Colombia. Los términos clave con frecuencia creciente incluyen 'autonomía regional' y 'autogobierno local'.",
-          source: "6 Fuentes de Noticias Regionales, 124 Artículos",
-          leadTime: "12-18 meses antes de implementación de políticas"
-        },
-        {
-          type: "Discurso Público Emergente",
-          date: "Últimas 6 Semanas",
-          content: "El procesamiento de lenguaje natural del contenido de redes sociales muestra un aumento del 67% en la discusión a nivel comunitario sobre reforma electoral, particularmente enfocada en mecanismos de democracia directa. Esto se correlaciona con la disminución de la confianza en las instituciones políticas tradicionales (r=0.73).",
-          source: "Análisis de Redes Sociales, 3 Publicaciones Universitarias",
-          leadTime: "8-10 meses antes de adopción generalizada"
-        },
-        {
-          type: "Reconocimiento de Patrones Históricos",
-          date: "Análisis de 5 Años",
-          content: "Nuestro algoritmo de reconocimiento de patrones ha identificado similitudes lingüísticas significativas entre el discurso actual y la retórica previa al acuerdo de paz de 2016. Las declaraciones públicas actuales de políticos regionales muestran una coincidencia lingüística del 78% con el posicionamiento previo al acuerdo.",
-          source: "Archivo Histórico de Medios, Revistas Académicas",
-          leadTime: "6-9 meses antes de realineamiento político"
-        }
-      ]
-    },
-    government: {
-      title: "Evaluación de Seguridad - Región Fronteriza de México",
-      riskLevel: "high",
-      reportStyle: "security",
-      signals: [
-        {
-          type: "ALERTA CRÍTICA",
-          date: "Hace 48 Horas",
-          content: "Patrones de comunicación inusuales detectados entre grupos previamente no afiliados en la región de Sonora. El volumen de comunicación aumentó un 315% con enfoque geográfico específico en corredores de tránsito. Patrón consistente con planificación preoperativa.",
-          source: "RESTRINGIDO - Múltiples Fuentes",
-          leadTime: "72-96 horas antes de actividad potencial"
-        },
-        {
-          type: "MOVIMIENTO DETECTADO",
-          date: "Hace 5 Días",
-          content: "Patrones anómalos de movimiento de vehículos identificados en corredor estratégico. El análisis de marca de tiempo muestra movimientos coordinados a las 20:00-23:00 hora local. El movimiento coincide con patrones históricos antes de incidentes significativos en 2023.",
-          source: "Redes de Reportes Locales, Análisis de Patrones",
-          leadTime: "10-14 días antes de escalamiento"
-        },
-        {
-          type: "SEÑAL ECONÓMICA",
-          date: "2 Semanas de Monitoreo",
-          content: "La actividad de cambio de divisas en 4 puntos de monitoreo muestra un aumento del 87% en tipos específicos de transacciones asociadas con movimiento transfronterizo. Los indicadores económicos sugieren preparación para interrupción de la cadena de suministro regional.",
-          source: "Análisis Financiero, Comparación Histórica",
-          leadTime: "3-4 semanas antes de posible interrupción"
-        }
-      ]
-    },
-    corporate: {
-      title: "Estrategia de Entrada al Mercado - Sector Minorista de Brasil",
-      riskLevel: "low",
-      reportStyle: "business",
-      signals: [
-        {
-          type: "Análisis Regulatorio",
-          date: "Este Trimestre",
-          content: "Nuestra IA detectó una reducción del 23% en la carga de cumplimiento regulatorio para minoristas extranjeros en 3 mercados metropolitanos clave. Las reformas a nivel municipal han agilizado los procesos de permisos con tiempos de aprobación promedio disminuyendo de 267 a 142 días.",
-          source: "Publicaciones Comerciales Locales, Presentaciones Regulatorias",
-          leadTime: "Ventana de tiempo clave: Próximos 6-9 meses"
-        },
-        {
-          type: "Sentimiento del Consumidor",
-          date: "Monitoreo Continuo",
-          content: "El análisis de sentimiento muestra un aumento del 34% en menciones positivas de marcas minoristas internacionales, con énfasis particular en variedad de productos y transparencia de precios. El análisis de tendencias en redes sociales indica una creciente preferencia del consumidor por experiencias minoristas omnicanal.",
-          source: "Encuestas a Consumidores, Análisis de Redes Sociales",
-          leadTime: "Pico de receptividad del mercado: Q1-Q2 2025"
-        },
-        {
-          type: "Inteligencia de Cadena de Suministro",
-          date: "Últimos 60 Días",
-          content: "El análisis de la red logística indica mejoras significativas en la infraestructura de entrega de última milla en el estado de São Paulo. Los nuevos centros de distribución regional han reducido los tiempos de entrega promedio en un 41%, mientras que los costos de transporte han disminuido un 17% desde 2022.",
-          source: "Informes de la Industria, Datos de Transporte",
-          leadTime: "Ventana de ventaja competitiva de 12 meses"
-        }
-      ]
-    }
-  };
-
-  // Función para mostrar el informe en español (con nombre diferente)
-  function showReportES(clientType) {
-    const loading = document.getElementById('loading');
-    const reportContent = document.getElementById('report-content');
-    const generateBtn = document.getElementById('generate-btn');
-    const report = reportsES[clientType];
-    
-    // Generar HTML del informe basado en el estilo del tipo de cliente
-    let reportHTML = '';
-    
-    // Diferentes estilos de encabezado basados en el tipo de informe
-    if (report.reportStyle === 'academic') {
-      reportHTML = `
-        <div class="output-header" style="border-bottom: 2px solid var(--accent);">
-          <div class="output-title" style="font-family: 'Times New Roman', serif; font-size: 1.6rem;">${report.title}</div>
-          <div class="output-meta">
-            <div class="report-type" style="background: rgba(8, 145, 178, 0.1); color: var(--accent);">Análisis Académico</div>
-            <div class="risk-level risk-${report.riskLevel}">Evaluación de Riesgo: ${report.riskLevel === 'high' ? 'ALTO' : report.riskLevel === 'medium' ? 'MEDIO' : 'BAJO'}</div>
-          </div>
+// Función para mostrar el informe en español
+function showReportES(clientType) {
+  const loading = document.getElementById('loading-es');
+  const reportContent = document.getElementById('report-content-es');
+  const generateBtn = document.getElementById('generate-btn-es');
+  const report = reportsES[clientType];
+  
+  // Generar HTML del informe basado en el estilo del tipo de cliente
+  let reportHTML = '';
+  
+  // Diferentes estilos de encabezado basados en el tipo de informe
+  if (report.reportStyle === 'academic') {
+    reportHTML = `
+      <div class="output-header" style="border-bottom: 2px solid var(--accent);">
+        <div class="output-title" style="font-family: 'Times New Roman', serif; font-size: 1.6rem;">${report.title}</div>
+        <div class="output-meta">
+          <div class="report-type" style="background: rgba(8, 145, 178, 0.1); color: var(--accent);">Análisis Académico</div>
+          <div class="risk-level risk-${report.riskLevel}">Evaluación de Riesgo: ${report.riskLevel === 'high' ? 'ALTO' : report.riskLevel === 'medium' ? 'MEDIO' : 'BAJO'}</div>
         </div>
-        <div class="report-summary" style="font-style: italic; border-left-color: var(--accent);">
-          <div class="summary-title" style="color: var(--accent);">Resumen de Investigación</div>
-          <div class="summary-content">Este análisis presenta observaciones empíricas de tendencias políticas emergentes en Colombia basadas en recopilación de datos de múltiples fuentes y procesamiento de lenguaje natural en medios regionales.</div>
+      </div>
+      <div class="report-summary" style="font-style: italic; border-left-color: var(--accent);">
+        <div class="summary-title" style="color: var(--accent);">Resumen de Investigación</div>
+        <div class="summary-content">Este análisis presenta observaciones empíricas de tendencias políticas emergentes en Colombia basadas en recopilación de datos de múltiples fuentes y procesamiento de lenguaje natural en medios regionales.</div>
+      </div>
+    `;
+  } else if (report.reportStyle === 'security') {
+    reportHTML = `
+      <div class="output-header" style="border-bottom: 2px solid var(--danger); background: rgba(239, 68, 68, 0.05); padding: 1rem;">
+        <div class="output-title" style="font-family: 'Courier New', monospace; font-size: 1.5rem; text-transform: uppercase;">${report.title}</div>
+        <div class="output-meta">
+          <div class="report-type" style="background: rgba(239, 68, 68, 0.1); color: var(--danger);">INFORME DE SEGURIDAD</div>
+          <div class="risk-level risk-${report.riskLevel}" style="font-weight: 700;">NIVEL DE AMENAZA: ${report.riskLevel === 'high' ? 'ALTO' : report.riskLevel === 'medium' ? 'MEDIO' : 'BAJO'}</div>
+        </div>
+      </div>
+      <div class="report-summary" style="background: rgba(239, 68, 68, 0.05); border-left-color: var(--danger);">
+        <div class="summary-title" style="color: var(--danger);">VISIÓN GENERAL DE LA SITUACIÓN</div>
+        <div class="summary-content">Múltiples indicadores de alta confianza sugieren preocupaciones de seguridad elevadas en la región monitoreada. Se recomienda revisión inmediata de medidas de contingencia.</div>
+      </div>
+    `;
+  } else if (report.reportStyle === 'business') {
+    reportHTML = `
+      <div class="output-header" style="border-bottom: 2px solid var(--success);">
+        <div class="output-title" style="font-family: 'Arial', sans-serif; font-size: 1.5rem;">${report.title}</div>
+        <div class="output-meta">
+          <div class="report-type" style="background: rgba(16, 185, 129, 0.1); color: var(--success);">Inteligencia de Mercado</div>
+          <div class="risk-level risk-${report.riskLevel}">Oportunidad: ALTA | Riesgo: ${report.riskLevel === 'high' ? 'ALTO' : report.riskLevel === 'medium' ? 'MEDIO' : 'BAJO'}</div>
+        </div>
+      </div>
+      <div class="report-summary" style="border-left-color: var(--success); background: rgba(16, 185, 129, 0.05);">
+        <div class="summary-title" style="color: var(--success);">Resumen Ejecutivo</div>
+        <div class="summary-content">Las condiciones del mercado indican una ventana favorable de entrada para operaciones minoristas en Brasil, con mejora en las condiciones regulatorias y sentimiento positivo del consumidor hacia marcas internacionales.</div>
+      </div>
+    `;
+  }
+  
+  // Agregar elementos de señal con variaciones de estilo según el tipo de informe
+  report.signals.forEach(signal => {
+    if (report.reportStyle === 'academic') {
+      reportHTML += `
+        <div class="signal-item" style="border-radius: 0; border-left: 4px solid var(--accent);">
+          <div class="signal-header" style="background: rgba(8, 145, 178, 0.1);">
+            <div class="signal-type" style="color: var(--accent); font-weight: 600;">${signal.type}</div>
+            <div class="signal-date" style="font-style: italic;">${signal.date}</div>
+          </div>
+          <div class="signal-content" style="font-size: 0.95rem; line-height: 1.7;">
+            <p>${signal.content}</p>
+          </div>
+          <div class="signal-metadata" style="font-size: 0.85rem; color: var(--text-secondary);">
+            <div class="signal-source"><strong>Fuentes:</strong> ${signal.source}</div>
+            <div class="signal-leadtime" style="color: var(--accent);">${signal.leadTime}</div>
+          </div>
         </div>
       `;
     } else if (report.reportStyle === 'security') {
-      reportHTML = `
-        <div class="output-header" style="border-bottom: 2px solid var(--danger); background: rgba(239, 68, 68, 0.05); padding: 1rem;">
-          <div class="output-title" style="font-family: 'Courier New', monospace; font-size: 1.5rem; text-transform: uppercase;">${report.title}</div>
-          <div class="output-meta">
-            <div class="report-type" style="background: rgba(239, 68, 68, 0.1); color: var(--danger);">INFORME DE SEGURIDAD</div>
-            <div class="risk-level risk-${report.riskLevel}" style="font-weight: 700;">NIVEL DE AMENAZA: ${report.riskLevel === 'high' ? 'ALTO' : report.riskLevel === 'medium' ? 'MEDIO' : 'BAJO'}</div>
+      reportHTML += `
+        <div class="signal-item" style="border: 1px solid var(--danger); margin-bottom: 1.5rem;">
+          <div class="signal-header" style="background: rgba(239, 68, 68, 0.1); border-bottom: 1px solid var(--danger);">
+            <div class="signal-type" style="color: var(--danger); font-weight: 700; letter-spacing: 0.5px;">${signal.type}</div>
+            <div class="signal-date" style="font-weight: bold;">${signal.date}</div>
           </div>
-        </div>
-        <div class="report-summary" style="background: rgba(239, 68, 68, 0.05); border-left-color: var(--danger);">
-          <div class="summary-title" style="color: var(--danger);">VISIÓN GENERAL DE LA SITUACIÓN</div>
-          <div class="summary-content">Múltiples indicadores de alta confianza sugieren preocupaciones de seguridad elevadas en la región monitoreada. Se recomienda revisión inmediata de medidas de contingencia.</div>
+          <div class="signal-content" style="font-family: 'Courier New', monospace; padding: 1rem; line-height: 1.5;">
+            <p>${signal.content}</p>
+          </div>
+          <div class="signal-metadata" style="background: rgba(15, 23, 42, 0.95); padding: 0.75rem 1.5rem;">
+            <div class="signal-source" style="font-size: 0.8rem; opacity: 0.8;">${signal.source}</div>
+            <div class="signal-leadtime" style="color: var(--danger); font-weight: 600; letter-spacing: 0.5px;">${signal.leadTime}</div>
+          </div>
         </div>
       `;
     } else if (report.reportStyle === 'business') {
-      reportHTML = `
-        <div class="output-header" style="border-bottom: 2px solid var(--success);">
-          <div class="output-title" style="font-family: 'Arial', sans-serif; font-size: 1.5rem;">${report.title}</div>
-          <div class="output-meta">
-            <div class="report-type" style="background: rgba(16, 185, 129, 0.1); color: var(--success);">Inteligencia de Mercado</div>
-            <div class="risk-level risk-${report.riskLevel}">Oportunidad: ALTA | Riesgo: ${report.riskLevel === 'high' ? 'ALTO' : report.riskLevel === 'medium' ? 'MEDIO' : 'BAJO'}</div>
+      reportHTML += `
+        <div class="signal-item" style="border-radius: 0.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid rgba(16, 185, 129, 0.2);">
+          <div class="signal-header" style="background: white; border-bottom: 2px solid rgba(16, 185, 129, 0.2); padding: 1.25rem 1.5rem;">
+            <div class="signal-type" style="color: var(--success); font-weight: 600;">${signal.type}</div>
+            <div class="signal-date" style="color: var(--secondary);">${signal.date}</div>
           </div>
-        </div>
-        <div class="report-summary" style="border-left-color: var(--success); background: rgba(16, 185, 129, 0.05);">
-          <div class="summary-title" style="color: var(--success);">Resumen Ejecutivo</div>
-          <div class="summary-content">Las condiciones del mercado indican una ventana favorable de entrada para operaciones minoristas en Brasil, con mejora en las condiciones regulatorias y sentimiento positivo del consumidor hacia marcas internacionales.</div>
+          <div class="signal-content" style="padding: 1.5rem; background: rgba(16, 185, 129, 0.03);">
+            <p>${signal.content}</p>
+          </div>
+          <div class="signal-metadata" style="display: flex; justify-content: space-between; padding: 1rem 1.5rem; background: white; border-top: 1px solid rgba(16, 185, 129, 0.1);">
+            <div class="signal-source" style="font-size: 0.875rem; color: var(--secondary);">${signal.source}</div>
+            <div class="signal-leadtime" style="color: var(--success); font-weight: 600;">${signal.leadTime}</div>
+          </div>
         </div>
       `;
     }
-    
-    // Agregar elementos de señal con variaciones de estilo según el tipo de informe
-    report.signals.forEach(signal => {
-      if (report.reportStyle === 'academic') {
-        reportHTML += `
-          <div class="signal-item" style="border-radius: 0; border-left: 4px solid var(--accent);">
-            <div class="signal-header" style="background: rgba(8, 145, 178, 0.1);">
-              <div class="signal-type" style="color: var(--accent); font-weight: 600;">${signal.type}</div>
-              <div class="signal-date" style="font-style: italic;">${signal.date}</div>
-            </div>
-            <div class="signal-content" style="font-size: 0.95rem; line-height: 1.7;">
-              <p>${signal.content}</p>
-            </div>
-            <div class="signal-metadata" style="font-size: 0.85rem; color: var(--text-secondary);">
-              <div class="signal-source"><strong>Fuentes:</strong> ${signal.source}</div>
-              <div class="signal-leadtime" style="color: var(--accent);">${signal.leadTime}</div>
-            </div>
-          </div>
-        `;
-      } else if (report.reportStyle === 'security') {
-        reportHTML += `
-          <div class="signal-item" style="border: 1px solid var(--danger); margin-bottom: 1.5rem;">
-            <div class="signal-header" style="background: rgba(239, 68, 68, 0.1); border-bottom: 1px solid var(--danger);">
-              <div class="signal-type" style="color: var(--danger); font-weight: 700; letter-spacing: 0.5px;">${signal.type}</div>
-              <div class="signal-date" style="font-weight: bold;">${signal.date}</div>
-            </div>
-            <div class="signal-content" style="font-family: 'Courier New', monospace; padding: 1rem; line-height: 1.5;">
-              <p>${signal.content}</p>
-            </div>
-            <div class="signal-metadata" style="background: rgba(15, 23, 42, 0.95); padding: 0.75rem 1.5rem;">
-              <div class="signal-source" style="font-size: 0.8rem; opacity: 0.8;">${signal.source}</div>
-              <div class="signal-leadtime" style="color: var(--danger); font-weight: 600; letter-spacing: 0.5px;">${signal.leadTime}</div>
-            </div>
-          </div>
-        `;
-      } else if (report.reportStyle === 'business') {
-        reportHTML += `
-          <div class="signal-item" style="border-radius: 0.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid rgba(16, 185, 129, 0.2);">
-            <div class="signal-header" style="background: white; border-bottom: 2px solid rgba(16, 185, 129, 0.2); padding: 1.25rem 1.5rem;">
-              <div class="signal-type" style="color: var(--success); font-weight: 600;">${signal.type}</div>
-              <div class="signal-date" style="color: var(--secondary);">${signal.date}</div>
-            </div>
-            <div class="signal-content" style="padding: 1.5rem; background: rgba(16, 185, 129, 0.03);">
-              <p>${signal.content}</p>
-            </div>
-            <div class="signal-metadata" style="display: flex; justify-content: space-between; padding: 1rem 1.5rem; background: white; border-top: 1px solid rgba(16, 185, 129, 0.1);">
-              <div class="signal-source" style="font-size: 0.875rem; color: var(--secondary);">${signal.source}</div>
-              <div class="signal-leadtime" style="color: var(--success); font-weight: 600;">${signal.leadTime}</div>
-            </div>
-          </div>
-        `;
-      }
-    });
-    
-    // Mostrar informe
-    setTimeout(() => {
-      loading.classList.remove('active');
-      reportContent.innerHTML = reportHTML;
-      reportContent.style.display = 'block';
-      generateBtn.disabled = false;
-    }, 500);
+  });
+  
+  // Mostrar informe
+  setTimeout(() => {
+    loading.classList.remove('active');
+    reportContent.innerHTML = reportHTML;
+    reportContent.style.display = 'block';
+    generateBtn.disabled = false;
+  }, 500);
+}
+
+// Función para generar informes en español
+function generateReportES() {
+  const clientSelect = document.getElementById('client-select-es');
+  const selectedClient = clientSelect.value;
+  const generateBtn = document.getElementById('generate-btn-es');
+  const loading = document.getElementById('loading-es');
+  const reportContent = document.getElementById('report-content-es');
+  
+  // Deshabilitar botón y mostrar carga
+  generateBtn.disabled = true;
+  loading.classList.add('active');
+  reportContent.style.display = 'none';
+  
+  // Reiniciar todos los pasos
+  for (let i = 1; i <= 4; i++) {
+    const step = document.getElementById(`step-${i}-es`);
+    step.classList.remove('active', 'complete');
   }
+  
+  // Simular pasos del proceso
+  let currentStep = 1;
+  const stepInterval = setInterval(() => {
+    if (currentStep <= 4) {
+      const step = document.getElementById(`step-${currentStep}-es`);
+      step.classList.add('active');
+      
+      // Marcar como completo después de retraso
+      setTimeout(() => {
+        step.classList.remove('active');
+        step.classList.add('complete');
+        currentStep++;
+        
+        if (currentStep > 4) {
+          clearInterval(stepInterval);
+          showReportES(selectedClient);
+        }
+      }, 1000);
+    }
+  }, 1200);
+}
+
+// Configurar event listener una vez que el DOM esté cargado
+document.addEventListener('DOMContentLoaded', function() {
+  const generateBtn = document.getElementById('generate-btn-es');
+  if (generateBtn) {
+    generateBtn.addEventListener('click', generateReportES);
+  }
+});
+
+// También agregarlo inmediatamente para casos donde el DOM ya está cargado
+const generateBtn = document.getElementById('generate-btn-es');
+if (generateBtn) {
+  generateBtn.addEventListener('click', generateReportES);
+}
+})();
 </script>
