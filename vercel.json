@@ -3,11 +3,13 @@
     "routes": [
       {
         "src": "/",
-        "has": {
-          "header": {
-            "accept-language": "es.*"
+        "has": [
+          {
+            "type": "header",
+            "key": "accept-language",
+            "value": "es.*"
           }
-        },
+        ],
         "dest": "/es"
       },
       {
