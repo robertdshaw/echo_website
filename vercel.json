@@ -1,19 +1,19 @@
 {
-    "version": 2,
-    "routes": [
-      {
-        "src": "/",
-        "has": [
-          {
-            "type": "header",
-            "key": "accept-language",
-            "value": "es.*"
-          }
-        ],
-        "dest": "/es"
-      },
-      {
-        "handle": "filesystem"
-      }
-    ]
-  }
+  "version": 2,
+  "routes": [
+    {
+      "src": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "es.*"
+        }
+      ],
+      "dest": "/es"
+    },
+    {
+      "handle": "filesystem"
+    }
+  ]
+}
