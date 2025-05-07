@@ -984,6 +984,25 @@ function closeMenu() {
       width: 100%;
     }
 
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;        /* Prevent line breaks */
+      gap: 1.5rem;
+      overflow-x: auto;         /* Optional: horizontal scroll if too tight */
+    }
+    
+    .nav-links a {
+      white-space: nowrap;      /* Don't wrap long links */
+      font-size: 1rem;
+    }
+    
+    /* Optional: adjust font size on smaller screens */
+    @media (max-width: 1024px) {
+      .nav-links a {
+        font-size: 0.875rem;
+      }
+    }    
+
     /* Additional fix for dropdown links */
     .dropdown-content a {
       color: white !important;
