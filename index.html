@@ -1444,6 +1444,8 @@
     </div> -->
     
     <!-- Replacement text -->
+    <section id="overview" class="text-center">
+    <h2 class="section-title">Overview</h2>
     <div class="overview-content">
       <p class="lead-text mb-4">
         Unlocking public value from local information sources. EchoFrame transforms local media archives into civic intelligence to strengthen community knowledge, public accountability, and better local policymaking.
@@ -1452,7 +1454,6 @@
         EchoFrame supports public interest institutions in:
       </p>
     </div>
-
     <div class="client-grid">
       <div class="client-type">
         <h3>Research Institutes</h3>
@@ -1471,7 +1472,6 @@
         <p>Strengthen investigative depth with AI-assisted story timelines and regional issue monitoring.</p>
       </div>
     </div>
-
     <p class="transition-text mt-5">
       One key goal is to transform overlooked public interest information into accessible, actionable civic insights.
     </p>
@@ -1480,10 +1480,6 @@
 <section id="problem" class="text-center">
   <h2 class="section-title">The Problem</h2>
   <p class="section-subtitle">Public interest media suffers from fragmented information and underutilized civic signals</p>
-
-  <!-- Old stats greyed out -->
-  <!-- <div class="problem-stats mb-3">...</div> -->
-
   <h3 class="section-subtitle mb-2">Why Local Information Systems Fall Short</h3>
   <div class="problem-grid">
     <div class="problem-card">
@@ -1505,15 +1501,82 @@
   </div>
 </section>
 
-<section id="live-demo" class="text-center">
-    <h2 class="section-title">Live Civic Signal Demo</h2>
-    <p class="section-subtitle">See how EchoFrame extracts actionable community insights from local archives</p>
-
-    <div class="demo-container">
-      <p>Select a theme (e.g., housing, healthcare, environment), a region, and timeframe. Watch how fragmented local news becomes a structured timeline of narratives, highlighting early signals, key stakeholders, and policy shifts.</p>
-      <p>Generate sample outputs with linked sources, timelines, and topic trends — ready for use in reports, community briefings, or public communications.</p>
+<section id="solutions" class="text-center">
+  <h2 class="section-title">Solutions</h2>
+  <p class="section-subtitle">From fragmented archives to actionable civic signals</p>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <h4>Structured Civic Signal Extraction</h4>
+      <p>Turn local news archives into structured datasets that highlight timelines, key actors, and evolving narratives.</p>
     </div>
+    <div class="problem-card">
+      <h4>AI-Augmented Historical Tracking</h4>
+      <p>Track policy and social themes over years, identifying shifts and cycles not visible in daily media monitoring.</p>
+    </div>
+    <div class="problem-card">
+      <h4>Local-to-National Issue Surfacing</h4>
+      <p>Identify under-reported local issues with national significance, supporting early responses by public authorities and civil groups.</p>
+    </div>
+    <div class="problem-card">
+      <h4>Community Narrative Dashboards</h4>
+      <p>Enable accessible dashboards for community organizations to monitor developments that matter to their constituents.</p>
+    </div>
+  </div>
 </section>
+
+<section id="products" class="text-center">
+  <h2 class="section-title">Products</h2>
+  <p class="section-subtitle">Tools for public interest media, research institutes, and civic engagement</p>
+  <div class="product-grid">
+    <div class="product-card">
+      <h3>Civic Signal Dashboard</h3>
+      <p>Track community issues across time with AI-generated narratives and citation-linked timelines.</p>
+    </div>
+    <div class="product-card">
+      <h3>Policy Trend Alerts</h3>
+      <p>Get automated updates when local reporting signals emerging debates or governance risks.</p>
+    </div>
+    <div class="product-card">
+      <h3>Public Data Exports</h3>
+      <p>Download structured datasets of storylines and trends for research or civic use.</p>
+    </div>
+    <div class="product-card">
+      <h3>Integration API</h3>
+      <p>Plug our civic signal engine into your public interest applications or dashboards.</p>
+    </div>
+  </div>
+</section>
+
+<section id="live-demo" class="text-center">
+  <h2 class="section-title">Live Demo</h2>
+  <p class="section-subtitle">Try our civic signal generator in action</p>
+  <div>
+    <select id="topic-select">
+      <option value="housing">Housing Access</option>
+      <option value="healthcare">Healthcare Equity</option>
+      <option value="environment">Environmental Justice</option>
+    </select>
+    <button onclick="generateDemo()">Generate Demo</button>
+    <div id="demo-output" style="margin-top:20px;"></div>
+  </div>
+</section>
+
+<script>
+function generateDemo() {
+  const topic = document.getElementById('topic-select').value;
+  const output = document.getElementById('demo-output');
+  const responses = {
+    housing: "Local media reports indicate a rise in tenant advocacy stories, policy debates on rent control, and early mentions of affordable housing proposals.",
+    healthcare: "Archived reports show growing attention to rural healthcare access, healthcare worker shortages, and emerging narratives around public health funding gaps.",
+    environment: "Historical coverage points to escalating environmental justice concerns, including water rights protests and deforestation alerts in specific regions."
+  };
+  output.innerHTML = `<p>${responses[topic]}</p>`;
+}
+</script>
+
+<style>
+html { scroll-behavior: smooth; }
+</style>
 
   <section id="faq">
     <h2 class="section-title">Frequently Asked Questions</h2>
