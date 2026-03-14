@@ -23,15 +23,8 @@
       --accent-red: #ff5a5a;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -41,25 +34,35 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .mono {
-      font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    }
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
 
     /* NAV */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(10, 14, 20, 0.9);
+      background: rgba(10, 14, 20, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 2rem;
-      height: 56px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .nav-logo-img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      mix-blend-mode: screen;
     }
 
     .nav-logo {
@@ -69,9 +72,7 @@
       letter-spacing: -0.02em;
     }
 
-    .nav-logo span {
-      color: var(--accent-cyan);
-    }
+    .nav-logo span { color: var(--accent-cyan); }
 
     .nav-links {
       display: flex;
@@ -87,9 +88,7 @@
       transition: color 0.2s;
     }
 
-    .nav-links a:hover {
-      color: var(--text-primary);
-    }
+    .nav-links a:hover { color: var(--text-primary); }
 
     .nav-cta {
       background: var(--accent-cyan) !important;
@@ -101,11 +100,17 @@
       transition: opacity 0.2s !important;
     }
 
-    .nav-cta:hover {
-      opacity: 0.85;
+    .nav-cta:hover { opacity: 0.85; }
+
+    .nav-login {
+      border: 1px solid var(--border) !important;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      transition: border-color 0.2s !important;
     }
 
-    /* HAMBURGER */
+    .nav-login:hover { border-color: var(--text-muted) !important; }
+
     .nav-hamburger {
       display: none;
       flex-direction: column;
@@ -126,10 +131,18 @@
 
     /* HERO */
     .hero {
-      padding: 10rem 2rem 6rem;
+      padding: 10rem 2rem 5rem;
       max-width: 900px;
       margin: 0 auto;
       text-align: center;
+    }
+
+    .hero-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      mix-blend-mode: screen;
+      margin-bottom: 2rem;
     }
 
     .hero h1 {
@@ -162,9 +175,7 @@
       margin-bottom: 3.5rem;
     }
 
-    .hero-cta:hover {
-      opacity: 0.85;
-    }
+    .hero-cta:hover { opacity: 0.85; }
 
     .testimonial {
       border-left: 2px solid var(--accent-cyan);
@@ -191,6 +202,88 @@
       font-weight: 500;
     }
 
+    /* LIVE STATUS BAR */
+    .status-bar {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+    }
+
+    .status-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      animation: pulse 2s infinite;
+    }
+
+    .status-dot.coming { background: var(--accent-orange); animation: none; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .status-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* KEY NUMBERS */
+    .numbers-section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .number-card {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .number-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 0.25rem;
+    }
+
+    .number-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
     /* SECTION */
     section {
       padding: 5rem 2rem;
@@ -211,7 +304,15 @@
       font-size: 1.75rem;
       font-weight: 700;
       letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      max-width: 600px;
       margin-bottom: 2.5rem;
+      line-height: 1.7;
     }
 
     /* PLATFORM GRID */
@@ -258,9 +359,7 @@
       color: var(--text-muted);
     }
 
-    .card-body {
-      padding: 1.25rem;
-    }
+    .card-body { padding: 1.25rem; }
 
     .card-region {
       font-family: 'JetBrains Mono', monospace;
@@ -317,18 +416,12 @@
       transition: opacity 0.2s;
     }
 
-    .card-link:hover {
-      opacity: 0.75;
-    }
-
-    .card-link::after {
-      content: ' →';
-    }
+    .card-link:hover { opacity: 0.75; }
+    .card-link::after { content: ' →'; }
 
     .badge-coming {
       position: absolute;
-      top: 12px;
-      right: 12px;
+      top: 12px; right: 12px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
       text-transform: uppercase;
@@ -338,6 +431,66 @@
       border: 1px solid rgba(255, 140, 66, 0.3);
       border-radius: 3px;
       color: var(--accent-orange);
+    }
+
+    .badge-live {
+      position: absolute;
+      top: 12px; right: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.6rem;
+      background: rgba(0, 196, 140, 0.12);
+      border: 1px solid rgba(0, 196, 140, 0.25);
+      border-radius: 3px;
+      color: var(--accent-green);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .badge-live::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      animation: pulse 2s infinite;
+    }
+
+    /* DIFFERENTIATORS */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .diff-card {
+      padding: 1.5rem;
+      border-left: 2px solid var(--accent-cyan);
+      background: var(--bg-card);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .diff-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .diff-card p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .diff-vs {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      display: block;
     }
 
     /* METHODOLOGY */
@@ -374,22 +527,74 @@
       opacity: 0.7;
     }
 
-    /* ABOUT */
-    .about-section {
-      border-top: 1px solid var(--border);
-      padding-top: 4rem;
+    /* ABOUT / OSINT COLLECTIVE */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
     }
 
-    .about-section p {
-      font-size: 0.95rem;
+    .about-text p {
+      font-size: 0.9rem;
       color: var(--text-secondary);
-      line-height: 1.7;
-      max-width: 640px;
-      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
     }
 
-    .about-section strong {
+    .about-text strong { color: var(--text-primary); }
+
+    .about-capabilities {
+      list-style: none;
+      padding: 0;
+    }
+
+    .about-capabilities li {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .about-capabilities li::before {
+      content: '→';
+      color: var(--accent-cyan);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+    }
+
+    .about-sidebar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .about-sidebar h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .about-stat {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8rem;
+    }
+
+    .about-stat:last-child { border-bottom: none; }
+
+    .about-stat-label { color: var(--text-muted); }
+
+    .about-stat-value {
       color: var(--text-primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
     }
 
     .locations {
@@ -397,26 +602,25 @@
       font-size: 0.75rem;
       color: var(--text-muted);
       letter-spacing: 0.05em;
+      margin-top: 0.5rem;
     }
 
     /* CONTACT */
     .contact-section {
       text-align: center;
       padding: 5rem 2rem 3rem;
-      border-top: 1px solid var(--border);
     }
 
-    .contact-section p {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
+    .contact-section .section-desc {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .contact-cta {
       display: inline-block;
       background: var(--accent-cyan);
       color: var(--bg-primary);
-      padding: 0.75rem 2rem;
+      padding: 0.75rem 2.5rem;
       border-radius: 4px;
       text-decoration: none;
       font-weight: 600;
@@ -425,9 +629,7 @@
       margin-bottom: 1.5rem;
     }
 
-    .contact-cta:hover {
-      opacity: 0.85;
-    }
+    .contact-cta:hover { opacity: 0.85; }
 
     .contact-email {
       font-family: 'JetBrains Mono', monospace;
@@ -440,9 +642,7 @@
       text-decoration: none;
     }
 
-    .contact-email a:hover {
-      color: var(--accent-cyan);
-    }
+    .contact-email a:hover { color: var(--accent-cyan); }
 
     /* FOOTER */
     footer {
@@ -453,7 +653,6 @@
       color: var(--text-muted);
     }
 
-    /* DIVIDER LINE */
     .divider {
       height: 1px;
       background: var(--border);
@@ -466,9 +665,7 @@
       .nav-links {
         display: none;
         position: absolute;
-        top: 56px;
-        left: 0;
-        right: 0;
+        top: 60px; left: 0; right: 0;
         background: rgba(10, 14, 20, 0.97);
         backdrop-filter: blur(12px);
         flex-direction: column;
@@ -477,35 +674,21 @@
         border-bottom: 1px solid var(--border);
       }
 
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-hamburger {
-        display: flex;
-      }
-
-      .hero {
-        padding: 8rem 1.5rem 4rem;
-      }
-
-      section {
-        padding: 3.5rem 1.5rem;
-      }
-
-      .platform-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .method-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .nav-links.open { display: flex; }
+      .nav-hamburger { display: flex; }
+      .hero { padding: 8rem 1.5rem 4rem; }
+      section { padding: 3.5rem 1.5rem; }
+      .platform-grid { grid-template-columns: 1fr; }
+      .method-grid { grid-template-columns: 1fr 1fr; }
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .status-inner { gap: 1.25rem; }
     }
 
     @media (max-width: 480px) {
-      .method-grid {
-        grid-template-columns: 1fr;
-      }
+      .method-grid { grid-template-columns: 1fr; }
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -513,11 +696,15 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">Echo<span>Frame</span></div>
+    <a href="#" class="nav-brand">
+      <img src="images/echoframe-logo.png" alt="EchoFrame" class="nav-logo-img">
+      <div class="nav-logo">Echo<span>Frame</span></div>
+    </a>
     <div class="nav-links" id="navLinks">
       <a href="#platforms">Platforms</a>
       <a href="#methodology">Methodology</a>
       <a href="#about">About</a>
+      <a href="login.html" class="nav-login">Client Login</a>
       <a href="mailto:info@echoframe.co?subject=Platform%20Access%20Request" class="nav-cta">Request Access</a>
     </div>
     <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
@@ -527,12 +714,87 @@
 
   <!-- HERO -->
   <section class="hero">
+    <img src="images/echoframe-logo.png" alt="EchoFrame" class="hero-logo">
     <h1>Operational Political Risk Intelligence</h1>
-    <p class="hero-sub">Live dashboards. Bayesian scenario modeling. Multi-source OSINT fusion.</p>
+    <p class="hero-sub">Live dashboards. Bayesian scenario modeling. Multi-source OSINT fusion. Built for decision-makers who need clarity, not commentary.</p>
     <a href="mailto:info@echoframe.co?subject=Platform%20Access%20Request" class="hero-cta">Request Access</a>
     <div class="testimonial">
       <p>"EchoFrame's unique data models saved one of our trading clients millions in compliance fees and generated over $100 million USD for another hedge fund client."</p>
       <cite>— GMTL Strategic Advisory</cite>
+    </div>
+  </section>
+
+  <!-- LIVE STATUS BAR -->
+  <div class="status-bar">
+    <div class="status-inner">
+      <div class="status-item">
+        <div class="status-dot"></div>
+        <span class="status-label">Iran Platform</span>
+      </div>
+      <div class="status-item">
+        <div class="status-dot"></div>
+        <span class="status-label">Venezuela Platform</span>
+      </div>
+      <div class="status-item">
+        <div class="status-dot"></div>
+        <span class="status-label">EU Regulatory</span>
+      </div>
+      <div class="status-item">
+        <div class="status-dot"></div>
+        <span class="status-label">EITB Monitor</span>
+      </div>
+      <div class="status-item">
+        <div class="status-dot coming"></div>
+        <span class="status-label">Mexico Energy — Q2 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY NUMBERS -->
+  <div class="numbers-section">
+    <div class="numbers-grid">
+      <div class="number-card">
+        <div class="number-value">4</div>
+        <div class="number-label">Live Platforms</div>
+      </div>
+      <div class="number-card">
+        <div class="number-value">214+</div>
+        <div class="number-label">Tracked Actors</div>
+      </div>
+      <div class="number-card">
+        <div class="number-value">103+</div>
+        <div class="number-label">OSINT Sources</div>
+      </div>
+      <div class="number-card">
+        <div class="number-value">93d</div>
+        <div class="number-label">Avg. Lead Time</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WHY ECHOFRAME -->
+  <section>
+    <div class="section-label">// why echoframe</div>
+    <h2 class="section-title">Intelligence That Moves at Market Speed</h2>
+    <p class="section-desc">Traditional political risk advisory delivers PDF reports weeks after events. Our clients get live, quantified scenario updates as situations evolve.</p>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <h3>Quantified, Not Qualitative</h3>
+        <p>Every scenario carries a calibrated probability. Brier-scored accuracy. No vague "elevated risk" assessments — specific numbers your trading desk can act on.</p>
+        <span class="diff-vs">vs. "The situation remains fluid"</span>
+      </div>
+      <div class="diff-card">
+        <h3>Continuous, Not Periodic</h3>
+        <p>Dashboards update in real-time as new intelligence flows in. Bayesian probabilities shift with each data point — not with each quarterly report.</p>
+        <span class="diff-vs">vs. Monthly PDF briefings</span>
+      </div>
+      <div class="diff-card">
+        <h3>Multi-Source Fusion</h3>
+        <p>ADS-B flight tracking, AIS maritime data, NASA FIRMS fire detection, GDELT events, and 100+ regional sources — fused into a single operating picture.</p>
+        <span class="diff-vs">vs. Single-source analysis</span>
+      </div>
     </div>
   </section>
 
@@ -542,12 +804,15 @@
   <section id="platforms">
     <div class="section-label">// platforms</div>
     <h2 class="section-title">Live Intelligence Platforms</h2>
+    <p class="section-desc">Each platform is purpose-built for a specific region and risk domain. Clients get a dedicated dashboard with scenario modeling, actor mapping, and early warning capabilities.</p>
     <div class="platform-grid">
 
       <!-- Iran -->
       <div class="platform-card">
         <div class="card-image">
-          <img src="images/iran-strikewatch.png" alt="Iran Risk Intelligence — Strike Watch" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=card-image-placeholder>[ strike_watch.map ]</span>'">
+          <span class="badge-live">Live</span>
+          <img src="images/iran-strikewatch.png" alt="Iran Risk Intelligence — Strike Watch" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <span class="card-image-placeholder" style="display:none">[ strike_watch.map ]</span>
         </div>
         <div class="card-body">
           <div class="card-region">Middle East / Gulf</div>
@@ -561,14 +826,16 @@
             <span class="tag">War Game Engine</span>
             <span class="tag">Hormuz Monitor</span>
           </div>
-          <a href="mailto:info@echoframe.co?subject=Iran%20Platform%20Access" class="card-link">Request Access</a>
+          <a href="mailto:info@echoframe.co?subject=Iran%20Platform%20—%20Access%20Request" class="card-link">Request Access</a>
         </div>
       </div>
 
       <!-- Venezuela -->
       <div class="platform-card">
         <div class="card-image">
-          <img src="images/venezuela-predictive.png" alt="Venezuela Intelligence — Predictive Track Record" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=card-image-placeholder>[ predictive_model.q5 ]</span>'">
+          <span class="badge-live">Live</span>
+          <img src="images/venezuela-predictive.png" alt="Venezuela Intelligence — Predictive Track Record" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <span class="card-image-placeholder" style="display:none">[ predictive_model.q5 ]</span>
         </div>
         <div class="card-body">
           <div class="card-region">Latin America</div>
@@ -581,14 +848,16 @@
             <span class="tag">Stochastic Outlook</span>
             <span class="tag">93-Day Lead Time</span>
           </div>
-          <a href="mailto:info@echoframe.co?subject=Venezuela%20Platform%20Access" class="card-link">Request Access</a>
+          <a href="mailto:info@echoframe.co?subject=Venezuela%20Platform%20—%20Access%20Request" class="card-link">Request Access</a>
         </div>
       </div>
 
       <!-- EU Regulatory -->
       <div class="platform-card">
         <div class="card-image">
-          <img src="images/eu-regulatory-map.png" alt="EU Regulatory Monitor — Exposure Map" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=card-image-placeholder>[ exposure_map.eu ]</span>'">
+          <span class="badge-live">Live</span>
+          <img src="images/eu-regulatory-map.png" alt="EU Regulatory Monitor — Exposure Map" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <span class="card-image-placeholder" style="display:none">[ exposure_map.eu ]</span>
         </div>
         <div class="card-body">
           <div class="card-region">Europe</div>
@@ -601,14 +870,16 @@
             <span class="tag">Key Player Profiles</span>
             <span class="tag">Regulatory Pipeline</span>
           </div>
-          <a href="mailto:info@echoframe.co?subject=EU%20Regulatory%20Platform%20Access" class="card-link">Request Access</a>
+          <a href="mailto:info@echoframe.co?subject=EU%20Regulatory%20Platform%20—%20Access%20Request" class="card-link">Request Access</a>
         </div>
       </div>
 
       <!-- EITB -->
       <div class="platform-card">
         <div class="card-image">
-          <img src="images/eitb-strategy.png" alt="EITB Political Risk — Strategy Board" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=card-image-placeholder>[ strategy_board.eitb ]</span>'">
+          <span class="badge-live">Live</span>
+          <img src="images/eitb-strategy.png" alt="EITB Political Risk — Strategy Board" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <span class="card-image-placeholder" style="display:none">[ strategy_board.eitb ]</span>
         </div>
         <div class="card-body">
           <div class="card-region">Basque Country</div>
@@ -621,7 +892,7 @@
             <span class="tag">Actor Positions</span>
             <span class="tag">War Game</span>
           </div>
-          <a href="mailto:info@echoframe.co?subject=EITB%20Platform%20Access" class="card-link">Request Access</a>
+          <a href="mailto:info@echoframe.co?subject=EITB%20Platform%20—%20Access%20Request" class="card-link">Request Access</a>
         </div>
       </div>
 
@@ -655,45 +926,87 @@
   <section id="methodology">
     <div class="section-label">// methodology</div>
     <h2 class="section-title">How It Works</h2>
+    <p class="section-desc">Our analytical engine combines structured intelligence tradecraft with computational modeling.</p>
     <div class="method-grid">
       <div class="method-card">
         <div class="method-icon">01</div>
         <h3>Bayesian Engine</h3>
-        <p>Calibrated likelihood ratios. Brier-scored. Max &plusmn;8pp per update.</p>
+        <p>Calibrated likelihood ratios. Brier-scored. Max &plusmn;8pp per update. Every probability is defensible and auditable.</p>
       </div>
       <div class="method-card">
         <div class="method-icon">02</div>
         <h3>OSINT Fusion</h3>
-        <p>ADS-B, AIS, NASA FIRMS, GDELT, 100+ regional news sources.</p>
+        <p>ADS-B, AIS, NASA FIRMS, GDELT, 100+ regional news sources. Cross-referenced and tiered by reliability.</p>
       </div>
       <div class="method-card">
         <div class="method-icon">03</div>
         <h3>Source Tiering</h3>
-        <p>3-tier confidence weighting. Full provenance tracking.</p>
+        <p>3-tier confidence weighting. Full provenance tracking. Every claim traced to origin and scored for reliability.</p>
       </div>
       <div class="method-card">
         <div class="method-icon">04</div>
         <h3>Scenario Modeling</h3>
-        <p>Monte Carlo simulations. Divergent futures with confidence bands.</p>
+        <p>Monte Carlo simulations. Divergent futures with confidence bands. Game-theory modeling for multi-actor scenarios.</p>
       </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- ABOUT -->
-  <section id="about" class="about-section" style="border-top: none;">
+  <!-- ABOUT / OSINT COLLECTIVE -->
+  <section id="about">
     <div class="section-label">// about</div>
     <h2 class="section-title">The OSINT Collective</h2>
-    <p>EchoFrame is part of <strong>The OSINT Collective</strong> — a consortium providing sovereign intelligence capabilities to government and enterprise clients.</p>
-    <p class="locations">Cork · Geneva · Torreón · Monterrey</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>EchoFrame is the intelligence platform arm of <strong>The OSINT Collective</strong> — a consortium of analysts, technologists, and regional specialists providing sovereign intelligence capabilities to government and enterprise clients.</p>
+        <p>The Collective was founded on a simple premise: the best geopolitical intelligence doesn't come from a single source or methodology. It comes from <strong>fusing open-source data at scale</strong> with deep regional expertise and rigorous analytical tradecraft.</p>
+        <p>Our team combines backgrounds in <strong>investigative journalism, risk advisory, defense intelligence, and AI engineering</strong> to build platforms that deliver actionable foresight — not after-the-fact analysis.</p>
+        <ul class="about-capabilities">
+          <li>Sovereign OSINT collection & analysis</li>
+          <li>Custom intelligence platform development</li>
+          <li>Bayesian scenario modeling & war gaming</li>
+          <li>Real-time geopolitical monitoring</li>
+          <li>Due diligence & compliance intelligence</li>
+          <li>Training & analytical methodology transfer</li>
+        </ul>
+        <p class="locations" style="margin-top: 1.25rem;">Cork · Geneva · Torreón · Monterrey</p>
+      </div>
+      <div class="about-sidebar">
+        <h3>At a Glance</h3>
+        <div class="about-stat">
+          <span class="about-stat-label">Platforms</span>
+          <span class="about-stat-value">4 live + 1 building</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-label">Regions</span>
+          <span class="about-stat-value">MENA · LatAm · EU · Basque</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-label">Sources</span>
+          <span class="about-stat-value">103+ OSINT feeds</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-label">Actors tracked</span>
+          <span class="about-stat-value">214+</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-label">Locations</span>
+          <span class="about-stat-value">4 countries</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-label">Client types</span>
+          <span class="about-stat-value">Gov · Enterprise · Fund</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact-section">
     <div class="section-label">// contact</div>
     <h2 class="section-title">Get Started</h2>
-    <p>Request access to any of our live intelligence platforms.</p>
+    <p class="section-desc">Request access to any of our live intelligence platforms. We'll schedule a briefing tailored to your region and risk domain.</p>
     <a href="mailto:info@echoframe.co?subject=Platform%20Access%20Request" class="contact-cta">Request Access</a>
     <div class="contact-email"><a href="mailto:info@echoframe.co">info@echoframe.co</a></div>
   </section>
@@ -704,12 +1017,9 @@
   </footer>
 
   <script>
-    // Mobile nav toggle
     document.getElementById('navToggle').addEventListener('click', function() {
       document.getElementById('navLinks').classList.toggle('open');
     });
-
-    // Close nav on link click (mobile)
     document.querySelectorAll('.nav-links a').forEach(function(link) {
       link.addEventListener('click', function() {
         document.getElementById('navLinks').classList.remove('open');

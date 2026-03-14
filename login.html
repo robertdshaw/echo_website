@@ -3,228 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - EchoFrame</title>
+    <title>Login — EchoFrame</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-secondary: #111820;
+            --bg-card: #151c26;
+            --border: #1e2a3a;
+            --text-primary: #e8edf4;
+            --text-secondary: #8b9eb3;
+            --text-muted: #5a6b7d;
+            --accent-cyan: #00d4ff;
+            --accent-red: #ff5a5a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
         .login-container {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             width: 100%;
             max-width: 400px;
+            padding: 2rem;
         }
 
-        .login-container h1 {
+        .login-brand {
             text-align: center;
-            color: #333;
-            margin-bottom: 30px;
+            margin-bottom: 2.5rem;
+        }
+
+        .login-logo {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            mix-blend-mode: screen;
+            margin-bottom: 1rem;
+        }
+
+        .login-brand h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .login-brand h1 span {
+            color: var(--accent-cyan);
+        }
+
+        .login-brand p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.35rem;
+        }
+
+        .login-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: bold;
+            margin-bottom: 0.4rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
         }
 
         .form-group input {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
+            padding: 0.7rem 0.9rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
             border-radius: 4px;
-            font-size: 16px;
-            box-sizing: border-box;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
         }
 
         .submit-button {
             width: 100%;
-            padding: 12px;
-            background: #2196F3;
-            color: white;
+            padding: 0.7rem;
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
             border: none;
             border-radius: 4px;
-            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: opacity 0.2s;
         }
 
         .submit-button:hover {
-            background: #1976D2;
+            opacity: 0.85;
         }
 
         .error-message {
-            color: #f44336;
+            color: var(--accent-red);
             text-align: center;
-            margin-top: 15px;
+            margin-top: 1rem;
+            font-size: 0.8rem;
             display: none;
         }
 
         .back-link {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 1.5rem;
         }
 
         .back-link a {
-            color: #2196F3;
+            color: var(--text-muted);
             text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s;
         }
 
         .back-link a:hover {
-            text-decoration: underline;
+            color: var(--text-secondary);
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h1>EchoFrame Login</h1>
-        <form id="loginForm" onsubmit="handleLogin(event)">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="submit-button">Login</button>
-            <div id="errorMessage" class="error-message">Invalid username or password</div>
-        </form>
+        <div class="login-brand">
+            <img src="images/echoframe-logo.png" alt="EchoFrame" class="login-logo">
+            <h1>Echo<span>Frame</span></h1>
+            <p>Client Portal</p>
+        </div>
+        <div class="login-box">
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="submit-button">Sign In</button>
+                <div id="errorMessage" class="error-message">Invalid username or password</div>
+            </form>
+        </div>
         <div class="back-link">
-            <a href="index.html">← Back to Home</a>
+            <a href="index.html">&larr; Back to echoframe.co</a>
         </div>
     </div>
 
     <script>
-        // Storage wrapper that works in sandboxed environments
         const storage = {
-            // In-memory fallback
             memoryStorage: {},
-            
-            // Check if localStorage is available
             isLocalStorageAvailable() {
-                try {
-                    const test = '__test__';
-                    localStorage.setItem(test, test);
-                    localStorage.removeItem(test);
-                    return true;
-                } catch(e) {
-                    return false;
-                }
+                try { const t = '__t__'; localStorage.setItem(t, t); localStorage.removeItem(t); return true; }
+                catch(e) { return false; }
             },
-            
-            // Check if sessionStorage is available
             isSessionStorageAvailable() {
-                try {
-                    const test = '__test__';
-                    sessionStorage.setItem(test, test);
-                    sessionStorage.removeItem(test);
-                    return true;
-                } catch(e) {
-                    return false;
-                }
+                try { const t = '__t__'; sessionStorage.setItem(t, t); sessionStorage.removeItem(t); return true; }
+                catch(e) { return false; }
             },
-            
-            // Get item from available storage
-            getItem(key) {
-                if (this.isLocalStorageAvailable()) {
-                    return localStorage.getItem(key);
-                } else if (this.isSessionStorageAvailable()) {
-                    return sessionStorage.getItem(key);
-                } else {
-                    return this.memoryStorage[key] || null;
-                }
+            getItem(k) {
+                if (this.isLocalStorageAvailable()) return localStorage.getItem(k);
+                if (this.isSessionStorageAvailable()) return sessionStorage.getItem(k);
+                return this.memoryStorage[k] || null;
             },
-            
-            // Set item in available storage
-            setItem(key, value) {
-                if (this.isLocalStorageAvailable()) {
-                    localStorage.setItem(key, value);
-                } else if (this.isSessionStorageAvailable()) {
-                    sessionStorage.setItem(key, value);
-                } else {
-                    this.memoryStorage[key] = value;
-                }
+            setItem(k, v) {
+                if (this.isLocalStorageAvailable()) localStorage.setItem(k, v);
+                else if (this.isSessionStorageAvailable()) sessionStorage.setItem(k, v);
+                else this.memoryStorage[k] = v;
             },
-            
-            // Remove item from available storage
-            removeItem(key) {
-                if (this.isLocalStorageAvailable()) {
-                    localStorage.removeItem(key);
-                } else if (this.isSessionStorageAvailable()) {
-                    sessionStorage.removeItem(key);
-                } else {
-                    delete this.memoryStorage[key];
-                }
-            },
-            
-            // Clear all storage
-            clear() {
-                if (this.isLocalStorageAvailable()) {
-                    localStorage.clear();
-                } else if (this.isSessionStorageAvailable()) {
-                    sessionStorage.clear();
-                } else {
-                    this.memoryStorage = {};
-                }
+            removeItem(k) {
+                if (this.isLocalStorageAvailable()) localStorage.removeItem(k);
+                else if (this.isSessionStorageAvailable()) sessionStorage.removeItem(k);
+                else delete this.memoryStorage[k];
             }
         };
 
-        // Authentication configuration
         const AUTH_CONFIG = {
             validCredentials: [
-                { 
-                    username: 'simon', 
-                    password: 'gmtl2024', 
-                    role: 'gmtl',
-                    allowedPages: ['gmtl-data-collection.html'],
-                    redirectTo: 'gmtl-data-collection.html'
-                },
-                { 
-                    username: 'latinnews', 
-                    password: 'latin2024', 
-                    role: 'latinnews',
-                    allowedPages: ['latinnews-data-collection.html'],
-                    redirectTo: 'latinnews-data-collection.html'
-                },
-                { 
-                    username: 'admin', 
-                    password: 'admin2024', 
-                    role: 'admin',
-                    allowedPages: ['gmtl-data-collection.html', 'latinnews-data-collection.html'],
-                    redirectTo: 'gmtl-data-collection.html'
-                }
+                { username: 'simon', password: 'gmtl2024', role: 'gmtl', allowedPages: ['gmtl-data-collection.html'], redirectTo: 'gmtl-data-collection.html' },
+                { username: 'latinnews', password: 'latin2024', role: 'latinnews', allowedPages: ['latinnews-data-collection.html'], redirectTo: 'latinnews-data-collection.html' },
+                { username: 'admin', password: 'admin2024', role: 'admin', allowedPages: ['gmtl-data-collection.html', 'latinnews-data-collection.html', 'admin.html'], redirectTo: 'admin.html' }
             ]
         };
 
         function handleLogin(event) {
             event.preventDefault();
-            
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('errorMessage');
-            
-            // Find user
+
             const user = AUTH_CONFIG.validCredentials.find(
                 cred => cred.username === username && cred.password === password
             );
-            
+
             if (user) {
-                // Create session data
                 const sessionData = {
                     username: user.username,
                     role: user.role,
@@ -232,16 +234,12 @@
                     loginTime: new Date().toISOString(),
                     token: 'authenticated'
                 };
-                
-                // For sandboxed environment, use URL parameter
+
                 if (!storage.isLocalStorageAvailable() && !storage.isSessionStorageAvailable()) {
                     const authToken = btoa(JSON.stringify(sessionData));
-                    window.location.href = `${user.redirectTo}?auth=${encodeURIComponent(authToken)}`;
+                    window.location.href = user.redirectTo + '?auth=' + encodeURIComponent(authToken);
                 } else {
-                    // Store session data
                     storage.setItem('echoframe_session', JSON.stringify(sessionData));
-                    
-                    // Redirect to appropriate page
                     window.location.href = user.redirectTo;
                 }
             } else {
@@ -249,25 +247,16 @@
             }
         }
 
-        // Check if already logged in
         window.addEventListener('load', function() {
             const session = storage.getItem('echoframe_session');
             if (session) {
                 try {
-                    const sessionData = JSON.parse(session);
-                    if (sessionData.token === 'authenticated') {
-                        // Find user config to get redirect
-                        const userConfig = AUTH_CONFIG.validCredentials.find(
-                            cred => cred.username === sessionData.username
-                        );
-                        if (userConfig) {
-                            window.location.href = userConfig.redirectTo;
-                        }
+                    const data = JSON.parse(session);
+                    if (data.token === 'authenticated') {
+                        const userConfig = AUTH_CONFIG.validCredentials.find(c => c.username === data.username);
+                        if (userConfig) window.location.href = userConfig.redirectTo;
                     }
-                } catch (e) {
-                    // Invalid session data, clear it
-                    storage.removeItem('echoframe_session');
-                }
+                } catch(e) { storage.removeItem('echoframe_session'); }
             }
         });
     </script>
