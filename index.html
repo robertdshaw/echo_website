@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EchoFrame | Emerging Markets Risk Intelligence</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>EchoFrame | Operational Political Risk Intelligence</title>
+  <meta name="description" content="Live dashboards. Bayesian scenario modeling. Multi-source OSINT fusion. Operational political risk intelligence for government and enterprise clients.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --accent: #0891b2;
-      --accent-dark: #0e7490;
-      --bg-dark: #0f172a;
-      --bg-medium: #1e293b;
-      --bg-light: #334155;
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --border-color: rgba(255, 255, 255, 0.1);
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --success: #10b981;
-      --danger: #ef4444;
-      --secondary: #6b7280;
+      --bg-primary: #0a0e14;
+      --bg-secondary: #111820;
+      --bg-card: #151c26;
+      --border: #1e2a3a;
+      --text-primary: #e8edf4;
+      --text-secondary: #8b9eb3;
+      --text-muted: #5a6b7d;
+      --accent-cyan: #00d4ff;
+      --accent-orange: #ff8c42;
+      --accent-green: #00c48c;
+      --accent-red: #ff5a5a;
     }
 
     * {
@@ -29,2302 +29,693 @@
       box-sizing: border-box;
     }
 
-    .top-border, .bottom-border {
-      height: 20px; /* Adjust height as needed */
-      background: var(--bg-dark);
-      width: 100%;
-    }
-
-    /* Fix for nav links appearing blue with underline */
-    .nav-links a {
-      color: var(--text-secondary) !important;
-      text-decoration: none !important;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-      padding: 0.25rem 0;
-    }
-
-    .nav-links a:visited {
-      color: var(--text-secondary) !important;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent) !important;
-      text-decoration: none !important;
-    }
-
-    /* Optional: If you want the hover underline effect, keep this */
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* Additional fix for dropdown links */
-    .dropdown-content a {
-      color: white !important;
-      text-decoration: none !important;
-    }
-
-    .dropdown-content a:visited {
-      color: white !important;
-    }
-
-    .dropdown-content a:hover {
-      color: var(--text-primary) !important;
-      text-decoration: none !important;
-    }
-
-    /* Fix for nav links appearing blue with underline */ 
-    .nav-links a { 
-      color: var(--text-secondary) !important; 
-      text-decoration: none !important; 
-      font-weight: 500; 
-      transition: color 0.3s ease; position: relative; padding: 0.25rem 0; } 
-      
-      .nav-links a:visited { 
-        color: var(--text-secondary) !important; 
-      } 
-      
-      .nav-links a:hover { color: var(--accent) !important; 
-        text-decoration: none !important; }
-
-    /* General Mobile Improvements */
     html {
-      -webkit-text-size-adjust: 100%;
       scroll-behavior: smooth;
-      scroll-padding-top: 80px; /* Account for fixed nav */
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-dark);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.6;
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Navigation */
+    .mono {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    /* NAV */
     nav {
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(10px);
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    /* Fix missing nav-container styles */
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
+      background: rgba(10, 14, 20, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
 
-    /* Mobile Responsive Improvements */
     .nav-logo {
-      height: 60px;
-      width: auto;
-    }
-    .logo-text {
+      font-weight: 700;
+      font-size: 1.1rem;
       color: var(--text-primary);
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 1.25rem;
-      margin-left: 0.75rem;
+      letter-spacing: -0.02em;
     }
 
-    @media (max-width: 768px) {
-      .nav-links {
-        display: flex;
-        flex-wrap: wrap;           /* allow links to wrap to next line */
-        justify-content: center;   /* center them on each “row” */
-        gap: 0.5rem 1rem;          /* tighten up the spacing */
-      }
-      .nav-links a {
-        font-size: 0.875rem;       /* a little smaller text */
-        padding: 0.5rem 0.75rem;   /* less padding so more fit */
-      }
-    }    
-
-      .nav-container {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1rem;
-      }
-
-      .nav-logo {
-        height: 40px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .logo-text {
-        color: var(--text-primary);
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        font-size: 1.25rem;
-        margin-left: 0.75rem;
-      }
-
-      .mobile-menu-btn {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--text-primary);
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0.5rem;
-      }
-
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--bg-dark);
-        padding: 1rem;
-        border-top: 1px solid var(--border-color);
-        border-bottom: 1px solid var(--border-color);
-        gap: 1rem;
-        max-height: calc(100vh - 80px);
-        overflow-y: auto;
-        z-index: 1000;
-      }
-
-      .nav-links.active a {
-        padding: 0.75rem 1rem;
-        border-radius: 0.5rem;
-        transition: background-color 0.2s ease;
-      }
-
-      .nav-links.active a:hover {
-        background-color: var(--bg-medium);
-      }
-    
-
-    .mobile-menu-btn {
-      display: none;
+    .nav-logo span {
+      color: var(--accent-cyan);
     }
 
     .nav-links {
       display: flex;
       gap: 2rem;
+      align-items: center;
     }
 
     .nav-links a {
       color: var(--text-secondary);
       text-decoration: none;
+      font-size: 0.85rem;
       font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-      padding: 0.25rem 0;
+      transition: color 0.2s;
     }
 
     .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-/* Add this to the head section to import Poppins font with more weights */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-/* Hero Section with deeper magenta */
-.hero {
-  margin-top: 0;
-  margin-bottom: 0;
-  min-height: 80vh;
-  background: linear-gradient(rgba(157, 23, 77, 0.9), rgba(131, 24, 67, 0.95)),
-              url('https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=2000&q=80');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 4rem 2rem;
-  font-family: 'Poppins', sans-serif;
-}
-
-.hero-content {
-  max-width: 800px;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Enhanced styling for the tagline */
-.dynamic-tagline {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: white;
-  margin-bottom: 1.5rem;
-  font-family: 'Poppins', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  display: inline-block;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.dynamic-tagline::after {
-  content: '';
-  position: absolute;
-  width: 60%;
-  height: 4px;
-  background: white;
-  bottom: -8px;
-  left: 20%;
-  border-radius: 2px;
-}
-
-.hero p {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
-  margin-bottom: 2.5rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: 'Poppins', sans-serif;
-}
-
-.cta-button {
-  display: inline-block;
-  background: var(--primary);
-  color: white;
-  padding: 0.875rem 2.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  border: none;
-  font-family: 'Poppins', sans-serif;
-}
-
-.cta-button:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-    /* Section Mobile Styles */
-    section {
-      padding: 4rem 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 3rem 1rem;
-      }
-
-      .section-title {
-        font-size: 1.875rem;
-        margin-bottom: 0.75rem;
-      }
-
-      .section-subtitle {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-      }
-    }
-
-    .section-title {
-      font-size: 2.25rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 1rem;
       color: var(--text-primary);
     }
 
-    .section-subtitle {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
+    .nav-cta {
+      background: var(--accent-cyan) !important;
+      color: var(--bg-primary) !important;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-weight: 600 !important;
+      font-size: 0.8rem !important;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.85;
+    }
+
+    /* HAMBURGER */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-secondary);
+      transition: all 0.3s;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 10rem 2rem 6rem;
+      max-width: 900px;
+      margin: 0 auto;
       text-align: center;
-      margin-bottom: 3rem;
-      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    /* Cards */
-    .card {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-
-    /* Product Grid */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .product-card {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-
-    .product-header {
-      padding: 2rem;
-      background: linear-gradient(135deg, var(--bg-light), var(--bg-medium));
-      text-align: center;
-    }
-
-    .product-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    .hero-cta {
       display: inline-block;
-    }
-
-    .product-title {
-      font-size: 1.5rem;
+      background: var(--accent-cyan);
+      color: var(--bg-primary);
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
       font-weight: 600;
-      color: var(--text-primary);
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+      margin-bottom: 3.5rem;
     }
 
-    .product-body {
-      padding: 2rem;
+    .hero-cta:hover {
+      opacity: 0.85;
     }
 
-    .product-description {
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-    }
-
-    .product-features {
-      list-style: none;
-    }
-
-    .product-features li {
-      color: var(--text-secondary);
-      margin-bottom: 0.75rem;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .product-features li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-/* Mobile Navigation Fixes */
-@media (max-width: 768px) {
-  .nav-container {
-    padding: 0.75rem;
-  }
-  
-  /* Create hamburger menu for mobile */
-  .nav-links {
-    display: none;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: var(--bg-dark);
-    flex-direction: column;
-    padding: 1rem;
-    z-index: 100;
-  }
-  
-  .nav-links.active {
-    display: flex;
-  }
-  
-  .nav-links a {
-    padding: 0.75rem 1rem;
-    text-align: center;
-    width: 100%;
-  }
-  
-  .mobile-menu-btn {
-    display: block;
-  }
-  
-  /* Hero section fixes */
-  .hero {
-    padding: 2rem 1rem;
-    min-height: 70vh;
-  }
-  
-  .dynamic-tagline {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-  }
-}
-
-/* Make sure hero title doesn't get cut off */
-@media (max-width: 480px) {
-  .hero {
-    padding-bottom: 4rem;
-  }
-}
-    /* Solution Flow */
-    .solution-flow {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .flow-step {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .flow-step:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-
-    .flow-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-
-    .flow-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      color: var(--text-primary);
-    }
-
-    .flow-description {
-      color: var(--text-secondary);
-      font-size: 0.9375rem;
-    }
-
-    /* Tables */
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-      background: var(--bg-medium);
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-
-    .comparison-table th,
-    .comparison-table td {
-      padding: 1rem;
+    .testimonial {
+      border-left: 2px solid var(--accent-cyan);
+      padding: 1.25rem 1.5rem;
       text-align: left;
-      border-bottom: 1px solid var(--border-color);
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--bg-secondary);
+      border-radius: 0 6px 6px 0;
     }
 
-    .comparison-table th {
-      background: var(--bg-light);
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .comparison-table td {
+    .testimonial p {
+      font-size: 0.95rem;
       color: var(--text-secondary);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
     }
 
-    .comparison-table tr:last-child td {
-      border-bottom: none;
+    .testimonial cite {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: normal;
+      font-weight: 500;
     }
 
-    .faq-container {
-      max-width: 900px;
+    /* SECTION */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    .faq-item {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      margin-bottom: 1.5rem;
-      overflow: hidden;
-      transition: all 0.3s ease;
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-cyan);
+      margin-bottom: 0.5rem;
     }
 
-    .faq-item:hover {
-      border-color: var(--primary);
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2.5rem;
+    }
+
+    /* PLATFORM GRID */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .platform-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .platform-card:hover {
+      border-color: #2a3a4e;
       transform: translateY(-2px);
     }
 
-    .faq-question {
-      padding: 1.5rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      cursor: pointer;
-      margin: 0;
-    }
-
-    .faq-answer {
-      padding: 0 1.5rem 1.5rem;
-      color: var(--text-secondary);
-    }
-
-    .faq-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 1rem 0;
-    }
-
-    .faq-list li {
-      padding: 0.5rem 0;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .faq-list li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    .faq-list li strong {
-      color: var(--text-primary);
-    }
-
-    @media (max-width: 768px) {
-      .faq-question {
-        font-size: 1.1rem;
-        padding: 1.25rem;
-      }
-      
-      .faq-answer {
-        padding: 0 1.25rem 1.25rem;
-      }
-    }
-
-    /* Table Mobile Styles */
-    @media (max-width: 768px) {
-      .comparison-table {
-        display: block;
-        overflow-x: auto;
-      }
-
-      .comparison-table th,
-      .comparison-table td {
-        padding: 0.75rem;
-        font-size: 0.875rem;
-        min-width: 200px;
-      }
-    }
-
-    /* Button Mobile Styles */
-    @media (max-width: 768px) {
-      .cta-button {
-        padding: 0.75rem 2rem;
-        font-size: 1rem;
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--primary);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
+    .card-image {
+      width: 100%;
+      height: 180px;
+      background: var(--bg-secondary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 100;
-      cursor: pointer;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top:hover {
-      background: var(--primary-dark);
-      transform: translateY(-3px);
-    }
-
-    @media (max-width: 768px) {
-      .back-to-top {
-        width: 40px;
-        height: 40px;
-        bottom: 15px;
-        right: 15px;
-      }
-    }
-
-    /* Problem Section */
-    .problem-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .stat-card {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      color: var(--text-secondary);
-      font-size: 0.9375rem;
-    }
-
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    /* Mobile Grid Adjustments */
-    @media (max-width: 768px) {
-      .problem-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .problem-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .product-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-
-      .solution-flow {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .stat-card {
-        padding: 1.5rem;
-      }
-
-      .stat-number {
-        font-size: 2rem;
-      }
-
-      .problem-card {
-        padding: 1.25rem;
-      }
-
-      .product-card {
-        margin: 0;
-      }
-
-      .product-header {
-        padding: 1.5rem 1rem;
-      }
-
-      .product-body {
-        padding: 1.5rem;
-      }
-
-      .flow-step {
-        padding: 1.5rem;
-      }
-    }
-
-    .problem-card {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .problem-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-
-    .problem-card h4 {
-      color: var(--text-primary);
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .problem-card p {
-      color: var(--text-secondary);
-      font-size: 0.9375rem;
-      line-height: 1.5;
-    }
-
-    /* Fix missing features-grid styles */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .feature-card {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-
-    .feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-
-    .feature-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      color: var(--text-primary);
-    }
-
-    .feature-description {
-      color: var(--text-secondary);
-      font-size: 0.9375rem;
-    }
-
-    /* Utility Classes */
-    .text-accent {
-      color: var(--accent);
-    }
-
-    .mb-1 { margin-bottom: 1rem; }
-    .mb-2 { margin-bottom: 2rem; }
-    .mb-3 { margin-bottom: 3rem; }
-    .mt-2 { margin-top: 2rem; }
-    .mt-3 { margin-top: 3rem; }
-
-    /* Hero Mobile Styles */
-    @media (max-width: 768px) {
-      .hero {
-        min-height: 80vh;
-        padding: 6rem 1rem 2rem 1rem; /* Added top padding for fixed nav */
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero h2 {
-        font-size: 1.5rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-    }
-
-    /* Demo Section Styles (updated) */
-    .demo-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: var(--bg-medium);
-      border-radius: 1rem;
+      border-bottom: 1px solid var(--border);
       overflow: hidden;
-      border: 1px solid var(--border-color);
-    }
-
-    .demo-controls {
-      padding: 2rem;
-      background: var(--bg-light);
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      gap: 2rem;
-      align-items: flex-end;
-    }
-
-    @media (max-width: 768px) {
-      .demo-controls {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: stretch;
-      }
-    }
-
-    .control-group {
-      flex: 1;
-    }
-
-    .control-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    select {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      border: 1px solid var(--border-color);
-      background: var(--bg-medium);
-      color: var(--text-primary);
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    select:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-
-    .process-status {
-      display: flex;
-      justify-content: space-between;
-      padding: 1.5rem 2rem;
-      background: var(--bg-dark);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    @media (max-width: 768px) {
-      .process-status {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        padding: 1rem;
-      }
-    }
-
-    .status-step {
-      text-align: center;
-      opacity: 0.5;
-      transition: all 0.3s ease;
       position: relative;
     }
 
-    .status-step.active {
-      opacity: 1;
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .status-step.active::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 3px;
-      background: var(--primary);
-      animation: progressBar 1s ease forwards;
+    .card-image-placeholder {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
     }
 
-    @keyframes progressBar {
-      to {
-        width: 80%;
-      }
+    .card-body {
+      padding: 1.25rem;
     }
 
-    .status-step.complete {
-      opacity: 1;
-      color: var(--accent);
-    }
-
-    .status-icon {
-      font-size: 1.5rem;
+    .card-region {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-cyan);
       margin-bottom: 0.5rem;
     }
 
-    .status-text {
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-
-    .demo-output {
-      padding: 2rem;
-      min-height: 400px;
-      background: var(--bg-dark);
-    }
-
-    .loading {
-      display: none;
-      text-align: center;
-      padding: 3rem;
-    }
-
-    .loading.active {
-      display: block;
-    }
-
-    .loader {
-      border: 4px solid var(--border-color);
-      border-top: 4px solid var(--primary);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 1rem;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .output-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    @media (max-width: 768px) {
-      .output-header {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
-      }
-    }
-
-    .output-title {
-      font-size: 1.5rem;
+    .card-name {
+      font-size: 1.05rem;
       font-weight: 600;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
     }
 
-    .output-meta {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
+    .card-framework {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
     }
 
-    .report-type {
-      background: var(--bg-light);
-      padding: 0.25rem 0.75rem;
-      border-radius: 1rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-
-    .risk-level {
-      font-weight: 600;
-      padding: 0.25rem 0.75rem;
-      border-radius: 1rem;
-    }
-
-    .risk-high {
-      background: rgba(239, 68, 68, 0.1);
-      color: #ef4444;
-    }
-
-    .risk-medium {
-      background: rgba(245, 158, 11, 0.1);
-      color: #f59e0b;
-    }
-
-    .risk-low {
-      background: rgba(16, 185, 129, 0.1);
-      color: #10b981;
-    }
-
-    .report-summary {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: var(--bg-medium);
-      border-radius: 0.5rem;
-      border-left: 4px solid var(--primary);
-    }
-
-    .summary-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-    }
-
-    .summary-content {
+    .card-desc {
+      font-size: 0.8rem;
       color: var(--text-secondary);
-    }
-
-    .signal-item {
-      background: var(--bg-medium);
-      border: 1px solid var(--border-color);
-      border-radius: 0.5rem;
       margin-bottom: 1rem;
-      overflow: hidden;
-      transition: all 0.3s ease;
+      line-height: 1.5;
     }
 
-    .signal-item:hover {
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    .signal-header {
+    .card-tags {
       display: flex;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
-      background: var(--bg-light);
-      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
     }
 
-    .signal-type {
-      font-weight: 600;
-      color: var(--accent);
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      padding: 0.2rem 0.5rem;
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 3px;
+      color: var(--accent-cyan);
     }
 
-    .signal-date {
-      color: var(--text-secondary);
-      font-size: 0.875rem;
+    .card-link {
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
     }
 
-    .signal-content {
+    .card-link:hover {
+      opacity: 0.75;
+    }
+
+    .card-link::after {
+      content: ' →';
+    }
+
+    .badge-coming {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.6rem;
+      background: rgba(255, 140, 66, 0.15);
+      border: 1px solid rgba(255, 140, 66, 0.3);
+      border-radius: 3px;
+      color: var(--accent-orange);
+    }
+
+    /* METHODOLOGY */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .method-card {
       padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
     }
 
-    .signal-content p {
+    .method-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
-    .signal-content p:last-child {
-      margin-bottom: 0;
-    }
-
-    .signal-metadata {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
-      background: var(--bg-dark);
-      border-top: 1px solid var(--border-color);
-      font-size: 0.875rem;
-    }
-
-    @media (max-width: 768px) {
-      .signal-metadata {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-    }
-
-    .signal-source {
+    .method-card p {
+      font-size: 0.8rem;
       color: var(--text-secondary);
+      line-height: 1.6;
     }
 
-    .signal-leadtime {
-      color: var(--accent);
-      font-weight: 500;
+    .method-icon {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.75rem;
+      opacity: 0.7;
     }
-    
-    .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-    
-      .dropbtn {
-        background-color: transparent;
-        color: var(--text-secondary);
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        font-family: inherit;
-        transition: color 0.3s ease;
-      }
-    
-      .dropdown-content {
+
+    /* ABOUT */
+    .about-section {
+      border-top: 1px solid var(--border);
+      padding-top: 4rem;
+    }
+
+    .about-section p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 640px;
+      margin-bottom: 0.75rem;
+    }
+
+    .about-section strong {
+      color: var(--text-primary);
+    }
+
+    .locations {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-section p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-cta {
+      display: inline-block;
+      background: var(--accent-cyan);
+      color: var(--bg-primary);
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-cta:hover {
+      opacity: 0.85;
+    }
+
+    .contact-email {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .contact-email a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .contact-email a:hover {
+      color: var(--accent-cyan);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* DIVIDER LINE */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links {
         display: none;
         position: absolute;
-        background-color: rgba(30, 41, 59, 0.98);
-        min-width: 200px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-        border-radius: 5px;
-        overflow: hidden;
-      }
-    
-      .dropdown-content a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: var(--text-primary);
-      }
-    
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-    
-      .dropdown:hover .dropbtn {
-        color: var(--text-primary);
-      }
-    
-      /* Mobile styles for dropdown */
-      @media (max-width: 768px) {
-        .dropdown {
-          width: 100%;
-        }
-        
-        .dropbtn {
-          width: 100%;
-          text-align: left;
-          padding: 10px;
-        }
-        
-        .dropdown-content {
-          position: relative;
-          width: 100%;
-          box-shadow: none;
-          background-color: rgba(40, 40, 40, 0.98);
-        }
-        
-        .dropdown-content a {
-          padding-left: 30px;
-        }
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 14, 20, 0.97);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+        gap: 1.25rem;
+        border-bottom: 1px solid var(--border);
       }
 
-      /* Footer styles */
-      footer {
-        background: var(--bg-dark);
-        padding: 2rem;
-        text-align: center;
-        border-top: 1px solid var(--border-color);
-        color: var(--text-secondary);
+      .nav-links.open {
+        display: flex;
       }
 
-      #overview {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 60px 20px;
+      .nav-hamburger {
+        display: flex;
       }
-      
-      .section-title {
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        text-align: center; /* Ensure this stays centered */
+
+      .hero {
+        padding: 8rem 1.5rem 4rem;
       }
-      
-      .overview-content {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: left; /* This will align both paragraphs to start from the same position */
+
+      section {
+        padding: 3.5rem 1.5rem;
       }
-      
-      .lead-text {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        /* Remove the max-width and auto margins from here since they're now in overview-content */
+
+      .platform-grid {
+        grid-template-columns: 1fr;
       }
-      .client-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-        margin: 40px 0;
-        text-align: center;
+
+      .method-grid {
+        grid-template-columns: 1fr 1fr;
       }
-      
-      .client-type {
-        background-color: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        padding: 25px 20px;
-        transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 480px) {
+      .method-grid {
+        grid-template-columns: 1fr;
       }
-      
-      .client-type:hover {
-        transform: translateY(-5px);
-      }
-      
-      .client-type h3 {
-        margin-bottom: 12px;
-        font-size: 1.25rem;
-        color: #ff56a6; /* Your brand color */
-      }
-      
-      .transition-text {
-        font-size: 1.1rem;
-        font-style: italic;
-        max-width: 800px;
-        margin: 40px auto 0;
-      }
-      
-      @media (max-width: 768px) {
-        .client-grid {
-          grid-template-columns: 1fr;
-        }
-      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
-    <div class="nav-container">
-      <a href="#home" style="display: flex; align-items: center;">
-        <img src="https://github.com/robertdshaw/EchoFrame/raw/main/NEXUS_MARK_cmyk_page-0001-remove-background.com.png" alt="EchoFrame Logo" class="nav-logo">
-        <span class="logo-text">EchoFrame</span>
-      </a>
-
-      <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-      <div class="nav-links" id="navLinks">
-          <a href="#home" onclick="closeMenu()">Home</a>
-          <a href="all-in-one-auth-system.html">Data Collection</a>
-<!-- 
-        <div class="dropdown">
-          <button class="dropbtn">Data Collection ▼</button>
-          <div class="dropdown-content">
-            <a href="gmtl-data-collection.html">GMTL Advisory</a>
-            <a href="latinnews-data-collection.html">LatinNews</a>
-          </div> -->
-        
-        <a href="#overview" onclick="closeMenu()">Overview</a>
-        <a href="#problem" onclick="closeMenu()">Problem</a>
-        <a href="#solution" onclick="closeMenu()">Solution</a>
-        <a href="#products" onclick="closeMenu()">Products</a>
-        <a href="#demo" onclick="closeMenu()">Live Demo</a>
-        <a href="#faq" onclick="closeMenu()">FAQ</a>
-        <a href="#contact" onclick="closeMenu()">Contact</a>
-        <a href="#about" onclick="closeMenu()">About</a>
-      </div>
+    <div class="nav-logo">Echo<span>Frame</span></div>
+    <div class="nav-links" id="navLinks">
+      <a href="#platforms">Platforms</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#about">About</a>
+      <a href="mailto:info@echoframe.co?subject=Platform%20Access%20Request" class="nav-cta">Request Access</a>
     </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <div class="top-border"></div>
-
-  <header class="hero" id="home">
-    <div class="hero-content">
-      <h1>EchoFrame</h1>
-      <style>
-        header {
-            position: relative;
-        }
-        
-        .language-switcher {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-        
-        .language-btn {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .language-btn:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .language-switcher {
-                position: static;
-                text-align: center;
-                margin-top: 1rem;
-            }
-        }
-        </style>
-        
-        <!-- 2. Add the button inside the header
-        <div class="language-switcher">
-            <a href="/es/" class="language-btn">Español</a>
-        </div> -->
-
-      <h2 class="dynamic-tagline">Framing the Future of Media</h2>
-      <p>Structured Intelligence from Storylines</p>
-      <a href="#contact" class="cta-button">Schedule Demo</a>
-    </div>
-  </header>
-  <div class="bottom-border"></div>
-
-  <section id="overview" class="text-center">
-    <h2 class="section-title">Overview</h2>
-    
-    <div class="overview-content">
-      <p class="lead-text mb-4">
-        Unlocking hidden value in your content through AI. We transform media archives into profitable revenue streams that traditional platforms miss.
-      </p>
-      
-      <p class="lead-text mb-4">
-        EchoFrame converts untapped media archives into valuable intelligence and insights for diverse clients:
-      </p>
-    </div>
-    
-    <div class="client-grid">
-      <div class="client-type">
-        <h3>Research Institutes</h3>
-        <p>Historical trend analysis and pattern recognition</p>
-      </div>
-      
-      <div class="client-type">
-        <h3>Financial Firms</h3>
-        <p>Economic signals and market intelligence</p>
-      </div>
-      
-      <div class="client-type">
-        <h3>Corporate Strategists</h3>
-        <p>Regional development monitoring and risk assessment</p>
-      </div>
-      
-      <div class="client-type">
-        <h3>Government Agencies</h3>
-        <p>Policy evolution tracking and regulatory insight</p>
-      </div>
-    </div>
-    
-    <p class="transition-text mt-5">
-      One critical application of our technology is addressing the growing failures in risk assessment and due diligence.
-    </p>
-  </section>
-  <section id="problem" class="text-center">
-  <h2 class="section-title">The Crisis in Risk Analysis</h2>
-  <p class="section-subtitle">Traditional due diligence is failing at an alarming rate</p>
-
-    <div class="problem-stats mb-3">
-      <div class="stat-card">
-        <div class="stat-number">$900M</div>
-        <div class="stat-label">Stenn fintech collapse</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">$32B</div>
-        <div class="stat-label">FTX due diligence failure</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">€200B</div>
-        <div class="stat-label">Danske Bank scandal</div>
-      </div>
-    </div>
-
-    <h3 class="section-subtitle mb-2">Why Traditional Due Diligence Fails</h3>
-    
-    <div class="problem-grid">
-      <div class="problem-card">
-        <h4>Pressure to Close Deals</h4>
-        <p>73% of M&A professionals report increased pressure to accelerate due diligence timelines, leading to oversights like WeWork's $40B valuation loss.</p>
-      </div>
-      
-      <div class="problem-card">
-        <h4>Digital Transformation Gaps</h4>
-        <p>64% of companies report gaps between digital transformation and risk assessment capabilities, exemplified by the SolarWinds breach.</p>
-      </div>
-      
-      <div class="problem-card">
-        <h4>Geopolitical Complexity</h4>
-        <p>Cross-border transactions increased 34% while regional risk expertise declined 18%, leading to losses like Nord Stream 2 investments.</p>
-      </div>
-    </div>
-
-    <h3 class="section-subtitle mt-3 mb-2">Why Risk Advisory Services Fall Short</h3>
-    
-    <div class="problem-grid">
-      <div class="problem-card">
-        <h4>Outdated Methodologies</h4>
-        <p>68% of risk models remain backward-looking and rule-based in a world demanding predictive, adaptive approaches.</p>
-      </div>
-      
-      <div class="problem-card">
-        <h4>Data Silos</h4>
-        <p>Average enterprise uses 16+ disparate systems containing risk-relevant data with minimal integration.</p>
-      </div>
-      
-      <div class="problem-card">
-        <h4>Staffing Shortages</h4>
-        <p>82% shortage in professionals with combined regional expertise and technical risk assessment skills.</p>
-      </div>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Operational Political Risk Intelligence</h1>
+    <p class="hero-sub">Live dashboards. Bayesian scenario modeling. Multi-source OSINT fusion.</p>
+    <a href="mailto:info@echoframe.co?subject=Platform%20Access%20Request" class="hero-cta">Request Access</a>
+    <div class="testimonial">
+      <p>"EchoFrame's unique data models saved one of our trading clients millions in compliance fees and generated over $100 million USD for another hedge fund client."</p>
+      <cite>— GMTL Strategic Advisory</cite>
     </div>
   </section>
 
-  <section id="llm-limitations">
-    <h2 class="section-title">Why LLMs Alone Aren't Enough</h2>
-    <p class="section-subtitle">Beyond Chat History: Unlocking Temporal Intelligence</p>
-    
-    <div class="solution-flow mb-3">
-      <div class="flow-step">
-        <div class="flow-icon">🧠</div>
-        <h3 class="flow-title">The Memory Challenge</h3>
-        <p class="flow-description">Even with recent advances in AI memory, today's systems face a critical limitation: they can recall conversations but can't identify complex patterns across years of historical data.
-        This gap prevents them from detecting emerging risks that develop gradually over time.</p>
-      </div>
-      
-      <div class="flow-step">
-        <div class="flow-icon">📚</div>
-        <h3 class="flow-title">Archive-Based Intelligence</h3>
-        <p class="flow-description">EchoFrame transforms news archives into strategic intelligence by tracking patterns across extended timeframes. 
-          We bridge the gap between simple conversation memory and true temporal pattern recognition—turning fragmented historical data into actionable risk insights.</p>
+  <div class="divider"></div>
 
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">📊</div>
-        <h3 class="flow-title">Enriched Risk Signals</h3>
-        <p class="flow-description">LLM-assisted timelines track issues like protests, corruption, and regulation. Signals are enriched with source, date, sentiment, and topic data.</p>
-      </div>
-    </div>
+  <!-- PLATFORMS -->
+  <section id="platforms">
+    <div class="section-label">// platforms</div>
+    <h2 class="section-title">Live Intelligence Platforms</h2>
+    <div class="platform-grid">
 
-    <div class="card mt-3">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Capability</th>
-            <th>Claude/GPT</th>
-            <th>EchoFrame</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Indexes past news systematically</td>
-            <td><span style="color: var(--danger);">✗</span></td>
-            <td><span style="color: var(--success);">✓</span></td>
-          </tr>
-          <tr>
-            <td>Tracks narratives across years</td>
-            <td><span style="color: var(--danger);">✗</span></td>
-            <td><span style="color: var(--success);">✓</span></td>
-          </tr>
-          <tr>
-            <td>Risk signals enriched by archived context</td>
-            <td><span style="color: var(--danger);">✗</span></td>
-            <td><span style="color: var(--success);">✓</span></td>
-          </tr>
-          <tr>
-            <td>Provides analyst-grade historical context</td>
-            <td><span style="color: var(--secondary);">Limited</span></td>
-            <td><span style="color: var(--success);">✓</span></td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="text-align: center; margin-top: 1.5rem; font-style: italic; color: var(--text-secondary);">
-        Claude answers questions today. EchoFrame gives you patterns across time.
-      </p>
-    </div>
-  </section>
-
-  <section id="why-now">
-    <h2 class="section-title">Why Start Now</h2>
-    <p class="section-subtitle">The perfect timing for historical intelligence innovation</p>
-    
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🔍</div>
-        <h3 class="feature-title">Underleveraged Opportunity</h3>
-        <p class="feature-description">Archive-based signals remain largely untapped in risk advisory services, creating a significant competitive advantage.</p>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">🌎</div>
-        <h3 class="feature-title">Emerging Market Gap</h3>
-        <p class="feature-description">Emerging markets lack vibrant news archiving systems—prove value-add by filling this critical intelligence gap.</p>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">⏰</div>
-        <h3 class="feature-title">First-Mover Advantage</h3>
-        <p class="feature-description">Establish leadership in historical intelligence before competitors recognize the opportunity. Even limited access builds proof of concept.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="solution">
-    <h2 class="section-title">The EchoFrame Solution</h2>
-    <p class="section-subtitle">A revolutionary approach to emerging market intelligence</p>
-    
-    <div class="solution-flow">
-      <div class="flow-step">
-        <div class="flow-icon">📰</div>
-        <h3 class="flow-title">Archives = Nervous System</h3>
-        <p class="flow-description">Ingest comprehensive local news archives spanning 3-5 years. Convert every article into a live sensor detecting policy shifts, market moves, and social tensions.</p>
-      </div>
-      
-      <div class="flow-step">
-        <div class="flow-icon">🧠</div>
-        <h3 class="flow-title">LLM = Brain</h3>
-        <p class="flow-description">Advanced AI reads signals, identifies patterns, and spots early indicators of risk. Drafts concise summaries and alerts with precise citation.</p>
-      </div>
-      
-      <div class="flow-step">
-        <div class="flow-icon">🤖</div>
-        <h3 class="flow-title">Automation = Hands</h3>
-        <p class="flow-description">Packages insights into ready-to-send formats: alerts, briefs, and warnings. Delivers via email, SMS, or dashboard widgets.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="products">
-    <h2 class="section-title">Premium Risk Products</h2>
-    <p class="section-subtitle">Actionable intelligence designed for decision makers</p>
-  
-    <div class="product-grid">
-  
-      <!-- Government-focused product -->
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon">🛰️</div>
-          <h3 class="product-title">Government Foresight Suite</h3>
+      <!-- Iran -->
+      <div class="platform-card">
+        <div class="card-image">
+          <img src="images/iran-strikewatch.png" alt="Iran Risk Intelligence — Strike Watch" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=card-image-placeholder>[ strike_watch.map ]</span>'">
         </div>
-        <div class="product-body">
-          <p class="product-description">Multilingual risk dashboards for policy teams and civil agencies monitoring early warning signals.</p>
-          <ul class="product-features">
-            <li>Policy change detection across jurisdictions</li>
-            <li>Geopolitical and social risk alerts</li>
-            <li>Custom region-sector filters</li>
-            <li>Example: "Early signals of land reform protests in La Guajira (Colombia)"</li>
-          </ul>
-        </div>
-      </div>
-  
-      <!-- Research-focused product -->
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon">📚</div>
-          <h3 class="product-title">Research Signal Archive</h3>
-        </div>
-        <div class="product-body">
-          <p class="product-description">A searchable media signal dataset with citation-ready evidence for academic and policy research.</p>
-          <ul class="product-features">
-            <li>Longitudinal event timelines</li>
-            <li>Exportable structured datasets</li>
-            <li>Custom taxonomy tagging</li>
-            <li>Example: "Ten-year archive of media coverage on water scarcity in the Andes"</li>
-          </ul>
-        </div>
-      </div>
-  
-      <!-- Existing products -->
-      <!-- <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon">🏛️</div>
-          <h3 class="product-title">Policy Pulse Alerts</h3>
-        </div>
-        <div class="product-body">
-          <p class="product-description">Immediate notifications when local authorities propose changes affecting specific industries.</p>
-          <ul class="product-features">
-            <li>Real-time regulatory updates</li>
-            <li>Industry-specific focus</li>
-            <li>Actionable impact insights</li>
-            <li>Example: "New import tariffs in Barranquilla Port (Colombia) targeting electronics"</li>
-          </ul>
-        </div>
-      </div> -->
-  
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon">📈</div>
-          <h3 classproduct-title">Regional Investment Briefs</h3>
-        </div>
-        <div class="product-body">
-          <p class="product-description">Monthly reports on economic indicators, business sentiment, and emerging opportunities.</p>
-          <ul class="product-features">
-            <li>Economic trend analysis</li>
-            <li>Business climate assessment</li>
-            <li>Growth area identification</li>
-            <li>Example: "Q2 Investment Climate: Mining Sector Analysis"</li>
-          </ul>
-        </div>
-      </div>
-  
-      <!-- <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon">⚠️</div>
-          <h3 class="product-title">Operational Risk Dashboards</h3>
-        </div>
-        <div class="product-body">
-          <p class="product-description">Real-time feeds of events that could disrupt logistics or staffing.</p>
-          <ul class="product-features">
-            <li>Logistics disruption monitoring</li>
-            <li>Labor unrest alerts</li>
-            <li>Security risk updates</li>
-            <li>Example: "Strike activity on southern transport routes"</li>
-          </ul>
-        </div>
-      </div> -->
-  
-    </div>
-  </section>  
-
-  <section id="competitive">
-    <h2 class="section-title">Competitive Advantage</h2>
-    <p class="section-subtitle">How EchoFrame outperforms traditional risk advisory</p>
-    
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Traditional Risk Advisory</th>
-          <th>EchoFrame Advantage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Point-in-time assessments</td>
-          <td>Continuous monitoring with historical context</td>
-        </tr>
-        <tr>
-          <td>Generalized country risk</td>
-          <td>Hyper-regional insights with specific locations</td>
-        </tr>
-        <tr>
-          <td>Backward-looking analysis</td>
-          <td>Predictive intelligence based on pattern recognition</td>
-        </tr>
-        <tr>
-          <td>Expensive human analyst teams</td>
-          <td>AI-augmented intelligence with lower cost structure</td>
-        </tr>
-        <tr>
-          <td>Generic reports</td>
-          <td>Industry and location-specific actionable alerts</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="demo">
-    <h2 class="section-title">Interactive Dashboard Demo</h2>
-    <p class="section-subtitle">Generate real-time intelligence reports powered by AI analysis</p>
-    
-    <div class="demo-container">
-      <div class="demo-controls">
-        <div class="control-group">
-          <label for="client-select">Select Client Type</label>
-          <select id="client-select">
-            <option value="research">Research Institute - Political Trends (Colombia)</option>
-            <option value="government">Government Agency - Security Assessment (Mexico)</option>
-            <option value="corporate">Corporate Strategy - Market Entry (Brazil)</option>
-            <option value="mining">Mining Firm - Strategic Operations (Peru)</option>
-            <option value="energy">Energy Company - Market Analysis (Argentina)</option>
-            <option value="finance">Financial Institution - Risk Assessment (Chile)</option>
-
-          </select>
-        </div>
-        <button id="generate-btn" onclick="generateReport()" class="cta-button">Generate Report</button>
-      </div>
-  
-      <div class="process-status">
-        <div class="status-step" id="step-1">
-          <div class="status-icon">📰</div>
-          <div class="status-text">Scanning Local News</div>
-        </div>
-        <div class="status-step" id="step-2">
-          <div class="status-icon">🔍</div>
-          <div class="status-text">Detecting Signals</div>
-        </div>
-        <div class="status-step" id="step-3">
-          <div class="status-icon">🤖</div>
-          <div class="status-text">AI Analysis</div>
-        </div>
-        <div class="status-step" id="step-4">
-          <div class="status-icon">📊</div>
-          <div class="status-text">Report Generation</div>
-        </div>
-      </div>
-  
-      <div class="demo-output" id="output">
-        <div class="loading" id="loading">
-          <div class="loader"></div>
-          <p>Generating intelligence report...</p>
-        </div>
-        <div id="report-content" style="display: none;"></div>
-      </div>
-    </div>
-  </section>
-  
-  <script>
-      const reportData = {
-        research: {
-          title: "Political Trends Analysis - Colombia",
-          riskLevel: "medium",
-          reportStyle: "academic",
-          signals: [
-            {
-              type: "Policy Trend",
-              date: "Last 3 Months",
-              content: "Systematic analysis of regional news sources indicates a 42% increase in discussions about decentralization policy.",
-              source: "6 Regional News Sources, 124 Articles",
-              leadTime: "12–18 months before policy implementation"
-            },
-            {
-              type: "Emerging Public Discourse",
-              date: "Last 6 Weeks",
-              content: "67% surge in electoral reform discussions correlating with declining trust in institutions (r=0.73).",
-              source: "Social Media + 3 University Publications",
-              leadTime: "8–10 months before mainstream adoption"
-            },
-            {
-              type: "Historical Pattern Recognition",
-              date: "5-Year Analysis",
-              content: "Current discourse mirrors 2016 peace accord rhetoric with 78% linguistic match.",
-              source: "Archive + Academic Journals",
-              leadTime: "6–9 months before political realignment"
-            }
-          ]
-        },
-        government: {
-          title: "Security Assessment - Mexico Border Region",
-          riskLevel: "high",
-          reportStyle: "security",
-          signals: [
-            {
-              type: "CRITICAL ALERT",
-              date: "48 Hours Ago",
-              content: "Unusual comms patterns suggest pre-operational planning in Sonora.",
-              source: "RESTRICTED - Multiple Sources",
-              leadTime: "72–96 hours before potential activity"
-            },
-            {
-              type: "MOVEMENT DETECTED",
-              date: "5 Days Ago",
-              content: "Anomalous vehicle movements align with pre-incident patterns.",
-              source: "Local Reports + Pattern Analysis",
-              leadTime: "10–14 days before escalation"
-            },
-            {
-              type: "ECONOMIC SIGNAL",
-              date: "2 Weeks Monitoring",
-              content: "87% increase in cross-border transaction types tied to disruption prep.",
-              source: "Financial Monitoring + History",
-              leadTime: "3–4 weeks before potential disruption"
-            }
-          ]
-        },
-        corporate: {
-          title: "Market Entry Strategy - Brazil Retail Sector",
-          riskLevel: "low",
-          reportStyle: "business",
-          signals: [
-            {
-              type: "Regulatory Analysis",
-              date: "This Quarter",
-              content: "Municipal reforms cut permit times from 267 to 142 days in key metros.",
-              source: "Business Press + Filings",
-              leadTime: "Next 6–9 months"
-            },
-            {
-              type: "Consumer Sentiment",
-              date: "Ongoing Monitoring",
-              content: "34% rise in positive sentiment for foreign brands; omnichannel preferred.",
-              source: "Surveys + Social Analytics",
-              leadTime: "Q1–Q2 2025 peak"
-            },
-            {
-              type: "Supply Chain Intelligence",
-              date: "Last 60 Days",
-              content: "São Paulo hubs cut delivery times by 41% and costs by 17%.",
-              source: "Industry Reports + Logistics Data",
-              leadTime: "12-month advantage window"
-            }
-          ]
-        },
-        mining: {
-          title: "Strategic Operations Overview - Mining (Peru)",
-          riskLevel: "medium",
-          reportStyle: "operations",
-          signals: [
-            {
-              type: "Labor Movement",
-              date: "Last 2 Weeks",
-              content: "Increased union activity in Cajamarca signals potential strike action.",
-              source: "Regional News + Labor Reports",
-              leadTime: "10–14 days before disruption"
-            },
-            {
-              type: "Environmental Regulation",
-              date: "Last Month",
-              content: "Proposed tightening of environmental controls in Apurímac region.",
-              source: "Government Briefings + NGOs",
-              leadTime: "1–2 months before enforcement"
-            },
-            {
-              type: "Community Sentiment",
-              date: "Last 90 Days",
-              content: "Negative sentiment in mining regions up 28%, mirroring 2018 protest dynamics.",
-              source: "Social Media + Local News",
-              leadTime: "6–8 weeks before escalation"
-            }
-          ]
-        },
-        energy: {
-          title: "Market Analysis - Energy Sector (Argentina)",
-          riskLevel: "high",
-          reportStyle: "market",
-          signals: [
-            {
-              type: "Price Volatility",
-              date: "Last 3 Months",
-              content: "Fuel price hikes exceeded 19%, creating tension in supply agreements.",
-              source: "Industry Reports + Government Releases",
-              leadTime: "3–6 months before major renegotiations"
-            },
-            {
-              type: "Policy Change",
-              date: "This Week",
-              content: "New subsidy caps announced affecting large industrial users.",
-              source: "Official Gazettes + Analyst Commentary",
-              leadTime: "1 month until full impact"
-            },
-            {
-              type: "Infrastructure Risk",
-              date: "Ongoing",
-              content: "Power outages linked to deferred grid upgrades in Córdoba region.",
-              source: "Technical Assessments + Local Media",
-              leadTime: "2–4 weeks before reliability crises"
-            }
-          ]
-        },
-        finance: {
-          title: "Risk Assessment - Financial Sector (Chile)",
-          riskLevel: "low",
-          reportStyle: "finance",
-          signals: [
-            {
-              type: "Regulatory Watch",
-              date: "Last 60 Days",
-              content: "Central bank softening reserve rules for fintech challengers.",
-              source: "Central Bank Releases + Think Tanks",
-              leadTime: "6–12 months before measurable change"
-            },
-            {
-              type: "Macroeconomic Trends",
-              date: "Q1 Overview",
-              content: "Credit expansion up 11% driven by SME lending surge.",
-              source: "Economic Indicators + Banking Data",
-              leadTime: "Ongoing quarterly tracking"
-            },
-            {
-              type: "Reputation Risk",
-              date: "Last 30 Days",
-              content: "Major bank under scrutiny for AML deficiencies tied to Caribbean transfers.",
-              source: "Investigative Journalism + Watchdog Reports",
-              leadTime: "1–2 months before formal inquiry"
-            }
-          ]
-        }
-      };    
-    
-    function generateReport() {
-      const client = document.getElementById('client-select').value;
-      const generateBtn = document.getElementById('generate-btn');
-      const loading = document.getElementById('loading');
-      const reportContent = document.getElementById('report-content');
-    
-      generateBtn.disabled = true;
-      loading.classList.add('active');
-      reportContent.style.display = 'none';
-    
-      // Reset process steps
-      for (let i = 1; i <= 4; i++) {
-        document.getElementById(`step-${i}`).classList.remove('active', 'complete');
-      }
-    
-      let currentStep = 1;
-      const stepInterval = setInterval(() => {
-        if (currentStep <= 4) {
-          const step = document.getElementById(`step-${currentStep}`);
-          step.classList.add('active');
-    
-          setTimeout(() => {
-            step.classList.remove('active');
-            step.classList.add('complete');
-            currentStep++;
-            if (currentStep > 4) {
-              clearInterval(stepInterval);
-              showReport(client);
-            }
-          }, 1000);
-        }
-      }, 1200);
-    }
-    
-    function showReport(clientType) {
-      const data = reportData[clientType];
-      const loading = document.getElementById('loading');
-      const reportContent = document.getElementById('report-content');
-      const generateBtn = document.getElementById('generate-btn');
-    
-      let html = `
-        <div class="output-header">
-          <div class="output-title">${data.title}</div>
-          <div class="risk-level risk-${data.riskLevel}">Risk Level: ${data.riskLevel.toUpperCase()}</div>
-        </div>
-      `;
-    
-      data.signals.forEach(sig => {
-        html += `
-          <div class="signal-item">
-            <div class="signal-header">
-              <div class="signal-type">${sig.type}</div>
-              <div class="signal-date">${sig.date}</div>
-            </div>
-            <div class="signal-content">
-              <p>${sig.content}</p>
-            </div>
-            <div class="signal-metadata">
-              <div class="signal-source">Source: ${sig.source}</div>
-              <div class="signal-leadtime">Lead Time: ${sig.leadTime}</div>
-            </div>
+        <div class="card-body">
+          <div class="card-region">Middle East / Gulf</div>
+          <div class="card-name">Iran Risk Intelligence Platform</div>
+          <div class="card-framework">R1–R5 Framework</div>
+          <p class="card-desc">Regime Cohesion, Military Escalation, Proxy Warfare, Hormuz Disruption, Regional Realignment</p>
+          <div class="card-tags">
+            <span class="tag">Strike Watch</span>
+            <span class="tag">ADS-B / AIS Fusion</span>
+            <span class="tag">Power Network</span>
+            <span class="tag">War Game Engine</span>
+            <span class="tag">Hormuz Monitor</span>
           </div>
-        `;
-      });
-    
-      setTimeout(() => {
-        loading.classList.remove('active');
-        reportContent.innerHTML = html;
-        reportContent.style.display = 'block';
-        generateBtn.disabled = false;
-      }, 500);
-    }
-    </script>    
-
-  <section id="faq">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <p class="section-subtitle">Understanding EchoFrame's unique approach to risk intelligence</p>
-    
-    <div class="faq-container">
-      <div class="faq-item">
-        <h3 class="faq-question">Why can't we just use existing LLMs like Claude or GPT for risk analysis?</h3>
-        <div class="faq-answer">
-          <p>While LLMs are powerful, they have critical limitations for risk intelligence:</p>
-          <ul class="faq-list">
-            <li>They don't systematically index historical news</li>
-            <li>They can't track narratives across years</li>
-            <li>They lack archived context for risk signals</li>
-            <li>They provide only point-in-time analysis</li>
-          </ul>
-          <p class="mt-2">EchoFrame builds on LLM capabilities by adding systematic memory and pattern recognition across time, turning historical news archives into strategic intelligence.</p>
+          <a href="mailto:info@echoframe.co?subject=Iran%20Platform%20Access" class="card-link">Request Access</a>
         </div>
       </div>
 
-      <div class="faq-item">
-        <h3 class="faq-question">Why is now the right time to invest in this technology?</h3>
-        <div class="faq-answer">
-          <p>Three key factors make this the optimal time:</p>
-          <ul class="faq-list">
-            <li><strong>Untapped opportunity:</strong> Archive-based signals remain underleveraged in risk advisory</li>
-            <li><strong>Market gap:</strong> Emerging markets lack robust news archiving systems</li>
-            <li><strong>First-mover advantage:</strong> Early leadership in historical intelligence before competitors recognize the opportunity</li>
-          </ul>
-          <p class="mt-2">Even with limited initial access, we can build proof of concept and establish market position.</p>
+      <!-- Venezuela -->
+      <div class="platform-card">
+        <div class="card-image">
+          <img src="images/venezuela-predictive.png" alt="Venezuela Intelligence — Predictive Track Record" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=card-image-placeholder>[ predictive_model.q5 ]</span>'">
+        </div>
+        <div class="card-body">
+          <div class="card-region">Latin America</div>
+          <div class="card-name">Venezuela Intelligence Analyst</div>
+          <div class="card-framework">Q1–Q5 Framework</div>
+          <p class="card-desc">Elite Cohesion, Opposition Dynamics, Military Loyalty, Economic Stress, Foreign Pressure</p>
+          <div class="card-tags">
+            <span class="tag">214 Actors</span>
+            <span class="tag">Monte Carlo Scenarios</span>
+            <span class="tag">Stochastic Outlook</span>
+            <span class="tag">93-Day Lead Time</span>
+          </div>
+          <a href="mailto:info@echoframe.co?subject=Venezuela%20Platform%20Access" class="card-link">Request Access</a>
         </div>
       </div>
 
-      <div class="faq-item">
-        <h3 class="faq-question">What makes EchoFrame's approach technically superior?</h3>
-        <div class="faq-answer">
-          <p>Our system transforms static archives into dynamic intelligence through:</p>
-          <ul class="faq-list">
-            <li>LLM-assisted timeline construction tracking protests, corruption, regulatory changes</li>
-            <li>Risk signals enriched with source, date, sentiment, and topic metadata</li>
-            <li>Pattern recognition across years of historical data</li>
-            <li>Automated alert generation with predictive lead times</li>
-          </ul>
-          <p class="mt-2">While others answer questions about today, EchoFrame reveals patterns across time.</p>
+      <!-- EU Regulatory -->
+      <div class="platform-card">
+        <div class="card-image">
+          <img src="images/eu-regulatory-map.png" alt="EU Regulatory Monitor — Exposure Map" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=card-image-placeholder>[ exposure_map.eu ]</span>'">
+        </div>
+        <div class="card-body">
+          <div class="card-region">Europe</div>
+          <div class="card-name">EU Regulatory Monitor</div>
+          <div class="card-framework">P1–P6 Framework</div>
+          <p class="card-desc">Carbon Pricing, Gas & LNG, Hydrogen, Oil & Refining, Critical Materials, Research Funding</p>
+          <div class="card-tags">
+            <span class="tag">Exposure Mapping</span>
+            <span class="tag">Power Map</span>
+            <span class="tag">Key Player Profiles</span>
+            <span class="tag">Regulatory Pipeline</span>
+          </div>
+          <a href="mailto:info@echoframe.co?subject=EU%20Regulatory%20Platform%20Access" class="card-link">Request Access</a>
         </div>
       </div>
 
-      <div class="faq-item">
-        <h3 class="faq-question">How does EchoFrame handle data accuracy and verification?</h3>
-        <div class="faq-answer">
-          <p>We maintain high standards of accuracy through:</p>
-          <ul class="faq-list">
-            <li>Multi-source verification of all signals</li>
-            <li>Full citation trails to original news sources</li>
-            <li>Historical pattern validation against known outcomes</li>
-            <li>Continuous model refinement based on prediction accuracy</li>
-          </ul>
+      <!-- EITB -->
+      <div class="platform-card">
+        <div class="card-image">
+          <img src="images/eitb-strategy.png" alt="EITB Political Risk — Strategy Board" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=card-image-placeholder>[ strategy_board.eitb ]</span>'">
         </div>
+        <div class="card-body">
+          <div class="card-region">Basque Country</div>
+          <div class="card-name">EITB Political Risk Monitor</div>
+          <div class="card-framework">E1–E5 Framework</div>
+          <p class="card-desc">Coverage Risk, Political-Parliamentary, Governance, Labor, Competitive Risk</p>
+          <div class="card-tags">
+            <span class="tag">Game-Theory Modeling</span>
+            <span class="tag">Coverage Intelligence</span>
+            <span class="tag">Actor Positions</span>
+            <span class="tag">War Game</span>
+          </div>
+          <a href="mailto:info@echoframe.co?subject=EITB%20Platform%20Access" class="card-link">Request Access</a>
+        </div>
+      </div>
+
+      <!-- Mexico (Coming Soon) -->
+      <div class="platform-card">
+        <div class="card-image">
+          <span class="badge-coming">Q2 2026</span>
+          <span class="card-image-placeholder">[ coming_soon ]</span>
+        </div>
+        <div class="card-body">
+          <div class="card-region">Latin America</div>
+          <div class="card-name">Mexico Energy Intelligence</div>
+          <div class="card-framework">M1–M5 Framework</div>
+          <p class="card-desc">Federal Policy, Regulatory Environment, State Political Risk, Security, Investment Climate</p>
+          <div class="card-tags">
+            <span class="tag">DOF Monitor</span>
+            <span class="tag">State Gazettes</span>
+            <span class="tag">CRE Tracking</span>
+            <span class="tag">Energy Sector Focus</span>
+          </div>
+          <span class="card-link" style="color: var(--text-muted); cursor: default;">Coming Q2 2026</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- METHODOLOGY -->
+  <section id="methodology">
+    <div class="section-label">// methodology</div>
+    <h2 class="section-title">How It Works</h2>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-icon">01</div>
+        <h3>Bayesian Engine</h3>
+        <p>Calibrated likelihood ratios. Brier-scored. Max &plusmn;8pp per update.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">02</div>
+        <h3>OSINT Fusion</h3>
+        <p>ADS-B, AIS, NASA FIRMS, GDELT, 100+ regional news sources.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">03</div>
+        <h3>Source Tiering</h3>
+        <p>3-tier confidence weighting. Full provenance tracking.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">04</div>
+        <h3>Scenario Modeling</h3>
+        <p>Monte Carlo simulations. Divergent futures with confidence bands.</p>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <h2 class="section-title">About Echoframe</h2>
-    <p class="section-subtitle">Surfacing vital risk signals before they become crises</p>
-  
-    <!-- Who We Are -->
-    <div class="card mb-3">
-      <div style="padding: 2rem;">
-        <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">Who We Are</h3>
-        
-        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-          Echoframe was founded on the belief that vital risk signals often exist in plain sight—buried in overlooked media, local reports, and unstructured archives. We help organizations surface these early warnings before they become front-page crises.
-        </p>
-        
-        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-          Whether you're a business navigating cross-border investments, a public institution managing aid flows, or a research team engaging in global partnerships, Echoframe empowers you with foresight that is context-rich, AI-powered, and source-grounded.
-        </p>
-        
-        <div style="margin: 1.5rem 0; border-radius: 0.5rem; overflow: hidden;">
-          <img src="https://raw.githubusercontent.com/robertdshaw/echo_website/main/signals.jpg"
-             alt="Local news signal detection" 
-             style="width: 100%; display: block; max-height: 400px; object-fit: cover;" />
-        </div>
-      </div>
-    </div>
-  
-    <!-- Field-Tested Methodology -->
-    <div class="card mb-3">
-      <div style="padding: 2rem;">
-        <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">Field-Tested Methodology</h3>
-        
-        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-          Echoframe was born out of two decades of real-world insight into how risks emerge before they are formally reported. Our methods—narrative tracking, source triangulation, and signal enrichment—are based on patterns we've seen repeatedly across emerging markets.
-        </p>
-        
-        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-          What we learned from field investigations, public health audits, and policy monitoring has been distilled into a system: one that uses multilingual AI to spot subtle shifts across time and geography, giving our clients lead time others miss.
-        </p>
-        
-        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-          From corruption patterns in public procurement to regional regulatory shifts, the signals are there—if you know where to look. EchoFrame provides that lens.
-        </p>
-        
-        <div style="margin: 1.5rem 0; border-radius: 0.5rem; overflow: hidden;">
-          <img src="https://raw.githubusercontent.com/robertdshaw/echo_website/main/investigations.jpg"
-             alt="Signal intelligence workflow"
-             style="width: 100%; display: block; max-height: 400px; object-fit: cover;" />
-        </div>
-      </div>
-    </div>
-  
-    <!-- Our Mission & What Sets Us Apart -->
-    <div class="card">
-      <div style="padding: 2rem;">
-        <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">Our Mission & What Sets Us Apart</h3>
-        
-        <p style="color: var(--primary); font-size: 1.25rem; text-align: center; margin-bottom: 1.5rem; font-weight: 600;">
-          Most AI tools chase speed. Most consultancies chase structure.<br>
-          Echoframe chases <span style="color: var(--accent); font-weight: 700;">context</span>.
-        </p>
-        
-        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-          We go beyond automation. By training our models on multilingual archives and applying human-verified pattern recognition, we deliver insights grounded in place, time, and trust.
-        </p>
-        
-        <ul style="list-style: none; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-          <li style="color: var(--text-secondary); margin-bottom: 0.75rem; position: relative;">
-            <span style="color: var(--accent); position: absolute; left: -1.5rem;">→</span>
-            Turn historical content into forward-looking signals
-          </li>
-          <li style="color: var(--text-secondary); margin-bottom: 0.75rem; position: relative;">
-            <span style="color: var(--accent); position: absolute; left: -1.5rem;">→</span>
-            Integrate unstructured data into strategic workflows
-          </li>
-          <li style="color: var(--text-secondary); margin-bottom: 0.75rem; position: relative;">
-            <span style="color: var(--accent); position: absolute; left: -1.5rem;">→</span>
-            Empower decision-makers with early, contextual intelligence
-          </li>
-        </ul>
-        
-        <div style="margin: 1.5rem 0; border-radius: 0.5rem; overflow: hidden;">
-          <img src="https://raw.githubusercontent.com/robertdshaw/echo_website/main/smart%20decisions.jpg"
-             alt="Multilingual data processing"
-             style="width: 100%; display: block; max-height: 400px; object-fit: cover;" />
-        </div>
-        
-        <p style="text-align: center; font-weight: 700; font-size: 1.25rem; margin-top: 2rem; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-          Know earlier. Decide smarter.
-        </p>
-      </div>
-    </div>
-  </section>  
-  
+  <div class="divider"></div>
 
-  <section id="contact">
-    <h2 class="section-title">Ready to Transform Your Risk Assessment?</h2>
-    <p class="section-subtitle">
-      Join leading organizations using EchoFrame to navigate emerging markets with confidence
-    </p>
-    <div style="text-align:center;">
-      <a
-        href="mailto:info@echoframe.co"
-        class="cta-button"
-        target="_blank"
-        rel="noopener"
-      >
-        Contact us
-      </a>
-      <p style="margin-top:1rem; color:var(--text-secondary);">
-        info@echoframe.co
-      </p>
-    </div>
+  <!-- ABOUT -->
+  <section id="about" class="about-section" style="border-top: none;">
+    <div class="section-label">// about</div>
+    <h2 class="section-title">The OSINT Collective</h2>
+    <p>EchoFrame is part of <strong>The OSINT Collective</strong> — a consortium providing sovereign intelligence capabilities to government and enterprise clients.</p>
+    <p class="locations">Cork · Geneva · Torreón · Monterrey</p>
   </section>
 
-  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+  <!-- CONTACT -->
+  <section class="contact-section">
+    <div class="section-label">// contact</div>
+    <h2 class="section-title">Get Started</h2>
+    <p>Request access to any of our live intelligence platforms.</p>
+    <a href="mailto:info@echoframe.co?subject=Platform%20Access%20Request" class="contact-cta">Request Access</a>
+    <div class="contact-email"><a href="mailto:info@echoframe.co">info@echoframe.co</a></div>
+  </section>
 
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 EchoFrame. All rights reserved.</p>
+    &copy; 2026 EchoFrame. Part of The OSINT Collective.
   </footer>
 
   <script>
-    // Back to top button functionality
-    window.onscroll = function() {
-      const backToTopButton = document.getElementById('backToTop');
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        backToTopButton.classList.add('visible');
-      } else {
-        backToTopButton.classList.remove('visible');
-      }
-    };
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
 
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+    // Close nav on link click (mobile)
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('open');
       });
-    }
-
-    // Mobile menu functionality
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
-      
-      // Close dropdown when closing mobile menu
-      const dropdowns = document.getElementsByClassName('dropdown-content');
-      for (let i = 0; i < dropdowns.length; i++) {
-        dropdowns[i].style.display = 'none';
-      }
-    }
-  
-    function closeMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.remove('active');
-    }
-  
-    // Add this new function for mobile dropdown
-    function toggleDropdown(event) {
-      event.preventDefault();
-      const dropdown = event.currentTarget.nextElementSibling;
-      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-    }
-  
-    // Add this code to handle mobile dropdown clicks
-    window.addEventListener('DOMContentLoaded', function() {
-      if (window.innerWidth <= 768) {
-        const dropBtn = document.querySelector('.dropbtn');
-        if (dropBtn) {
-          dropBtn.onclick = toggleDropdown;
-        }
-      }
     });
-  
-    // Update dropdown behavior on window resize
-    window.addEventListener('resize', function() {
-      const dropBtn = document.querySelector('.dropbtn');
-      if (dropBtn) {
-        if (window.innerWidth <= 768) {
-          dropBtn.onclick = toggleDropdown;
-        } else {
-          dropBtn.onclick = null;
-        }
-      }
-    });
-
-
-    // Mobile menu functionality
-function toggleMenu() {
-  const navLinks = document.getElementById('navLinks');
-  navLinks.classList.toggle('active');
-}
-
-function closeMenu() {
-  const navLinks = document.getElementById('navLinks');
-  navLinks.classList.remove('active');
-}
   </script>
 
 </body>
-</html> 
+</html>
