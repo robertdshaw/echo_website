@@ -605,63 +605,6 @@
             ctx.lineWidth = 0.8;
             ctx.stroke();
 
-            // Cities
-            cities.forEach(function(city, i) {
-                const p = project(city[0], city[1]);
-                if (!p.visible) return;
-
-                const brightness = 0.3 + 0.7 * ((p.z + R) / (2 * R));
-
-                // Glow
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 212, 255, ' + (0.05 * brightness) + ')';
-                ctx.fill();
-
-                // Dot
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
-                ctx.fillStyle = i < 7
-                    ? 'rgba(0, 196, 140, ' + brightness + ')'
-                    : 'rgba(0, 212, 255, ' + (brightness * 0.7) + ')';
-                ctx.fill();
-
-                // Ping animation (EchoFrame cities only)
-                if (i < 7) {
-                    const pingPhase = (Date.now() / 1000 + i * 0.7) % 3;
-                    if (pingPhase < 1.5) {
-                        const pingR = pingPhase * 12;
-                        const pingAlpha = (1 - pingPhase / 1.5) * 0.15 * brightness;
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, pingR, 0, Math.PI * 2);
-                        ctx.strokeStyle = 'rgba(0, 196, 140, ' + pingAlpha + ')';
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                    }
-                }
-
-            });
-
-            // Connection lines between EchoFrame cities
-            for (let i = 0; i < 7; i++) {
-                for (let j = i + 1; j < 7; j++) {
-                    const p1 = project(cities[i][0], cities[i][1]);
-                    const p2 = project(cities[j][0], cities[j][1]);
-                    if (p1.visible && p2.visible) {
-                        const dx = p1.x - p2.x;
-                        const dy = p1.y - p2.y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < R * 1.2) {
-                            ctx.beginPath();
-                            ctx.moveTo(p1.x, p1.y);
-                            ctx.lineTo(p2.x, p2.y);
-                            ctx.strokeStyle = 'rgba(0, 212, 255, 0.03)';
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
-                        }
-                    }
-                }
-            }
 
             // Outer ring
             ctx.beginPath();
