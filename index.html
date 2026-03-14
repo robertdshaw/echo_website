@@ -390,28 +390,6 @@
             pointer-events: none;
         }
 
-        .ticker-wrap {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.55rem;
-            color: var(--text-dim);
-            opacity: 0;
-            animation: hudIn 1s ease-out 2.5s forwards;
-            max-width: 50%;
-            position: fixed;
-            bottom: 20px;
-            left: 2rem;
-            z-index: 20;
-        }
-
-        .ticker-cursor {
-            animation: blink 1s step-end infinite;
-            color: var(--cyan);
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
 
         .hud-coords {
             font-family: 'JetBrains Mono', monospace;
@@ -541,7 +519,6 @@
 
     <!-- BOTTOM HUD -->
     <div class="hud-bottom">
-        <div class="ticker-wrap" id="ticker"></div>
         <div class="hud-coords" id="coords">
             <div>51.8969°N 8.4863°W</div>
             <div style="margin-top: 2px;">CORK, IRELAND</div>
@@ -789,42 +766,6 @@
         animateCounter(document.getElementById('feedActors'), 214, 2500);
     })();
 
-    // ==========================================
-    // TYPING TICKER
-    // ==========================================
-    (function() {
-        const lines = [
-            'SYS > BAYESIAN ENGINE ONLINE — CALIBRATING LIKELIHOOD RATIOS...',
-            'SYS > ADS-B TELEMETRY: 2,847 FLIGHTS TRACKED IN GULF REGION...',
-            'SYS > AIS MARITIME: STRAIT OF HORMUZ — 47 VESSELS MONITORED...',
-            'SYS > MONTE CARLO: 10,000 SCENARIO ITERATIONS COMPLETE...',
-            'SYS > SOURCE TIER-1: 47 FEEDS ACTIVE — CONFIDENCE WEIGHTED...',
-            'SYS > GDELT EVENT STREAM: PROCESSING 12,840 EVENTS...',
-            'SYS > NASA FIRMS: FIRE DETECTION ANOMALY SCAN — CLEAR...',
-            'SYS > ACTOR NETWORK: 214 ENTITIES — 3 STATUS CHANGES...',
-            'SYS > BRIER SCORE: 0.18 — WELL CALIBRATED...',
-            'SYS > NEXT UPDATE: BAYESIAN POSTERIOR RECALCULATION IN 00:04:12...',
-        ];
-
-        const el = document.getElementById('ticker');
-        let lineIdx = 0, charIdx = 0, deleting = false;
-
-        function type() {
-            const msg = lines[lineIdx];
-            if (!deleting) {
-                el.innerHTML = msg.substring(0, charIdx) + '<span class="ticker-cursor">█</span>';
-                charIdx++;
-                if (charIdx > msg.length) { deleting = true; setTimeout(type, 2500); return; }
-                setTimeout(type, 20 + Math.random() * 30);
-            } else {
-                charIdx = 0;
-                deleting = false;
-                lineIdx = (lineIdx + 1) % lines.length;
-                setTimeout(type, 300);
-            }
-        }
-        setTimeout(type, 3000);
-    })();
     </script>
 </body>
 </html>
