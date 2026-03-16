@@ -655,6 +655,106 @@
 
     .contact-email a:hover { color: var(--accent-cyan); }
 
+    /* SCROLL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* INTEL TICKER */
+    .intel-ticker {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 0.6rem 0;
+      position: relative;
+    }
+
+    .intel-ticker::before,
+    .intel-ticker::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .intel-ticker::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg-secondary), transparent);
+    }
+
+    .intel-ticker::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg-secondary), transparent);
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      animation: ticker-scroll 60s linear infinite;
+    }
+
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    .ticker-region {
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .ticker-value-up {
+      color: var(--accent-green);
+    }
+
+    .ticker-value-down {
+      color: var(--accent-red);
+    }
+
+    .ticker-value-neutral {
+      color: var(--accent-orange);
+    }
+
+    .ticker-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      opacity: 0.3;
+    }
+
+    @keyframes ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
     /* FOOTER */
     footer {
       text-align: center;
@@ -723,8 +823,13 @@
     </button>
   </nav>
 
+  <!-- INTEL TICKER -->
+  <div class="intel-ticker" style="margin-top: 60px;">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" style="padding-top: 6rem;">
     <img src="images/echoframe-logo.png" alt="EchoFrame" class="hero-logo">
     <h1>Operational Political Risk Intelligence</h1>
     <p class="hero-sub">Live dashboards. Bayesian scenario modeling. Multi-source OSINT fusion. Built for decision-makers who need clarity, not commentary.</p>
@@ -1053,6 +1158,7 @@
   </footer>
 
   <script>
+    // Nav toggle
     document.getElementById('navToggle').addEventListener('click', function() {
       document.getElementById('navLinks').classList.toggle('open');
     });
@@ -1061,6 +1167,138 @@
         document.getElementById('navLinks').classList.remove('open');
       });
     });
+
+    // ── Intel Ticker ──
+    (function() {
+      var items = [
+        { region: 'IRAN', text: 'Hormuz shipping density', value: '+12%', dir: 'up' },
+        { region: 'IRAN', text: 'IRGC force posture index', value: '0.73', dir: 'neutral' },
+        { region: 'IRAN', text: 'Strike probability 30d', value: '18%', dir: 'neutral' },
+        { region: 'VENEZUELA', text: 'Elite cohesion index', value: '0.34', dir: 'down' },
+        { region: 'VENEZUELA', text: 'Opposition momentum', value: '+8pp', dir: 'up' },
+        { region: 'VENEZUELA', text: 'Military loyalty score', value: '0.61', dir: 'down' },
+        { region: 'MEXICO', text: 'Political stability index', value: '0.52', dir: 'neutral' },
+        { region: 'MEXICO', text: 'Cartel activity — Sinaloa', value: '+15%', dir: 'up' },
+        { region: 'MEXICO', text: 'US-MX relations tension', value: '0.68', dir: 'up' },
+        { region: 'EU', text: 'Carbon border adjustment', value: 'Phase 2', dir: 'neutral' },
+        { region: 'EU', text: 'Regulatory pipeline velocity', value: '+23%', dir: 'up' },
+        { region: 'EU', text: 'Gas supply diversification', value: '0.71', dir: 'up' },
+        { region: 'PSB', text: 'Coverage risk index', value: '0.44', dir: 'down' },
+        { region: 'PSB', text: 'Governance pressure', value: '+5pp', dir: 'up' },
+      ];
+
+      function buildTicker() {
+        var html = '';
+        for (var i = 0; i < items.length; i++) {
+          var it = items[i];
+          var cls = it.dir === 'up' ? 'ticker-value-up' : it.dir === 'down' ? 'ticker-value-down' : 'ticker-value-neutral';
+          var arrow = it.dir === 'up' ? '\u25B2' : it.dir === 'down' ? '\u25BC' : '\u25C6';
+          html += '<span class="ticker-item"><span class="ticker-dot"></span><span class="ticker-region">' + it.region + '</span> ' + it.text + ' <span class="' + cls + '">' + arrow + ' ' + it.value + '</span></span>';
+        }
+        return html;
+      }
+
+      var track = document.getElementById('tickerTrack');
+      var content = buildTicker();
+      track.innerHTML = content + content; // duplicate for seamless loop
+    })();
+
+    // ── Animated Number Counters ──
+    (function() {
+      var counted = false;
+
+      function parseTarget(text) {
+        var clean = text.replace(/[^0-9.]/g, '');
+        return parseFloat(clean) || 0;
+      }
+
+      function formatValue(num, original) {
+        var suffix = original.replace(/[0-9.,]/g, '');
+        if (original.indexOf('+') === 0 || original.indexOf('+') > -1) {
+          // has a plus
+        }
+        var prefix = original.match(/^[^0-9]*/) ? original.match(/^[^0-9]*/)[0] : '';
+        var suffixMatch = original.match(/[^0-9.]+$/);
+        suffix = suffixMatch ? suffixMatch[0] : '';
+        if (Number.isInteger(num) || original.indexOf('.') === -1) {
+          return prefix + Math.round(num) + suffix;
+        }
+        return prefix + num.toFixed(1) + suffix;
+      }
+
+      function animateCounters() {
+        if (counted) return;
+        counted = true;
+        var els = document.querySelectorAll('.number-value');
+        els.forEach(function(el) {
+          var original = el.textContent;
+          var target = parseTarget(original);
+          if (target === 0) return;
+          var duration = 1800;
+          var start = performance.now();
+          el.textContent = formatValue(0, original);
+
+          function step(now) {
+            var progress = Math.min((now - start) / duration, 1);
+            // ease out cubic
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var current = target * eased;
+            el.textContent = formatValue(current, original);
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        });
+      }
+
+      var numbersSection = document.querySelector('.numbers-section');
+      if (numbersSection) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              animateCounters();
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        observer.observe(numbersSection);
+      }
+    })();
+
+    // ── Scroll Reveal Animations ──
+    (function() {
+      // Add reveal classes to elements
+      var selectors = [
+        '.platform-card',
+        '.diff-card',
+        '.method-card',
+        '.number-card',
+        '.testimonial',
+        '.about-text',
+        '.about-sidebar',
+      ];
+
+      selectors.forEach(function(sel) {
+        document.querySelectorAll(sel).forEach(function(el, i) {
+          el.classList.add('reveal');
+          var delay = Math.min(i, 5);
+          if (delay > 0) el.classList.add('reveal-delay-' + delay);
+        });
+      });
+
+      var reveals = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      reveals.forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
   </script>
 
 </body>
