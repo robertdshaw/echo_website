@@ -534,8 +534,19 @@
     }
 
     .oc-logo {
-      height: 200px;
+      height: 100px;
       object-fit: contain;
+    }
+
+    .about-video {
+      margin: 2rem 0;
+    }
+
+    .about-video video {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
     }
 
     .about-grid {
@@ -1149,9 +1160,18 @@
     <h2 class="section-title">EchoFrame</h2>
     <div class="about-grid">
       <div class="about-text">
-        <p><strong>EchoFrame</strong> is an operational intelligence platform delivering live dashboards, Bayesian scenario modeling, and multi-source OSINT fusion to government agencies, hedge funds, and enterprise clients navigating complex geopolitical environments.</p>
+        <p><strong>EchoFrame</strong> builds operational intelligence platforms that give decision-makers a live, quantified view of political risk. We don't publish reports — we build always-on dashboards that fuse hundreds of open-source signals into calibrated probability estimates, updated in real time.</p>
+        <p>Our platforms cover <strong>Iran, Venezuela, the EU regulatory landscape, Basque Country media risk, and Mexico's energy sector</strong>. Each one tracks specific actors, maps power networks, and runs Bayesian scenario models that have demonstrated <strong>93-day average lead times</strong> ahead of major geopolitical shifts.</p>
+        <p>Clients include government agencies conducting strategic assessments, hedge funds pricing sovereign risk, energy companies navigating regulatory exposure, and media organizations monitoring political coverage risk. EchoFrame's models have been credited with saving clients <strong>millions in compliance costs</strong> and generating <strong>over $100M in trading value</strong>.</p>
+
+        <div class="about-video">
+          <video controls playsinline preload="metadata">
+            <source src="images/EchoFrame_Energy_Pitch_03_2026.mp4" type="video/mp4">
+          </video>
+        </div>
+
         <p>EchoFrame is the intelligence platform arm of <strong>The OSINT Collective</strong> — a consortium of analysts, technologists, and regional specialists providing sovereign intelligence capabilities worldwide.</p>
-        <div class="oc-logo-container" style="margin-top: 1.5rem; margin-bottom: 1rem;">
+        <div class="oc-logo-container" style="margin-top: 1rem; margin-bottom: 1rem;">
           <img src="images/OC-logo.png" alt="The OSINT Collective" class="oc-logo">
         </div>
         <p>The Collective was founded on a simple premise: the best geopolitical intelligence comes from <strong>fusing open-source data at scale</strong> with deep regional expertise and rigorous analytical tradecraft. Our team combines backgrounds in <strong>investigative journalism, risk advisory, defense intelligence, and AI engineering</strong> to deliver actionable foresight — not after-the-fact analysis.</p>
@@ -1166,11 +1186,6 @@
         <p class="locations" style="margin-top: 1.25rem;">Cork · Geneva · Abu Dhabi · London · Malmö · Torreón · Monterrey</p>
       </div>
       <div class="about-sidebar">
-        <div class="about-video">
-          <video controls playsinline preload="metadata" style="width: 100%; border-radius: 6px; border: 1px solid var(--border);">
-            <source src="images/EchoFrame_Energy_Pitch_03_2026.mp4" type="video/mp4">
-          </video>
-        </div>
         <h3>At a Glance</h3>
         <div class="about-stat">
           <span class="about-stat-label">Platforms</span>
