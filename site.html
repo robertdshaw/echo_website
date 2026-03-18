@@ -148,7 +148,9 @@
       opacity: 0;
       background-size: cover;
       background-position: center 30%;
+      -webkit-transition: opacity 2s ease-in-out;
       transition: opacity 2s ease-in-out;
+      will-change: opacity;
       z-index: 0;
     }
 
@@ -1842,34 +1844,42 @@
 
     // ── City Background Rotation ──
     (function() {
-      var bgs = document.querySelectorAll('.hero-city-bg');
+      var bgs = Array.prototype.slice.call(document.querySelectorAll('.hero-city-bg'));
       var label = document.getElementById('heroCityLabel');
-      if (!bgs.length || !label) return;
+      if (bgs.length === 0) return;
 
-      var cities = [];
-      bgs.forEach(function(bg) { cities.push(bg); });
-      var current = cities.length - 1; // Cork starts active
+      var current = -1;
+      // Find which one starts active
+      for (var i = 0; i < bgs.length; i++) {
+        if (bgs[i].classList.contains('active')) { current = i; break; }
+      }
+      if (current === -1) { current = bgs.length - 1; bgs[current].classList.add('active'); }
 
       function showCity(index) {
-        cities.forEach(function(bg) { bg.classList.remove('active'); });
-        cities[index].classList.add('active');
-        label.style.opacity = '0';
-        setTimeout(function() {
-          label.textContent = cities[index].getAttribute('data-city');
-          label.style.opacity = '1';
-        }, 400);
+        for (var j = 0; j < bgs.length; j++) {
+          if (j === index) {
+            bgs[j].style.opacity = '1';
+            bgs[j].classList.add('active');
+          } else {
+            bgs[j].style.opacity = '0';
+            bgs[j].classList.remove('active');
+          }
+        }
+        if (label) {
+          label.style.opacity = '0';
+          setTimeout(function() {
+            label.textContent = bgs[index].getAttribute('data-city');
+            label.style.opacity = '1';
+          }, 500);
+        }
       }
 
       function nextCity() {
-        current = (current + 1) % cities.length;
+        current = (current + 1) % bgs.length;
         showCity(current);
       }
 
-      // Start cycling after initial delay
-      setTimeout(function() {
-        nextCity();
-        setInterval(nextCity, 4000);
-      }, 3000);
+      setInterval(nextCity, 4000);
     })();
 
     // ── Booking Form Handler ──
