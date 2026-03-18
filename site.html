@@ -149,10 +149,6 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 3.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
       position: relative;
       overflow: hidden;
     }
@@ -162,10 +158,29 @@
       position: absolute;
       top: -50%;
       right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+      animation: hero-glow 8s ease-in-out infinite alternate;
+    }
+
+    .hero-panel::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -15%;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 140, 66, 0.04) 0%, transparent 70%);
       pointer-events: none;
+      animation: hero-glow 10s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes hero-glow {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+      50% { transform: translate(30px, -20px) scale(1.1); opacity: 1; }
+      100% { transform: translate(-20px, 15px) scale(0.95); opacity: 0.7; }
     }
 
     .hero-content {
@@ -1316,16 +1331,6 @@
             <a href="#platforms" class="hero-cta-secondary">Explore Dashboards</a>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-dashboard-frame">
-            <div class="hero-dashboard-bar">
-              <span class="hero-dashboard-dot"></span>
-              <span class="hero-dashboard-dot"></span>
-              <span class="hero-dashboard-dot"></span>
-            </div>
-            <img src="images/iran-strikewatch.png" alt="EchoFrame Dashboard — Live Intelligence">
-          </div>
-        </div>
       </div>
       <div class="hero-proof">
         <span class="hero-proof-stat">Trusted by <strong>energy majors</strong> and <strong>commodity desks</strong></span>
@@ -1337,6 +1342,55 @@
     </section>
   </div>
 
+
+  <!-- HOW IT WORKS INFOGRAPHIC -->
+  <section class="infographic-section" style="padding: 4rem 2rem;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div class="section-label">// the intelligence pipeline</div>
+      <h2 class="section-title">From Raw Signal to Decision-Ready Intelligence</h2>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="pipeline-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+          </div>
+          <div class="pipeline-number">01</div>
+          <h3>Collect</h3>
+          <p>103+ open sources. Flight tracking, vessel data, satellite imagery, global event streams, and regional news feeds ingested continuously.</p>
+          <div class="pipeline-stat"><span class="pipeline-stat-value">103+</span> sources</div>
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step">
+          <div class="pipeline-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="pipeline-number">02</div>
+          <h3>Fuse & Score</h3>
+          <p>Cross-reference across sources. 3-tier confidence weighting. Every claim traced to origin and scored for reliability.</p>
+          <div class="pipeline-stat"><span class="pipeline-stat-value">3-tier</span> confidence</div>
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step">
+          <div class="pipeline-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="pipeline-number">03</div>
+          <h3>Model</h3>
+          <p>214+ tracked actors mapped into power networks. Monte Carlo simulations generate divergent scenario probabilities with confidence bands.</p>
+          <div class="pipeline-stat"><span class="pipeline-stat-value">214+</span> actors</div>
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step">
+          <div class="pipeline-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="1.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </div>
+          <div class="pipeline-number">04</div>
+          <h3>Deliver</h3>
+          <p>Live dashboards with calibrated probabilities, scenario forecasts, and early warning signals. Average lead time: 30–90 days ahead of events.</p>
+          <div class="pipeline-stat"><span class="pipeline-stat-value">30–90d</span> lead time</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- PLATFORMS -->
   <div class="section-alt">
@@ -1416,55 +1470,6 @@
     </div>
   </section>
   </div>
-
-  <!-- HOW IT WORKS INFOGRAPHIC -->
-  <section class="infographic-section" style="padding: 4rem 2rem;">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      <div class="section-label">// the intelligence pipeline</div>
-      <h2 class="section-title">From Raw Signal to Decision-Ready Intelligence</h2>
-      <div class="pipeline">
-        <div class="pipeline-step">
-          <div class="pipeline-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-          </div>
-          <div class="pipeline-number">01</div>
-          <h3>Collect</h3>
-          <p>103+ open sources. Flight tracking, vessel data, satellite imagery, global event streams, and regional news feeds ingested continuously.</p>
-          <div class="pipeline-stat"><span class="pipeline-stat-value">103+</span> sources</div>
-        </div>
-        <div class="pipeline-connector"></div>
-        <div class="pipeline-step">
-          <div class="pipeline-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          </div>
-          <div class="pipeline-number">02</div>
-          <h3>Fuse & Score</h3>
-          <p>Cross-reference across sources. 3-tier confidence weighting. Every claim traced to origin and scored for reliability.</p>
-          <div class="pipeline-stat"><span class="pipeline-stat-value">3-tier</span> confidence</div>
-        </div>
-        <div class="pipeline-connector"></div>
-        <div class="pipeline-step">
-          <div class="pipeline-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-          </div>
-          <div class="pipeline-number">03</div>
-          <h3>Model</h3>
-          <p>214+ tracked actors mapped into power networks. Monte Carlo simulations generate divergent scenario probabilities with confidence bands.</p>
-          <div class="pipeline-stat"><span class="pipeline-stat-value">214+</span> actors</div>
-        </div>
-        <div class="pipeline-connector"></div>
-        <div class="pipeline-step">
-          <div class="pipeline-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="1.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-          </div>
-          <div class="pipeline-number">04</div>
-          <h3>Deliver</h3>
-          <p>Live dashboards with calibrated probabilities, scenario forecasts, and early warning signals. Average lead time: 30–90 days ahead of events.</p>
-          <div class="pipeline-stat"><span class="pipeline-stat-value">30–90d</span> lead time</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- WHY ECHOFRAME -->
   <section>
