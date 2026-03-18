@@ -1740,6 +1740,7 @@
       }
 
       var track = document.getElementById('tickerTrack');
+      if (!track) return;
       var content = buildTicker();
       track.innerHTML = content + content; // duplicate for seamless loop
     })();
