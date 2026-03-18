@@ -135,6 +135,46 @@
       background: var(--bg-primary);
       padding: 0 2rem;
       padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-city-bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      opacity: 0;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 1.5s ease-in-out;
+      z-index: 0;
+    }
+
+    .hero-city-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--bg-primary) 0%, rgba(10, 14, 20, 0.7) 40%, rgba(10, 14, 20, 0.4) 100%);
+    }
+
+    .hero-city-bg.active {
+      opacity: 1;
+    }
+
+    .hero-city-label {
+      position: absolute;
+      bottom: 1rem;
+      right: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      opacity: 0.5;
+      z-index: 2;
+      transition: opacity 0.5s;
     }
 
     .hero {
@@ -1319,7 +1359,14 @@
 
   <!-- HERO -->
   <div class="hero-wrapper">
-    <section class="hero">
+    <div class="hero-city-bg" data-city="Abu Dhabi" style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=70&auto=format')"></div>
+    <div class="hero-city-bg" data-city="Geneva" style="background-image: url('https://images.unsplash.com/photo-1573108037329-37aa135a142e?w=1200&q=70&auto=format')"></div>
+    <div class="hero-city-bg" data-city="London" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=70&auto=format')"></div>
+    <div class="hero-city-bg" data-city="Malmö" style="background-image: url('https://images.unsplash.com/photo-1561541256-4afc87f09781?w=1200&q=70&auto=format')"></div>
+    <div class="hero-city-bg" data-city="Monterrey" style="background-image: url('https://images.unsplash.com/photo-1585975776868-e1b05b915690?w=1200&q=70&auto=format')"></div>
+    <div class="hero-city-bg active" data-city="Cork" style="background-image: url('https://images.unsplash.com/photo-1564959130747-897fb406b9af?w=1200&q=70&auto=format')"></div>
+    <div class="hero-city-label" id="heroCityLabel">Cork</div>
+    <section class="hero" style="position: relative; z-index: 1;">
       <div class="hero-panel">
         <div class="hero-content">
           <img src="images/echoframe-logo.png" alt="EchoFrame" class="hero-logo">
@@ -1784,6 +1831,42 @@
       reveals.forEach(function(el) {
         observer.observe(el);
       });
+    })();
+
+    // ── City Background Rotation ──
+    (function() {
+      var bgs = document.querySelectorAll('.hero-city-bg');
+      var label = document.getElementById('heroCityLabel');
+      if (!bgs.length || !label) return;
+
+      var cities = [];
+      bgs.forEach(function(bg) { cities.push(bg); });
+
+      // Order: Abu Dhabi, Geneva, London, Malmö, Monterrey, then settle on Cork
+      var current = cities.length - 1; // Cork starts active
+      var cycle = [0, 1, 2, 3, 4, 5]; // indices: Abu Dhabi, Geneva, London, Malmö, Monterrey, Cork
+      var step = 0;
+
+      function showCity(index) {
+        cities.forEach(function(bg) { bg.classList.remove('active'); });
+        cities[index].classList.add('active');
+        label.textContent = cities[index].getAttribute('data-city');
+      }
+
+      // Start from Abu Dhabi after a brief delay
+      setTimeout(function() {
+        showCity(0);
+        step = 1;
+
+        var interval = setInterval(function() {
+          if (step >= cycle.length) {
+            clearInterval(interval);
+            return;
+          }
+          showCity(cycle[step]);
+          step++;
+        }, 3000);
+      }, 2000);
     })();
 
     // ── Booking Form Handler ──
