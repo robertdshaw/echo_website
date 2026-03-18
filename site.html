@@ -876,8 +876,96 @@
       background: rgba(0, 212, 255, 0.08);
     }
 
+    /* PIPELINE INFOGRAPHIC */
+    .pipeline {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      align-items: start;
+      gap: 0;
+      margin-top: 2.5rem;
+    }
+
+    .pipeline-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .pipeline-step h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .pipeline-step p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+
+    .pipeline-icon {
+      margin-bottom: 0.75rem;
+    }
+
+    .pipeline-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.5rem;
+      opacity: 0.6;
+    }
+
+    .pipeline-stat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .pipeline-stat-value {
+      color: var(--accent-cyan);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .pipeline-connector {
+      width: 30px;
+      height: 2px;
+      background: var(--border);
+      align-self: center;
+      margin-top: -2rem;
+      position: relative;
+    }
+
+    .pipeline-connector::after {
+      content: '';
+      position: absolute;
+      right: -3px;
+      top: -3px;
+      width: 8px;
+      height: 8px;
+      border-top: 2px solid var(--accent-cyan);
+      border-right: 2px solid var(--accent-cyan);
+      transform: rotate(45deg);
+    }
+
+    /* SECTION LAYER 3 - slightly different bg */
+    .section-layer-3 {
+      background: #0d1219;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
     @media (max-width: 768px) {
       .booking-grid { grid-template-columns: 1fr; }
+      .pipeline { grid-template-columns: 1fr; gap: 0; }
+      .pipeline-connector { width: 2px; height: 24px; margin: 0 auto; }
+      .pipeline-connector::after { right: -3px; top: auto; bottom: -3px; transform: rotate(135deg); }
     }
 
     /* TEAM */
@@ -1079,7 +1167,7 @@
       .nav-hamburger { display: flex; }
       .hero { padding: 8rem 1.5rem 4rem; }
       section { padding: 3.5rem 1.5rem; }
-      .platform-grid { grid-template-columns: 1fr; }
+      .platform-grid { grid-template-columns: 1fr !important; }
       .method-grid { grid-template-columns: 1fr 1fr; }
       .numbers-grid { grid-template-columns: 1fr 1fr; }
       .diff-grid { grid-template-columns: 1fr; }
@@ -1103,7 +1191,6 @@
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#platforms">Dashboards</a>
-      <a href="#methodology">Methodology</a>
       <a href="#about">About</a>
       <a href="#book-demo" class="nav-cta">Book a Demo</a>
       <a href="index.html" class="nav-login" style="border-color: var(--accent-red) !important; color: var(--accent-red);">Logout</a>
@@ -1122,24 +1209,21 @@
   <section class="hero" style="padding-top: 6rem;">
     <img src="images/echoframe-logo.png" alt="EchoFrame" class="hero-logo">
     <div class="client-value">Built for energy and commodity decision-makers</div>
-    <h1>Operational Risk Intelligence</h1>
-    <p class="hero-sub">Live dashboards. Predictive scenario modeling.<br>Multiple open-source intelligence fusion.<br>Built for energy companies and commodity traders who need clarity, not commentary.</p>
+    <h1>Know What's Coming.<br>Before the Market Does.</h1>
+    <p class="hero-sub">Political risk doesn't wait for your next briefing. Neither should you.<br><br>EchoFrame gives energy companies and commodity traders a live, quantified view of the geopolitical forces that move prices, disrupt supply chains, and reshape regulatory landscapes. Our dashboards fuse hundreds of open-source signals into calibrated probability estimates, updated continuously, so you can act on tomorrow's risk today.</p>
     <div class="hero-ctas">
-      <a href="#platforms" class="hero-cta">View Dashboards</a>
+      <a href="#platforms" class="hero-cta">Explore the Dashboards</a>
       <a href="#book-demo" class="hero-cta-secondary">Book a Demo</a>
-    </div>
-    <div class="testimonial">
-      <p>"EchoFrame's Venezuela signals contributed to a hedge fund client's $100M+ position ahead of the Maduro transition,"</p>
-      <cite>— Simon King, CEO <a href="https://gmtl.co.uk" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted);">GMTL Strategic Risk Advisory</a></cite>
     </div>
   </section>
 
   <!-- PLATFORMS -->
+  <div class="section-alt">
   <section id="platforms">
     <div class="section-label">// dashboards</div>
     <h2 class="section-title">Live Risk Intelligence for Energy and Commodity Markets</h2>
     <p class="section-desc">Real-time geopolitical risk dashboards that turn regulatory shifts, sanctions, and political instability into quantified signals, so you can price risk before the market does.</p>
-    <div class="platform-grid">
+    <div class="platform-grid" style="grid-template-columns: repeat(3, 1fr);">
 
       <!-- Iran -->
       <div class="platform-card" onclick="window.open('https://iran-intel-analyst.onrender.com/','_blank')">
@@ -1208,54 +1292,59 @@
         </div>
       </div>
 
-      <!-- Mexico -->
-      <div class="platform-card">
-        <div class="card-image">
-          <span class="badge-live">Live</span>
-          <img src="images/mexico-risk-monitor.png" alt="Mexico Risk Monitor — Political & Security Intelligence" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-          <span class="card-image-placeholder" style="display:none">[ risk_monitor.mx ]</span>
-        </div>
-        <div class="card-body">
-          <div class="card-region">Latin America</div>
-          <div class="card-name">Mexico Risk Monitor</div>
-          <div class="card-framework">M1–M5 Framework</div>
-          <p class="card-desc">Energy reform risk, cartel disruption to infrastructure, and cross-border trade exposure. Built for commodity traders and energy companies operating in Mexico</p>
-          <div class="card-tags">
-            <span class="tag">Risk Monitor</span>
-            <span class="tag">Actor Mapping</span>
-            <span class="tag">Scenario Modeling</span>
-            <span class="tag">Early Warning</span>
+    </div>
+  </section>
+  </div>
+
+  <!-- HOW IT WORKS INFOGRAPHIC -->
+  <section class="infographic-section" style="padding: 4rem 2rem;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div class="section-label">// the intelligence pipeline</div>
+      <h2 class="section-title">From Raw Signal to Decision-Ready Intelligence</h2>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="pipeline-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
           </div>
-          <a href="mailto:info@echoframe.co?subject=Mexico%20Platform%20—%20Access%20Request" class="card-link">Coming Soon</a>
+          <div class="pipeline-number">01</div>
+          <h3>Collect</h3>
+          <p>103+ open sources. Flight tracking, vessel data, satellite imagery, global event streams, and regional news feeds ingested continuously.</p>
+          <div class="pipeline-stat"><span class="pipeline-stat-value">103+</span> sources</div>
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step">
+          <div class="pipeline-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="pipeline-number">02</div>
+          <h3>Fuse & Score</h3>
+          <p>Cross-reference across sources. 3-tier confidence weighting. Every claim traced to origin and scored for reliability.</p>
+          <div class="pipeline-stat"><span class="pipeline-stat-value">3-tier</span> confidence</div>
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step">
+          <div class="pipeline-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="pipeline-number">03</div>
+          <h3>Model</h3>
+          <p>214+ tracked actors mapped into power networks. Monte Carlo simulations generate divergent scenario probabilities with confidence bands.</p>
+          <div class="pipeline-stat"><span class="pipeline-stat-value">214+</span> actors</div>
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step">
+          <div class="pipeline-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="1.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </div>
+          <div class="pipeline-number">04</div>
+          <h3>Deliver</h3>
+          <p>Live dashboards with calibrated probabilities, scenario forecasts, and early warning signals. Average lead time: 30–90 days ahead of events.</p>
+          <div class="pipeline-stat"><span class="pipeline-stat-value">30–90d</span> lead time</div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- KEY NUMBERS -->
-  <div class="numbers-section">
-    <div class="numbers-grid">
-      <div class="number-card">
-        <div class="number-value">5</div>
-        <div class="number-label">Live Platforms</div>
-      </div>
-      <div class="number-card">
-        <div class="number-value">214+</div>
-        <div class="number-label">Tracked Actors</div>
-      </div>
-      <div class="number-card">
-        <div class="number-value">103+</div>
-        <div class="number-label">Open Sources</div>
-      </div>
-      <div class="number-card">
-        <div class="number-value">30d</div>
-        <div class="number-label">Avg. Lead Time</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-alt">
   <!-- WHY ECHOFRAME -->
   <section>
     <div class="section-label">// why echoframe</div>
@@ -1278,47 +1367,28 @@
         <span class="diff-vs">vs. Single-source analysis</span>
       </div>
     </div>
-    <div class="testimonial" style="margin-top: 2.5rem;">
-      <p>"EchoFrame's probabilistic risk modeling is set to disrupt how open-source intelligence is done, helping clients manage risk before it manages them,"</p>
-      <cite>— Luis Matos Azócar, former Executive Director for Venezuela and Panama at the Inter-American Development Bank (IDB), Washington DC; ex-Director, Master of Political Communication and Strategic Governance, George Washington University GSPM</cite>
-    </div>
   </section>
-  </div>
 
-  <!-- METHODOLOGY -->
-  <section id="methodology">
-    <div class="section-label">// methodology</div>
-    <h2 class="section-title">How It Works</h2>
-    <p class="section-desc">Our analytical engine combines structured intelligence tradecraft with computational modeling.</p>
-    <div class="method-grid">
-      <div class="method-card">
-        <div class="method-icon">01</div>
-        <h3>Probability Engine</h3>
-        <p>Calibrated likelihood ratios. Accuracy-scored. Every probability is defensible and auditable, with full update history.</p>
-      </div>
-      <div class="method-card">
-        <div class="method-icon">02</div>
-        <h3>Open-Source Intelligence Fusion</h3>
-        <p>Flight tracking, maritime vessel data, satellite imagery, global event streams, and 100+ regional news sources. Cross-referenced and tiered by reliability.</p>
-      </div>
-      <div class="method-card">
-        <div class="method-icon">03</div>
-        <h3>Source Tiering</h3>
-        <p>3-tier confidence weighting. Full provenance tracking. Every claim traced to origin and scored for reliability.</p>
-      </div>
-      <div class="method-card">
-        <div class="method-icon">04</div>
-        <h3>Scenario Modeling</h3>
-        <p>Monte Carlo simulations. Divergent futures with confidence bands. Game-theory modeling for multi-actor scenarios.</p>
-      </div>
+  <!-- ACCREDITATION QUOTES -->
+  <div class="section-layer-3">
+  <section style="padding: 3.5rem 2rem;">
+    <div class="testimonial" style="margin-bottom: 2rem;">
+      <p>"EchoFrame's Venezuela signals contributed to a hedge fund client's $100M+ position ahead of the Maduro transition,"</p>
+      <cite>— Simon King, CEO <a href="https://gmtl.co.uk" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted);">GMTL Strategic Risk Advisory</a></cite>
     </div>
-    <div class="testimonial" style="margin-top: 2.5rem;">
+    <div class="testimonial" style="margin-bottom: 2rem;">
+      <p>"EchoFrame's probabilistic risk modeling is set to disrupt how open-source intelligence is done, helping clients manage risk before it manages them,"</p>
+      <cite>— Luis Matos Azócar, former Executive Director for Venezuela and Panama at the Inter-American Development Bank (IDB), Washington DC</cite>
+    </div>
+    <div class="testimonial">
       <p>"EchoFrame's spatial analytics and network modeling bring academic rigor to real-world intelligence, the kind of methodological depth that's rare in the open-source intelligence space."</p>
       <cite>— Jean-Christophe Loubier, PhD, Full Professor & GIS Lab, <a href="https://www.hevs.ch/en/collaborateurs/loubier-2424" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted);">HES-SO Valais-Wallis</a></cite>
     </div>
   </section>
+  </div>
 
   <!-- ABOUT / ECHOFRAME & OSINT COLLECTIVE -->
+  <div class="section-alt">
   <section id="about">
     <div class="section-label">// about</div>
     <h2 class="section-title">EchoFrame</h2>
@@ -1378,9 +1448,9 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- BOOK A DEMO -->
-  <div class="section-alt">
   <section id="book-demo">
     <div class="section-label">// book a demo</div>
     <h2 class="section-title">See EchoFrame in Action</h2>
