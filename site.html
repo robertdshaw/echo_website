@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EchoFrame | Operational Political Risk Intelligence</title>
   <link rel="icon" type="image/png" href="favicon.png">
-  <meta name="description" content="Live dashboards. Bayesian scenario modeling. Multi-source OSINT fusion. Operational political risk intelligence for government and enterprise clients.">
+  <meta name="description" content="Live dashboards. Predictive scenario modeling. Multi-source intelligence fusion. Operational political risk intelligence for energy companies and commodity traders.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -329,11 +329,19 @@
       border-radius: 8px;
       overflow: hidden;
       transition: border-color 0.2s, transform 0.2s;
+      cursor: pointer;
+      position: relative;
     }
 
     .platform-card:hover {
       border-color: #2a3a4e;
       transform: translateY(-2px);
+    }
+
+    .platform-card > a.card-wrapper {
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
     .card-image {
@@ -411,9 +419,9 @@
 
     .card-link {
       font-size: 0.95rem;
-      color: var(--accent-cyan);
+      color: var(--accent-orange);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       transition: opacity 0.2s;
     }
 
@@ -888,12 +896,12 @@
       <div class="nav-logo">Echo<span>Frame</span></div>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#platforms">Platforms</a>
+      <a href="#platforms">Dashboards</a>
       <a href="#methodology">Methodology</a>
       <a href="#about">About</a>
       <a href="#" class="nav-login" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
       <a href="index.html" class="nav-login" style="border-color: var(--accent-red) !important; color: var(--accent-red);">Logout</a>
-      <a href="#platforms" class="nav-cta">Platforms</a>
+      <a href="#platforms" class="nav-cta">Dashboards</a>
     </div>
     <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -908,36 +916,15 @@
   <!-- HERO -->
   <section class="hero" style="padding-top: 6rem;">
     <img src="images/echoframe-logo.png" alt="EchoFrame" class="hero-logo">
-    <h1>Operational Political Risk Intelligence</h1>
-    <p class="hero-sub">Live dashboards. Bayesian scenario modeling. Multi-source OSINT fusion. Built for energy companies and commodity traders who need clarity, not commentary.</p>
-    <a href="#platforms" class="hero-cta">View Platforms</a>
+    <h1>Operational Risk Intelligence</h1>
+    <p class="hero-sub">Live dashboards. Predictive scenario modeling. Multi-source open-source intelligence fusion. Built for energy companies and commodity traders who need clarity, not commentary.</p>
+    <a href="#platforms" class="hero-cta">View Dashboards</a>
     <div class="testimonial">
       <p>"EchoFrame's Venezuela signals contributed to a hedge fund client's $100M+ position ahead of the Maduro transition,"</p>
       <cite>— Simon King, CEO <a href="https://gmtl.co.uk" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted);">GMTL Strategic Risk Advisory</a></cite>
     </div>
   </section>
 
-  <!-- LIVE STATUS BAR -->
-  <div class="status-bar">
-    <div class="status-inner">
-      <div class="status-item">
-        <div class="status-dot"></div>
-        <span class="status-label">The Middle East Insider</span>
-      </div>
-      <div class="status-item">
-        <div class="status-dot"></div>
-        <span class="status-label">South American AI Analyst</span>
-      </div>
-      <div class="status-item">
-        <div class="status-dot"></div>
-        <span class="status-label">EU Energy Tracker</span>
-      </div>
-      <div class="status-item">
-        <div class="status-dot"></div>
-        <span class="status-label">Mexico Energy</span>
-      </div>
-    </div>
-  </div>
 
   <!-- KEY NUMBERS -->
   <div class="numbers-section">
@@ -952,7 +939,7 @@
       </div>
       <div class="number-card">
         <div class="number-value">103+</div>
-        <div class="number-label">OSINT Sources</div>
+        <div class="number-label">Open Sources</div>
       </div>
       <div class="number-card">
         <div class="number-value">30d</div>
@@ -966,27 +953,27 @@
   <!-- WHY ECHOFRAME -->
   <section>
     <div class="section-label">// why echoframe</div>
-    <h2 class="section-title">Intelligence That Moves at Market Speed</h2>
+    <h2 class="section-title">Intelligence That Moves at Situational Speed</h2>
     <p class="section-desc">Traditional political risk advisory delivers PDF reports weeks after events. Our clients get live, quantified scenario updates as situations evolve.</p>
     <div class="diff-grid">
       <div class="diff-card">
         <h3>Qualitative and Quantified</h3>
-        <p>Deep regional expertise and structured analytical tradecraft — backed by calibrated probabilities and Brier-scored accuracy. Context that explains why, with numbers your trading desk can act on.</p>
+        <p>Deep regional expertise and structured analytical tradecraft — backed by calibrated probabilities and proven accuracy. Context that explains why, with numbers your trading desk can act on.</p>
         <span class="diff-vs">vs. Raw data dumps or vague "elevated risk" PDFs</span>
       </div>
       <div class="diff-card">
         <h3>Continuous, Not Periodic</h3>
-        <p>Dashboards update in real-time as new intelligence flows in. Bayesian probabilities shift with each data point — not with each quarterly report.</p>
+        <p>Dashboards update in real-time as new intelligence flows in. Probabilities shift with each data point — not with each quarterly report.</p>
         <span class="diff-vs">vs. Monthly PDF briefings</span>
       </div>
       <div class="diff-card">
         <h3>Multi-Source Fusion</h3>
-        <p>ADS-B flight tracking, AIS maritime data, NASA FIRMS fire detection, GDELT events, and 100+ regional sources — fused into a single operating picture.</p>
+        <p>Flight tracking, maritime vessel data, satellite fire detection, global event streams, and 100+ regional sources — fused into a single operating picture.</p>
         <span class="diff-vs">vs. Single-source analysis</span>
       </div>
     </div>
     <div class="testimonial" style="margin-top: 2.5rem;">
-      <p>"EchoFrame's probabilistic risk modeling is set to disrupt how OSINT is done, helping clients manage risk before it manages them,"</p>
+      <p>"EchoFrame's probabilistic risk modeling is set to disrupt how open-source intelligence is done, helping clients manage risk before it manages them,"</p>
       <cite>— Luis Matos Azócar, former Executive Director for Venezuela and Panama at the Inter-American Development Bank (IDB), Washington DC; ex-Director, Master of Political Communication and Strategic Governance, George Washington University GSPM</cite>
     </div>
   </section>
@@ -995,13 +982,13 @@
 
   <!-- PLATFORMS -->
   <section id="platforms">
-    <div class="section-label">// platforms</div>
-    <h2 class="section-title">Live Intelligence for Energy Companies and Commodity Traders</h2>
+    <div class="section-label">// dashboards</div>
+    <h2 class="section-title">Live Risk Intelligence for Energy and Commodity Markets</h2>
     <p class="section-desc">Real-time geopolitical risk dashboards that turn regulatory shifts, sanctions, and political instability into quantified signals — so you can price risk before the market does.</p>
     <div class="platform-grid">
 
       <!-- Iran -->
-      <div class="platform-card">
+      <div class="platform-card" onclick="window.open('https://iran-intel-analyst.onrender.com/auto-login?key=SanAntonio2027','_blank')">
         <div class="card-image">
           <span class="badge-live">Live</span>
           <img src="images/iran-strikewatch.png" alt="Iran Risk Intelligence — Strike Watch" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
@@ -1014,17 +1001,17 @@
           <p class="card-desc">Hormuz chokepoint risk, sanctions impact, supply disruption scenarios — built for energy traders and commodity desks exposed to Gulf volatility</p>
           <div class="card-tags">
             <span class="tag">Strike Watch</span>
-            <span class="tag">ADS-B / AIS Fusion</span>
+            <span class="tag">Air & Maritime Tracking</span>
             <span class="tag">Power Network</span>
             <span class="tag">War Game Engine</span>
             <span class="tag">Hormuz Monitor</span>
           </div>
-          <a href="https://iran-intel-analyst.onrender.com/auto-login?key=SanAntonio2027" class="card-link" target="_blank">Launch Platform</a>
+          <span class="card-link">Launch Platform</span>
         </div>
       </div>
 
       <!-- Venezuela / South America -->
-      <div class="platform-card">
+      <div class="platform-card" onclick="window.open('https://vz.echoframe.co?code=VEN-GUEST1','_blank')">
         <div class="card-image">
           <span class="badge-live">Live</span>
           <img src="images/venezuela-predictive.png" alt="Venezuela Intelligence — Predictive Track Record" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
@@ -1038,15 +1025,15 @@
           <div class="card-tags">
             <span class="tag">214 Actors</span>
             <span class="tag">Monte Carlo Scenarios</span>
-            <span class="tag">Stochastic Outlook</span>
+            <span class="tag">Predictive Outlook</span>
             <span class="tag">30-Day Lead Time</span>
           </div>
-          <a href="https://vz.echoframe.co?code=VEN-GUEST1" class="card-link" target="_blank">Launch Platform</a>
+          <span class="card-link">Launch Platform</span>
         </div>
       </div>
 
       <!-- EU Regulatory -->
-      <div class="platform-card">
+      <div class="platform-card" onclick="window.open('https://eu-regulatory-monitor.onrender.com/','_blank')">
         <div class="card-image">
           <span class="badge-live">Live</span>
           <img src="images/eu-regulatory-map.png" alt="EU Regulatory Monitor — Exposure Map" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
@@ -1063,7 +1050,7 @@
             <span class="tag">Key Player Profiles</span>
             <span class="tag">Regulatory Pipeline</span>
           </div>
-          <a href="https://eu-regulatory-monitor.onrender.com/auto-login?key=SanAntonio2027" class="card-link" target="_blank">Launch Platform</a>
+          <span class="card-link">Launch Platform</span>
         </div>
       </div>
 
@@ -1102,13 +1089,13 @@
     <div class="method-grid">
       <div class="method-card">
         <div class="method-icon">01</div>
-        <h3>Bayesian Engine</h3>
-        <p>Calibrated likelihood ratios. Brier-scored. Max &plusmn;8pp per update. Every probability is defensible and auditable.</p>
+        <h3>Probability Engine</h3>
+        <p>Calibrated likelihood ratios. Accuracy-scored. Every probability is defensible and auditable, with full update history.</p>
       </div>
       <div class="method-card">
         <div class="method-icon">02</div>
-        <h3>OSINT Fusion</h3>
-        <p>ADS-B, AIS, NASA FIRMS, GDELT, 100+ regional news sources. Cross-referenced and tiered by reliability.</p>
+        <h3>Open-Source Intelligence Fusion</h3>
+        <p>Flight tracking, maritime vessel data, satellite imagery, global event streams, and 100+ regional news sources. Cross-referenced and tiered by reliability.</p>
       </div>
       <div class="method-card">
         <div class="method-icon">03</div>
@@ -1122,7 +1109,7 @@
       </div>
     </div>
     <div class="testimonial" style="margin-top: 2.5rem;">
-      <p>"EchoFrame's spatial analytics and network modeling bring academic rigor to real-world intelligence, the kind of methodological depth that's rare in the OSINT space."</p>
+      <p>"EchoFrame's spatial analytics and network modeling bring academic rigor to real-world intelligence, the kind of methodological depth that's rare in the open-source intelligence space."</p>
       <cite>— Jean-Christophe Loubier, PhD, Full Professor & GIS Lab, <a href="https://www.hevs.ch/en/collaborateurs/loubier-2424" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted);">HES-SO Valais-Wallis</a></cite>
     </div>
   </section>
@@ -1136,7 +1123,7 @@
     <div class="about-grid">
       <div class="about-text">
         <p><strong>EchoFrame</strong> builds operational intelligence platforms for energy companies and commodity traders who need a live, quantified view of political risk. We don't publish reports — we build always-on dashboards that fuse hundreds of open-source signals into calibrated probability estimates, updated in real time.</p>
-        <p>Our platforms cover <strong>the Middle East, South America, the EU energy landscape, and Mexico's energy sector</strong>. Each one tracks specific actors, maps power networks, and runs Bayesian scenario models that have demonstrated <strong>93-day average lead times</strong> ahead of major geopolitical shifts.</p>
+        <p>Our platforms cover <strong>the Middle East, South America, the EU energy landscape, and Mexico's energy sector</strong>. Each one tracks specific actors, maps power networks, and runs predictive scenario models that have demonstrated <strong>93-day average lead times</strong> ahead of major geopolitical shifts.</p>
         <p>Clients include energy majors navigating regulatory exposure, commodity trading desks pricing sovereign risk, and hedge funds with energy and resource positions. EchoFrame's models have been credited with saving clients <strong>millions in compliance costs</strong> and generating <strong>over $100M in trading value</strong>.</p>
 
         <div class="about-video">
@@ -1151,9 +1138,9 @@
         </div>
         <p>The Collective was founded on a simple premise: the best geopolitical intelligence comes from <strong>fusing open-source data at scale</strong> with deep regional expertise and rigorous analytical tradecraft. Our team combines backgrounds in <strong>investigative journalism, risk advisory, defense intelligence, and AI engineering</strong> to deliver actionable foresight — not after-the-fact analysis.</p>
         <ul class="about-capabilities">
-          <li>Sovereign OSINT collection & analysis</li>
+          <li>Sovereign open-source intelligence collection & analysis</li>
           <li>Custom intelligence platform development</li>
-          <li>Bayesian scenario modeling & war gaming</li>
+          <li>Predictive scenario modeling & war gaming</li>
           <li>Real-time geopolitical monitoring</li>
           <li>Due diligence & compliance intelligence</li>
           <li>Training & analytical methodology transfer</li>
@@ -1172,7 +1159,7 @@
         </div>
         <div class="about-stat">
           <span class="about-stat-label">Sources</span>
-          <span class="about-stat-value">103+ OSINT feeds</span>
+          <span class="about-stat-value">103+ open-source feeds</span>
         </div>
         <div class="about-stat">
           <span class="about-stat-label">Actors tracked</span>
@@ -1192,59 +1179,12 @@
 
   <div class="divider"></div>
 
-  <!-- TEAM -->
-  <section id="team">
-    <div class="section-label">// leadership</div>
-    <h2 class="section-title">Core Team</h2>
-    <p class="section-desc">Ministerial-level experience meets cutting-edge AI. Our leadership spans investigative journalism, political science, data architecture, and institutional strategy.</p>
-    <div class="team-grid">
-
-      <div class="team-card">
-        <div class="team-avatar">RS</div>
-        <div class="team-name">Robert Shaw</div>
-        <div class="team-title">Chief Executive Officer</div>
-        <p class="team-bio">20+ years in investigative journalism, risk intelligence, and AI across six regions. Built EchoFrame to surface the early signals — political, regulatory, and geopolitical — that traditional analysis misses.</p>
-      </div>
-
-      <div class="team-card">
-        <div class="team-avatar">JG</div>
-        <div class="team-name">Javier Garza</div>
-        <div class="team-title">Chief Operating Officer</div>
-        <p class="team-bio">Operational leader driving execution across EchoFrame's platform delivery and partnership engagements. Ensures intelligence operations scale without sacrificing analytical rigor.</p>
-      </div>
-
-      <div class="team-card">
-        <div class="team-avatar">JT</div>
-        <div class="team-name">Dr. Juan Manuel Trak</div>
-        <div class="team-title">Chief Product Officer</div>
-        <p class="team-bio">PhD in Political Processes with 15+ years turning political science into operational intelligence products for UNDP, International IDEA, and electoral authorities. Designs the frameworks that make raw data decision-ready.</p>
-      </div>
-
-      <div class="team-card">
-        <div class="team-avatar">DR</div>
-        <div class="team-name">Dr. Diego Rojas</div>
-        <div class="team-title">Chief Technology Officer</div>
-        <p class="team-bio">20+ years designing AI hubs and data infrastructure for government and enterprise. PhD in Geographic Information Science — turns ambiguous strategic mandates into operational AI systems with real governance.</p>
-      </div>
-
-      <div class="team-card">
-        <div class="team-avatar">GH</div>
-        <div class="team-name">Giselle Ho</div>
-        <div class="team-title">Director of Sales & Marketing</div>
-        <p class="team-bio">15+ years leading cross-border growth at The New York Times and DBS Private Bank. Bridges advanced analytical platforms with institutional adoption in regulated, high-trust environments.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
   <!-- CONTACT -->
   <section class="contact-section">
     <div class="section-label">// contact</div>
     <h2 class="section-title">Get Started</h2>
     <p class="section-desc">Explore our live intelligence platforms or get in touch for a briefing tailored to your energy and commodity risk exposure.</p>
-    <a href="#platforms" class="contact-cta">View Platforms</a>
+    <a href="#platforms" class="contact-cta">View Dashboards</a>
     <div class="contact-email"><a href="mailto:info@echoframe.co">info@echoframe.co</a></div>
   </section>
 
