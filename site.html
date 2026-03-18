@@ -173,7 +173,6 @@
       font-weight: 600;
       font-size: 1.05rem;
       transition: opacity 0.2s;
-      margin-bottom: 3.5rem;
     }
 
     .hero-cta:hover { opacity: 0.85; }
@@ -636,7 +635,35 @@
       white-space: nowrap;
     }
 
-    /* CONTACT */
+    /* CLIENT VALUE BANNER */
+    .client-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-orange);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(255, 140, 66, 0.3);
+      border-radius: 4px;
+      background: rgba(255, 140, 66, 0.08);
+    }
+
+    /* ALTERNATING SECTIONS */
+    .section-alt {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-alt > section,
+    .section-alt > div {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* CONTACT / BOOKING */
     .contact-section {
       text-align: center;
       padding: 5rem 2rem 3rem;
@@ -674,6 +701,184 @@
     }
 
     .contact-email a:hover { color: var(--accent-cyan); }
+
+    /* BOOKING FORM */
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+      align-items: start;
+    }
+
+    .booking-info h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .booking-info p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .booking-benefits {
+      list-style: none;
+      padding: 0;
+      margin-top: 1.5rem;
+    }
+
+    .booking-benefits li {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .booking-benefits li::before {
+      content: '>';
+      color: var(--accent-cyan);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+
+    .booking-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .booking-form h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-group select {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235a6b7d' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-group select option {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 0.85rem;
+      background: var(--accent-cyan);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .form-submit:hover { opacity: 0.85; }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .form-success h3 {
+      color: var(--accent-green);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p {
+      color: var(--text-secondary);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-cta-secondary {
+      display: inline-block;
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+      padding: 0.85rem 2.25rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.2s;
+    }
+
+    .hero-cta-secondary:hover {
+      background: rgba(0, 212, 255, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      .booking-grid { grid-template-columns: 1fr; }
+    }
 
     /* TEAM */
     .team-grid {
@@ -900,7 +1105,7 @@
       <a href="#platforms">Dashboards</a>
       <a href="#methodology">Methodology</a>
       <a href="#about">About</a>
-      <a href="#" class="nav-login" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+      <a href="#book-demo" class="nav-cta">Book a Demo</a>
       <a href="index.html" class="nav-login" style="border-color: var(--accent-red) !important; color: var(--accent-red);">Logout</a>
     </div>
     <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
@@ -916,9 +1121,13 @@
   <!-- HERO -->
   <section class="hero" style="padding-top: 6rem;">
     <img src="images/echoframe-logo.png" alt="EchoFrame" class="hero-logo">
+    <div class="client-value">Built for energy and commodity decision-makers</div>
     <h1>Operational Risk Intelligence</h1>
     <p class="hero-sub">Live dashboards. Predictive scenario modeling.<br>Multiple open-source intelligence fusion.<br>Built for energy companies and commodity traders who need clarity, not commentary.</p>
-    <a href="#platforms" class="hero-cta">View Dashboards</a>
+    <div class="hero-ctas">
+      <a href="#platforms" class="hero-cta">View Dashboards</a>
+      <a href="#book-demo" class="hero-cta-secondary">Book a Demo</a>
+    </div>
     <div class="testimonial">
       <p>"EchoFrame's Venezuela signals contributed to a hedge fund client's $100M+ position ahead of the Maduro transition,"</p>
       <cite>— Simon King, CEO <a href="https://gmtl.co.uk" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted);">GMTL Strategic Risk Advisory</a></cite>
@@ -1024,8 +1233,6 @@
     </div>
   </section>
 
-  <div class="divider"></div>
-
   <!-- KEY NUMBERS -->
   <div class="numbers-section">
     <div class="numbers-grid">
@@ -1048,8 +1255,7 @@
     </div>
   </div>
 
-  <div class="divider"></div>
-
+  <div class="section-alt">
   <!-- WHY ECHOFRAME -->
   <section>
     <div class="section-label">// why echoframe</div>
@@ -1077,6 +1283,7 @@
       <cite>— Luis Matos Azócar, former Executive Director for Venezuela and Panama at the Inter-American Development Bank (IDB), Washington DC; ex-Director, Master of Political Communication and Strategic Governance, George Washington University GSPM</cite>
     </div>
   </section>
+  </div>
 
   <!-- METHODOLOGY -->
   <section id="methodology">
@@ -1110,8 +1317,6 @@
       <cite>— Jean-Christophe Loubier, PhD, Full Professor & GIS Lab, <a href="https://www.hevs.ch/en/collaborateurs/loubier-2424" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted);">HES-SO Valais-Wallis</a></cite>
     </div>
   </section>
-
-  <div class="divider"></div>
 
   <!-- ABOUT / ECHOFRAME & OSINT COLLECTIVE -->
   <section id="about">
@@ -1174,16 +1379,71 @@
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- CONTACT -->
-  <section class="contact-section">
-    <div class="section-label">// contact</div>
-    <h2 class="section-title">Get Started</h2>
-    <p class="section-desc">Explore our live intelligence platforms or get in touch for a briefing tailored to your energy and commodity risk exposure.</p>
-    <a href="#platforms" class="contact-cta">View Dashboards</a>
-    <div class="contact-email"><a href="mailto:info@echoframe.co">info@echoframe.co</a></div>
+  <!-- BOOK A DEMO -->
+  <div class="section-alt">
+  <section id="book-demo">
+    <div class="section-label">// book a demo</div>
+    <h2 class="section-title">See EchoFrame in Action</h2>
+    <p class="section-desc">30-minute briefing tailored to your region and risk exposure. No slides, just a live walkthrough of the dashboards.</p>
+    <div class="booking-grid">
+      <div class="booking-info">
+        <h3>What you'll get</h3>
+        <p>A live walkthrough of EchoFrame's intelligence dashboards, customized to the regions and risk factors that matter to your business.</p>
+        <ul class="booking-benefits">
+          <li>Live demo of the dashboards relevant to your portfolio</li>
+          <li>Walk-through of our predictive scenario engine</li>
+          <li>Discussion of integration with your existing risk workflow</li>
+          <li>Q&A with our intelligence team</li>
+        </ul>
+        <p style="margin-top: 1.5rem;">Or email us directly: <a href="mailto:info@echoframe.co" style="color: var(--accent-cyan); text-decoration: none;">info@echoframe.co</a></p>
+      </div>
+      <div class="booking-form" id="bookingFormContainer">
+        <h3>Request a briefing</h3>
+        <form id="bookingForm" action="https://formspree.io/f/info@echoframe.co" method="POST">
+          <div class="form-group">
+            <label for="demo-name">Name</label>
+            <input type="text" id="demo-name" name="name" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label for="demo-email">Work email</label>
+            <input type="email" id="demo-email" name="email" required placeholder="you@company.com">
+          </div>
+          <div class="form-group">
+            <label for="demo-company">Company</label>
+            <input type="text" id="demo-company" name="company" required placeholder="Company name">
+          </div>
+          <div class="form-group">
+            <label for="demo-role">Role</label>
+            <select id="demo-role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option value="Trading / Portfolio">Trading / Portfolio Management</option>
+              <option value="Risk Management">Risk Management</option>
+              <option value="Strategy / Advisory">Strategy / Advisory</option>
+              <option value="Government / Policy">Government / Policy</option>
+              <option value="Executive / C-Suite">Executive / C-Suite</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="demo-regions">Regions of interest</label>
+            <input type="text" id="demo-regions" name="regions" placeholder="e.g. Middle East, Latin America, EU">
+          </div>
+          <div class="form-group">
+            <label for="demo-message">Anything else?</label>
+            <textarea id="demo-message" name="message" placeholder="Tell us about your risk exposure or specific questions"></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="EchoFrame Demo Request">
+          <button type="submit" class="form-submit">Request Demo</button>
+          <p class="form-note">We'll respond within 24 hours with available times.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <h3>Request received</h3>
+          <p>We'll be in touch within 24 hours to schedule your briefing.</p>
+        </div>
+      </div>
+    </div>
   </section>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -1334,6 +1594,54 @@
       reveals.forEach(function(el) {
         observer.observe(el);
       });
+    })();
+
+    // ── Booking Form Handler ──
+    (function() {
+      var form = document.getElementById('bookingForm');
+      var container = document.getElementById('bookingFormContainer');
+      var success = document.getElementById('formSuccess');
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var data = new FormData(form);
+          var btn = form.querySelector('.form-submit');
+          btn.textContent = 'Sending...';
+          btn.disabled = true;
+
+          fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          }).then(function(res) {
+            if (res.ok) {
+              form.style.display = 'none';
+              success.style.display = 'block';
+            } else {
+              // Fallback: open mailto
+              var name = data.get('name') || '';
+              var email = data.get('email') || '';
+              var company = data.get('company') || '';
+              var role = data.get('role') || '';
+              var regions = data.get('regions') || '';
+              var message = data.get('message') || '';
+              var body = 'Name: ' + name + '%0AEmail: ' + email + '%0ACompany: ' + company + '%0ARole: ' + role + '%0ARegions: ' + regions + '%0AMessage: ' + message;
+              window.location.href = 'mailto:info@echoframe.co?subject=Demo%20Request&body=' + body;
+              btn.textContent = 'Request Demo';
+              btn.disabled = false;
+            }
+          }).catch(function() {
+            var name = data.get('name') || '';
+            var email = data.get('email') || '';
+            var company = data.get('company') || '';
+            var body = 'Name: ' + name + '%0AEmail: ' + email + '%0ACompany: ' + company;
+            window.location.href = 'mailto:info@echoframe.co?subject=Demo%20Request&body=' + body;
+            btn.textContent = 'Request Demo';
+            btn.disabled = false;
+          });
+        });
+      }
     })();
   </script>
 
