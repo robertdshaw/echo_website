@@ -1650,48 +1650,14 @@
         <p style="margin-top: 1.5rem;">Or email us directly: <a href="mailto:contact@echoframe.co" style="color: var(--accent-cyan); text-decoration: none;">contact@echoframe.co</a></p>
       </div>
       <div class="booking-form" id="bookingFormContainer">
-        <h3>Request a briefing</h3>
-        <form id="bookingForm" action="https://formspree.io/f/mojkrnla" method="POST">
-          <div class="form-group">
-            <label for="demo-name">Name</label>
-            <input type="text" id="demo-name" name="name" required placeholder="Your full name">
-          </div>
-          <div class="form-group">
-            <label for="demo-email">Work email</label>
-            <input type="email" id="demo-email" name="email" required placeholder="you@company.com">
-          </div>
-          <div class="form-group">
-            <label for="demo-company">Company</label>
-            <input type="text" id="demo-company" name="company" required placeholder="Company name">
-          </div>
-          <div class="form-group">
-            <label for="demo-role">Role</label>
-            <select id="demo-role" name="role" required>
-              <option value="" disabled selected>Select your role</option>
-              <option value="Trading / Portfolio">Trading / Portfolio Management</option>
-              <option value="Risk Management">Risk Management</option>
-              <option value="Strategy / Advisory">Strategy / Advisory</option>
-              <option value="Government / Policy">Government / Policy</option>
-              <option value="Executive / C-Suite">Executive / C-Suite</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="demo-regions">Regions of interest</label>
-            <input type="text" id="demo-regions" name="regions" placeholder="e.g. Middle East, Latin America, EU">
-          </div>
-          <div class="form-group">
-            <label for="demo-message">Anything else?</label>
-            <textarea id="demo-message" name="message" placeholder="Tell us about your risk exposure or specific questions"></textarea>
-          </div>
-          <input type="hidden" name="_subject" value="EchoFrame Demo Request">
-          <button type="submit" class="form-submit">Request Demo</button>
-          <p class="form-note">We'll respond within 24 hours with available times.</p>
-        </form>
-        <div class="form-success" id="formSuccess">
-          <h3>Request received</h3>
-          <p>We'll be in touch within 24 hours to schedule your briefing.</p>
-        </div>
+        <h3>Schedule a briefing</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Pick a time that works for you — book directly into our calendar.</p>
+        <cal-inline calLink="robertshaw" style="width:100%;height:100%;overflow:auto;display:block;min-height:450px;"></cal-inline>
+        <script type="text/javascript">
+          (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+          Cal("init", {origin:"https://cal.com"});
+          Cal("ui", {"theme":"dark","styles":{"branding":{"brandColor":"#e8873a"}},"hideEventTypeDetails":false,"layout":"month_view"});
+        </script>
       </div>
     </div>
   </section>
@@ -1895,53 +1861,7 @@
       setInterval(nextCity, 4000);
     })();
 
-    // ── Booking Form Handler ──
-    (function() {
-      var form = document.getElementById('bookingForm');
-      var container = document.getElementById('bookingFormContainer');
-      var success = document.getElementById('formSuccess');
-
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var data = new FormData(form);
-          var btn = form.querySelector('.form-submit');
-          btn.textContent = 'Sending...';
-          btn.disabled = true;
-
-          fetch(form.action, {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-          }).then(function(res) {
-            if (res.ok) {
-              form.style.display = 'none';
-              success.style.display = 'block';
-            } else {
-              // Fallback: open mailto
-              var name = data.get('name') || '';
-              var email = data.get('email') || '';
-              var company = data.get('company') || '';
-              var role = data.get('role') || '';
-              var regions = data.get('regions') || '';
-              var message = data.get('message') || '';
-              var body = 'Name: ' + name + '%0AEmail: ' + email + '%0ACompany: ' + company + '%0ARole: ' + role + '%0ARegions: ' + regions + '%0AMessage: ' + message;
-              window.location.href = 'mailto:contact@echoframe.co?subject=Demo%20Request&body=' + body;
-              btn.textContent = 'Request Demo';
-              btn.disabled = false;
-            }
-          }).catch(function() {
-            var name = data.get('name') || '';
-            var email = data.get('email') || '';
-            var company = data.get('company') || '';
-            var body = 'Name: ' + name + '%0AEmail: ' + email + '%0ACompany: ' + company;
-            window.location.href = 'mailto:contact@echoframe.co?subject=Demo%20Request&body=' + body;
-            btn.textContent = 'Request Demo';
-            btn.disabled = false;
-          });
-        });
-      }
-    })();
+    // ── Booking form removed — now using Cal.com embed ──
   </script>
 
 </body>
