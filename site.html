@@ -1647,11 +1647,11 @@
           <li>Discussion of integration with your existing risk workflow</li>
           <li>Q&A with our intelligence team</li>
         </ul>
-        <p style="margin-top: 1.5rem;">Or email us directly: <a href="mailto:info@echoframe.co" style="color: var(--accent-cyan); text-decoration: none;">info@echoframe.co</a></p>
+        <p style="margin-top: 1.5rem;">Or email us directly: <a href="mailto:contact@echoframe.co" style="color: var(--accent-cyan); text-decoration: none;">contact@echoframe.co</a></p>
       </div>
       <div class="booking-form" id="bookingFormContainer">
         <h3>Request a briefing</h3>
-        <form id="bookingForm" action="https://formspree.io/f/info@echoframe.co" method="POST">
+        <form id="bookingForm" action="https://formspree.io/f/contact@echoframe.co" method="POST">
           <div class="form-group">
             <label for="demo-name">Name</label>
             <input type="text" id="demo-name" name="name" required placeholder="Your full name">
@@ -1926,7 +1926,7 @@
               var regions = data.get('regions') || '';
               var message = data.get('message') || '';
               var body = 'Name: ' + name + '%0AEmail: ' + email + '%0ACompany: ' + company + '%0ARole: ' + role + '%0ARegions: ' + regions + '%0AMessage: ' + message;
-              window.location.href = 'mailto:info@echoframe.co?subject=Demo%20Request&body=' + body;
+              window.location.href = 'mailto:contact@echoframe.co?subject=Demo%20Request&body=' + body;
               btn.textContent = 'Request Demo';
               btn.disabled = false;
             }
@@ -1935,7 +1935,7 @@
             var email = data.get('email') || '';
             var company = data.get('company') || '';
             var body = 'Name: ' + name + '%0AEmail: ' + email + '%0ACompany: ' + company;
-            window.location.href = 'mailto:info@echoframe.co?subject=Demo%20Request&body=' + body;
+            window.location.href = 'mailto:contact@echoframe.co?subject=Demo%20Request&body=' + body;
             btn.textContent = 'Request Demo';
             btn.disabled = false;
           });
