@@ -1433,6 +1433,39 @@
       25% { transform: translateX(-6px); }
       75% { transform: translateX(6px); }
     }
+
+    /* BACK TO TOP */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 90;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent-orange);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s;
+      box-shadow: 0 2px 12px rgba(232, 135, 58, 0.3);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: #e07a30;
+      transform: translateY(-2px);
+    }
+    .back-to-top svg { width: 20px; height: 20px; }
   </style>
 </head>
 <body>
@@ -1461,7 +1494,10 @@
       <div class="nav-logo">Echo<span>Frame</span></div>
     </a>
     <div class="nav-links" id="navLinks">
+      <a href="#pipeline">Pipeline</a>
       <a href="#platforms">Dashboards</a>
+      <a href="#why">Why EchoFrame</a>
+      <a href="#testimonials">Testimonials</a>
       <a href="#about">About</a>
       <a href="#book-demo" class="nav-cta">Book a Demo</a>
       <a href="#" class="nav-login" id="logoutBtn" style="border-color: var(--accent-red) !important; color: var(--accent-red);">Logout</a>
@@ -1506,7 +1542,7 @@
 
 
   <!-- HOW IT WORKS INFOGRAPHIC -->
-  <section class="infographic-section" style="padding: 4rem 2rem;">
+  <section id="pipeline" class="infographic-section" style="padding: 4rem 2rem;">
     <div style="max-width: 1100px; margin: 0 auto;">
       <div class="section-label">// the intelligence pipeline</div>
       <h2 class="section-title">From Raw Signal to Decision-Ready Intelligence</h2>
@@ -1634,7 +1670,7 @@
   </div>
 
   <!-- WHY ECHOFRAME -->
-  <section>
+  <section id="why">
     <div class="section-label">// why echoframe</div>
     <h2 class="section-title">Intelligence That Moves at Decision Speed</h2>
     <p class="section-desc">Traditional political risk advisory delivers PDF reports weeks after events. Our clients get live, quantified scenario updates as situations evolve.</p>
@@ -1659,7 +1695,7 @@
 
   <!-- ACCREDITATION QUOTES -->
   <div class="section-layer-3">
-  <section style="padding: 3.5rem 2rem;">
+  <section id="testimonials" style="padding: 3.5rem 2rem;">
     <div class="testimonial" style="margin-bottom: 2rem;">
       <p>"EchoFrame's Venezuela signals contributed to a hedge fund client's $100M+ position ahead of the Maduro transition,"</p>
       <cite>— Simon King, CEO <a href="https://gmtl.co.uk" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted);">GMTL Strategic Risk Advisory</a></cite>
@@ -1763,6 +1799,13 @@
     <div style="font-size: 0.75rem; color: var(--text-muted); opacity: 0.6;">EchoFrame Ltd · CRO 803377 · Ireland</div>
   </footer>
 
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
   <script>
     // Nav toggle
     document.getElementById('navToggle').addEventListener('click', function() {
@@ -1773,6 +1816,21 @@
         document.getElementById('navLinks').classList.remove('open');
       });
     });
+
+    // ── Back to Top ──
+    (function() {
+      var btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 400) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      });
+      btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
 
     // ── Logout ──
     document.getElementById('logoutBtn').addEventListener('click', function(e) {
