@@ -1780,10 +1780,7 @@
       localStorage.removeItem('ef_code');
       localStorage.removeItem('ef_visitor');
       sessionStorage.removeItem('ef_session');
-      document.getElementById('codeGate').classList.remove('hidden');
-      document.getElementById('codeInput').value = '';
-      document.getElementById('codeError').textContent = '';
-      window.scrollTo(0, 0);
+      window.location.href = window.location.pathname;
     });
 
     // ── Intel Ticker ──
