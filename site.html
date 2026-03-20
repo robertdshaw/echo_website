@@ -1464,7 +1464,7 @@
       <a href="#platforms">Dashboards</a>
       <a href="#about">About</a>
       <a href="#book-demo" class="nav-cta">Book a Demo</a>
-      <a href="index.html" class="nav-login" style="border-color: var(--accent-red) !important; color: var(--accent-red);">Logout</a>
+      <a href="#" class="nav-login" id="logoutBtn" style="border-color: var(--accent-red) !important; color: var(--accent-red);">Logout</a>
     </div>
     <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -1772,6 +1772,18 @@
       link.addEventListener('click', function() {
         document.getElementById('navLinks').classList.remove('open');
       });
+    });
+
+    // ── Logout ──
+    document.getElementById('logoutBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      localStorage.removeItem('ef_code');
+      localStorage.removeItem('ef_visitor');
+      sessionStorage.removeItem('ef_session');
+      document.getElementById('codeGate').classList.remove('hidden');
+      document.getElementById('codeInput').value = '';
+      document.getElementById('codeError').textContent = '';
+      window.scrollTo(0, 0);
     });
 
     // ── Intel Ticker ──
