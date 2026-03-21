@@ -1599,7 +1599,7 @@
     <div class="platform-grid" style="grid-template-columns: repeat(3, 1fr);">
 
       <!-- Iran -->
-      <div class="platform-card" onclick="window.open('https://iran-intel-analyst.onrender.com/','_blank')">
+      <div class="platform-card" onclick="launchPlatform('iran')">
         <div class="card-image">
           <span class="badge-live">Live</span>
           <img src="images/iran-strikewatch.png" alt="Iran Risk Intelligence — Strike Watch" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
@@ -1622,7 +1622,7 @@
       </div>
 
       <!-- EU Regulatory -->
-      <div class="platform-card" onclick="window.open('https://eu-regulatory-monitor.onrender.com/','_blank')">
+      <div class="platform-card" onclick="launchPlatform('eu')">
         <div class="card-image">
           <span class="badge-live">Live</span>
           <img src="images/eu-regulatory-map.png" alt="EU Regulatory Monitor — Exposure Map" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
@@ -1816,6 +1816,28 @@
         document.getElementById('navLinks').classList.remove('open');
       });
     });
+
+    // ── Platform Auto-Login ──
+    function launchPlatform(platform) {
+      var visitorId = localStorage.getItem('ef_visitor');
+      // Robert's admin ID
+      var isAdmin = (visitorId === 'e00b7789-170a-4d94-9db7-014dea2bac5e');
+      var key = 'SanAntonio2027';
+
+      var urls = {
+        iran: {
+          admin: 'https://iran-intel-analyst.onrender.com/auto-login?key=' + key + '&user=admin',
+          guest: 'https://iran-intel-analyst.onrender.com/auto-login?key=' + key + '&user=guest'
+        },
+        eu: {
+          admin: 'https://eu-regulatory-monitor.onrender.com/auto-login?key=' + key + '&user=rob',
+          guest: 'https://eu-regulatory-monitor.onrender.com/auto-login?key=' + key + '&user=guest'
+        }
+      };
+
+      var url = isAdmin ? urls[platform].admin : urls[platform].guest;
+      window.open(url, '_blank');
+    }
 
     // ── Back to Top ──
     (function() {
