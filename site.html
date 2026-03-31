@@ -1357,8 +1357,41 @@
       .numbers-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    /* ACCESS CODE GATE — removed, access codes now on individual dashboards */
+    /* DASHBOARD ACCESS CODE MODAL */
+    .dash-gate-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(10, 14, 20, 0.92);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
     }
+    .dash-gate-overlay.hidden { display: none; }
+    .dash-gate-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2.5rem; max-width: 400px; width: 90%; text-align: center;
+    }
+    .dash-gate-box h3 { font-size: 1.2rem; margin-bottom: 0.3rem; color: var(--text-primary); }
+    .dash-gate-box p { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.2rem; }
+    .dash-gate-input {
+      width: 100%; padding: 0.7rem 1rem; background: var(--bg-secondary);
+      border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary);
+      font-family: 'JetBrains Mono', monospace; font-size: 1rem;
+      text-align: center; letter-spacing: 3px; text-transform: uppercase;
+      outline: none; margin-bottom: 0.8rem;
+    }
+    .dash-gate-input:focus { border-color: var(--accent-orange); }
+    .dash-gate-input.error { border-color: var(--accent-red); animation: shake 0.4s; }
+    .dash-gate-btns { display: flex; gap: 0.5rem; }
+    .dash-gate-btn {
+      flex: 1; padding: 0.7rem; background: var(--accent-orange); color: #fff;
+      border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer;
+    }
+    .dash-gate-btn:hover { background: #e07a30; }
+    .dash-gate-cancel {
+      flex: 1; padding: 0.7rem; background: transparent; color: var(--text-secondary);
+      border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; cursor: pointer;
+    }
+    .dash-gate-cancel:hover { color: var(--text-primary); border-color: var(--text-muted); }
+    .dash-gate-error { color: var(--accent-red); font-size: 0.8rem; margin-top: 0.5rem; min-height: 1.1em; }
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
       25% { transform: translateX(-6px); }
@@ -1401,7 +1434,19 @@
 </head>
 <body>
 
-  <!-- ACCESS CODE GATE removed — access codes now on individual dashboards -->
+  <!-- DASHBOARD ACCESS CODE MODAL -->
+  <div class="dash-gate-overlay hidden" id="dashGate">
+    <div class="dash-gate-box">
+      <h3 id="dashGateTitle">Enter Access Code</h3>
+      <p>Enter the code provided to you to launch this dashboard.</p>
+      <input type="text" class="dash-gate-input" id="dashGateInput" placeholder="ACCESS CODE" maxlength="20" autocomplete="off">
+      <div class="dash-gate-btns">
+        <button type="button" class="dash-gate-cancel" id="dashGateCancel">Cancel</button>
+        <button type="button" class="dash-gate-btn" id="dashGateSubmit">Launch</button>
+      </div>
+      <div class="dash-gate-error" id="dashGateError"></div>
+    </div>
+  </div>
 
   <!-- NAV -->
   <nav>
@@ -1748,30 +1793,92 @@
     });
 
     // ── Platform Auto-Login ──
+    var _pendingPlatform = null;
+    var _platformNames = { iran: 'The Middle East Insider', eu: 'EU Energy Tracker', vz: 'South American AI Analyst' };
+
+    var _platformUrls = {
+      iran: {
+        admin: 'https://iran-intel-analyst.onrender.com/api/auth/auto-login?key=SanAntonio2027&user=admin&redirect=/',
+        guest: 'https://iran-intel-analyst.onrender.com/api/auth/auto-login?key=SanAntonio2027&user=guest&redirect=/'
+      },
+      eu: {
+        admin: 'https://eu-regulatory-monitor.onrender.com/auto-login?key=SanAntonio2027&user=rob',
+        guest: 'https://eu-regulatory-monitor.onrender.com/auto-login?key=SanAntonio2027&user=guest'
+      },
+      vz: {
+        admin: 'https://vz.echoframe.co',
+        guest: 'https://vz.echoframe.co?code=VEN-GUEST1'
+      }
+    };
+
     function launchPlatform(platform) {
       var visitorId = localStorage.getItem('ef_visitor');
-      // Robert's admin ID
       var isAdmin = (visitorId === 'e00b7789-170a-4d94-9db7-014dea2bac5e');
-      var key = 'SanAntonio2027';
 
-      var urls = {
-        iran: {
-          admin: 'https://iran-intel-analyst.onrender.com/api/auth/auto-login?key=' + key + '&user=admin&redirect=/',
-          guest: 'https://iran-intel-analyst.onrender.com/api/auth/auto-login?key=' + key + '&user=guest&redirect=/'
-        },
-        eu: {
-          admin: 'https://eu-regulatory-monitor.onrender.com/auto-login?key=' + key + '&user=rob',
-          guest: 'https://eu-regulatory-monitor.onrender.com/auto-login?key=' + key + '&user=guest'
-        },
-        vz: {
-          admin: 'https://vz.echoframe.co',
-          guest: 'https://vz.echoframe.co?code=VEN-GUEST1'
-        }
-      };
+      // Admin bypasses access code
+      if (isAdmin) {
+        window.open(_platformUrls[platform].admin, '_blank');
+        return;
+      }
 
-      var url = isAdmin ? urls[platform].admin : urls[platform].guest;
-      window.open(url, '_blank');
+      // Show access code modal
+      _pendingPlatform = platform;
+      var gate = document.getElementById('dashGate');
+      var input = document.getElementById('dashGateInput');
+      var errorEl = document.getElementById('dashGateError');
+      document.getElementById('dashGateTitle').textContent = _platformNames[platform] || 'Enter Access Code';
+      input.value = '';
+      errorEl.textContent = '';
+      input.classList.remove('error');
+      gate.classList.remove('hidden');
+      input.focus();
     }
+
+    // Gate submit
+    document.getElementById('dashGateSubmit').addEventListener('click', function() {
+      var code = document.getElementById('dashGateInput').value.trim().toUpperCase();
+      if (!code) return;
+      var btn = this;
+      var input = document.getElementById('dashGateInput');
+      var errorEl = document.getElementById('dashGateError');
+      btn.textContent = 'Verifying...'; btn.disabled = true;
+
+      var SUPABASE_URL = 'https://lasypcniywzrcjsmctzq.supabase.co';
+      var SUPABASE_KEY = 'sb_publishable_U3_OtYF_XMhHhz09mzDM-Q_TQZRI4c6';
+      fetch(SUPABASE_URL + '/rest/v1/access_codes?code=eq.' + encodeURIComponent(code) + '&is_active=eq.true&select=visitor_id,code', {
+        headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY }
+      })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.length > 0) {
+            localStorage.setItem('ef_code', code);
+            if (data[0].visitor_id) localStorage.setItem('ef_visitor', data[0].visitor_id);
+            document.getElementById('dashGate').classList.add('hidden');
+            window.open(_platformUrls[_pendingPlatform].guest, '_blank');
+          } else {
+            input.classList.add('error');
+            errorEl.textContent = 'Invalid or expired code';
+            setTimeout(function() { input.classList.remove('error'); }, 500);
+          }
+          btn.textContent = 'Launch'; btn.disabled = false;
+        })
+        .catch(function() {
+          errorEl.textContent = 'Connection error. Try again.';
+          btn.textContent = 'Launch'; btn.disabled = false;
+        });
+    });
+
+    // Gate cancel
+    document.getElementById('dashGateCancel').addEventListener('click', function() {
+      document.getElementById('dashGate').classList.add('hidden');
+      _pendingPlatform = null;
+    });
+
+    // Gate enter key
+    document.getElementById('dashGateInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') document.getElementById('dashGateSubmit').click();
+      if (e.key === 'Escape') document.getElementById('dashGateCancel').click();
+    });
 
     // ── Back to Top ──
     (function() {
