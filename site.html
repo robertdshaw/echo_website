@@ -1357,76 +1357,7 @@
       .numbers-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    /* ACCESS CODE GATE */
-    .code-gate {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: var(--bg-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-    .code-gate.hidden { display: none; }
-    .code-gate-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 3rem;
-      max-width: 420px;
-      width: 90%;
-      text-align: center;
-    }
-    .code-gate-box img {
-      height: 40px;
-      margin-bottom: 1.5rem;
-    }
-    .code-gate-box h2 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      color: var(--text-primary);
-    }
-    .code-gate-box p {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-    .code-gate-input {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text-primary);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.1rem;
-      text-align: center;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      outline: none;
-      margin-bottom: 1rem;
-    }
-    .code-gate-input:focus { border-color: var(--accent-orange); }
-    .code-gate-input.error { border-color: var(--accent-red); animation: shake 0.4s; }
-    .code-gate-btn {
-      width: 100%;
-      padding: 0.8rem;
-      background: var(--accent-orange);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .code-gate-btn:hover { background: #e07a30; }
-    .code-gate-error {
-      color: var(--accent-red);
-      font-size: 0.85rem;
-      margin-top: 0.75rem;
-      min-height: 1.2em;
+    /* ACCESS CODE GATE — removed, access codes now on individual dashboards */
     }
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
@@ -1470,22 +1401,7 @@
 </head>
 <body>
 
-  <!-- ACCESS CODE GATE -->
-  <div class="code-gate" id="codeGate">
-    <div class="code-gate-box">
-      <img src="images/echoframe-logo.png" alt="EchoFrame">
-      <h2>Enter Access Code</h2>
-      <p>Enter the code provided to you to access the site.</p>
-      <form autocomplete="off" onsubmit="return false;" role="presentation">
-        <!-- Hidden dummy fields to trick browser autofill -->
-        <input type="text" style="display:none" tabindex="-1">
-        <input type="password" style="display:none" tabindex="-1">
-        <input type="search" class="code-gate-input" id="codeInput" name="ef_xcode_9z" placeholder="ACCESS CODE" maxlength="20" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-form-type="other" data-1p-ignore data-lpignore="true" aria-label="Access code">
-        <button type="button" class="code-gate-btn" id="codeSubmit">Enter</button>
-        <div class="code-gate-error" id="codeError"></div>
-      </form>
-    </div>
-  </div>
+  <!-- ACCESS CODE GATE removed — access codes now on individual dashboards -->
 
   <!-- NAV -->
   <nav>
@@ -2059,70 +1975,7 @@
 
     // ── Booking form removed — now using Cal.com embed ──
 
-    // ── Access Code Gate ──
-    (function() {
-      const SUPABASE_URL = 'https://lasypcniywzrcjsmctzq.supabase.co';
-      const SUPABASE_KEY = 'sb_publishable_U3_OtYF_XMhHhz09mzDM-Q_TQZRI4c6';
-      const headers = {
-        'Content-Type': 'application/json',
-        'apikey': SUPABASE_KEY,
-        'Authorization': 'Bearer ' + SUPABASE_KEY
-      };
-
-      var gate = document.getElementById('codeGate');
-      var input = document.getElementById('codeInput');
-      var btn = document.getElementById('codeSubmit');
-      var errorEl = document.getElementById('codeError');
-
-      // Skip gate if already authenticated
-      if (localStorage.getItem('ef_code') && localStorage.getItem('ef_visitor')) {
-        gate.classList.add('hidden');
-      } else {
-        // Also check URL param
-        var urlCode = new URLSearchParams(window.location.search).get('code');
-        if (urlCode) {
-          validateCode(urlCode);
-        }
-      }
-
-      function validateCode(code) {
-        btn.textContent = 'Verifying...';
-        btn.disabled = true;
-        fetch(SUPABASE_URL + '/rest/v1/access_codes?code=eq.' + encodeURIComponent(code) + '&is_active=eq.true&select=visitor_id,code', { headers: headers })
-          .then(function(r) { return r.json(); })
-          .then(function(data) {
-            if (data.length > 0) {
-              localStorage.setItem('ef_code', code);
-              if (data[0].visitor_id) {
-                localStorage.setItem('ef_visitor', data[0].visitor_id);
-              }
-              gate.classList.add('hidden');
-            } else {
-              input.classList.add('error');
-              errorEl.textContent = 'Invalid or expired code';
-              btn.textContent = 'Enter';
-              btn.disabled = false;
-              setTimeout(function() { input.classList.remove('error'); }, 500);
-            }
-          })
-          .catch(function() {
-            errorEl.textContent = 'Connection error. Try again.';
-            btn.textContent = 'Enter';
-            btn.disabled = false;
-          });
-      }
-
-      btn.addEventListener('click', function() {
-        var code = input.value.trim().toUpperCase();
-        if (!code) return;
-        errorEl.textContent = '';
-        validateCode(code);
-      });
-
-      input.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') btn.click();
-      });
-    })();
+    // ── Access Code Gate removed — access codes now on individual dashboards ──
 
     // ── Supabase Visitor Tracking ──
     (function() {
