@@ -1461,7 +1461,6 @@
       <a href="#testimonials">Testimonials</a>
       <a href="#about">About</a>
       <a href="#book-demo" class="nav-cta">Book a Demo</a>
-      <a href="#" class="nav-login" id="logoutBtn" style="border-color: var(--accent-red) !important; color: var(--accent-red);">Logout</a>
     </div>
     <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -1887,14 +1886,6 @@
       });
     })();
 
-    // ── Logout ──
-    document.getElementById('logoutBtn').addEventListener('click', function(e) {
-      e.preventDefault();
-      localStorage.removeItem('ef_code');
-      localStorage.removeItem('ef_visitor');
-      sessionStorage.removeItem('ef_session');
-      window.location.href = window.location.pathname;
-    });
 
     // ── Intel Ticker ──
     (function() {
