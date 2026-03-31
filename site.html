@@ -1812,16 +1812,7 @@
     };
 
     function launchPlatform(platform) {
-      var visitorId = localStorage.getItem('ef_visitor');
-      var isAdmin = (visitorId === 'e00b7789-170a-4d94-9db7-014dea2bac5e');
-
-      // Admin bypasses access code
-      if (isAdmin) {
-        window.open(_platformUrls[platform].admin, '_blank');
-        return;
-      }
-
-      // Show access code modal
+      // Show access code modal for everyone
       _pendingPlatform = platform;
       var gate = document.getElementById('dashGate');
       var input = document.getElementById('dashGateInput');
@@ -1854,7 +1845,8 @@
             localStorage.setItem('ef_code', code);
             if (data[0].visitor_id) localStorage.setItem('ef_visitor', data[0].visitor_id);
             document.getElementById('dashGate').classList.add('hidden');
-            window.open(_platformUrls[_pendingPlatform].guest, '_blank');
+            var isAdmin = (data[0].visitor_id === 'e00b7789-170a-4d94-9db7-014dea2bac5e');
+            window.open(isAdmin ? _platformUrls[_pendingPlatform].admin : _platformUrls[_pendingPlatform].guest, '_blank');
           } else {
             input.classList.add('error');
             errorEl.textContent = 'Invalid or expired code';
