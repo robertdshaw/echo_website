@@ -1843,6 +1843,10 @@
           if (data.length > 0) {
             localStorage.setItem('ef_code', code);
             if (data[0].visitor_id) localStorage.setItem('ef_visitor', data[0].visitor_id);
+            // Log dashboard launch with visitor identity
+            if (window._efLogActivity) {
+              window._efLogActivity('dashboard_launch', _pendingPlatform + ' | code=' + code, data[0].visitor_id);
+            }
             document.getElementById('dashGate').classList.add('hidden');
             var isAdmin = (data[0].visitor_id === 'e00b7789-170a-4d94-9db7-014dea2bac5e');
             window.open(isAdmin ? _platformUrls[_pendingPlatform].admin : _platformUrls[_pendingPlatform].guest, '_blank');
@@ -2102,13 +2106,13 @@
           });
       }
 
-      // Log page view
-      function logActivity(action, detail) {
+      // Log activity — exposed globally so dashboard gate can use it
+      function logActivity(action, detail, overrideVisitorId) {
         fetch(SUPABASE_URL + '/rest/v1/activity_log', {
           method: 'POST',
           headers: headers,
           body: JSON.stringify({
-            visitor_id: visitorId || null,
+            visitor_id: overrideVisitorId || visitorId || null,
             session_id: sessionId,
             page: window.location.pathname + window.location.search,
             action: action,
@@ -2116,6 +2120,7 @@
           })
         });
       }
+      window._efLogActivity = logActivity;
 
       // Track page load
       logActivity('page_view', document.title);
