@@ -1848,7 +1848,8 @@
               window._efLogActivity('dashboard_launch', _pendingPlatform + ' | code=' + code, data[0].visitor_id);
             }
             document.getElementById('dashGate').classList.add('hidden');
-            var isAdmin = (data[0].visitor_id === 'e00b7789-170a-4d94-9db7-014dea2bac5e');
+            var _adminIds = ['e00b7789-170a-4d94-9db7-014dea2bac5e', 'ca781f7b-f98a-4c61-bec8-311c1d955a85'];
+            var isAdmin = _adminIds.indexOf(data[0].visitor_id) !== -1;
             window.open(isAdmin ? _platformUrls[_pendingPlatform].admin : _platformUrls[_pendingPlatform].guest, '_blank');
           } else {
             input.classList.add('error');
