@@ -1,1 +1,11 @@
 .vercel
+
+# Internal admin / data-collection pages — not deployed publicly
+admin.html
+all-in-one-auth-system.html
+gmtl-data-collection.html
+latinnews-data-collection.html
+
+# MS Word lock files
+~$*.docx
+~$*.doc
