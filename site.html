@@ -1351,10 +1351,41 @@
 
       .nav-links.open { display: flex; }
       .nav-hamburger { display: flex; }
-      .hero { padding: 2rem 0 0; }
-      .hero-panel { grid-template-columns: 1fr; padding: 2rem; max-width: 100%; }
+
+      /* Hero — mobile */
+      .hero-wrapper { padding: 0 1rem; padding-top: 80px; }
+      .hero { padding: 1.5rem 0 0; }
+      .hero-panel { padding: 1.5rem 1.25rem; max-width: 100%; }
+      .hero-logo { width: 56px; height: 56px; margin-bottom: 1rem; }
+      .hero h1 { font-size: 1.85rem; line-height: 1.2; margin-bottom: 1rem; }
+      .hero-sub { font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.5rem; }
       .hero-visual { display: none; }
-      .hero-proof { flex-wrap: wrap; gap: 1rem; }
+      .hero-cta, .hero-cta-secondary {
+        padding: 0.7rem 1.25rem;
+        font-size: 0.95rem;
+      }
+      .client-value {
+        white-space: normal;
+        font-size: 0.7rem;
+        line-height: 1.4;
+        letter-spacing: 0.1em;
+        padding: 0.4rem 0.8rem;
+      }
+      .hero-proof {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        row-gap: 0.5rem;
+        column-gap: 0;
+        font-size: 0.8rem;
+        padding: 1rem 0 1.5rem;
+      }
+      .hero-proof-stat {
+        white-space: normal;
+        line-height: 1.5;
+      }
+      .hero-proof-stat strong { font-size: 0.85rem; }
+      .hero-proof-dot { display: none; }
       .hero-city-label {
         top: 70px;
         right: 1rem;
@@ -1362,18 +1393,55 @@
         letter-spacing: 0.15em;
         padding: 0.25rem 0.5rem;
       }
-      section { padding: 3.5rem 1.5rem; }
+
+      /* About — mobile */
+      .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .about-text p { font-size: 0.98rem; line-height: 1.7; }
+      .about-capabilities li { font-size: 0.92rem; padding: 0.5rem 0; }
+      .about-video { margin: 1.5rem 0; }
+      .about-video video { border-radius: 4px; }
+      .oc-logo-container { text-align: center; margin: 1.5rem 0 !important; }
+      .oc-logo { height: 70px; }
+      .locations {
+        white-space: normal;
+        line-height: 1.8;
+        font-size: 0.78rem;
+        word-spacing: 0.1em;
+      }
+      .about-sidebar { padding: 1.25rem; }
+      .about-sidebar h3 { font-size: 1rem; margin-bottom: 1rem; }
+      .about-stat { padding: 0.6rem 0; font-size: 0.9rem; }
+      .about-stat-value {
+        font-size: 0.82rem;
+        word-break: break-word;
+        white-space: normal;
+      }
+
+      section { padding: 3rem 1.25rem; }
       .platform-grid { grid-template-columns: 1fr !important; }
       .method-grid { grid-template-columns: 1fr 1fr; }
       .numbers-grid { grid-template-columns: 1fr 1fr; }
       .diff-grid { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; }
       .status-inner { gap: 1.25rem; }
     }
 
     @media (max-width: 480px) {
       .method-grid { grid-template-columns: 1fr; }
       .numbers-grid { grid-template-columns: 1fr 1fr; }
+      .hero-panel { padding: 1.25rem 1rem; }
+      .hero h1 { font-size: 1.65rem; }
+      .hero-sub { font-size: 0.9rem; }
+      .hero-ctas { gap: 0.5rem; }
+      .hero-cta, .hero-cta-secondary {
+        padding: 0.65rem 1rem;
+        font-size: 0.9rem;
+        flex: 1 1 auto;
+        text-align: center;
+      }
+      .client-value { font-size: 0.65rem; }
+      .hero-city-label { font-size: 0.55rem; padding: 0.2rem 0.4rem; }
+      .about-text p { font-size: 0.95rem; }
+      .locations { font-size: 0.75rem; }
     }
 
     /* DASHBOARD ACCESS CODE MODAL */
