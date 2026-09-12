@@ -1,6 +1,14 @@
 # Public GIS map demonstration
 
-Prepared on branch `feat/public-demo-map`. Nothing was pushed or deployed.
+Prepared on branch `feat/public-demo-map` and subsequently merged into `main` at the user's request. Published on 12 September 2026 through the live deployment repository `EchoFrame-Ltd/echoframe-team-preview`.
+
+The deployed merge commit is `27ea1045ab44edc758a30f4f45bd668c3f6a603d`. The authoring branch was merged locally as `c734aa8f2526931732d06d90de729fc81bd2b724`. Only the 32 map publication files were sent to the deployment repository. Raw export inputs and authoring documents were not published.
+
+Live verification completed at 20:03 UTC on 12 September 2026. Both https://www.echoframe.co/map.html and https://www.echoframe.co/es/map.html returned HTTP 200, with working MapLibre layers, OpenFreeMap basemap, month controls and question details. The apex domain redirects to the same pages on `www`.
+
+The English live payload measured **4,775,438 bytes** and the Spanish live payload measured **4,776,296 bytes**. These conservative totals include all 24 monthly event files, shared data, page resources, fonts, MapLibre, basemap tiles and the generated worker blob. Both are below 5 MB. OpenStreetMap attribution and the ODbL link were present on both live pages. Every deployed file matched the SHA-256 digest of the published Git blob.
+
+The live Venezuela page contains the `See the map` link. The `services.html` link remains pending as requested. Live screenshots, response sizes and digest results are retained in `.preview/map-live-verification.json` and `.preview/live-map-*.png`.
 
 The English page is `map.html`. The Spanish page is `es/map.html`. Both use the site's existing typography and colour tokens. The Venezuela page links to the demonstration. The Asset Watch link remains pending because `services.html` and `docs/services_copy.md` are absent. The earlier instruction requires Rob's copy before that service page can be written.
 
