@@ -77,7 +77,7 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 /* Home hero. Supplied in docs/files.zip; the only change is the photograph,
    which is served from assets/ rather than embedded as a data URI. */
 .ef-hero{margin:0}
-.ef-hero-media{position:relative;border-radius:14px;overflow:hidden;background:#04070b;aspect-ratio:1595/408;min-height:290px}
+.ef-hero-media{position:relative;border-radius:14px;overflow:hidden;background:#04070b;aspect-ratio:1595/408}
 .ef-hero-photo{position:absolute;inset:0;background-image:url("/assets/hero-terminal.jpg");background-size:cover;background-position:center right}
 .ef-hero-lights{position:absolute;inset:0;width:100%;height:100%}
 .ef-hero-copy{position:absolute;left:clamp(22px,3.6vw,58px);top:50%;transform:translateY(-50%);max-width:min(600px,58%)}
@@ -104,10 +104,10 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 @media (prefers-reduced-motion: reduce){
  .ef-hero-copy h1 span,.ef-hero-copy h1 .ef-w,.ef-hero-tag,.ef-hero-tag span,.ef-hero-lights g{opacity:1;transform:none;animation:none}
 }
-@media (max-width:720px){
- /* min-height 290 with a 4/3 ratio forces a 387px box inside a 350px
-    container, which scrolls the page sideways on a phone. */
- .ef-hero-media{aspect-ratio:4/3;min-height:auto}
+@media (max-width:900px){
+ /* The wide ratio is a thin strip below this width, and a min-height against
+    it would set a floor on the width and scroll the page sideways. */
+ .ef-hero-media{aspect-ratio:4/3}
  .ef-hero-copy{max-width:82%;top:auto;bottom:60px;transform:none;z-index:2}
  .ef-hero-tag{z-index:2}
  .ef-hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,7,11,.08) 0%,rgba(4,7,11,.85) 66%,rgba(4,7,11,.96) 100%);pointer-events:none}
@@ -157,3 +157,11 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 .we-body{display:grid;gap:26px;padding-top:22px;max-width:760px}
 .we-block p{margin:6px 0 0}
 @media (max-width:720px){ .we-frame{grid-template-columns:1fr;gap:18px} }
+
+/* Navigation panels. The menu is right-aligned in the header, so a panel
+   anchored to the left of its summary runs off the viewport and gives the page
+   a horizontal scrollbar. Anchor them to the right instead. */
+@media (min-width:901px){
+ .nav-panel{left:auto;right:-45px}
+ .nav-group:last-of-type .nav-panel{right:-20px}
+}
