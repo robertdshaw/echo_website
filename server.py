@@ -39,17 +39,10 @@ def load_local_environment():
 
 
 FIELDS={
-    'request_type':('Request type',30,True), 'name':('Full name',120,True),
-    'email':('Work email',200,True), 'organization':('Organisation',160,True),
-    'role':('Role / team',160,True), 'phone':('Phone',60,False),
-    'headquarters':('Location',160,True), 'region':('Region of interest',80,False),
-    'perspective':('Professional perspective',100,False),
-    'sector':('Sector',100,True),
-    'decision_test':('Requirement to explore',100,False),
-    'subject':('Asset, contract, or place',200,False), 'deadline':('Decision deadline',10,False),
-    'format':('Research format',80,False), 'referral':('How they found EchoFrame',80,False),
-    'question':('Message / research question',3000,True),
-    'proof':('What the first briefing should demonstrate',1500,False),
+    'name':('Full name',120,True), 'email':('Work email',200,True),
+    'organization':('Organisation',160,True), 'role':('Role / team',160,False),
+    'sector':('Sector',100,True), 'question':('Decision or question',3000,True),
+    'details':('Additional details',3000,False), 'referral':('How they found EchoFrame',80,False),
 }
 
 
@@ -64,7 +57,7 @@ def mail_configured(config):
 
 
 def send_contact(config, values, request_id):
-    subject=f"EchoFrame {values['request_type'].lower()} — {values['organization']}"
+    subject=f"EchoFrame conversation request from {values['organization']}"
     body='New EchoFrame website request\n\n'+'\n'.join(f'{label}: {values[key] or "Not specified"}' for key,(label,_,_) in FIELDS.items())
     body+=f'\n\nRequest reference: {request_id}\nSubmitted: {time.strftime("%Y-%m-%d %H:%M:%S UTC",time.gmtime())}\n\nReply to this email to contact the visitor.\n'
     if config.get('RESEND_API_KEY'):
@@ -95,7 +88,7 @@ def send_contact(config, values, request_id):
 def create_app(overrides=None, sender=None):
     load_local_environment()
     app=Flask(__name__,static_folder=None)
-    app.config.update(MAX_CONTENT_LENGTH=16000,CONTACT_TO=os.getenv('CONTACT_TO','contact@echoframe.co'),CONTACT_FROM=os.getenv('CONTACT_FROM',''),APP_SECRET=os.getenv('APP_SECRET') or secrets.token_hex(32),PUBLIC_ORIGIN=os.getenv('PUBLIC_ORIGIN',''),STATE_PATH=ROOT/'.contact-state'/'requests.sqlite3',RESEND_API_KEY=os.getenv('RESEND_API_KEY',''),SMTP_HOST=os.getenv('SMTP_HOST',''),SMTP_PORT=os.getenv('SMTP_PORT','587'),SMTP_USERNAME=os.getenv('SMTP_USERNAME',''),SMTP_PASSWORD=os.getenv('SMTP_PASSWORD',''),SMTP_SECURITY=os.getenv('SMTP_SECURITY','starttls'))
+    app.config.update(MAX_CONTENT_LENGTH=16000,CONTACT_TO='contact@echoframe.co',CONTACT_FROM=os.getenv('CONTACT_FROM',''),APP_SECRET=os.getenv('APP_SECRET') or secrets.token_hex(32),PUBLIC_ORIGIN=os.getenv('PUBLIC_ORIGIN',''),STATE_PATH=ROOT/'.contact-state'/'requests.sqlite3',RESEND_API_KEY=os.getenv('RESEND_API_KEY',''),SMTP_HOST=os.getenv('SMTP_HOST',''),SMTP_PORT=os.getenv('SMTP_PORT','587'),SMTP_USERNAME=os.getenv('SMTP_USERNAME',''),SMTP_PASSWORD=os.getenv('SMTP_PASSWORD',''),SMTP_SECURITY=os.getenv('SMTP_SECURITY','starttls'))
     if overrides:
         app.config.update(overrides)
     if os.getenv('TRUST_PROXY')=='true':
@@ -161,22 +154,18 @@ def create_app(overrides=None, sender=None):
             if not isinstance(value,str):
                 errors[key]=f'Please check {label.lower()}.'; continue
             value=value.strip()
-            if (required and not value) or len(value)>limit or ('\n' in value or '\r' in value) and key not in ('question','proof') or '\x00' in value:
+            if (required and not value) or len(value)>limit or ('\n' in value or '\r' in value) and key not in ('question','details') or '\x00' in value:
                 errors[key]=f'Please enter {label.lower()} (up to {limit} characters).'
             values[key]=value
         if not valid_email(values.get('email','')):
             errors['email']='Please enter a valid work email address.'
-        if values.get('request_type') not in ('Demo request','Contact request'):
-            errors['request_type']='Choose a demo or contact request.'
-        if values.get('deadline') and not re.fullmatch(r'\d{4}-\d{2}-\d{2}',values['deadline']):
-            errors['deadline']='Please check the decision date.'
         if errors:
             return jsonify(error='Please check the highlighted details.',fields=errors),400
         request_id=data.get('request_id','')
         if not isinstance(request_id,str) or not re.fullmatch(r'[a-f0-9-]{36}',request_id):
             return jsonify(error='Please reload the form and try again.'),400
         if not mail_configured(app.config):
-            return jsonify(error='Direct sending is not connected yet. Your details are still here; please use the email link below to contact us.'),503
+            return jsonify(error='Sending is temporarily unavailable. Your request has not been sent. Please try again later.'),503
         payload_digest=digest(json.dumps(values,sort_keys=True))
         fingerprint=digest(request.remote_addr or 'unknown')
         with db() as conn:

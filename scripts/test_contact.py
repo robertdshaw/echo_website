@@ -18,7 +18,7 @@ class ContactTests(unittest.TestCase):
         self.app=create_app({'TESTING':True,'STATE_PATH':self.state,'APP_SECRET':'test-secret-only','CONTACT_FROM':'website@example.com','CONTACT_TO':'desk@example.com','RESEND_API_KEY':'test-key','PUBLIC_ORIGIN':'http://localhost'},sender=lambda config,values,rid:self.sent.append((values,rid)))
         self.client=self.app.test_client()
         self.token=self.client.get('/api/contact/status').json['token']
-        self.payload={'request_id':str(uuid.uuid4()),'token':self.token,'request_type':'Demo request','name':'Test Reader','email':'reader@example.com','organization':'Example Company','role':'Research director','headquarters':'London','phone':'+44 000 000','decision_test':'Enforceable contracts','sector':'Distressed debt & special situations','proof':'Test the political catalyst.\nShow contrary evidence.','question':'Please demonstrate the research workflow.\nSecond paragraph.','region':'Venezuela','perspective':'Distressed debt / hedge fund','subject':'Terminal A','deadline':'2027-06-30','format':'Focused research brief','referral':'Search','website':''}
+        self.payload={'request_id':str(uuid.uuid4()),'token':self.token,'name':'Test Reader','email':'reader@example.com','organization':'Example Company','role':'Research director','sector':'Distressed debt & special situations','question':'Please discuss our research question.\nSecond paragraph.','details':'Our deadline is approaching.\nPlease explain the available scope.','referral':'Search','website':''}
 
     def tearDown(self):
         if self.state.exists(): self.state.unlink()
@@ -30,13 +30,13 @@ class ContactTests(unittest.TestCase):
         response=self.post()
         self.assertEqual(response.status_code,200)
         self.assertTrue(response.json['ok'])
-        for key in ['name','email','organization','role','phone','headquarters','question','request_type','region','perspective','format','referral','deadline','subject','sector','proof','decision_test']:
+        for key in ['name','email','organization','role','question','sector','details','referral']:
             self.assertEqual(self.sent[0][0][key],self.payload[key])
 
-    def test_contact_type_is_also_supported(self):
-        self.payload['request_type']='Contact request'
+    def test_optional_details_can_be_empty(self):
+        for key in ('role','details','referral'): self.payload.pop(key)
         self.assertEqual(self.post().status_code,200)
-        self.assertEqual(self.sent[0][0]['request_type'],'Contact request')
+        self.assertEqual(self.sent[0][0]['details'],'')
 
     def test_duplicate_is_not_sent_twice(self):
         self.assertEqual(self.post().status_code,200)
@@ -62,12 +62,12 @@ class ContactTests(unittest.TestCase):
         self.assertFalse(self.sent)
 
     def test_required_fields_and_header_injection(self):
-        self.payload['role']=''
+        self.payload['name']=''
         self.payload['sector']=''
         self.payload['email']='reader@example.com\r\nBcc: stranger@example.com'
         result=self.post()
         self.assertEqual(result.status_code,400)
-        self.assertIn('role',result.json['fields'])
+        self.assertIn('name',result.json['fields'])
         self.assertIn('sector',result.json['fields'])
         self.assertIn('email',result.json['fields'])
         self.assertFalse(self.sent)
@@ -115,9 +115,9 @@ class ContactTests(unittest.TestCase):
             self.assertEqual(message['Reply-To'],'reader@example.com')
             self.assertIn('Research director',message.get_content())
             self.assertIn('Sector: Distressed debt & special situations',message.get_content())
-            self.assertIn(self.payload['proof'],message.get_content())
-            self.assertIn('Requirement to explore: Enforceable contracts',message.get_content())
-            self.assertIn('Phone: +44 000 000',message.get_content())
+            self.assertIn(self.payload['details'],message.get_content())
+            self.assertIn('Additional details: '+self.payload['details'],message.get_content())
+            self.assertNotIn('Phone:',message.get_content())
 
     def test_resend_request_contains_idempotency_and_reply_to(self):
         with patch('server.urllib.request.urlopen') as call:
@@ -130,8 +130,8 @@ class ContactTests(unittest.TestCase):
             self.assertIn('Role / team: Research director',data['text'])
             self.assertIn('Idempotency-key',req.headers)
             self.assertIn('Sector: Distressed debt & special situations',data['text'])
-            self.assertIn(self.payload['proof'],data['text'])
-            self.assertIn('Requirement to explore: Enforceable contracts',data['text'])
+            self.assertIn(self.payload['details'],data['text'])
+            self.assertIn('Additional details: '+self.payload['details'],data['text'])
 
     def test_private_files_are_not_served_and_video_supports_range(self):
         self.assertEqual(self.client.get('/.env.local').status_code,404)

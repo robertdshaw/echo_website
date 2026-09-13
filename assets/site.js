@@ -232,117 +232,64 @@ if (saveButton) {
 
 const briefingForm = document.querySelector('#briefing-form');
 if (briefingForm) {
-  const params = new URLSearchParams(location.search);
   const status = document.querySelector('#form-status');
   const submit = briefingForm.querySelector('.send-request');
-  const fallback = document.querySelector('#contact-fallback');
-  const draft = document.querySelector('#email-draft');
   const success = document.querySelector('#contact-success');
+  const fieldsToSend = ['name', 'email', 'organization', 'role', 'sector', 'question', 'details', 'referral', 'website'];
   let token = '';
   let submitting = false;
   let previousPayload = '';
   let requestId = '';
-  function newId() { return crypto.randomUUID(); }
-  for (const name of ['region','format']) {
-    if ([...briefingForm.elements[name].options].some(option => option.value === params.get(name))) briefingForm.elements[name].value = params.get(name);
-  }
-  const audiencePresets = {
-    government: ['Oil & gas government affairs','Your government affairs brief.','Tell us about the policy decision, stakeholder meeting, or operating asset you are working on.'],
-    credit: ['Distressed debt / hedge fund','Your distressed-debt research brief.','Tell us which political or operating assumption you want to examine, and when it matters to your investment decision.']
-  };
-  const preset = audiencePresets[params.get('audience')];
-  const decisionTest = briefingForm.elements.decision_test;
-  if ([...decisionTest.options].some(option => option.value === params.get('test'))) {
-    decisionTest.value = params.get('test');
-    briefingForm.querySelector('.optional-context').open = true;
-  }
-  if (preset) {
-    briefingForm.elements.perspective.value = preset[0];
-    briefingForm.elements.sector.value = params.get('audience') === 'government' ? 'Oil & gas' : 'Distressed debt & special situations';
-    document.querySelector('#briefing-form-title').textContent = headingCopy(preset[1]);
-    document.querySelector('#audience-context').textContent = preset[2];
-    document.querySelector('#audience-context').hidden = false;
-  }
-  if (params.has('audience') || params.has('format') || params.has('region')) briefingForm.querySelector('.optional-context').open = true;
-  if (params.get('kind') === 'contact') briefingForm.elements.request_type.value = 'Contact request';
-  const sectorGuidance = {
-    'Oil & gas': 'A useful starting point: one asset, the authority that affects it, and the evidence you need before your next stakeholder meeting.',
-    'Distressed debt & special situations': 'A useful starting point: one political assumption in the thesis, its time horizon, and the evidence that would make you revisit it.',
-    'Energy & infrastructure': 'A useful starting point: one project dependency, the decision-maker involved, and the next milestone you need to understand.',
-    'Advisory & research': 'A useful starting point: the question your team must answer and a source or method you would like us to walk through.',
-    'Other': 'Tell us your sector and the decision in your message. We will assess whether the question fits our research scope.'
-  };
-  function updateSectorGuidance() {
-    document.querySelector('#sector-guidance').textContent = sectorGuidance[briefingForm.elements.sector.value] || 'Choose a sector so we can suggest a starting point. Please use non-confidential examples.';
-  }
-  briefingForm.elements.sector.addEventListener('change', updateSectorGuidance);
-  updateSectorGuidance();
-  const labels = {request_type:'Request type',name:'Full name',email:'Work email',organization:'Organisation',role:'Role / team',headquarters:'Location',phone:'Phone',sector:'Sector',question:'Decision / research question',proof:'What the first briefing should demonstrate',region:'Region',perspective:'Perspective',decision_test:'Requirement to explore',subject:'Asset, contract, or place',deadline:'Deadline',format:'Research format',referral:'How I found EchoFrame'};
-  function readFields() {
-    const data = Object.fromEntries(new FormData(briefingForm));
-    return Object.fromEntries(Object.entries(data).map(([key,value]) => [key,String(value).trim()]));
-  }
-  function updateDraft() {
-    const values = readFields();
-    const text = 'Hello EchoFrame,\n\n'+Object.entries(labels).map(([key,label]) => `${label}: ${values[key] || 'Not specified'}`).join('\n')+'\n';
-    draft.href = `mailto:contact@echoframe.co?subject=${encodeURIComponent('EchoFrame '+values.request_type)}&body=${encodeURIComponent(text)}`;
-  }
-  function buttonLabel() { submit.innerHTML = (briefingForm.elements.request_type.value === 'Demo request' ? 'Send demo request' : 'Send contact request')+' '; }
-  briefingForm.addEventListener('input', event => { event.target.removeAttribute('aria-invalid'); updateDraft(); });
-  briefingForm.addEventListener('change', () => { if (!submitting) buttonLabel(); updateDraft(); });
+  let accepted = false;
+  const audience = new URLSearchParams(location.search).get('audience');
+  if (audience === 'government') briefingForm.elements.sector.value = 'Oil & gas';
+  if (audience === 'credit') briefingForm.elements.sector.value = 'Distressed debt & special situations';
   async function initialise() {
-    try {
-      const response = await fetch('/api/contact/status',{cache:'no-store',credentials:'same-origin'});
-      if (!response.ok) throw new Error('Unavailable');
-      const info = await response.json(); token = info.token || '';
-      if (!info.ready) {
-        status.textContent = 'Direct sending is being connected. You can fill in your details and use the email link below in the meantime.';
-        fallback.hidden = false;
-      }
-    } catch {
-      status.textContent = 'Direct sending is temporarily unavailable. You can use the email link below with your details.';
-      fallback.hidden = false;
-    }
+    const response = await fetch('/api/contact/status', {cache: 'no-store', credentials: 'same-origin', signal: AbortSignal.timeout(15000)});
+    if (!response.ok) throw new Error('Sending is temporarily unavailable. Your request has not been sent. Please try again later.');
+    const info = await response.json();
+    token = info.token || '';
+    if (!info.ready || !token) throw new Error('Sending is temporarily unavailable. Your request has not been sent. Please try again later.');
   }
+  briefingForm.addEventListener('input', event => event.target.removeAttribute('aria-invalid'));
   briefingForm.addEventListener('submit', async event => {
     event.preventDefault();
-    if (submitting || !briefingForm.reportValidity()) return;
-    const fields = readFields();
+    if (submitting || accepted || !briefingForm.reportValidity()) return;
+    const fields = Object.fromEntries(fieldsToSend.map(name => [name, briefingForm.elements[name].value.trim()]));
     const payload = JSON.stringify(fields);
-    if (payload !== previousPayload) { requestId = newId(); previousPayload = payload; }
-    submitting = true; submit.disabled = true; submit.textContent = 'Sending your request…';
-    status.textContent = 'Sending securely to EchoFrame…'; fallback.hidden = true;
+    if (payload !== previousPayload) { requestId = crypto.randomUUID(); previousPayload = payload; }
+    submitting = true; submit.disabled = true; submit.textContent = 'Sending your request';
+    status.textContent = 'Sending your request to EchoFrame.';
     briefingForm.querySelectorAll('[aria-invalid]').forEach(field => field.removeAttribute('aria-invalid'));
     try {
       if (!token) await initialise();
-      const response = await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify({...fields,token,request_id:requestId}),signal:AbortSignal.timeout(30000)});
+      const response = await fetch('/api/contact', {
+        method: 'POST', headers: {'Content-Type': 'application/json'}, credentials: 'same-origin',
+        body: JSON.stringify({...fields, token, request_id: requestId}), signal: AbortSignal.timeout(30000)
+      });
       const result = await response.json();
       if (!response.ok || !result.ok) {
+        if (result.refresh) token = '';
         if (result.fields) {
           const invalid = Object.keys(result.fields);
-          invalid.forEach(name => briefingForm.elements[name]?.setAttribute('aria-invalid','true'));
+          invalid.forEach(name => briefingForm.elements[name]?.setAttribute('aria-invalid', 'true'));
           briefingForm.elements[invalid[0]]?.focus();
         }
-        if (result.refresh) await initialise();
-        throw new Error(result.error || 'We could not confirm that your request was sent. Please contact us directly.');
+        throw new Error(result.error || 'We could not confirm delivery. Your details remain in the form.');
       }
-      status.textContent = 'Request accepted by our email service.';
-      document.querySelector('#contact-reference').textContent = 'Reference: '+result.reference;
+      accepted = true; status.textContent = '';
+      document.querySelector('#contact-reference').textContent = 'Request reference ' + result.reference;
       success.hidden = false; submit.hidden = true;
       briefingForm.querySelectorAll('input,select,textarea').forEach(field => { field.disabled = true; });
       success.focus();
     } catch (error) {
-      status.textContent = error.name === 'TimeoutError' || error instanceof TypeError ? 'We could not confirm delivery. Your details are still here. Please contact us directly before trying again.' : error.message;
-      fallback.hidden = false; updateDraft();
-    } finally { submitting = false; submit.disabled = false; buttonLabel(); }
+      status.textContent = error.name === 'TimeoutError' || error instanceof TypeError
+        ? 'We could not confirm delivery. Your details remain in the form. Please contact contact@echoframe.co before sending again.'
+        : error.message;
+    } finally { submitting = false; submit.disabled = accepted; submit.textContent = 'Book a conversation'; }
   });
-  document.querySelector('#new-request').addEventListener('click', () => {
-    briefingForm.reset(); briefingForm.querySelectorAll('input,select,textarea').forEach(field => { field.disabled = false; });
-    success.hidden = true; submit.hidden = false; status.textContent = ''; fallback.hidden = true;
-    previousPayload = ''; requestId = ''; buttonLabel(); updateDraft(); initialise(); briefingForm.elements.name.focus();
-  });
-  buttonLabel(); updateDraft(); initialise();
 }
+
 
 // The image opens from a curved frame into a wider rectangle as it enters view.
 const scene = document.querySelector('.research-landscape');
