@@ -144,3 +144,16 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 @media (prefers-reduced-motion: reduce){
  .ef-hero-photo{transform:none}
 }
+
+/* Worked examples. Each card reads as one piece of work: a numbered head, the
+   situation and the question side by side, then what the evidence showed. */
+.worked-example{max-width:940px}
+.we-head{display:flex;gap:20px;align-items:baseline;padding-bottom:18px;border-bottom:2px solid var(--ink,#1E1957)}
+.we-number{font-family:Georgia,"Source Serif 4",serif;font-size:clamp(30px,4vw,46px);line-height:1;color:var(--accent,#F25120)}
+.we-head h2{margin:0 0 6px}
+.we-meta{margin:0;font-size:14px;color:var(--muted,#6E7B85)}
+.we-frame{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:22px 0;border-bottom:1px solid var(--rule,#e4e2ee)}
+.we-line p{margin:6px 0 0;font-size:16px;line-height:1.55}
+.we-body{display:grid;gap:26px;padding-top:22px;max-width:760px}
+.we-block p{margin:6px 0 0}
+@media (max-width:720px){ .we-frame{grid-template-columns:1fr;gap:18px} }

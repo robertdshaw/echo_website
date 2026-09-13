@@ -40,7 +40,7 @@ def navigation(prefix='', lang='en'):
                 item_label,desc = ITEMS_ES.get(url,(item_label,desc))
             result+=f'<a href="{prefix}{url}"><strong>{E(item_label)}</strong><small>{E(desc)}</small></a>'
         result+='</div></details>'
-    return result+f'<a href="{prefix}venezuela.html">Venezuela</a>'
+    return result
 
 
 def home_directory():

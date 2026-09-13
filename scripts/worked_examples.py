@@ -57,13 +57,21 @@ CARDS = [
 def page(intro):
     cards = ''
     for i, (title, context, rows) in enumerate(CARDS, 1):
-        body = ''.join(f'<div><span class="eyebrow">{heading}</span><p>{text}</p></div>' for heading, text in rows)
-        cards += (f'<article class="worked-example" id="example-{i}"><div class="eyebrow">{i:02d}</div>'
-                  f'<h2>{title}</h2><p class="example-context"><em>{context}</em></p>'
-                  f'<div class="standards-grid">{body}</div></article>')
+        lead = dict(rows)
+        head = ''.join(
+            f'<div class="we-line"><span class="eyebrow">{h}</span><p>{lead[h]}</p></div>'
+            for h in ('The situation', 'The question') if h in lead)
+        rest = ''.join(
+            f'<div class="we-block"><span class="eyebrow">{h}</span><p>{text}</p></div>'
+            for h, text in rows if h not in ('The situation', 'The question'))
+        cards += (f'<article class="worked-example" id="example-{i}">'
+                  f'<header class="we-head"><span class="we-number">{i:02d}</span>'
+                  f'<div><h2>{title}</h2><p class="we-meta">{context}</p></div></header>'
+                  f'<div class="we-frame">{head}</div>'
+                  f'<div class="we-body">{rest}</div></article>')
     return intro(
         'Worked examples',
-        'Three engagements, described by type',
-        'Every one of these is real work. No client is named and no figure from a client document appears. Where a '
+        'Three pieces of work, and what each one changed',
+        'Every one of these is real. No client is named and no figure from a client document appears. Where a '
         'number carried the argument it has been replaced by the proportion or the direction.'
     ) + '<section class="section container worked-examples">' + cards + '</section>'
