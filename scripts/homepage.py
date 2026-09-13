@@ -1,21 +1,23 @@
-"""A short front door: one claim, one explanation, one next step."""
+"""A short front door: what we collect, how we check it, what a client gets."""
 
 
 def claims():
     sections = [
-        ('01 / Government affairs', 'Judgment you can defend to a board',
-         'Political reporting becomes useful when you can explain what it changes. Examine the six risk dimensions, the people behind the decisions and the evidence behind the assessment.',
-         'government-affairs.html', 'Learn how we build the brief'),
-        ('02 / Distressed debt', 'The opportunity has to clear your bar',
-         'The country outlook does not establish whether a particular opportunity meets your requirements. Examine the terms and the evidence for the conditions you need.',
-         'distressed-debt.html', 'Learn how we test the opportunity'),
-        ('03 / Our method', 'Political science, run as data science',
-         'Five analytical layers connect events, relationships and behaviour to dated research questions. Each judgment should show its evidence and explain what would change it.',
-         'methodology.html', 'Learn how it works'),
+        ('01 / Where we collect', 'Outside the capitals',
+         'Oil states in eastern and western Venezuela, with Colombia, Mexico, Rwanda and Pakistan next. '
+         'We work where the reporting is thinnest and the exposure is largest.'),
+        ('02 / How we check it', 'Nothing counts on one class of source',
+         'News media count as one class however many outlets carry a story. Official records, independent research, '
+         'physical data and reporting from the ground are the others. A development is confirmed when independent classes agree.'),
+        ('03 / What you get', 'A record, not a report',
+         'A dated record of developments at named assets, a short list of written questions with dates on them, '
+         'and a probability on each that moves only when the evidence does.'),
     ]
-    return '<div class="home-claims container">'+''.join(
+    blocks = ''.join(
         f'<section class="home-claim" aria-labelledby="claim-{i}"><div class="eyebrow">{kicker}</div>'
-        f'<div><h2 id="claim-{i}">{title}</h2><p>{copy}</p>'
-        f'<a class="text-link" href="{url}">{label} </a></div></section>'
-        for i, (kicker, title, copy, url, label) in enumerate(sections, 1)
-    )+'</div>'
+        f'<div><h2 id="claim-{i}">{title}</h2><p>{copy}</p></div></section>'
+        for i, (kicker, title, copy) in enumerate(sections, 1)
+    )
+    closing = ('<section class="home-claim home-closing"><div><p>If the decision in front of you depends on '
+               'somewhere the wires do not cover, start a conversation.</p></div></section>')
+    return '<div class="home-claims container">' + blocks + closing + '</div>'

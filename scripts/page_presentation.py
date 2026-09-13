@@ -3,7 +3,7 @@ import html
 import re
 
 INVITATIONS = {
-    'index.html': 'Discuss your research priorities',
+    'index.html': 'Start a conversation',
     'about.html': 'Ask about EchoFrame and training',
     'actor-mapping.html': 'Discuss the relationships your decision depends on',
     'capabilities.html': 'Outline the research you need',
