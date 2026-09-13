@@ -83,10 +83,10 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 .ef-hero-copy{position:absolute;left:clamp(22px,3.6vw,58px);top:50%;transform:translateY(-50%);max-width:min(600px,58%)}
 .ef-hero-copy h1{margin:0;font-family:Georgia,"Source Serif 4",serif;font-weight:500;font-size:clamp(26px,3.7vw,50px);line-height:1.06;letter-spacing:-.015em;color:#fff;text-shadow:0 2px 34px rgba(4,7,11,.95)}
 .ef-hero-copy h1 .ef-l1,.ef-hero-copy h1 .ef-l2{display:block}
-.ef-hero-copy h1 .ef-w{display:inline-block;opacity:0;transform:translateY(14px);
-  animation:efRise .9s cubic-bezier(.2,.7,.3,1) forwards;animation-delay:calc(.35s + var(--w) * .16s)}
+.ef-hero-copy h1 .ef-w{display:inline-block;opacity:0;transform:translateY(26px);
+  animation:efWord 1s cubic-bezier(.16,.8,.28,1) forwards;animation-delay:calc(.25s + var(--w) * .26s)}
 .ef-hero-copy h1 .ef-w + .ef-w{margin-left:.28em}
-.ef-hero-tag{position:absolute;right:clamp(20px,3vw,44px);bottom:clamp(16px,2.6vw,30px);margin:0;font-family:Georgia,"Source Serif 4",serif;font-size:clamp(16px,1.7vw,24px);color:#F25120}
+.ef-hero-tag{position:absolute;right:clamp(20px,3vw,44px);bottom:clamp(16px,2.6vw,30px);margin:0;font-family:Georgia,"Source Serif 4",serif;font-size:clamp(16px,1.7vw,24px);color:#FF7A4D;font-weight:600;letter-spacing:.01em;padding:6px 14px;border-radius:999px;background:rgba(4,7,11,.58);backdrop-filter:blur(3px);text-shadow:0 1px 10px rgba(4,7,11,.95),0 0 26px rgba(4,7,11,.8)}
 .ef-hero-tag span{opacity:0;animation:efFade .9s ease forwards}
 .ef-hero-tag .ef-dot + .ef-dot,.ef-hero-tag .ef-tag-words{margin-left:.3em}
 .ef-dot-1{animation-delay:2.9s}
@@ -97,6 +97,8 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 .ef-found-1{animation-delay:1.9s}.ef-found-2{animation-delay:2.35s}.ef-found-3{animation-delay:2.8s}
 .ef-found-4{animation-delay:3.25s}.ef-found-5{animation-delay:3.7s}
 @keyframes efRise{to{opacity:1;transform:translateY(0)}}
+@keyframes efWord{from{opacity:0;transform:translateY(26px);filter:blur(6px)}
+  60%{opacity:1;filter:blur(0)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
 @keyframes efFade{to{opacity:1}}
 @keyframes efLight{0%{opacity:0;transform:scale(.25)}60%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
 @media (prefers-reduced-motion: reduce){
@@ -134,3 +136,11 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 .service-more{margin:18px 0 0;font-size:15px}
 .service-pricing{margin-top:44px;padding-top:22px;border-top:1px solid var(--rule,#e4e2ee);max-width:640px}
 .service-pricing p{margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--muted,#4A4A63)}
+
+/* The photograph widens as the hero enters and eases back as it leaves.
+   The frame does not move, so this cannot affect layout or scrolling. */
+.ef-hero-photo{transform:scale(var(--ef-zoom,1));transform-origin:center right;
+  transition:transform .12s linear;will-change:transform}
+@media (prefers-reduced-motion: reduce){
+ .ef-hero-photo{transform:none}
+}

@@ -312,6 +312,31 @@ if (scene) {
   function queueScene() { if (!queued) { queued=true; requestAnimationFrame(paintScene); } }
   addEventListener('scroll',queueScene,{passive:true}); addEventListener('resize',queueScene); reducedMotion.addEventListener('change',queueScene); paintScene();
 }
+// The hero photograph widens as the hero enters view and eases back as it
+// leaves. Only the image inside the frame moves, so layout never shifts.
+const heroPhoto = document.querySelector('.ef-hero-photo');
+const heroFrame = document.querySelector('.ef-hero-media');
+if (heroPhoto && heroFrame) {
+  const heroMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let heroQueued = false;
+  function paintHero() {
+    heroQueued = false;
+    if (heroMotion.matches) { heroPhoto.style.removeProperty('--ef-zoom'); return; }
+    const box = heroFrame.getBoundingClientRect();
+    const top = box.top + scrollY;
+    // Measured from where the hero sits, not from the viewport, because the hero
+    // is already fully in view when the page loads.
+    const progress = Math.max(0, Math.min(1, (scrollY - top) / Math.max(1, box.height)));
+    // One rise and one fall. At rest on load, widest halfway out, back at rest after.
+    heroPhoto.style.setProperty('--ef-zoom', (1 + 0.06 * Math.sin(Math.PI * progress)).toFixed(4));
+  }
+  function queueHero() { if (!heroQueued) { heroQueued = true; requestAnimationFrame(paintHero); } }
+  addEventListener('scroll', queueHero, { passive: true });
+  addEventListener('resize', queueHero);
+  heroMotion.addEventListener('change', queueHero);
+  paintHero();
+}
+
 const exportValues = {'2021':'263,000','2022':'442,000','2023':'an estimated 621,000'};
 document.querySelectorAll('[data-export-year]').forEach(button => button.addEventListener('click', () => {
   const year=button.dataset.exportYear;
