@@ -205,7 +205,7 @@ def main():
         if obsolete.relative_to(public).as_posix() not in published_pages:
             assert obsolete.resolve().is_relative_to(publication_root), 'Refusing to remove a page outside public/'
             obsolete.unlink()
-    files = published_pages + ['favicon.png', 'assets/site.css', 'assets/presence.css', 'assets/depth.css', 'assets/refinements.css', 'assets/bureau.css', 'assets/site.js', 'assets/globe.svg', 'assets/energy-horizon.png', 'assets/hero-terminal.jpg', 'assets/example-evidence.jpg', 'assets/social-card.svg', 'assets/social-card.png', 'assets/ATTRIBUTION.md']
+    files = published_pages + ['favicon.png', 'assets/site.css', 'assets/presence.css', 'assets/depth.css', 'assets/refinements.css', 'assets/bureau.css', 'assets/site.js', 'assets/globe.svg', 'assets/energy-horizon.png', 'assets/hero-terminal.jpg', 'assets/example-evidence.jpg', 'assets/case_petrocedeno.jpg', 'assets/case_jose.jpg', 'assets/case_refinery.jpg', 'assets/social-card.svg', 'assets/social-card.png', 'assets/ATTRIBUTION.md']
     files += downloads + ['images/EchoFramev3.mp4']
     # Archive interface screenshots are not part of the publication output.
     for obsolete in public.rglob('*'):
