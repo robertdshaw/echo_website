@@ -39,8 +39,6 @@ for path,doc in documents.items():
 
 for forbidden in ['admin.html','all-in-one-auth-system.html','gmtl-data-collection.html','latinnews-data-collection.html','content','docs',
                   '_unpublished','map.html','es/map.html','assets/gis-demo','assets/map.js','assets/map.css',
-                  'research/from-signal-to-significance.html','research/mapping-power-without-false-precision.html',
-                  'research/sanctions-and-operational-reality.html','research/scenarios-that-can-be-tested.html',
                   'downloads/sample-asset-access.md','downloads/sample-thesis-review.md']:
     target = PUBLIC / forbidden
     if target.is_file() or target.is_dir() and any(p.is_file() for p in target.rglob('*')):
@@ -51,7 +49,5 @@ for path in PUBLIC.rglob('*'):
         if '/auto-login?key=' in content or 'SUPABASE_KEY' in content: errors.append(f'Legacy credential flow in {path}')
         for private_plan_detail in ['El Pitazo','Ecoanalítica','Síntesis Financiera','772,000','763,000','scenario_bayes.py']:
             if private_plan_detail in content: errors.append(f'Internal plan detail published in {path.name}: {private_plan_detail}')
-published=[a for a in json.loads((ROOT/'content/articles.json').read_text(encoding='utf-8')) if a.get('status')=='published']
-assert len(list((PUBLIC/'research').glob('*.html')))==len(published),'Publication article count mismatch'
 if errors: raise SystemExit('\n'.join(errors))
-print(f'Passed: {len(documents)} HTML pages, local assets, fragment links, unique IDs, article count, and publication exclusions.')
+print(f'Passed: {len(documents)} HTML pages, local assets, fragment links, unique IDs, and publication exclusions.')

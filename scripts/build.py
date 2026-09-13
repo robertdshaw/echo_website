@@ -27,8 +27,6 @@ from page_presentation import enquiry_policy
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT  # Source pages are checked in; Render serves the same generated files.
-ARTICLES = [a for a in json.loads((ROOT / 'content/articles.json').read_text(encoding='utf-8')) if a.get('status') == 'published']
-ARTICLE_BY_SLUG = {a['slug']: a for a in ARTICLES}
 SITE = json.loads((ROOT / 'content/site.json').read_text(encoding='utf-8'))
 E = html.escape
 ARROW = ''
@@ -36,35 +34,8 @@ GENERATED = []
 MARK = '<svg class="echoframe-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><g stroke-width="3.8" stroke-linecap="round"><path d="M7 7L29 41M13 7L35 41M19 7L41 41" stroke="#ed704b"/><path d="M41 7L19 41M35 7L13 41M29 7L7 41" stroke="currentColor"/></g></svg>'
 
 
-def validate():
-    seen = set()
-    for a in ARTICLES:
-        assert re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', a['slug']), 'Invalid slug'
-        assert a['slug'] not in seen, 'Duplicate slug'
-        seen.add(a['slug'])
-        for key in ('title', 'dek', 'category', 'format', 'art', 'date', 'author', 'takeaway', 'sections', 'watch'):
-            assert a.get(key), f'Missing {key}: {a["slug"]}'
-        for s in a['sources']:
-            assert s['url'].startswith('https://'), 'Sources must use HTTPS'
-        datetime.date.fromisoformat(a['date'])
-        assert a['art'] in ('signals','maritime','policy','network','scenario'), 'Unsupported artwork'
-        for section in a['sections']:
-            assert section['heading'] and section['paragraphs'] and all(section['paragraphs']), 'Incomplete section'
-
-
 def brand(prefix=''):
     return f'<a class="brand" href="{prefix}index.html" aria-label="EchoFrame home">{MARK}<span>echo<span class="brand-light">frame</span><i>®</i></span></a>'
-
-
-def card(a, prefix='', featured=False):
-    return f'''<article class="research-card {'featured-card' if featured else ''}" data-slug="{a['slug']}" data-category="{E(a['category'])}" data-search="{E((a['title']+' '+a['dek']+' '+a['category']+' '+a['format']).lower())}">
-    <a class="card-art art-{a['art']}" href="{prefix}research/{a['slug']}.html" aria-label="Read {E(a['title'])}"><span class="art-lines" aria-hidden="true"></span><span class="art-number" aria-hidden="true">EF / {ARTICLES.index(a)+1:02}</span><span class="art-label">{E(a['category'])}</span>{ARROW}</a>
-    <div class="card-copy"><div class="eyebrow">{E(a['category'])}<span class="meta-dot">·</span>{E(a['format'])}</div><h3><a href="{prefix}research/{a['slug']}.html">{E(a['title'])}</a></h3><p>{E(a['dek'])}</p></div></article>'''
-
-
-def minutes(a):
-    words = sum(len(p.split()) for s in a['sections'] for p in s['paragraphs'])
-    return max(2, round(words / 180))
 
 
 def layout(title, body, page='home', prefix='', description='', lang='en'):
@@ -84,7 +55,7 @@ def layout(title, body, page='home', prefix='', description='', lang='en'):
 <body class="page-{page}"><a class="skip-link" href="#main">{C['skip']}</a><div class="topline"><div class="container"><span>✳ &nbsp; {C['announce']}</span><a href="{prefix}venezuela.html">{C['announce_link']} </a></div></div>
 <header class="site-header"><div class="container nav-shell">{brand(prefix)}<button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">{C['menu']} <span aria-hidden="true">☰</span></button><nav id="main-nav" aria-label="{C['nav_label']}">{links}</nav></div></header>
 <main id="main">{body}</main>
-<footer class="site-footer"><div class="container"><div class="footer-top"><div>{brand(prefix)}<p>{C['tagline']}</p><span class="eyebrow">{C['regions']}</span></div><div><h2>{C['explore']}</h2><a href="{prefix}capabilities.html">{C['f_capabilities']}</a><a href="{prefix}government-affairs.html">{C['f_government']}</a><a href="{prefix}distressed-debt.html">{C['f_credit']}</a><a href="{prefix}venezuela.html">{C['f_venezuela']}</a><a href="{prefix}research.html">{C['f_library']}</a><a href="{prefix}coverage.html">{C['f_coverage']}</a><a href="{prefix}how-it-works.html">{C['f_how']}</a></div><div><h2>{C['connect']}</h2><a href="{prefix}engagement.html">{C['f_engagement']}</a><span>contact@echoframe.co</span><a href="https://ie.linkedin.com/company/echoframing" target="_blank" rel="noopener noreferrer">LinkedIn </a></div><div><h2>{C['company']}</h2><a href="{prefix}about.html">{C['f_about']}</a><a href="{prefix}trust.html">{C['f_trust']}</a><a href="{prefix}sample-briefs.html">{C['f_samples']}</a><a href="{prefix}sources.html">{C['f_sources']}</a><a href="{prefix}editorial-standards.html">{C['f_standards']}</a></div></div><div class="footer-bottom"><span>© 2026 {E(SITE['legal_name'])}{' · '+E(SITE['registration_line']) if SITE['registration_line'] else ''}</span><span><a href="{prefix}privacy.html">{C['privacy']}</a><span class="meta-dot">/</span>{C['research_mark']}</span><a href="#main">{C['top']} </a></div></div></footer></body></html>'''
+<footer class="site-footer"><div class="container"><div class="footer-top"><div>{brand(prefix)}<p>{C['tagline']}</p><span class="eyebrow">{C['regions']}</span></div><div><h2>{C['explore']}</h2><a href="{prefix}capabilities.html">{C['f_capabilities']}</a><a href="{prefix}government-affairs.html">{C['f_government']}</a><a href="{prefix}distressed-debt.html">{C['f_credit']}</a><a href="{prefix}venezuela.html">{C['f_venezuela']}</a><a href="{prefix}coverage.html">{C['f_coverage']}</a><a href="{prefix}how-it-works.html">{C['f_how']}</a></div><div><h2>{C['connect']}</h2><a href="{prefix}engagement.html">{C['f_engagement']}</a><span>contact@echoframe.co</span><a href="https://ie.linkedin.com/company/echoframing" target="_blank" rel="noopener noreferrer">LinkedIn </a></div><div><h2>{C['company']}</h2><a href="{prefix}about.html">{C['f_about']}</a><a href="{prefix}trust.html">{C['f_trust']}</a><a href="{prefix}sample-briefs.html">{C['f_samples']}</a><a href="{prefix}sources.html">{C['f_sources']}</a><a href="{prefix}editorial-standards.html">{C['f_standards']}</a></div></div><div class="footer-bottom"><span>© 2026 {E(SITE['legal_name'])}{' · '+E(SITE['registration_line']) if SITE['registration_line'] else ''}</span><span><a href="{prefix}privacy.html">{C['privacy']}</a><span class="meta-dot">/</span>{C['research_mark']}</span><a href="#main">{C['top']} </a></div></div></footer></body></html>'''
 
 
 def cta(prefix=''):
@@ -97,21 +68,6 @@ def home():
 
 def intro(kicker, title, description):
     return f'<section class="page-intro container"><div class="eyebrow">{kicker}</div><h1>{title}</h1><p>{description}</p></section>'
-
-
-def library():
-    return intro('The intelligence library','Essays, field guides and programme notes','Asset-level questions, evidence guides, and regional context. Explore the Venezuela programme alongside the wider research collection.')+'''<section class="container library-section"><div class="library-controls"><div class="filter-buttons" role="group" aria-label="Filter intelligence by region or subject">'''+''.join(f'<button class="filter-button" data-filter="{c}" aria-pressed="{str(i==0).lower()}">{c}</button>' for i,c in enumerate(['All intelligence'] + sorted({a['category'] for a in ARTICLES})))+'''</div><label class="search-box"><span aria-hidden="true">⌕</span><input type="search" id="research-search" placeholder="Search the library" aria-label="Search intelligence"></label></div><div class="library-meta"><span id="result-count" role="status" aria-live="polite">'''+str(len(ARTICLES))+''' perspectives</span><label class="saved-filter"><input id="saved-only" type="checkbox"> Saved on this device</label><span>RESEARCH & PROGRAMME NOTES / SEPTEMBER 2026</span></div><div class="card-grid library-grid">'''+''.join(card(a) for a in ARTICLES)+'''</div><div id="no-results" class="empty-state" hidden><h2>A different angle?</h2><p>No articles match this search. Try another topic or reset the filters.</p><button class="button" id="reset-search">Show all intelligence </button></div><p class="collection-note">These articles explain research methods and plans for collection. They do not report current asset conditions or present a forecast performance record.</p></section>'''+cta()
-
-
-def article_page(a):
-    date_label = datetime.date.fromisoformat(a['date']).strftime('%d %B %Y').lstrip('0') if a.get('date_confirmed', True) else ''
-    date_byline = f'<span class="article-date">{E(date_label)}</span> &middot; ' if date_label else ''
-    date_note = f'Publication date {E(date_label)}. ' if date_label else ''
-    toc = ''.join(f'<a href="#section-{i}"><span>0{i}</span>{E(s["heading"])}</a>' for i,s in enumerate(a['sections'],1))
-    sections = ''.join(f'<section id="section-{i}"><h2>{E(s["heading"])}</h2>'+''.join(f'<p>{E(p)}</p>' for p in s['paragraphs'])+'</section>' for i,s in enumerate(a['sections'],1))
-    sources = ''.join(f'<li><a href="{E(s["url"])}" target="_blank" rel="noopener noreferrer">{E(s["title"])} </a></li>' for s in a['sources'])
-    related = [r for r in ARTICLES if r['slug']!=a['slug']][:3]
-    return f'''<div class="reading-progress" aria-hidden="true"></div><article><header class="article-header container"><a class="back-link" href="../research.html"> Intelligence library</a><div class="eyebrow">{E(a['category'])} / {E(a['format'])}</div><h1>{E(a['title'])}</h1><p class="article-dek">{E(a['dek'])}</p><div class="article-byline"><span class="author-mark">{MARK}</span><span>{E(a['author'])}<small>{date_byline}{E(a.get('collection','Foundations collection'))}</small></span><div class="reader-actions"><button class="save-article" data-slug="{a['slug']}" aria-pressed="false">Save article +</button><button class="copy-link">Copy link </button><button class="print-article">Print </button></div></div><span class="reader-status" role="status" aria-live="polite"></span></header><div class="article-layout container"><aside class="article-toc"><div class="eyebrow">In this perspective</div>{toc}<a href="#source-notes"><span></span>Sources & notes</a></aside><div class="article-body"><div class="takeaway"><div class="eyebrow">The central idea</div><p>{E(a['takeaway'])}</p></div>{sections}<section class="watch-box"><div class="eyebrow">Questions to carry forward</div><h2>What to watch.</h2><ul>{''.join(f'<li>{E(w)}</li>' for w in a['watch'])}</ul></section><section id="source-notes" class="source-notes"><h2>Sources & editorial notes</h2><p>{E(a['sourceNote'])}</p>{'<ol>'+sources+'</ol>' if sources else ''}<p>{date_note}Read our <a href="../editorial-standards.html">editorial standards</a>. To suggest a correction, <a href="mailto:contact@echoframe.co?subject=Editorial%20correction%3A%20{a['slug']}">contact the editorial desk</a>.</p></section></div></div></article><section class="section container"><div class="section-heading"><div><div class="eyebrow">Continue exploring</div><h2>Connect another perspective.</h2></div></div><div class="card-grid">{''.join(card(r,'../') for r in related)}</div></section>'''+cta('../')
 
 
 def about():
@@ -213,7 +169,7 @@ def write(path, title, body, page='home', prefix='', lang='en', description=''):
 
 
 def main():
-    validate(); globe()
+    globe()
     downloads = write_downloads() + write_sample_downloads()
     for path, title, render, key in PAGES:
         write(path, title, render(), key)
@@ -224,7 +180,6 @@ def main():
     write('site.html','A clearer view of a complex world',home())
     write('government-affairs.html','Oil & gas government affairs',audience_page('government'),'government',description='Political intelligence for oil and gas government affairs teams. Scope research on stakeholders, policy milestones, and the evidence around operating assets.')
     write('distressed-debt.html','Distressed debt & special situations',audience_page('credit'),'credit',description='Political and asset-level research for distressed-debt investors. Frame thesis questions, inspect counterparty narratives, and identify evidence worth reviewing.')
-    write('research.html','Intelligence library',library(),'research')
     write('coverage.html','Regional coverage',coverage_page(intro),'coverage')
     write('venezuela.html','Venezuela · Asset-level intelligence',venezuela_page(intro,cta),'venezuela')
     write('how-it-works.html','How it works',how_it_works_page(intro),'how-it-works')
@@ -237,8 +192,6 @@ def main():
     write('privacy.html','Privacy',privacy(),'privacy')
     # The Spanish mirror is suspended. spanish() and the 'es' chrome stay in the
     # repository so the page can be restored without rebuilding it.
-    for a in ARTICLES:
-        write(f'research/{a["slug"]}.html',a['title'],article_page(a),'article','../',description=a['dek'])
     write('404.html','Page not found',intro('404','That page is not here','The page you requested could not be found.')+'<div class="container section"><a class="button" href="index.html">Return to the homepage </a></div>')
     # Publish an explicit allowlist, excluding internal tools and source documents.
     public = ROOT / 'public'
@@ -266,7 +219,7 @@ def main():
         target = public / path
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
-    print(f'Built {len(GENERATED)} pages; {len(published_pages)} published plus the legacy redirect. Includes {len(ARTICLES)} research articles. Deployment directory: public/')
+    print(f'Built {len(GENERATED)} pages; {len(published_pages)} published plus the legacy redirect. Deployment directory: public/')
 
 
 if __name__=='__main__': main()

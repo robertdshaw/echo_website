@@ -15,11 +15,6 @@ GROUPS = [
         ('case-study-venezuela.html','Case study, Venezuela','A call made before the outcome.'),
         ('worked-examples.html','Worked examples','Four engagements, described by type.'),
         ('engagement.html','Working with EchoFrame','Research formats, scope, and delivery.')]),
-    ('Research', [
-        ('research.html','Intelligence library','Essays, field guides, and programme notes.'),
-        ('sample-briefs.html','Sample briefs & templates','Research templates and brief structure.'),
-        ('sources.html','Primary-source directory','Official records and how to use them.'),
-        ('coverage.html','Regional perspective','Explore the wider research frame.')]),
     ('Company', [
         ('about.html','About EchoFrame','The purpose and approach behind the research.'),
         ('frame-bureau.html','The Frame Bureau','Training an institution to run its own desk.'),
@@ -32,9 +27,6 @@ def navigation(prefix='', lang='en'):
     result=''
     for title,items in GROUPS:
         label = GROUPS_ES[title] if lang=='es' else title
-        if title == 'Research':
-            result += f'<button class="nav-disabled" type="button" disabled aria-disabled="true">{E(label)}</button>'
-            continue
         panel_label = f'{label} (en inglés)' if lang=='es' else label
         result+=f'<details class="nav-group"><summary>{E(label)}</summary><div class="nav-panel"><div class="nav-panel-label">{E(panel_label)}</div>'
         for url,item_label,desc in items:

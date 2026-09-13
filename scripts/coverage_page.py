@@ -27,7 +27,7 @@ def page(intro):
             'oil states, and a correspondent agreement in progress.</p>'
             '<p>Collection sits in the oil states of the east and the west, outside the capital, where the exposure '
             'is largest and the reporting is thinnest. Scope, delivery and access are agreed for each engagement.</p>'
-            '<p><a href="research/venezuela-from-country-to-asset.html">Venezuela field guide</a></p></div></section>')
+            '</div></section>')
     in_build = ('<section id="in-build" class="region-detail container"><div><div class="eyebrow">In build</div>'
                 '<h2>European energy and regulatory policy.</h2>'
                 '<p>It looks like a different business and it is not. In Venezuela the problem is that almost nothing '
@@ -35,7 +35,6 @@ def page(intro):
                 'read. Both are the same failure, which is a public record that exists but cannot be used as a '
                 'record. One is scarcity and one is volume.</p>'
                 '<p>The tracker is available to clients on request.</p>'
-                '<p><a href="research/following-european-energy-policy.html">Europe field guide</a></p>'
                 '</div></section>')
     nxt = ('<section id="next" class="region-detail container"><div><div class="eyebrow">Next</div>'
            '<h2>Four countries.</h2>'

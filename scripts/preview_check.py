@@ -71,17 +71,6 @@ try:
         assert page.locator('#contact-success').is_hidden()
         assert page.locator('[name=question]').input_value()=='A delivery failure check.'
         assert len(sent)==1
-        # Library controls remain useful after the article reduction.
-        page.goto(base+'/research.html',wait_until='load')
-        assert page.locator('.library-grid .research-card').count()==4
-        page.locator('[data-filter="Europe"]').click()
-        assert page.locator('.library-grid .research-card:visible').count()==1
-        page.locator('[data-filter="All intelligence"]').click()
-        page.locator('#research-search').fill('zz-no-match')
-        expect(page.locator('#no-results')).to_be_visible()
-        page.locator('#reset-search').click()
-        assert page.locator('.library-grid .research-card:visible').count()==4
-        # Keyboard-controlled navigation and methodology panels still work.
         page.goto(base+'/how-it-works.html',wait_until='load')
         page.locator('[data-evidence-state="corroborated"]').click()
         expect(page.locator('#evidence-title')).to_contain_text('Independent evidence')
@@ -91,7 +80,7 @@ try:
         browser.close()
     result={'pages':len(paths),'viewports':[1440,390],'javascript_errors':errors,'horizontal_overflow':overflow,
             'form':'eight fields, confirmation, failure retention and fixed recipient passed with stub delivery',
-            'research_filters':'passed','evidence_and_decision_controls':'passed','emails_sent':0}
+            'evidence_and_decision_controls':'passed','emails_sent':0}
     (ROOT/'.preview'/'content-browser-check.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
     print(json.dumps(result,indent=2))
     assert not errors and not overflow

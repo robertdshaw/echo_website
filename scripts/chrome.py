@@ -16,7 +16,6 @@ CHROME = {
         'f_government': 'Government affairs',
         'f_credit': 'Distressed debt',
         'f_venezuela': 'Venezuela programme',
-        'f_library': 'Intelligence library',
         'f_coverage': 'Regional coverage',
         'f_how': 'How it works',
         'f_engagement': 'Working with EchoFrame',
@@ -49,7 +48,6 @@ CHROME = {
         'f_government': 'Asuntos gubernamentales',
         'f_credit': 'Deuda en dificultades',
         'f_venezuela': 'Programa de Venezuela',
-        'f_library': 'Biblioteca de investigación',
         'f_coverage': 'Cobertura regional',
         'f_how': 'Cómo trabajamos',
         'f_engagement': 'Trabajar con EchoFrame',
@@ -73,7 +71,6 @@ CHROME = {
 GROUPS_ES = {
     'Capabilities': 'Capacidades',
     'Who we help': 'A quién ayudamos',
-    'Research': 'Investigación',
     'Company': 'La empresa',
 }
 
@@ -88,7 +85,6 @@ ITEMS_ES = {
     'case-study-venezuela.html': ('Caso práctico, Venezuela', 'Una valoración hecha antes del desenlace.'),
     'worked-examples.html': ('Ejemplos de trabajo', 'Cuatro encargos, descritos por tipo.'),
     'engagement.html': ('Trabajar con EchoFrame', 'Formatos, alcance y entrega.'),
-    'research.html': ('Biblioteca de investigación', 'Ensayos, guías regionales y notas de programa.'),
     'sample-briefs.html': ('Plantillas e informes de muestra', 'Estructura de un informe de investigación.'),
     'sources.html': ('Directorio de fuentes primarias', 'Registros oficiales y cómo utilizarlos.'),
     'coverage.html': ('Cobertura regional', 'Dónde recopilamos y qué viene después.'),
