@@ -1,6 +1,6 @@
 # EchoFrame website content
 
-Local review build, 13 September 2026. Includes all 28 retained HTML pages, the active interactive explanations and blank templates. These changes have not been pushed or deployed. Web addresses identify the page destinations and do not imply that this draft is live. Shared navigation and footer content appear once per variant. Images and video are linked.
+Local content snapshot, 13 September 2026. Includes all 28 retained HTML pages, the active interactive explanations and blank templates. The approved September revision was deployed and verified on 13 September 2026; see [deployment status](docs/DEPLOYMENT-2026-09-13.md) for the commit and remaining email configuration. Shared navigation and footer content appear once per variant. Images and video are linked.
 
 ## Contents
 

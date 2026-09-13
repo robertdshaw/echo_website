@@ -126,7 +126,7 @@ def js_object(source, name):
     raise ValueError(name)
 
 pages = sorted(PUBLIC.rglob('*.html'), key=lambda p: (p.relative_to(PUBLIC).as_posix() != 'index.html', p.relative_to(PUBLIC).as_posix()))
-parts = ['# EchoFrame website content', f'Local review build, 13 September 2026. Includes all {len(pages)} retained HTML pages, the active interactive explanations and blank templates. These changes have not been pushed or deployed. Web addresses identify the page destinations and do not imply that this draft is live. Shared navigation and footer content appear once per variant. Images and video are linked.']
+parts = ['# EchoFrame website content', f'Local content snapshot, 13 September 2026. Includes all {len(pages)} retained HTML pages, the active interactive explanations and blank templates. The approved September revision was deployed and verified on 13 September 2026; see [deployment status](docs/DEPLOYMENT-2026-09-13.md) for the commit and remaining email configuration. Shared navigation and footer content appear once per variant. Images and video are linked.']
 parts.append('## Contents\n\n' + '\n'.join(f'- [{p.relative_to(PUBLIC).as_posix()}](#page-{i:02d})' for i, p in enumerate(pages, 1)))
 shared = {}
 soups = {}

@@ -1,6 +1,6 @@
 # September content revision review
 
-Completed locally on `content-fix-sept`. Nothing pushed or deployed. The review build has 28 public pages and four retained articles. The generated `site.html` legacy alias is excluded from publication. The original Markdown snapshot is archived.
+Completed on `content-fix-sept`, then pushed and deployed on 13 September 2026 following Rob's subsequent approval. See [deployment verification and remaining email configuration](DEPLOYMENT-2026-09-13.md). The build has 28 public pages and four retained articles. The generated `site.html` legacy alias is excluded from publication. The original Markdown snapshot is archived.
 
 ## Ordered commits
 
@@ -18,7 +18,7 @@ A baseline commit, `3396756`, preserves the pre-existing website so the requeste
 | 8 | fe389dd | One distinct enquiry invitation per page; reference pages have none. |
 | 9 | 0512633 | Existing headlines retained pending Rob's replacements. |
 | 10 | 2f1360b | Map pages and assets archived intact; Venezuela visualisation placeholders. |
-| 11 | This commit | Model facts and style pass, final CTA cleanup, content export and verification report. |
+| 11 | 49f24dc | Model facts and style pass, final CTA cleanup, content export and verification report. |
 
 ## Headlines and style
 
@@ -102,8 +102,8 @@ The map returns after the real José asset case is ready for public review. No r
 - `node --check assets/site.js` passes.
 - Additional review checks confirm six exact dimension names, absent prospect theory and named scenarios, no invented Terminal A or Issuer B text, four unchanged article headlines, unchanged testimonials and LinkedIn, retained coming-soon countries, unique enquiry wording and visible owner markers.
 - All 34 map archive files match their pre-move SHA-256 hashes in `_unpublished/map-archive-sha256.json`.
-- External websites and production email delivery were not exercised. The live service still needs its configured SMTP or Resend credentials; the server reports unavailable or failed delivery honestly.
-- `python scripts/export_content.py` refreshes the complete local review text in `EchoFrame-Website-Content.md`. It does not describe these changes as deployed.
+- At the initial review, external websites and production email delivery were not exercised. The subsequent deployment verification is recorded separately. The live service still needs its configured SMTP or Resend credentials; the server reports unavailable or failed delivery honestly.
+- `python scripts/export_content.py` refreshes the complete local text in `EchoFrame-Website-Content.md`, with a link to the subsequent deployment record.
 
 ## Files changed by the revision
 
