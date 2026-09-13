@@ -126,7 +126,7 @@ def js_object(source, name):
     raise ValueError(name)
 
 pages = sorted(PUBLIC.rglob('*.html'), key=lambda p: (p.relative_to(PUBLIC).as_posix() != 'index.html', p.relative_to(PUBLIC).as_posix()))
-parts = ['# EchoFrame website content', f'Local content snapshot, 13 September 2026. Includes all {len(pages)} retained HTML pages, the active interactive explanations and blank templates. The approved September revision was deployed and verified on 13 September 2026; see [deployment status](docs/DEPLOYMENT-2026-09-13.md) for the commit and remaining email configuration. Shared navigation and footer content appear once per variant. Images and video are linked.']
+parts = ['# EchoFrame website content', f'Local content snapshot, 13 September 2026. Includes all {len(pages)} retained HTML pages, the blank templates. The approved September revision was deployed and verified on 13 September 2026; see [deployment status](docs/DEPLOYMENT-2026-09-13.md) for the commit and remaining email configuration. Shared navigation and footer content appear once per variant. Images and video are linked.']
 parts.append('## Contents\n\n' + '\n'.join(f'- [{p.relative_to(PUBLIC).as_posix()}](#page-{i:02d})' for i, p in enumerate(pages, 1)))
 shared = {}
 soups = {}
@@ -150,20 +150,6 @@ parts.append('## Shared navigation and footer content')
 for label, rel, content in shared.values():
     parts += [f'### {label}\n\nVariant shown on {rel}.', content]
 
-source = (PUBLIC / 'assets/site.js').read_text(encoding='utf-8')
-parts += ['## Interactive explanations', 'These explanations appear when the visitor changes the evidence-status selector on the methodology page.']
-objects = [('evidenceStates', 'Evidence status')]
-for name, label in objects:
-    values = js_object(source, name)
-    parts.append('### ' + label)
-    for key, value in values.items():
-        parts.append('#### ' + key.replace('_', ' ').capitalize())
-        strings = value.values() if isinstance(value, dict) else value if isinstance(value, list) else [value]
-        for text in strings:
-            if text.endswith('.html'):
-                parts.append(f'[Related page]({urljoin(BASE, text)})')
-            else:
-                parts.append(text)
 parts.append('## Downloadable text and templates')
 for path in sorted((PUBLIC / 'downloads').iterdir()):
     if path.suffix not in ('.csv', '.md'):

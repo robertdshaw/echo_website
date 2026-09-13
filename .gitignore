@@ -9,3 +9,7 @@ latinnews-data-collection.html
 # MS Word lock files
 ~$*.docx
 ~$*.doc
+
+# Python bytecode
+__pycache__/
+*.pyc
