@@ -1,25 +1,30 @@
 """Worked examples. Real engagements, no client named, one shape for every card."""
 
 CARDS = [
-    ('The headline number was double the real one',
-     'The same desk, six months later.',
+    ('The regulation you did not see coming',
+     'The EU government affairs team of a major US oil and gas producer. Proposal, February 2026.',
      'assets/example-evidence.jpg',
-     'Working papers. The export figure had to be rebuilt from the licence terms rather than read off the trade data.',
+     'The record is public and scattered. Legislation, votes, consultations and committee activity are published '
+     'by different institutions on different days and never in one place.',
      [('The situation',
-       'Oil exports were reported at close to double the previous year, and the market read the figure as capacity '
-       'to pay.'),
-      ('The question', 'How much of that actually reaches the state?'),
+       'A government affairs team was tracking European regulation by hand, across institutions that publish '
+       'continuously and never in the same place.'),
+      ('The question',
+       'Which of the things moving in Brussels actually touches our assets, and how early can we see one coming?'),
       ('What the evidence showed',
-       'The export figure is gross. Four deductions come off before any of it is available. The operating majors '
-       'recover their costs under the licences they work under. An administration fee applies to sanctioned-channel '
-       'sales. Royalties are paid in kind rather than cash. And the largest single operator keeps its dollar revenue '
-       'offshore by design. Working each deduction against the licence terms and the reported volumes left roughly '
-       'half the headline, and the gap was large enough to change the conclusion rather than refine it.'),
+       'Almost all of it is public and almost none of it is usable as a record. Adopted law sits in EUR-Lex and the '
+       'Official Journal, positions show up in committee activity and roll-call votes, direction comes from Council '
+       'outcomes and Commission press, and the detail arrives in consultations run by the climate, energy and '
+       'environment directorates. Reading them is not the hard part. Knowing which document touches your own '
+       'exposure is. We mapped the team’s assets onto the policy domains that could move them, which were '
+       'methane, the carbon border mechanism, emissions trading, hydrogen classification, gas and LNG policy, '
+       'sustainability reporting and refining standards, and scored each document against those rather than '
+       'against general interest.'),
       ('What it changed',
-       'Any capacity-to-pay model built on the export print overstated the position by close to half. The number '
-       'that mattered had to be built from the licence terms rather than read off the trade data. The two things to '
-       'watch are changes to those terms and grid failures that cap output, because both move the real figure '
-       'without moving the headline.')]),
+       'The proposal replaced manual monitoring with a pipeline that reads those sources continuously, scores each '
+       'document against the team’s own exposure, and flags a domain when its volume breaks from its own '
+       'baseline. One regulatory change landing unseen costs more than watching for it does, and that was the '
+       'argument the team needed to make internally.')]),
     ('The deal that was not yours still moved your position',
      'A US company holding substantial unpaid arbitration awards against a sovereign, with no operations in the '
      'country. April 2026.',
