@@ -168,3 +168,5 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 .we-figure{margin:20px 0 0}
 .we-figure img{display:block;width:100%;height:auto;border-radius:10px}
 .we-figure figcaption{margin-top:10px;font-size:13px;line-height:1.55;color:var(--muted,#6E7B85);max-width:620px}
+/* A single-item group is a link. Match the menu summaries beside it. */
+.nav-direct{display:flex;align-items:center;padding:18px 0}

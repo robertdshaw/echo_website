@@ -12,13 +12,15 @@ GROUPS = [
     ('Our work', [
         ('government-affairs.html','Government affairs','Policy, stakeholders, and operating assets.'),
         ('distressed-debt.html','Distressed debt','Political assumptions and counterparty research.'),
+        ('engagement.html','Working with EchoFrame','Formats, scope, and delivery.')]),
+    ('Cases', [
         ('case-study-venezuela.html','Case study, Venezuela','A call made before the outcome.'),
         ('worked-examples.html','Worked examples','Three pieces of work, and what each changed.'),
-        ('engagement.html','Working with EchoFrame','Formats, scope, and delivery.')]),
+        ]),
+    ('Training', 'frame-bureau.html'),
     ('About', [
         ('about.html','About EchoFrame','The purpose and approach behind the research.'),
         ('how-it-works.html','How it works','The six steps, and how a development is confirmed.'),
-        ('frame-bureau.html','The Frame Bureau','Training an institution to run its own desk.'),
         ('trust.html','Trust & privacy','Evidence, information handling, and boundaries.'),
         ('editorial-standards.html','Editorial standards','Attribution, uncertainty, and corrections.')])
 ]
@@ -28,6 +30,10 @@ def navigation(prefix='', lang='en'):
     result=''
     for title,items in GROUPS:
         label = GROUPS_ES[title] if lang=='es' else title
+        if isinstance(items, str):
+            # A group of one is a link, not a menu to open.
+            result += f'<a class="nav-direct" href="{prefix}{items}">{E(label)}</a>'
+            continue
         panel_label = f'{label} (en inglés)' if lang=='es' else label
         result+=f'<details class="nav-group"><summary>{E(label)}</summary><div class="nav-panel"><div class="nav-panel-label">{E(panel_label)}</div>'
         for url,item_label,desc in items:

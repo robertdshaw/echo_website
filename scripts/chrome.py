@@ -70,6 +70,8 @@ CHROME = {
 # the panel label states rather than leaving the reader to discover it.
 GROUPS_ES = {
     'Our work': 'Nuestro trabajo',
+    'Cases': 'Casos',
+    'Training': 'Formación',
     'About': 'Quiénes somos',
 }
 
