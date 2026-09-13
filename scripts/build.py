@@ -20,6 +20,7 @@ from testimonials import testimonials
 from map_data import build_map_data
 from map_page import map_page
 from placeholders import worked_example
+from page_presentation import enquiry_policy
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT  # Source pages are checked in; Render serves the same generated files.
@@ -77,9 +78,9 @@ def layout(title, body, page='home', prefix='', description='', lang='en'):
 <meta property="og:title" content="{E(title)} | EchoFrame"><meta property="og:description" content="{E(description or 'A clearer view of a complex world. Explore EchoFrame research, coverage, and methodology.')}"><meta property="og:type" content="{'article' if page=='article' else 'website'}"><meta property="og:image" content="{prefix}assets/social-card.png">
 <link rel="icon" href="{prefix}favicon.png"><link rel="stylesheet" href="{prefix}assets/site.css"><link rel="stylesheet" href="{prefix}assets/presence.css"><link rel="stylesheet" href="{prefix}assets/depth.css"><link rel="stylesheet" href="{prefix}assets/refinements.css"><link rel="stylesheet" href="{prefix}assets/bureau.css"><script defer src="{prefix}assets/site.js"></script></head>
 <body class="page-{page}"><a class="skip-link" href="#main">Skip to content</a><div class="topline"><div class="container"><span>✳ &nbsp; A closer view of Venezuela. Our lead research programme is taking shape.</span><a href="{prefix}venezuela.html">Explore the programme </a></div></div>
-<header class="site-header"><div class="container nav-shell">{brand(prefix)}<button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button><nav id="main-nav" aria-label="Main navigation">{links}<a class="nav-contact" href="{prefix}briefing.html">Request a demo {ARROW}</a></nav></div></header>
+<header class="site-header"><div class="container nav-shell">{brand(prefix)}<button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button><nav id="main-nav" aria-label="Main navigation">{links}</nav></div></header>
 <main id="main">{body}</main>
-<footer class="site-footer"><div class="container"><div class="footer-top"><div>{brand(prefix)}<p>A clearer view of a complex world.</p><span class="eyebrow">Evidence. Context. Judgment.</span></div><div><h2>Explore</h2><a href="{prefix}capabilities.html">Research capabilities</a><a href="{prefix}government-affairs.html">Government affairs</a><a href="{prefix}distressed-debt.html">Distressed debt</a><a href="{prefix}venezuela.html">Venezuela programme</a><a href="{prefix}research.html">Intelligence library</a><a href="{prefix}coverage.html">Regional coverage</a><a href="{prefix}methodology.html">Our approach</a></div><div><h2>Connect</h2><a href="{prefix}briefing.html?kind=contact">Contact us</a><a href="{prefix}engagement.html">Working with EchoFrame</a><a href="mailto:contact@echoframe.co">contact@echoframe.co</a><a href="https://ie.linkedin.com/company/echoframing" target="_blank" rel="noopener noreferrer">LinkedIn </a></div><div><h2>Company</h2><a href="{prefix}about.html">About EchoFrame</a><a href="{prefix}trust.html">Trust &amp; privacy</a><a href="{prefix}sample-briefs.html">Sample briefs &amp; templates</a><a href="{prefix}sources.html">Primary-source directory</a><a href="{prefix}editorial-standards.html">Editorial standards</a><a href="{prefix}{'index.html' if lang=='es' else 'es/index.html'}" lang="{'en' if lang=='es' else 'es'}">{'English' if lang=='es' else 'En español'}</a></div></div><div class="footer-bottom"><span>© 2026 {E(SITE['legal_name'])}{' · '+E(SITE['registration_line']) if SITE['registration_line'] else ''}</span><span><a href="{prefix}privacy.html">Privacy</a><span class="meta-dot">/</span>Intelligence with perspective.</span><a href="#main">Back to top </a></div></div></footer></body></html>'''
+<footer class="site-footer"><div class="container"><div class="footer-top"><div>{brand(prefix)}<p>A clearer view of a complex world.</p><span class="eyebrow">Evidence. Context. Judgment.</span></div><div><h2>Explore</h2><a href="{prefix}capabilities.html">Research capabilities</a><a href="{prefix}government-affairs.html">Government affairs</a><a href="{prefix}distressed-debt.html">Distressed debt</a><a href="{prefix}venezuela.html">Venezuela programme</a><a href="{prefix}research.html">Intelligence library</a><a href="{prefix}coverage.html">Regional coverage</a><a href="{prefix}methodology.html">Our approach</a></div><div><h2>Connect</h2><a href="{prefix}engagement.html">Working with EchoFrame</a><span>contact@echoframe.co</span><a href="https://ie.linkedin.com/company/echoframing" target="_blank" rel="noopener noreferrer">LinkedIn </a></div><div><h2>Company</h2><a href="{prefix}about.html">About EchoFrame</a><a href="{prefix}trust.html">Trust &amp; privacy</a><a href="{prefix}sample-briefs.html">Sample briefs &amp; templates</a><a href="{prefix}sources.html">Primary-source directory</a><a href="{prefix}editorial-standards.html">Editorial standards</a><a href="{prefix}{'index.html' if lang=='es' else 'es/index.html'}" lang="{'en' if lang=='es' else 'es'}">{'English' if lang=='es' else 'En español'}</a></div></div><div class="footer-bottom"><span>© 2026 {E(SITE['legal_name'])}{' · '+E(SITE['registration_line']) if SITE['registration_line'] else ''}</span><span><a href="{prefix}privacy.html">Privacy</a><span class="meta-dot">/</span>Intelligence with perspective.</span><a href="#main">Back to top </a></div></div></footer></body></html>'''
 
 
 def cta(prefix=''):
@@ -158,7 +159,7 @@ def methodology():
 
 
 def frame_bureau_summary():
-    return '<section class="section container" id="frame-bureau"><h2>The Frame Bureau</h2><p>The Frame Bureau is EchoFrame’s training division. It brings investigative journalism, data science and political risk analysis into practical work on research questions. Participants check sources, distinguish evidence from assumptions, write assessments and review them when the evidence changes.</p><p>Training is available on request through <a href="mailto:contact@echoframe.co">contact@echoframe.co</a>.</p></section>'
+    return '<section class="section container" id="frame-bureau"><h2>The Frame Bureau</h2><p>The Frame Bureau is EchoFrame’s training division. It brings investigative journalism, data science and political risk analysis into practical work on research questions. Participants check sources, distinguish evidence from assumptions, write assessments and review them when the evidence changes.</p><p>Training is available on request through <span>contact@echoframe.co</span>.</p></section>'
 
 
 def about():
@@ -226,7 +227,7 @@ def globe():
 
 def write(path, title, body, page='home', prefix='', lang='en', description=''):
     dest=OUT/path; dest.parent.mkdir(parents=True,exist_ok=True)
-    dest.write_text(layout(title,body,page,prefix,description,lang),encoding='utf-8')
+    dest.write_text(layout(title,enquiry_policy(body,path),page,prefix,description,lang),encoding='utf-8')
     GENERATED.append(path)
 
 
