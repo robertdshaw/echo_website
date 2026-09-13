@@ -152,7 +152,36 @@ def coverage():
 
 
 def about():
-    return intro('About EchoFrame','Independent thinking.<br><em>Connected intelligence.</em>','EchoFrame serves oil and gas government affairs teams and distressed-debt and special-situations investors. Venezuela is our lead programme. Our second area is European energy policy.')+'''<section class="about-story container"><div class="about-visual"><span class="eyebrow">ECHOFRAME</span>'''+MARK+'''<span>Research and assessment</span></div><div><div class="eyebrow">Why we exist</div><h2>The event is only part of the story.</h2><p>The value of an observation depends on its context: the actors involved, the incentives at work, the history behind it, and the plausible paths ahead.</p><p>Our Venezuela programme examines how national context, local reporting, official records and physical observations inform decisions about particular assets. The connected event and forecasting workflow remains in development. Our regional focus is Venezuela and European energy policy.</p><a class="text-link" href="methodology.html">Explore the approach </a></div></section><section class="section container"><div class="section-heading"><div><div class="eyebrow">Designed around the question</div><h2>Different decisions. Shared context.</h2></div></div><div class="standards-grid"><div><span class="eyebrow">01</span><h3>Government affairs</h3><p>Research for oil and gas government affairs teams examining policy decisions, the institutions responsible and the evidence around an operating asset. The work helps prepare questions for stakeholder meetings and internal briefings.</p></div><div><span class="eyebrow">02</span><h3>Distressed debt and special situations</h3><p>Research for investors examining the political, counterparty and operating assumptions behind an investment. The work identifies which developments would support a view, challenge it or leave it unresolved.</p></div><div><span class="eyebrow">03</span><h3>Venezuela</h3><p>Our lead programme connects national decisions with local evidence around assets and contracts. Collection follows the question being investigated and the evidence needed to answer it.</p></div></div></section>'''+video_section()+testimonials()+''''''+faq()+cta()
+    story = ('<section class="about-story container"><div class="about-visual"><span class="eyebrow">ECHOFRAME</span>'
+             + MARK + '<span>Research and assessment</span></div><div><div class="eyebrow">In the first person</div>'
+             '<h2>The same observation, twice.</h2>'
+             '<p>I spent twenty years reporting from and working in places where the information was thin, mostly '
+             'Latin America, and then a decade building the data systems that try to fill that gap.</p>'
+             '<p>EchoFrame came out of the same observation twice. The people who know what is happening in a place '
+             'are usually the local journalists, and nobody is paying them for it. Everything we build starts '
+             'there.</p><p class="eyebrow">Robert Shaw, founder</p></div></section>')
+    cards = [
+        ('Government affairs',
+         'Oil and gas government affairs teams use the record to see which decisions and relationships change the '
+         'conditions around an operating asset, and what still has to happen before an announcement becomes a fact '
+         'on the ground.'),
+        ('Distressed debt and special situations',
+         'Funds use it to test the political and operating assumptions inside an investment case, and to see which '
+         'developments would support a view, challenge it or leave it unresolved.'),
+        ('Venezuela',
+         'Our working programme, and the one the rest is built from. Collection follows the question being '
+         'investigated and the evidence needed to answer it.'),
+    ]
+    grid = ''.join(f'<div><span class="eyebrow">{i:02d}</span><h3>{title}</h3><p>{body}</p></div>'
+                   for i, (title, body) in enumerate(cards, 1))
+    return (intro('About EchoFrame', 'Why the company exists',
+                  'The people who know what is happening in a place are usually the local journalists. Everything we '
+                  'build starts there.')
+            + story
+            + '<section class="section container"><div class="section-heading"><div><div class="eyebrow">Designed '
+              'around the question</div><h2>Different decisions. One record.</h2></div></div>'
+              f'<div class="standards-grid">{grid}</div></section>'
+            + video_section() + testimonials() + faq() + cta())
 
 
 def briefing():
