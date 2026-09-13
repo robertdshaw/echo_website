@@ -1,6 +1,6 @@
 # EchoFrame research mandate template
 
-Purpose: prepare a non-confidential research scoping conversation.
+This template prepares a non-confidential research scoping conversation.
 
 ## Decision
 - Who will use the research?

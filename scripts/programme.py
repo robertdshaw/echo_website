@@ -19,7 +19,7 @@ def question_preview():
 
 
 def venezuela_page(intro, cta):
-    return intro('EchoFrame Venezuela / Country direction and commercial exposure', 'Understand the paths ahead<br><em>Test what they mean for you</em>', 'Venezuela reporting, turned into a structured assessment of risk, dated questions and the conditions an opportunity must meet. Start with the country picture, then work down to the decision on your desk.')+brief_structure() + '''
+    return intro('EchoFrame Venezuela / Country direction and commercial exposure', 'What the Venezuela programme covers', 'Venezuela reporting, turned into a structured assessment of risk, dated questions and the conditions an opportunity must meet. Start with the country picture, then work down to the decision on your desk.')+brief_structure() + '''
 <section class="programme-note container"><span class="eyebrow">Where the programme stands</span><p>The product framework brings risk dimensions, dated questions and commercial criteria together. Collection scope, delivery cadence, and access are agreed for each engagement.</p></section>
 
 ''' + cta()
@@ -32,7 +32,7 @@ def evidence_methodology(intro, cta):
         ('Places, actors & event types', 'Extract where an item refers to, who is involved, and what kind of event it describes. Preserve uncertain or unmatched references for review.', 'Extraction components need to be connected and their outputs retained.'),
         ('Location & precision', 'Relate events to assets and administrative areas. A state-level report should be shown at state level, not as an apparently precise facility pin.', 'Spatial event analysis is planned.'),
         ('Events & corroboration', 'Group reports about the same event, inspect whether their sources are independent, and preserve both supporting and contradictory accounts. Keep freshness visible as a separate property.', 'Event grouping and corroboration are planned.'),
-        ('Asset viability', 'Keep analyst judgments about contractual and operating viability alongside event evidence. Cite the document behind each assessed criterion and flag missing evidence.', 'An analyst-fed component is reported to exist; client presentation and event-triggered review need integration.'),
+        ('Asset viability', 'Keep analyst judgements about contractual and operating viability alongside event evidence. Cite the document behind each assessed criterion and flag missing evidence.', 'An analyst-fed component is reported to exist; client presentation and event-triggered review need integration.'),
         ('Question-level inference', 'Define a question, its initial judgment, and the evidence that could change it. Record the rationale for updates. Evidence weights require review and evaluation before any claim of calibrated probability.', 'A connected question-forecasting workflow is in development.'),
         ('Resolution & review', 'Resolve each question against its predefined rule. Preserve unsuccessful forecasts, review errors, and compare performance with a stated benchmark. Leave questions unresolved when their evidence rule is not met.', 'An evaluation component is reported to exist; a validated track record is not established.')
     ]
