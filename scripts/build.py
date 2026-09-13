@@ -12,6 +12,8 @@ from experience import hero as research_hero, formats, faq
 from depth import PAGES, write_downloads
 from samples import SAMPLES, sample_library, sample_page, write_sample_downloads
 from site_navigation import navigation, home_directory
+from chrome import CHROME
+from spanish_page import page as spanish_page
 from visuals import video_section
 from homepage import claims
 from how_it_works import page as how_it_works_page
@@ -72,16 +74,17 @@ def layout(title, body, page='home', prefix='', description='', lang='en'):
         text = ''.join(part if part.startswith('<') else re.sub(r'\.(?=\s|$|[”’\"])', '', part) for part in parts)
         return match.group(1) + text + match.group(3)
     body = re.sub(r'(<h[1-4]\b[^>]*>)(.*?)(</h[1-4]>)', clean_heading, body, flags=re.DOTALL)
-    links = navigation(prefix)
+    C = CHROME[lang]
+    links = navigation(prefix, lang)
     return f'''<!DOCTYPE html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f7f6f2">
-<title>{E(title)} | EchoFrame</title><meta name="description" content="{E(description or 'Political intelligence for oil and gas government affairs teams and distressed-debt investors. Explore asset-level questions, policy context, and the Venezuela programme.')}">
-<meta property="og:title" content="{E(title)} | EchoFrame"><meta property="og:description" content="{E(description or 'Research on political decisions and their consequences. Explore EchoFrame research, coverage, and methodology.')}"><meta property="og:type" content="{'article' if page=='article' else 'website'}"><meta property="og:image" content="{prefix}assets/social-card.png">
+<title>{E(title)} | EchoFrame</title><meta name="description" content="{E(description or C['description'])}">
+<meta property="og:title" content="{E(title)} | EchoFrame"><meta property="og:description" content="{E(description or C['og_description'])}"><meta property="og:type" content="{'article' if page=='article' else 'website'}"><meta property="og:image" content="{prefix}assets/social-card.png">
 <link rel="icon" href="{prefix}favicon.png"><link rel="stylesheet" href="{prefix}assets/site.css"><link rel="stylesheet" href="{prefix}assets/presence.css"><link rel="stylesheet" href="{prefix}assets/depth.css"><link rel="stylesheet" href="{prefix}assets/refinements.css"><link rel="stylesheet" href="{prefix}assets/bureau.css"><script defer src="{prefix}assets/site.js"></script></head>
-<body class="page-{page}"><a class="skip-link" href="#main">Skip to content</a><div class="topline"><div class="container"><span>✳ &nbsp; A closer view of Venezuela. Our lead research programme is taking shape.</span><a href="{prefix}venezuela.html">Explore the programme </a></div></div>
-<header class="site-header"><div class="container nav-shell">{brand(prefix)}<button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button><nav id="main-nav" aria-label="Main navigation">{links}</nav></div></header>
+<body class="page-{page}"><a class="skip-link" href="#main">{C['skip']}</a><div class="topline"><div class="container"><span>✳ &nbsp; {C['announce']}</span><a href="{prefix}venezuela.html">{C['announce_link']} </a></div></div>
+<header class="site-header"><div class="container nav-shell">{brand(prefix)}<button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">{C['menu']} <span aria-hidden="true">☰</span></button><nav id="main-nav" aria-label="{C['nav_label']}">{links}</nav></div></header>
 <main id="main">{body}</main>
-<footer class="site-footer"><div class="container"><div class="footer-top"><div>{brand(prefix)}<p>Research on political decisions and their consequences.</p><span class="eyebrow">Venezuela and European energy policy</span></div><div><h2>Explore</h2><a href="{prefix}capabilities.html">Research capabilities</a><a href="{prefix}government-affairs.html">Government affairs</a><a href="{prefix}distressed-debt.html">Distressed debt</a><a href="{prefix}venezuela.html">Venezuela programme</a><a href="{prefix}research.html">Intelligence library</a><a href="{prefix}coverage.html">Regional coverage</a><a href="{prefix}how-it-works.html">How it works</a></div><div><h2>Connect</h2><a href="{prefix}engagement.html">Working with EchoFrame</a><span>contact@echoframe.co</span><a href="https://ie.linkedin.com/company/echoframing" target="_blank" rel="noopener noreferrer">LinkedIn </a></div><div><h2>Company</h2><a href="{prefix}about.html">About EchoFrame</a><a href="{prefix}trust.html">Trust &amp; privacy</a><a href="{prefix}sample-briefs.html">Sample briefs &amp; templates</a><a href="{prefix}sources.html">Primary-source directory</a><a href="{prefix}editorial-standards.html">Editorial standards</a><a href="{prefix}{'index.html' if lang=='es' else 'es/index.html'}" lang="{'en' if lang=='es' else 'es'}">{'English' if lang=='es' else 'En español'}</a></div></div><div class="footer-bottom"><span>© 2026 {E(SITE['legal_name'])}{' · '+E(SITE['registration_line']) if SITE['registration_line'] else ''}</span><span><a href="{prefix}privacy.html">Privacy</a><span class="meta-dot">/</span>EchoFrame research</span><a href="#main">Back to top </a></div></div></footer></body></html>'''
+<footer class="site-footer"><div class="container"><div class="footer-top"><div>{brand(prefix)}<p>{C['tagline']}</p><span class="eyebrow">{C['regions']}</span></div><div><h2>{C['explore']}</h2><a href="{prefix}capabilities.html">{C['f_capabilities']}</a><a href="{prefix}government-affairs.html">{C['f_government']}</a><a href="{prefix}distressed-debt.html">{C['f_credit']}</a><a href="{prefix}venezuela.html">{C['f_venezuela']}</a><a href="{prefix}research.html">{C['f_library']}</a><a href="{prefix}coverage.html">{C['f_coverage']}</a><a href="{prefix}how-it-works.html">{C['f_how']}</a></div><div><h2>{C['connect']}</h2><a href="{prefix}engagement.html">{C['f_engagement']}</a><span>contact@echoframe.co</span><a href="https://ie.linkedin.com/company/echoframing" target="_blank" rel="noopener noreferrer">LinkedIn </a></div><div><h2>{C['company']}</h2><a href="{prefix}about.html">{C['f_about']}</a><a href="{prefix}trust.html">{C['f_trust']}</a><a href="{prefix}sample-briefs.html">{C['f_samples']}</a><a href="{prefix}sources.html">{C['f_sources']}</a><a href="{prefix}editorial-standards.html">{C['f_standards']}</a><a href="{prefix}{'index.html' if lang=='es' else 'es/index.html'}" lang="{'en' if lang=='es' else 'es'}">{'English' if lang=='es' else 'En español'}</a></div></div><div class="footer-bottom"><span>© 2026 {E(SITE['legal_name'])}{' · '+E(SITE['registration_line']) if SITE['registration_line'] else ''}</span><span><a href="{prefix}privacy.html">{C['privacy']}</a><span class="meta-dot">/</span>{C['research_mark']}</span><a href="#main">{C['top']} </a></div></div></footer></body></html>'''
 
 
 def cta(prefix=''):
@@ -156,7 +159,7 @@ def privacy():
 
 
 def spanish():
-    return intro('Inteligencia geopolítica','Entienda las señales.<br><em>Amplíe la perspectiva.</em>','Investigación de fuentes abiertas, contexto regional y análisis estructurado para comprender un mundo conectado.')+'''<section class="prose-page container"><h2>Del acontecimiento al contexto.</h2><p>EchoFrame trabaja para equipos de asuntos gubernamentales del sector del petróleo y el gas e inversores en deuda en dificultades y situaciones especiales.</p><p>Venezuela es nuestro programa principal. Nuestra segunda área es la política energética europea. El programa de Venezuela se está desarrollando en torno a activos concretos, hechos locales, fuentes que discrepan y preguntas con una fecha y una regla de resolución. La integración de eventos y pronósticos sigue en desarrollo.</p><p><a href="../venezuela.html">Conozca el programa de Venezuela (en inglés) </a></p><h2>Explore nuestra investigación.</h2><p>La biblioteca en inglés incluye ensayos, guías regionales y cuadernos de metodología. La colección inicial explica cómo evaluar fuentes, interpretar señales y formular preguntas de investigación. No presenta pronósticos de mercado en tiempo real.</p><div class="hero-actions"><a class="button" href="../research.html">Explorar la biblioteca en inglés </a><a class="text-link" href="../coverage.html">Ver cobertura </a></div><h2>Conversemos sobre sus prioridades.</h2><p>Escríbanos con la región y las preguntas que le interesan. Podemos comentar el alcance de la investigación y las opciones de acceso.</p><a class="button" href="mailto:contact@echoframe.co?subject=Consulta%20sobre%20EchoFrame">Contactar con EchoFrame </a></section>'''
+    return spanish_page(intro)
 
 
 def globe():
@@ -232,7 +235,7 @@ def main():
     write('briefing.html','Book a briefing',briefing(),'briefing')
     write('editorial-standards.html','Editorial standards',standards(),'standards')
     write('privacy.html','Privacy',privacy(),'privacy')
-    write('es/index.html','Inteligencia geopolítica',spanish(),'home','../','es')
+    write('es/index.html','Inteligencia continua',spanish(),'home','../','es')
     for a in ARTICLES:
         write(f'research/{a["slug"]}.html',a['title'],article_page(a),'article','../',description=a['dek'])
     write('404.html','Page not found',intro('404 / Outside the frame','Let’s find<br><em>a better direction.</em>','The page you requested could not be found.')+'<div class="container section"><a class="button" href="index.html">Return to the homepage </a></div>')

@@ -1,5 +1,6 @@
 """Shared navigation for the full research website."""
 from html import escape as E
+from chrome import GROUPS_ES, ITEMS_ES
 
 GROUPS = [
     ('Capabilities', [
@@ -27,14 +28,19 @@ GROUPS = [
 ]
 
 
-def navigation(prefix=''):
+def navigation(prefix='', lang='en'):
     result=''
     for title,items in GROUPS:
+        label = GROUPS_ES[title] if lang=='es' else title
         if title == 'Research':
-            result += '<button class="nav-disabled" type="button" disabled aria-disabled="true">Research</button>'
+            result += f'<button class="nav-disabled" type="button" disabled aria-disabled="true">{E(label)}</button>'
             continue
-        result+=f'<details class="nav-group"><summary>{title}</summary><div class="nav-panel"><div class="nav-panel-label">{title}</div>'
-        result+=''.join(f'<a href="{prefix}{url}"><strong>{E(label)}</strong><small>{E(desc)}</small></a>' for url,label,desc in items)
+        panel_label = f'{label} (en inglés)' if lang=='es' else label
+        result+=f'<details class="nav-group"><summary>{E(label)}</summary><div class="nav-panel"><div class="nav-panel-label">{E(panel_label)}</div>'
+        for url,item_label,desc in items:
+            if lang=='es':
+                item_label,desc = ITEMS_ES.get(url,(item_label,desc))
+            result+=f'<a href="{prefix}{url}"><strong>{E(item_label)}</strong><small>{E(desc)}</small></a>'
         result+='</div></details>'
     return result+f'<a href="{prefix}venezuela.html">Venezuela</a>'
 
