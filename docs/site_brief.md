@@ -101,8 +101,8 @@ Four cards, each real, none named, each in the same shape: the situation in one 
 2. The same desk, six months later. An export headline that was double the real number once the licence terms were worked through.
 3. A US company holding arbitration awards. Why two competitors swapping assets moved its position, and why the claims were leverage rather than history.
 4. A distressed fund with no position. Which claim in a creditor queue, in what structure, below what price. Labelled as scoping work.
-5. A Gulf leadership institute. A five-module programme that leaves the institution running its own desk. [[ROB: confirm this can be described at all]]
-6. A Gulf state capability build. Designing an internal open-source function with the work handed over. [[ROB: confirm]]
+5. A national leadership institute in the Gulf. A five-module programme that leaves the institution running its own desk. Goes on the Frame Bureau page.
+6. A Gulf government. Designing an internal open-source function with the work handed over.
 
 ### The Frame Bureau
 
@@ -110,7 +110,7 @@ Its own page, built from the QLC page with the client-specific parts removed. Ke
 
 ### Interrogate the desk
 
-The chat on the client brief page is the best demonstration EchoFrame has, because a reader can try to break it. Put a version of it on the site, restricted to public material, with the two starter questions and the rule stated plainly: it answers only from the material on the page, it cites what it used, it does not hedge, and if you ask what would change its mind it will tell you. [[ROB: decide whether this is public or behind the contact form]]
+The chat on the client brief page is the best demonstration EchoFrame has, because a reader can try to break it. Put a version of it on the site, restricted to public material, with the two starter questions and the rule stated plainly: it answers only from the material on the page, it cites what it used, it does not hedge, and if you ask what would change its mind it will tell you. On the public site this appears as a static exchange with a link into the live demo, not as an input box. The working version sits inside the demo.
 
 ### Coverage
 
@@ -162,25 +162,25 @@ House rules everywhere, including Spanish:
 - Sentence case headings. British spelling.
 - Remove these words used as selling points: convergence, signals, frames, layers, pre-news window, decision-grade, anticipatory governance.
 - Never state the same idea on two pages.
-- Never invent a fact, figure, date, client name or capability. Where the brief does not supply one, leave a visible [[ROB: ...]] marker.
+- Never invent a fact, figure, date, client name or capability. Where the brief does not supply something you need, stop and ask Rob in chat before writing that section. Do not leave placeholder markers in the content.
 - Never name a client. Describe by type and size only.
 
 Items, in order:
 1. Home. Headline, standfirst, three blocks and closing line from the brief. Remove the Middle East and Mexican energy positioning.
 2. How it works. New page. The six-step loop and the five operations, taken from the Frame Bureau reference and shortened by about a third, then corroboration and questions and scoring. Leave a placeholder div id "loop-diagram" for the loop graphic.
 3. Case study, Venezuela. New page. Copy from the brief, client anonymised. Leave a placeholder div id "venezuela-series" for the four-line chart.
-4. Worked examples. New page, four cards from docs/worked_examples.md, same structure each. Two further cards marked [[ROB]] pending confirmation.
+4. Worked examples. New page. Cards 1 to 4 and card 6 from docs/worked_examples.md, same structure each, plus the chat teaser at the foot as a static exchange linking to the demo. Card 5 goes on the Frame Bureau page.
 5. Frame Bureau. Rebuild from the reference page with the QLC-specific material and the embedded chat removed. Keep the loop, the five operations, the five modules, the bench and the four engagement steps.
 6. Coverage. Live, In build, Next, as in the brief. Keep the coming-soon countries. The EU tracker becomes available to clients on request, field guide link retained.
-7. About. Three cards: Government affairs, Distressed debt and special situations, Venezuela. Keep both testimonials exactly. Add the first-person paragraph from the brief if Rob has supplied one, else mark it [[ROB]].
+7. About. Three cards: Government affairs, Distressed debt and special situations, Venezuela. Keep both testimonials exactly. Add the first-person paragraph from the brief.
 8. Engagement. Three formats renamed Scoping conversation, Focused assessment, Continuous coverage. One paragraph each.
 9. Contact form. Seven or eight fields, one button, sends and confirms. Remove the copy-this-text fallback, the request-type selector and the research expander. Change the server if needed.
 10. Calls to action. At most one per page, never the same wording twice, none on reference pages.
 11. Remove from every page: prospect theory, the five named scenarios, and any claim that a capability is in use when the brief does not say it is.
-12. Spanish mirror. Translate every changed page. Where unsure of register, leave the English and mark [[ROB: translate]].
+12. Spanish mirror. Translate every changed page. Where you are unsure of the register, list the sentence in the final report and translate it as best you can rather than leaving English on the page.
 13. Style pass over every remaining page including the downloadable templates and the 404.
 
-Finish with docs/content_rewrite_report.md: every file changed, every [[ROB]] marker with its page and line, everything removed and why, and any place the brief and the existing content conflicted.
+Finish with docs/content_rewrite_report.md: every file changed, everything removed and why, any place the brief and the existing content conflicted, and any sentence you were unsure of. Nothing on any page may contain a placeholder marker.
 ```
 
 ---

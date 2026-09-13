@@ -4,7 +4,7 @@ The single source of truth for how EchoFrame is described. Every page on the sit
 
 The tone to match is docs/reference/frame_bureau_qlc.html. It explains a method in plain words, it is concrete, it says what the judgement was and why, and it never uses an abstract noun as a selling point.
 
-Two settled rules. No figure taken from client work appears anywhere on the public site; where a number carried an argument, use the proportion or the direction instead. The channel partner is never named and is described as a London-based advisory partner.
+Three settled rules. Nothing on the site carries a placeholder or an editor's marker; if something is not settled here, ask before writing it. No figure taken from client work appears anywhere on the public site; where a number carried an argument, use the proportion or the direction instead. The channel partner is never named and is described as a London-based advisory partner.
 
 ## Part 1. What EchoFrame is
 
@@ -53,6 +53,10 @@ It looks like a different business and it is not. In Venezuela the problem is th
 Venezuela is the working programme. Two years of archive, a structured event record for the eastern oil states, and a correspondent agreement in progress.
 
 Next are Colombia, Mexico, Rwanda and Pakistan. Each chosen for the same three reasons: real capital exposure outside the capital, thin local reporting, and a newsroom or institutional relationship we can build the collection on.
+
+### Why the company exists, in the first person
+
+I spent twenty years reporting from and working in places where the information was thin, mostly Latin America, and then a decade building the data systems that try to fill that gap. EchoFrame came out of the same observation twice. The people who know what is happening in a place are usually the local journalists, and nobody is paying them for it. Everything we build starts there.
 
 ### Two lines the company also sells
 

@@ -111,8 +111,6 @@ A short snapshot of the live question and answer tool, shown as a static exchang
 
 [Try it on a live desk] links to the demo.
 
-[[ROB: confirm this snapshot is accurate enough to publish, or replace it with a real exchange from the brief page.]]
-
 ---
 
 ## Notes for the build
