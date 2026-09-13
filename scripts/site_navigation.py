@@ -24,7 +24,7 @@ GROUPS = [
 
 
 def navigation(prefix='', lang='en'):
-    result=''
+    result=f'<a href="{prefix}services.html">Services</a>'
     for title,items in GROUPS:
         label = GROUPS_ES[title] if lang=='es' else title
         panel_label = f'{label} (en inglés)' if lang=='es' else label

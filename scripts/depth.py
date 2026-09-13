@@ -103,6 +103,7 @@ def engagement():
     return (opening('Working with EchoFrame', 'Start with the decision, then agree the work it needs.',
                     'Tell us the decision you face and the time you have. We can then discuss the research, the sources and the format that would help. Scope, timing and fees are agreed before work begins.')
             + '<section class="section container"><div class="engagement-grid">' + grid + '</div></section>'
+            + '<div class="container prose-page"><p>These are the shapes an engagement takes. What you actually receive is set out on <a href="services.html">what we deliver</a>.</p></div>'
             + STAGES_BLOCK
             + '<section class="section container"><div class="section-heading"><div><div class="eyebrow">Prepare for the first conversation</div><h2>Bring four things.</h2></div></div>'
             + cards([('The subject', 'An asset, contract, counterparty, institution or place at the right level of specificity.'),

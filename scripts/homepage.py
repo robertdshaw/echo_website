@@ -12,6 +12,9 @@ def claims():
         ('03 / What you get', 'A record, not a report',
          'A dated record of developments at named assets, a short list of written questions with dates on them, '
          'and a probability on each that moves only when the evidence does.'),
+        ('04 / What we deliver', 'Three things to subscribe to, three to commission',
+         'Asset Watch covers the assets you name. Question Book answers the questions you have to settle. Ground '
+         'Truth files reporting from the places we cover. <a href="services.html">See what we deliver</a>.'),
     ]
     blocks = ''.join(
         f'<section class="home-claim" aria-labelledby="claim-{i}"><div class="eyebrow">{kicker}</div>'

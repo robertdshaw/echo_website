@@ -21,6 +21,7 @@ from case_study import page as case_study_page
 from worked_examples import page as worked_examples_page
 from frame_bureau import page as frame_bureau_page
 from coverage_page import page as coverage_page
+from services import page as services_page
 from contact import contact_page
 from testimonials import testimonials
 from page_presentation import enquiry_policy
@@ -180,6 +181,7 @@ def main():
     write('site.html','A clearer view of a complex world',home())
     write('government-affairs.html','Oil & gas government affairs',audience_page('government'),'government',description='Political intelligence for oil and gas government affairs teams. Scope research on stakeholders, policy milestones, and the evidence around operating assets.')
     write('distressed-debt.html','Distressed debt & special situations',audience_page('credit'),'credit',description='Political and asset-level research for distressed-debt investors. Frame thesis questions, inspect counterparty narratives, and identify evidence worth reviewing.')
+    write('services.html','What we deliver',services_page(intro),'services')
     write('coverage.html','Regional coverage',coverage_page(intro),'coverage')
     write('venezuela.html','Venezuela · Asset-level intelligence',venezuela_page(intro,cta),'venezuela')
     write('how-it-works.html','How it works',how_it_works_page(intro),'how-it-works')
