@@ -1,0 +1,5 @@
+"""Attributed expert quotations supplied in the existing website materials."""
+
+
+def testimonials():
+    return '''<section class="section container expert-perspectives" aria-labelledby="expert-title"><div class="section-heading"><div><div class="eyebrow">Expert perspectives</div><h2 id="expert-title">On EchoFrame’s approach.</h2></div><p>Reflections from contributors to EchoFrame’s work.</p></div><div class="expert-quotes"><figure><blockquote><p>“EchoFrame's probabilistic risk modeling is set to disrupt how open-source analysis is done, helping clients manage risk before it manages them.”</p></blockquote><figcaption><strong>Luis Matos Azócar</strong><span>EchoFrame contributor · Former Venezuelan finance minister and central bank director</span></figcaption></figure><figure><blockquote><p>“EchoFrame's spatial analytics and network modeling bring academic rigor to real-world analysis, the kind of methodological depth that's rare in the open-source research space.”</p></blockquote><figcaption><strong>Jean-Christophe Loubier</strong><span>EchoFrame contributor · Geospatial science professor</span></figcaption></figure></div></section>'''

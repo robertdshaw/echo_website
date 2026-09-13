@@ -1,0 +1,475 @@
+[
+  {
+    "slug": "from-signal-to-significance",
+    "title": "Attention is not evidence.",
+    "dek": "A burst of headlines can draw attention to an asset. It takes a closer reading of the evidence to understand what has actually changed.",
+    "category": "Methods",
+    "format": "Research essay",
+    "art": "signals",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "More reporting does not always mean more evidence. The useful question is what happened, whose account supports it, and what it means for the decision you face.",
+    "sections": [
+      {
+        "heading": "The story at the gate",
+        "paragraphs": [
+          "Consider a fictional energy terminal. Its operator says business continues as usual. A local report says contractors have been turned away at a gate. Within hours, several other publications repeat the operator’s statement. A dashboard shows a surge in mentions.",
+          "What has changed? The number of articles cannot answer that question. The operator may be describing the terminal as a whole, while the local account concerns one entrance, one shift, or one group of workers. Both accounts could be accurate. Neither, on its own, tells a company whether its contractors can get in."
+        ]
+      },
+      {
+        "heading": "Attention is a starting point",
+        "paragraphs": [
+          "Search tools and topic scores help an analyst find material worth reading. A rise in mentions can draw attention to a place or an issue that would otherwise be missed. That is useful. But a measure of attention is not a measure of whether an event occurred, or how likely another event is to follow.",
+          "The distinction matters when a report is repeated. Five publications may rely on the same statement. Counting them as five confirmations would make the evidence look stronger without adding a single new observation. The analyst needs to follow each account back to its origin."
+        ]
+      },
+      {
+        "heading": "Read the claims closely",
+        "paragraphs": [
+          "Return to the terminal. The first task is to establish what each source actually says: the activity, the location, and the period it describes. “Open” may mean that cargo is moving. It may say nothing about contractor access. “Turned away” may describe a brief interruption rather than a lasting restriction.",
+          "The next useful source would distinguish between those possibilities. It might be a dated access procedure or an independent observation of the relevant gate. Another broad statement would add little. An image showing activity across the wider site could provide context while leaving the access question unanswered."
+        ]
+      },
+      {
+        "heading": "Bring the evidence back to the decision",
+        "paragraphs": [
+          "For a government affairs team, the practical questions are who sets the access rules, who applies them, and which office can explain the discrepancy. For an investor, the issue may be whether a service interruption challenges an assumption about the asset. The same evidence can matter in different ways.",
+          "That is the approach behind EchoFrame’s Venezuela programme: start with a specific asset, contract, or local question, then gather the evidence needed to answer it. The connected event and forecasting workflow is still being developed. The aim is a clearer account of what is known, what remains uncertain, and what would change the view."
+        ]
+      }
+    ],
+    "watch": [
+      "Which specific decision does the research question support?",
+      "Are the apparent confirmations independent accounts of the same event?",
+      "What evidence would change the judgment, and how will the question resolve?"
+    ],
+    "sources": [],
+    "sourceNote": "Adapted from the Venezuela programme design supplied in September 2026. This is a methods essay, not a current asset assessment or an independent audit of the platform.",
+    "status": "published",
+    "collection": "Venezuela programme / Methods"
+  },
+  {
+    "slug": "reading-maritime-disruption",
+    "title": "Reading a chokepoint beyond the headline.",
+    "dek": "A research guide to the Strait of Hormuz: connect maritime observations, operational constraints, and alternative explanations.",
+    "category": "Middle East",
+    "format": "Field guide",
+    "art": "maritime",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "Treat maritime disruption as a chain of testable questions about movement, capacity, and duration. A political statement alone cannot answer them.",
+    "sections": [
+      {
+        "heading": "Establish the physical context",
+        "paragraphs": [
+          "The U.S. Energy Information Administration describes the Strait of Hormuz as a major oil transit chokepoint. Its historical analysis provides a starting point for understanding the route and its role in energy transport. Historical flow estimates should not be presented as a live reading of traffic.",
+          "Build a baseline with a stated period, vessel class, direction of travel, and collection method. Without those definitions, a change in observed traffic can reflect a change in the dataset rather than a change in activity."
+        ]
+      },
+      {
+        "heading": "Follow the transmission mechanism",
+        "paragraphs": [
+          "An analytical sequence might run from a reported incident to operator decisions, vessel movements, voyage duration, and delivery schedules. Each link requires its own evidence. A strong brief identifies the links that are observed and those that remain assumptions.",
+          "Use a compact evidence table: observation, timestamp, original source, alternative explanation, and next verification step. Include operational notices where available and make gaps in vessel coverage explicit."
+        ]
+      },
+      {
+        "heading": "Distinguish a delay from a sustained constraint",
+        "paragraphs": [
+          "A short interruption and a persistent loss of usable capacity are different research questions. Separate the duration of an incident from the time needed for operators to restore routine activity. Record both the event clock and the recovery clock.",
+          "For an illustrative scenario set, compare continuity, temporary disruption, and sustained disruption. Describe the observable conditions associated with each. Do not assign numerical probabilities without a documented estimation process."
+        ]
+      },
+      {
+        "heading": "Publish the limits alongside the finding",
+        "paragraphs": [
+          "A map can communicate location, but it cannot prove causality. A traffic chart can show recorded movements, but it cannot establish every operator's intentions. A useful caption states the period covered, the data source, and the principal limitation.",
+          "This guide is a method for organizing research, not a current assessment of transit conditions. A current briefing would require refreshed operational evidence and a named analyst's review."
+        ]
+      }
+    ],
+    "watch": [
+      "Are observed movements comparable with the baseline?",
+      "Which operational notices independently support the interpretation?",
+      "What would demonstrate recovery, rather than a pause in reporting?"
+    ],
+    "sources": [
+      {
+        "title": "U.S. EIA · Historical context on the Strait of Hormuz",
+        "url": "https://www.eia.gov/todayinenergy/detail.php?id=61002"
+      }
+    ],
+    "sourceNote": "Source used for geographic and historical context. This guide contains no live transit data or current market forecast.",
+    "status": "draft"
+  },
+  {
+    "slug": "following-european-energy-policy",
+    "title": "Policy is a process. Track the whole chain.",
+    "dek": "How to structure an energy-policy watchlist around institutions, implementation, and the evidence still missing.",
+    "category": "Europe",
+    "format": "Field guide",
+    "art": "policy",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "Record the stage of a policy process before interpreting its significance. An ambition, a published instrument, and an implementation measure answer different questions.",
+    "sections": [
+      {
+        "heading": "Identify what you are reading",
+        "paragraphs": [
+          "The European Commission's energy portal groups policy around topics including energy security, affordability, and the transition to clean energy. Its implementation resources provide a separate route into how measures are applied. These are useful starting points for a research register.",
+          "For each document, record its issuing institution, publication date, document type, geographic scope, and reference number. Preserve the original link and the exact version consulted. A press release can help locate a development, but the underlying instrument is the stronger reference for what the text says."
+        ]
+      },
+      {
+        "heading": "Build an institutional timeline",
+        "paragraphs": [
+          "A policy timeline should distinguish proposals, negotiations, adopted texts, and subsequent implementation. Do not assume that every instrument follows an identical path. Verify the procedure relevant to the document being tracked.",
+          "Give each entry an owner and a next check. A deadline without an accountable reviewer easily becomes a stale label on a dashboard. Where timing remains uncertain, state what is known and leave the rest unresolved."
+        ]
+      },
+      {
+        "heading": "Connect the text to a research question",
+        "paragraphs": [
+          "A broad theme such as energy transition is too expansive for a useful watchlist. Narrow it to a defined technology, geography, activity, or project stage. Ask which part of the text could affect that exposure and which interpretation still needs specialist review.",
+          "Keep the research record distinct from a compliance determination. A policy monitor can surface an issue and organize the relevant documents; an organization must still establish how the applicable rules relate to its circumstances."
+        ]
+      },
+      {
+        "heading": "Make updates easy to compare",
+        "paragraphs": [
+          "Use a consistent update format: previous position, new evidence, changed interpretation, next milestone. This lets readers identify a substantive change without rereading the full history.",
+          "Keep earlier versions available internally. A publication should show when its source material was checked, and a substantial correction should explain what changed."
+        ]
+      }
+    ],
+    "watch": [
+      "What is the document's formal status?",
+      "Which institution owns the next step?",
+      "Which part of the interpretation needs additional evidence or specialist review?"
+    ],
+    "sources": [
+      {
+        "title": "European Commission · Energy strategy",
+        "url": "https://energy.ec.europa.eu/strategy_en"
+      },
+      {
+        "title": "European Commission · Implementation in EU countries",
+        "url": "https://commission.europa.eu/energy-climate-change-environment/implementation-eu-countries_en"
+      }
+    ],
+    "sourceNote": "A research workflow, not an interpretation of a particular legal obligation. Consult the current primary instrument for any specific policy question.",
+    "status": "published"
+  },
+  {
+    "slug": "sanctions-and-operational-reality",
+    "title": "A sanctions headline is only the starting point.",
+    "dek": "A source-first approach to researching sanctions developments and keeping legal status separate from operational evidence.",
+    "category": "Latin America",
+    "format": "Research note",
+    "art": "maritime",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "Build separate records for the official instrument, the entities involved, and observed activity. Do not collapse them into a single claim about what is permitted or happening.",
+    "sections": [
+      {
+        "heading": "Go back to the issuing authority",
+        "paragraphs": [
+          "OFAC publishes sanctions information, frequently asked questions, and licensing resources. Its materials distinguish general licenses from specific licenses. These official resources are starting points for source collection; a headline or secondary summary is not a substitute for the relevant text.",
+          "Record the instrument title, identifier, publication date, effective dates stated in the document, and official source link. If the text changes, retain a dated record of the version used in the assessment."
+        ]
+      },
+      {
+        "heading": "Separate three research layers",
+        "paragraphs": [
+          "The first layer is documentary: what does the official material actually state? The second is entity research: which people, companies, ownership relationships, and counterparties are relevant? The third is operational: what activity is observable, through which sources, and over what period?",
+          "Evidence in one layer does not settle every question in another. An announced policy change is not itself proof of a corresponding operational change. Observed activity is not itself a determination that a transaction is authorized."
+        ]
+      },
+      {
+        "heading": "Keep assumptions visible",
+        "paragraphs": [
+          "For a regional energy research brief, list the assumptions connecting the official development to the operational question. Examples might include the availability of infrastructure, the identity of a counterparty, or the reliability of production reporting. Mark each as supported, disputed, or unresolved.",
+          "Seek a second collection method where practical. Company statements, public filings, and observed movements may illuminate different parts of a question, but their dates and definitions must be comparable."
+        ]
+      },
+      {
+        "heading": "Escalate questions the research cannot settle",
+        "paragraphs": [
+          "A well-scoped research product identifies issues that need legal or compliance review without claiming to resolve them. It should provide the original documents and a precise statement of the uncertainty.",
+          "This note is an editorial research framework. It does not establish the current sanctions status of any person, company, jurisdiction, or transaction."
+        ]
+      }
+    ],
+    "watch": [
+      "Is the source the current official instrument?",
+      "Which ownership or identity relationships remain unverified?",
+      "What observed evidence supports the claimed operational change?"
+    ],
+    "sources": [
+      {
+        "title": "OFAC · Frequently asked questions",
+        "url": "https://ofac.treasury.gov/faqs/search"
+      },
+      {
+        "title": "OFAC · Specific licenses and interpretive guidance",
+        "url": "https://ofac.treasury.gov/ofac-license-application-page"
+      }
+    ],
+    "sourceNote": "Research methodology only. No transaction-specific legal or investment advice is provided.",
+    "status": "published"
+  },
+  {
+    "slug": "mapping-power-without-false-precision",
+    "title": "A better map of who matters.",
+    "dek": "Local authority, operating control, and stated positions: build actor maps around the decision an asset depends on.",
+    "category": "Methods",
+    "format": "Methods notebook",
+    "art": "network",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "Every line in an actor map is a claim. Define what it means, attach evidence, and give it a date.",
+    "sections": [
+      {
+        "heading": "Define the question before the network",
+        "paragraphs": [
+          "An actor map should answer a clearly defined question: who can influence a particular decision, through which mechanism, over what period? For an asset-level question, that may include regional managers, public authorities, contractors, unions, or community representatives. A map of national names alone may miss the decision pathway.",
+          "Choose a scope and write a rule for including an actor. Formal authority, operational responsibility, ownership, and an evidenced representative role are different reasons for inclusion. Preserve those distinctions."
+        ]
+      },
+      {
+        "heading": "Give each edge a meaning",
+        "paragraphs": [
+          "A line might represent formal appointment, an ownership stake, a reported meeting, or a public endorsement. These are not interchangeable. Label the relationship and link to evidence that supports that specific claim.",
+          "A meeting establishes contact if the source is reliable. It does not automatically establish agreement, control, or a durable alliance. Avoid stronger visual language than the evidence supports."
+        ]
+      },
+      {
+        "heading": "Add the missing dimension: time",
+        "paragraphs": [
+          "Relationships change. Each record needs a date observed, a period of validity if known, and a next review date. Historical ties can be relevant, but the reader should be able to distinguish them from current roles.",
+          "Use successive snapshots to show change. A short annotation describing why a relationship changed often communicates more than an animated network with no explanation."
+        ]
+      },
+      {
+        "heading": "Publish an argument, not just a graphic",
+        "paragraphs": [
+          "Pair the map with a short account of the decision pathway: who initiates, who can block, who implements, and what remains uncertain. Distinguish an actor’s stated position from an analyst’s interpretation of their incentives.",
+          "An actor model needs maintained evidence about roles and positions. The Venezuela programme does not present automated actor-behaviour modelling as operational. For public reporting, omit identifying relationships or details that could expose a protected source."
+        ]
+      }
+    ],
+    "watch": [
+      "What exactly does each relationship claim?",
+      "Is the relationship current, historical, or unresolved?",
+      "Does the map explain a decision pathway?"
+    ],
+    "sources": [],
+    "sourceNote": "An original editorial method. No specific individual or organization is assessed in this notebook.",
+    "status": "published"
+  },
+  {
+    "slug": "scenarios-that-can-be-tested",
+    "title": "What would change your mind?",
+    "dek": "Build scenarios around observable triggers, competing explanations, and an explicit review horizon.",
+    "category": "Methods",
+    "format": "Methods notebook",
+    "art": "scenario",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "A scenario earns its place when it changes what you monitor. Write down the evidence that would strengthen it and the evidence that would weaken it.",
+    "sections": [
+      {
+        "heading": "Bound the question",
+        "paragraphs": [
+          "A scenario exercise starts with a clear outcome and time horizon. Will a defined activity continue, experience a temporary interruption, or face a sustained constraint over the chosen period? The categories need enough precision for a later review to distinguish them.",
+          "Avoid mixing outcomes that can happen together into a set that appears mutually exclusive. If the categories overlap, acknowledge that and use a structure appropriate to the question."
+        ]
+      },
+      {
+        "heading": "Describe the mechanism",
+        "paragraphs": [
+          "For each scenario, write a short causal sequence. Identify the actors, constraints, and enabling conditions. Separate evidence already observed from conditions that would need to occur.",
+          "The exercise is most useful when different scenarios imply different observations. If every new development can be made to fit every scenario, the framework is too vague to guide collection."
+        ]
+      },
+      {
+        "heading": "Distinguish confidence from probability",
+        "paragraphs": [
+          "The likelihood of an outcome and the quality of the evidence behind a judgment are different concepts. A view can favor one outcome while still resting on limited evidence. A publication should explain the meaning of any numerical estimate and any confidence label it uses.",
+          "If there is no documented basis for a number, do not invent one for visual effect. A qualitative scenario comparison with explicit assumptions is more inspectable than an unexplained percentage."
+        ]
+      },
+      {
+        "heading": "Keep a revision record",
+        "paragraphs": [
+          "Log the original assessment, new evidence, revised judgment, and reason for the change. Review scenarios against their predefined outcomes after the horizon closes. Retain unsuccessful calls as well as successful ones.",
+          "Turn the review into the next research question: which source failed, which assumption held, and which trigger arrived too late? A scenario system becomes more useful when it preserves its own learning history."
+        ]
+      }
+    ],
+    "watch": [
+      "Are the outcome and review horizon explicit?",
+      "What evidence would weaken the preferred scenario?",
+      "Can an independent reader understand why the judgment changed?"
+    ],
+    "sources": [],
+    "sourceNote": "An original editorial framework. Scenarios shown on this website are illustrative, not current forecasts.",
+    "status": "published"
+  },
+  {
+    "slug": "when-sources-disagree",
+    "status": "published",
+    "title": "When the accounts do not add up.",
+    "dek": "Keep the official position, the local account, and the physical observation in the same brief without pretending that they say the same thing.",
+    "category": "Venezuela",
+    "format": "Evidence guide",
+    "art": "network",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "collection": "Venezuela programme / Design notes",
+    "takeaway": "A disagreement is a research finding in its own right. Preserve each claim, check whether its time and scope are comparable, and identify the next independent observation needed to resolve it.",
+    "sections": [
+      {
+        "heading": "Put the claims beside one another",
+        "paragraphs": [
+          "A brief can be balanced and still leave its reader unable to understand a contradiction. The intended Venezuela event brief shows what each source asserts, when it was published, what period it describes, and what it can actually establish.",
+          "The public worked example uses a fictional terminal. An operator statement describes normal operations, a local account reports a stoppage, and a physical indicator changes. None of those inputs is a report about a real Venezuelan facility. The example demonstrates how the format should handle tension between accounts."
+        ]
+      },
+      {
+        "heading": "Check whether the disagreement is real",
+        "paragraphs": [
+          "Before assigning a contradicted label, establish that the accounts refer to the same event. A statement about loading activity and a report about an access-road protest may both be accurate. Publication times can also hide a change that happened between the two observations.",
+          "Keep the original wording in the controlled research record, where usage rights permit it. In the public brief, present a rights-reviewed summary, a source reference where appropriate, and the unresolved question. Do not reproduce protected material or identify a confidential source."
+        ]
+      },
+      {
+        "heading": "Use physical observations for what they establish",
+        "paragraphs": [
+          "A difference in a physical indicator can be an important lead. It does not establish its cause. Sensor coverage, baseline choice, maintenance, and unrelated operating changes can affect interpretation. An analyst should explain which explanations remain plausible.",
+          "A field account likewise needs its own context: direct observation or second-hand information, time observed, access limitations, and sensitivity. Being closer to the site is useful, but it does not remove the need to check the claim."
+        ]
+      },
+      {
+        "heading": "Make the next verification step explicit",
+        "paragraphs": [
+          "The conclusion may be that the disagreement remains unresolved. State the observation that could distinguish the accounts, who will review it, and when the issue should be revisited. A contradiction should not be silently converted into positive evidence for a forecast.",
+          "The event brief is an intended deliverable. Its value depends on a connected source record and an accountable review process, not on the visual appearance of a dashboard."
+        ]
+      }
+    ],
+    "watch": [
+      "Are the sources describing the same time, place, and activity?",
+      "Which accounts are independently obtained?",
+      "What can resolve the disagreement without exposing a source?"
+    ],
+    "sources": [],
+    "sourceNote": "A programme-design guide adapted from the September 2026 working plan. Examples describe intended methods, not current incidents, confirmed partnerships, or operating field coverage."
+  },
+  {
+    "slug": "questions-that-can-resolve",
+    "status": "published",
+    "title": "Give the question a deadline.",
+    "dek": "Turn a broad concern about an asset or contract into a question with a defined outcome, evidence rule, and review record.",
+    "category": "Methods",
+    "format": "Question design",
+    "art": "scenario",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "collection": "Venezuela programme / Design notes",
+    "takeaway": "A forecast needs a subject, an outcome, a horizon, and a resolution rule agreed in advance. An unresolved question is not automatically a negative outcome.",
+    "sections": [
+      {
+        "heading": "Start with the decision the client faces",
+        "paragraphs": [
+          "A broad question such as whether the labour situation is a problem does not specify what would count as an answer. Begin with the decision it informs, then name the relevant asset and observable outcome.",
+          "A fictional example asks whether Terminal A experiences a continuous work stoppage of at least 48 hours during a stated month. The wording should make clear which activities count, how the duration is established, and what evidence can resolve the question."
+        ]
+      },
+      {
+        "heading": "Write the evidence rule before the outcome",
+        "paragraphs": [
+          "Specify the resolution date and acceptable evidence at commissioning. Also define how late reporting, conflicting sources, ambiguous duration, or unavailable evidence will be handled. No report of an event does not necessarily mean that the event did not happen.",
+          "Freeze the wording once the question is registered. If the scope must change, create an identified revision or a new question and preserve the original. Otherwise the result can become easier to fit after the fact."
+        ]
+      },
+      {
+        "heading": "Preserve the prior and every revision",
+        "paragraphs": [
+          "The programme proposes starting judgments based on relevant historical evidence, expert input, and analyst reasoning. Record disagreements and the reasons for the chosen prior. An archive of articles does not automatically supply a clean historical event base rate.",
+          "For each later update, preserve the forecast timestamp, evidence reference, model or rule version, and explanation. Hand-set weights should be described as judgments to evaluate, rather than presented as learned or validated likelihood ratios."
+        ]
+      },
+      {
+        "heading": "Evaluate against a stated reference",
+        "paragraphs": [
+          "For a binary outcome, a Brier score uses the squared difference between the forecast probability and the recorded outcome. Lower values indicate lower error under that scoring rule. A skill comparison also needs a reference forecast; a score on its own does not establish useful predictive skill.",
+          "Define which forecast timestamps will be scored before evaluation. Treat questions consistently so that issuing more updates does not give one question disproportionate influence. Keep unresolved cases visible, state the evaluation sample, and retain unsuccessful forecasts. The Venezuela programme does not yet claim a validated track record."
+        ]
+      }
+    ],
+    "watch": [
+      "Is the outcome precise enough for an independent reviewer to resolve?",
+      "What happens if the named evidence is unavailable or contradictory?",
+      "Which forecast timestamps and reference forecast will be used for evaluation?"
+    ],
+    "sources": [
+      {
+        "title": "ECMWF · Verification of probability forecasts",
+        "url": "https://www.ecmwf.int/sites/default/files/elibrary/2007/15489-verification-probability-forecasts.pdf"
+      }
+    ],
+    "sourceNote": "A programme-design guide adapted from the September 2026 working plan. Examples describe intended methods, not current incidents, confirmed partnerships, or operating field coverage."
+  },
+  {
+    "slug": "venezuela-from-country-to-asset",
+    "status": "published",
+    "title": "Venezuela, at the level of the asset.",
+    "dek": "A proposed collection framework for Oriente, Occidente, and Guayana, built around the questions operators, entrants, creditors, and suppliers need answered.",
+    "category": "Venezuela",
+    "format": "Programme note",
+    "art": "maritime",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "collection": "Venezuela programme / Design notes",
+    "takeaway": "Collection priorities should follow a client question. A zone brief connects local events to a named asset while preserving location limits, source protection, and the difference between operational evidence and documented viability.",
+    "sections": [
+      {
+        "heading": "Begin with four priority states",
+        "paragraphs": [
+          "The working programme proposes initial collection priorities in Zulia, Monagas, Bolívar, and Anzoátegui. These are priorities for development, not a statement that correspondent agreements or full operational coverage are in place.",
+          "The right starting question is which decisions over the client’s chosen horizon depend on those places. A question about access may require different sources from one about a contractual change, labour disruption, or operating continuity."
+        ]
+      },
+      {
+        "heading": "Organize the local questions by zone",
+        "paragraphs": [
+          "For Oriente, the proposed frame connects Anzoátegui and Monagas with questions about facilities, terminals, inputs, labour, contractors, and regional authorities. For Occidente, it starts with Zulia and may extend to Falcón as the commissioned scope develops.",
+          "For Guayana, the proposed frame includes Bolívar and possible extension to Delta Amacuro. Power, industrial constraints, local authority, community positions, and access provide possible collection themes. Each theme still needs an asset, a defined question, and a source plan."
+        ]
+      },
+      {
+        "heading": "Keep operating evidence and viability distinct",
+        "paragraphs": [
+          "A report of activity answers a different question from a judgment about an asset’s contractual position. The proposed viability view covers contract standing, licence and sanctions standing, arbitration exposure, counterparty solvency, operational access, and security of tenure.",
+          "Every assessed criterion needs a supporting document and an assessment date. Missing support should produce an unassessed entry. A relevant new event should prompt a review, not an unexamined automatic legal or contractual conclusion."
+        ]
+      },
+      {
+        "heading": "Match the output to what can safely be known",
+        "paragraphs": [
+          "A record known only at state level should remain at state level. Placing it on a precise-looking facility pin can overstate the evidence. Sensitive reporting needs stricter disclosure controls even when the underlying location is known.",
+          "A useful zone brief should identify the client question, the changes that matter to it, the sources that support or dispute them, and the next review. Partner identities, reporter identities, commercial terms, and source-protecting detail do not belong in a public sample."
+        ]
+      }
+    ],
+    "watch": [
+      "Which decision determines the collection priority?",
+      "Is the geographic precision supported and safe to disclose?",
+      "Which viability judgments need fresh documentary review?"
+    ],
+    "sources": [],
+    "sourceNote": "A programme-design guide adapted from the September 2026 working plan. Examples describe intended methods, not current incidents, confirmed partnerships, or operating field coverage."
+  }
+]

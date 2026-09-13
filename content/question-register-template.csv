@@ -1,0 +1,1 @@
+question_id,version,status,client_perspective,decision,subject,question_text,outcome_definition,horizon_start,horizon_end,resolution_date,resolution_rule,missing_evidence_rule,prior,prior_rationale,evidence_refs,weight_version,forecast_timestamp,reviewer,next_review,resolved_outcome,resolution_evidence,evaluation_policy,reference_forecast
