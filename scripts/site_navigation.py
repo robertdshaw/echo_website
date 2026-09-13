@@ -11,6 +11,7 @@ GROUPS = [
     ('Who we help', [
         ('government-affairs.html','Government affairs','Policy, stakeholders, and operating assets.'),
         ('distressed-debt.html','Distressed debt','Political assumptions and counterparty research.'),
+        ('case-study-venezuela.html','Case study, Venezuela','A call made before the outcome.'),
         ('engagement.html','Working with EchoFrame','Research formats, scope, and delivery.')]),
     ('Research', [
         ('research.html','Intelligence library','Essays, field guides, and programme notes.'),
