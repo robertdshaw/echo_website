@@ -222,6 +222,13 @@ def create_app(overrides=None, sender=None):
         # The methodology page was replaced by How it works; keep the old link alive.
         return redirect('/how-it-works.html',code=301)
 
+    @app.get('/es/')
+    @app.get('/es/index.html')
+    def suspended_spanish():
+        # The Spanish mirror is suspended. Send its links to the English home
+        # page rather than answering 404 while the decision is open.
+        return redirect('/',code=302)
+
     @app.get('/')
     @app.get('/<path:path>')
     def website(path='index.html'):

@@ -14,7 +14,6 @@ INVITATIONS = {
     'decision-pathways.html': 'Discuss your decision criteria',
     'distressed-debt.html': 'Examine an investment assumption with us',
     'engagement.html': 'Arrange a scoping conversation',
-    'es/index.html': 'Iniciemos una conversación',
     'evidence-workspace.html': 'Discuss the evidence your team needs',
     'government-affairs.html': 'Prepare a government affairs enquiry',
     'how-it-works.html': 'Ask how this would run on your question',

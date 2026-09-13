@@ -1,4 +1,9 @@
-"""Attributed expert quotations supplied in the existing website materials."""
+"""Attributed expert quotations supplied in the existing website materials.
+
+These are quoted verbatim. The American spellings of "modeling" and "rigor" are
+the speakers' own and must not be changed to British spelling; a quotation is
+not a house-style inconsistency.
+"""
 
 
 def testimonials():

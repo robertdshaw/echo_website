@@ -40,6 +40,8 @@ document. It has been taken off it.
 
 `methodology.html`. `server.py` answers the old URL with a 301 to `/how-it-works.html`.
 
+`es/index.html`, suspended rather than deleted. `server.py` answers it with a 302 to `/`.
+
 ## Files changed
 
 **New generator modules:** `scripts/how_it_works.py`, `scripts/case_study.py`,
@@ -53,8 +55,8 @@ document. It has been taken off it.
 
 **Content data:** `content/articles.json`, `content/samples.json`, `downloads/research-mandate.md`.
 
-**Application:** `server.py` (field table, methodology redirect), `assets/site.js` (payload fields,
-confirmation).
+**Application:** `server.py` (field table, methodology redirect, suspended Spanish redirect),
+`assets/site.js` (payload fields, confirmation).
 
 **Checks and tests:** `scripts/check_site.py`, `scripts/test_contact.py`, `scripts/depth_check.py`,
 `scripts/preview_check.py`.
@@ -125,40 +127,41 @@ Both sample pages lost their examples in that earlier cleanup, so each now carri
 
 ## Sentences I was unsure of
 
-**English.**
+All settled. Recorded here so the reasoning survives.
 
-1. How it works, step 4: "The readings move separately rather than collapsing into one number, so
-   pressure from outside stays visible next to the cohesion of the people in power." The reference
-   made this point with client figures. This keeps the point and drops the numbers, but it is my
-   sentence rather than yours.
-2. Case study: "A minority probability on a major political rupture within thirty days." This is the
-   agreed replacement for forty per cent. Check that "minority probability" is how you want the call
-   described.
+1. How it works, step 4. Kept, with the euphemism removed. It now reads "so pressure from outside
+   stays visible next to whether the people in power are holding together".
+2. Case study, the call. "A minority probability" is gone. It now reads "We judged a major political
+   rupture within thirty days to be a real possibility rather than a tail risk." Rob offered a second
+   version, "more likely than the market was pricing". I used this one because the page holds no
+   record of what the market was pricing, and a sentence that invites a question the site cannot
+   answer is the thing the rest of this rewrite is trying to remove. Say the word and I will switch.
 3. Withdrawn. The sentence was in worked example card 1, which is cut.
-4. Engagement, scoping conversation: "Most engagements start here, and some stop here, because the
-   honest answer is sometimes that the record cannot carry the question." Settled. Kept.
-5. About: the first-person paragraph is attributed to "Robert Shaw, founder". First person needs a
-   speaker. Remove the attribution if you would rather it read unsigned.
-6. The two testimonials keep the American spellings "modeling" and "rigor". They are quoted and item
-   7 says to keep them exactly, so British spelling was not applied to them.
-7. "Judgement" is used throughout, including in "structured judgement". Settled. British spelling
-   is the rule and it is not a fixed term. American spelling survives only where a document is
-   quoted verbatim, which on this site means the two testimonials.
+4. Engagement, scoping conversation. Kept as written. "Some stop here, because the honest answer is
+   sometimes that the record cannot carry the question."
+5. About. Signed "Robert Shaw, founder". An unsigned first-person paragraph on a company site reads
+   as a device.
+6. **The two testimonials are quoted verbatim and keep the American spellings "modeling" and
+   "rigor". Do not change them to British spelling. A quotation is not a house-style
+   inconsistency.** There is a note to the same effect at the top of `scripts/testimonials.py`.
+7. "Structured judgement" throughout. British spelling is the rule and it is not a fixed term.
 
-**Spanish.** The mirror is one page. These are the sentences where I am least sure of the register.
+## The Spanish mirror is suspended
 
-8. "Inteligencia continua. Desde lugares que solo producen instantáneas." The headline. "Instantánea"
-   for snapshot is literal and reads well to me, but a native reader should confirm it does not
-   sound photographic.
-9. "Un registro fechado y documentado de lo que ocurre." "Documentado" is doing the work of
-   "sourced", for which there is no clean single word.
-10. "Los medios de comunicación cuentan como una sola clase, por muchos que publiquen la misma
-    noticia." The subjunctive "por muchos que" is correct but formal.
-11. "Un acuerdo con corresponsales en preparación." For "a correspondent agreement in progress".
-12. Settled. "Mesa" was wrong for an intelligence desk. The navigation now reads
-    "Formar a una institución para que lleve su propia unidad de análisis."
-13. The navigation panels say "(en inglés)" because the Spanish labels link to English pages. The
-    alternative was leaving the navigation in English, which item 12 forbids.
+All Spanish is off the site pending a decision about whether a single Spanish page linking into an
+entirely English site earns its place. Six sentences were open when it was suspended and none of
+them needs settling while it is down.
+
+What was done. `es/index.html` is no longer built or published, the "En español" switch is gone from
+the footer, and `server.py` answers `/es/` and `/es/index.html` with a 302 to the English home page
+so existing links do not break. A 302 rather than a 301, because this is reversible.
+
+What was kept. `scripts/spanish_page.py` holds the translated page and `scripts/chrome.py` holds the
+Spanish furniture and navigation labels. Restoring the mirror means putting one `write` call back in
+`scripts/build.py`, restoring the footer switch, and removing the redirect.
+
+One correction already applied before suspension. The Frame Bureau navigation said "su propia mesa".
+Mesa is a newsroom desk, not an intelligence one. It now reads "su propia unidad de análisis".
 
 ## Checks
 
@@ -186,7 +189,6 @@ and publication exclusions.
 - **The reworded "How the machine moves the odds" graphic** in Part 3 of the brief. Not in the
   numbered items, and it needs the live questions and their current probabilities, which are not in
   the source documents.
-- **A full Spanish mirror of the site.** The mirror is one page. Item 12 says translate every
-  changed page; the only Spanish page is the home page.
+- **The Spanish mirror.** Suspended on Rob's instruction. See the section above.
 - **Capability build as a sales line.** `positioning.md` describes it. No item places it on a page,
   and worked example card 6 covers the same ground, so it has no page of its own.

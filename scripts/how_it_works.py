@@ -13,7 +13,8 @@ STEPS = [
      'be counted rather than remembered.'),
     ('4. Weigh', 'Political risk analysis',
      'Political risk analysis and the model work out what is happening. The readings move separately rather than '
-     'collapsing into one number, so pressure from outside stays visible next to the cohesion of the people in power.'),
+     'collapsing into one number, so pressure from outside stays visible next to whether the people in power are '
+     'holding together.'),
     ('5. Decide', 'Structured judgement',
      'The five operations run here. The output is not a summary. It is cover or ignore, alert or hold, task a '
      'correspondent or wait.'),
