@@ -32,3 +32,7 @@ All 28 pages passed local link and structure checks and browser checks at 1440px
 ## Research navigation disabled
 
 Deployment `e58321c` replaces the Research dropdown with a disabled button across all 28 pages. The other three navigation menus remain available. Page, link and browser checks passed at desktop and mobile widths.
+
+## Venezuela sections retained privately
+
+Deployment `50afd91` removes sections 03 (collection priorities), 04 (asset evidence and viability) and 05 (product direction) from the public Venezuela page. Their exact source is retained as `UNPUBLISHED_VENEZUELA_SECTIONS` in `scripts/programme.py`, outside the public deployment directory. The historical assessment and enquiry remain. The content snapshot reflects the shorter public page.
