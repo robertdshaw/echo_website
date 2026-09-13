@@ -6,7 +6,7 @@ import math
 import re
 import shutil
 from pathlib import Path
-from programme import programme_teaser, venezuela_page, question_preview
+from programme import venezuela_page
 from audiences import perspectives, consequence_section, audience_page
 from experience import hero as research_hero, formats, faq
 from depth import PAGES, write_downloads
@@ -19,7 +19,6 @@ from case_study import page as case_study_page
 from worked_examples import page as worked_examples_page
 from frame_bureau import page as frame_bureau_page
 from coverage_page import page as coverage_page
-from intelligence import analytical_layers, evidence_flow, hard_questions
 from contact import contact_page
 from testimonials import testimonials
 from page_presentation import enquiry_policy

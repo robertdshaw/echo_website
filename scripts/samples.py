@@ -13,7 +13,7 @@ def sample_library():
 
 
 def sample_page(s):
-    return opening(s['audience'], E(s['title']), s['format']) + '<section class="section container"><p>The brief will identify the research question, the evidence supporting the assessment, unresolved issues and the next review. Source-identifying details will be removed before publication.</p><a href="sample-briefs.html">Research templates</a></section>'
+    return opening(s['audience'], E(s['title']), s['format']) + '<section class="section container"><p>The brief identifies the research question, the evidence supporting the assessment, the issues left unresolved and the next review. Source-identifying details are removed before publication.</p><a href="sample-briefs.html">Research templates</a></section><section class="section container" id="worked-example"><h2>Worked example</h2><p>The example that stood here was written to show the format rather than taken from real work, so it has been removed. The worked examples are real engagements, described by type, with no client named and no figure from a client document.</p><a href="worked-examples.html">Read the worked examples</a></section>'
 
 
 def write_sample_downloads():
