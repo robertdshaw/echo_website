@@ -23,7 +23,6 @@ CHROME = {
         'f_trust': 'Trust &amp; privacy',
         'f_samples': 'Sample briefs &amp; templates',
         'f_sources': 'Primary-source directory',
-        'f_standards': 'Editorial standards',
         'privacy': 'Privacy',
         'research_mark': 'EchoFrame research',
         'top': 'Back to top',
@@ -55,7 +54,6 @@ CHROME = {
         'f_trust': 'Confianza y privacidad',
         'f_samples': 'Plantillas e informes de muestra',
         'f_sources': 'Directorio de fuentes primarias',
-        'f_standards': 'Normas editoriales',
         'privacy': 'Privacidad',
         'research_mark': 'Investigación de EchoFrame',
         'top': 'Volver arriba',
@@ -92,5 +90,4 @@ ITEMS_ES = {
     'about.html': ('Sobre EchoFrame', 'El propósito y el enfoque de la investigación.'),
     'frame-bureau.html': ('The Frame Bureau', 'Formar a una institución para que lleve su propia unidad de análisis.'),
     'trust.html': ('Confianza y privacidad', 'Evidencia, manejo de información y límites.'),
-    'editorial-standards.html': ('Normas editoriales', 'Atribución, incertidumbre y correcciones.'),
 }

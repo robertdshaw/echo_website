@@ -29,7 +29,7 @@ INVITATIONS = {
     'venezuela-context.html': 'Discuss the context around your asset',
     'venezuela.html': 'Discuss a Venezuela research mandate',
 }
-REFERENCE_PAGES = {'sources.html', 'privacy.html', 'editorial-standards.html'}
+REFERENCE_PAGES = {'sources.html', 'privacy.html'}
 REFERENCE_LABELS = {
     'Watch the film': 'EchoFrame presentation video',
     'Explore the research approach': 'Research approach',
