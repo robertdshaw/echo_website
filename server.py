@@ -40,7 +40,7 @@ def load_local_environment():
 
 FIELDS={
     'name':('Full name',120,True), 'email':('Work email',200,True),
-    'organization':('Organisation',160,True), 'role':('Role / team',160,False),
+    'organization':('Organisation',160,True),
     'sector':('Sector',100,True), 'question':('Decision or question',3000,True),
     'details':('Additional details',3000,False), 'referral':('How they found EchoFrame',80,False),
 }

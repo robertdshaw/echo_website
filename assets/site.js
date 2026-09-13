@@ -235,7 +235,7 @@ if (briefingForm) {
   const status = document.querySelector('#form-status');
   const submit = briefingForm.querySelector('.send-request');
   const success = document.querySelector('#contact-success');
-  const fieldsToSend = ['name', 'email', 'organization', 'role', 'sector', 'question', 'details', 'referral', 'website'];
+  const fieldsToSend = ['name', 'email', 'organization', 'sector', 'question', 'details', 'referral', 'website'];
   let token = '';
   let submitting = false;
   let previousPayload = '';
@@ -278,7 +278,6 @@ if (briefingForm) {
         throw new Error(result.error || 'We could not confirm delivery. Your details remain in the form.');
       }
       accepted = true; status.textContent = '';
-      document.querySelector('#contact-reference').textContent = 'Request reference ' + result.reference;
       success.hidden = false; submit.hidden = true;
       briefingForm.querySelectorAll('input,select,textarea').forEach(field => { field.disabled = true; });
       success.focus();

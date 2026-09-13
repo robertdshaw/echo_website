@@ -18,7 +18,7 @@ class ContactTests(unittest.TestCase):
         self.app=create_app({'TESTING':True,'STATE_PATH':self.state,'APP_SECRET':'test-secret-only','CONTACT_FROM':'website@example.com','CONTACT_TO':'desk@example.com','RESEND_API_KEY':'test-key','PUBLIC_ORIGIN':'http://localhost'},sender=lambda config,values,rid:self.sent.append((values,rid)))
         self.client=self.app.test_client()
         self.token=self.client.get('/api/contact/status').json['token']
-        self.payload={'request_id':str(uuid.uuid4()),'token':self.token,'name':'Test Reader','email':'reader@example.com','organization':'Example Company','role':'Research director','sector':'Distressed debt & special situations','question':'Please discuss our research question.\nSecond paragraph.','details':'Our deadline is approaching.\nPlease explain the available scope.','referral':'Search','website':''}
+        self.payload={'request_id':str(uuid.uuid4()),'token':self.token,'name':'Test Reader','email':'reader@example.com','organization':'Example Company','sector':'Distressed debt & special situations','question':'Please discuss our research question.\nSecond paragraph.','details':'Our deadline is approaching.\nPlease explain the available scope.','referral':'Search','website':''}
 
     def tearDown(self):
         if self.state.exists(): self.state.unlink()
@@ -30,11 +30,11 @@ class ContactTests(unittest.TestCase):
         response=self.post()
         self.assertEqual(response.status_code,200)
         self.assertTrue(response.json['ok'])
-        for key in ['name','email','organization','role','question','sector','details','referral']:
+        for key in ['name','email','organization','question','sector','details','referral']:
             self.assertEqual(self.sent[0][0][key],self.payload[key])
 
     def test_optional_details_can_be_empty(self):
-        for key in ('role','details','referral'): self.payload.pop(key)
+        for key in ('details','referral'): self.payload.pop(key)
         self.assertEqual(self.post().status_code,200)
         self.assertEqual(self.sent[0][0]['details'],'')
 
@@ -113,7 +113,7 @@ class ContactTests(unittest.TestCase):
             message=connection.send_message.call_args.args[0]
             self.assertEqual(message['To'],'desk@example.com')
             self.assertEqual(message['Reply-To'],'reader@example.com')
-            self.assertIn('Research director',message.get_content())
+            self.assertIn('Example Company',message.get_content())
             self.assertIn('Sector: Distressed debt & special situations',message.get_content())
             self.assertIn(self.payload['details'],message.get_content())
             self.assertIn('Additional details: '+self.payload['details'],message.get_content())
@@ -127,7 +127,7 @@ class ContactTests(unittest.TestCase):
             data=json.loads(req.data)
             self.assertEqual(data['to'],['desk@example.com'])
             self.assertEqual(data['reply_to'],'reader@example.com')
-            self.assertIn('Role / team: Research director',data['text'])
+            self.assertIn('Organisation: Example Company',data['text'])
             self.assertIn('Idempotency-key',req.headers)
             self.assertIn('Sector: Distressed debt & special situations',data['text'])
             self.assertIn(self.payload['details'],data['text'])
@@ -147,7 +147,7 @@ class ContactTests(unittest.TestCase):
             self.assertEqual(data['from']['email'],'website@example.com')
             self.assertEqual(data['reply_to']['email'],'reader@example.com')
             self.assertEqual(data['custom_args']['request_id'],self.payload['request_id'])
-            self.assertIn('Role / team: Research director',data['content'][0]['value'])
+            self.assertIn('Organisation: Example Company',data['content'][0]['value'])
             self.assertIn('Additional details: '+self.payload['details'],data['content'][0]['value'])
 
     def test_sendgrid_without_acceptance_receipt_is_an_error(self):
