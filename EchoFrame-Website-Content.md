@@ -1,6 +1,6 @@
 # EchoFrame website content
 
-Content snapshot from the published-site files, 13 September 2026. Includes all 35 HTML pages in English and Spanish, interactive explanatory copy and downloadable text templates. Shared navigation and footer content appear once per variant. Original wording is preserved. Images and video are linked; no video transcript is available. Map geometry and individual event-data rows are linked rather than expanded into prose.
+Local review build, 13 September 2026. Includes all 28 retained HTML pages, the active interactive explanations and blank templates. These changes have not been pushed or deployed. Web addresses identify the page destinations and do not imply that this draft is live. Shared navigation and footer content appear once per variant. Images and video are linked.
 
 ## Contents
 
@@ -16,29 +16,22 @@ Content snapshot from the published-site files, 13 September 2026. Includes all 
 - [editorial-standards.html](#page-10)
 - [engagement.html](#page-11)
 - [es/index.html](#page-12)
-- [es/map.html](#page-13)
-- [evidence-workspace.html](#page-14)
-- [frame-bureau.html](#page-15)
-- [government-affairs.html](#page-16)
-- [map.html](#page-17)
-- [methodology.html](#page-18)
-- [privacy.html](#page-19)
-- [research.html](#page-20)
-- [research/following-european-energy-policy.html](#page-21)
-- [research/from-signal-to-significance.html](#page-22)
-- [research/mapping-power-without-false-precision.html](#page-23)
-- [research/questions-that-can-resolve.html](#page-24)
-- [research/sanctions-and-operational-reality.html](#page-25)
-- [research/scenarios-that-can-be-tested.html](#page-26)
-- [research/venezuela-from-country-to-asset.html](#page-27)
-- [research/when-sources-disagree.html](#page-28)
-- [sample-asset-access.html](#page-29)
-- [sample-briefs.html](#page-30)
-- [sample-thesis-review.html](#page-31)
-- [sources.html](#page-32)
-- [trust.html](#page-33)
-- [venezuela-context.html](#page-34)
-- [venezuela.html](#page-35)
+- [evidence-workspace.html](#page-13)
+- [government-affairs.html](#page-14)
+- [methodology.html](#page-15)
+- [privacy.html](#page-16)
+- [research.html](#page-17)
+- [research/following-european-energy-policy.html](#page-18)
+- [research/questions-that-can-resolve.html](#page-19)
+- [research/venezuela-from-country-to-asset.html](#page-20)
+- [research/when-sources-disagree.html](#page-21)
+- [sample-asset-access.html](#page-22)
+- [sample-briefs.html](#page-23)
+- [sample-thesis-review.html](#page-24)
+- [sources.html](#page-25)
+- [trust.html](#page-26)
+- [venezuela-context.html](#page-27)
+- [venezuela.html](#page-28)
 
 <a id="page-01"></a>
 
@@ -50,37 +43,31 @@ Political intelligence / Material exposure
 
 ### Power shifts *Exposure follows*
 
-For oil and gas teams and distressed-debt investors, EchoFrame turns political reporting into judgments you can inspect, scenarios you can challenge, and decisions measured against your own criteria.
-
-[Tell me more](https://www.echoframe.co/capabilities.html)
+EchoFrame serves oil and gas government affairs teams and distressed-debt and special-situations investors. Venezuela is our lead programme. Our second area is European energy policy.
 
 [Image](https://www.echoframe.co/assets/energy-horizon.png)
 
-THE BIG PICTURE / THE LOCAL DETAIL VENEZUELA / LEAD DEVELOPMENT PROGRAMME
+POLITICAL AND OPERATING CONDITIONS  VENEZUELA / LEAD DEVELOPMENT PROGRAMME
 
 01 / Government affairs
 
 #### Judgment you can defend to a board
 
-Political reporting becomes useful when you can explain what it changes. Examine five dimensions of risk, the people behind the decisions, and the evidence behind the assessment.
-
-[Learn how we build the brief](https://www.echoframe.co/government-affairs.html)
+Political reporting becomes useful when you can explain what it changes. Examine the six risk dimensions, the people behind the decisions and the evidence behind the assessment.
 
 02 / Distressed debt
 
 #### The opportunity has to clear your bar
 
-Where a country is heading is one question. Whether the terms hold under different scenarios—and meet your own requirements—is another.
-
-[Learn how we test the opportunity](https://www.echoframe.co/distressed-debt.html)
+The country outlook does not establish whether a particular opportunity meets your requirements. Examine the terms and the evidence for the conditions you need.
 
 03 / Our method
 
 #### Political science, run as data science
 
-Six analytical layers connect events, relationships, and behaviour to competing scenarios. Each judgment should show its evidence—and what would change it.
+Five analytical layers connect events, relationships and behaviour to dated research questions. Each judgment should show its evidence and explain what would change it.
 
-[Learn how it works](https://www.echoframe.co/methodology.html)
+[Discuss your research priorities](https://www.echoframe.co/briefing.html)
 
 <a id="page-02"></a>
 
@@ -106,9 +93,9 @@ About EchoFrame
 
 ### Independent thinking *Connected intelligence*
 
-EchoFrame develops political risk research around specific assets, contracts, and local actors. Our Venezuela programme is being shaped around the decisions operators, entrants, creditors, and suppliers need to make.
+EchoFrame serves oil and gas government affairs teams and distressed-debt and special-situations investors. Venezuela is our lead programme. Our second area is European energy policy.
 
-THE WIDER FRAME Evidence Context Perspective
+ECHOFRAME  Research and assessment
 
 Why we exist
 
@@ -116,33 +103,39 @@ Why we exist
 
 The value of an observation depends on its context: the actors involved, the incentives at work, the history behind it, and the plausible paths ahead.
 
-Our Venezuela programme brings that question into focus: how can national context, local reporting, official records, and physical observations inform a decision about a particular asset? The connected event and forecasting workflow remains in development. Our regional focus is Venezuela and European energy policy.
-
-[**The Frame Bureau**](https://www.echoframe.co/frame-bureau.html)  is our training division. It brings investigative journalism, data science, and political risk analysis into practical learning, helping teams examine evidence and explain their judgments.
-
-[Explore the approach](https://www.echoframe.co/methodology.html)
+Our Venezuela programme examines how national context, local reporting, official records and physical observations inform decisions about particular assets. The connected event and forecasting workflow remains in development. Our regional focus is Venezuela and European energy policy.
 
 Designed around the question
 
 #### Different decisions Shared context
 
-01 / Energy
+01
 
-##### Understand your operating environment
+##### Government affairs
 
-Frame questions around institutions, infrastructure, and the policy processes relevant to your regional footprint.
+Research for oil and gas government affairs teams examining policy decisions, the institutions responsible and the evidence around an operating asset. The work helps prepare questions for stakeholder meetings and internal briefings.
 
-02 / Commodities
+02
 
-##### Follow the chain of implications
+##### Distressed debt and special situations
 
-Connect geopolitical developments to research on maritime routes, energy systems, and operational constraints.
+Research for investors examining the political, counterparty and operating assumptions behind an investment. The work identifies which developments would support a view, challenge it or leave it unresolved.
 
-03 / Research & strategy
+03
 
-##### Make the reasoning visible
+##### Venezuela
 
-Explore actor networks, competing scenarios, and the source record behind an analytical judgment.
+Our lead programme connects national decisions with local evidence around assets and contracts. Collection follows the question being investigated and the evidence needed to answer it.
+
+Where the programme stands
+
+Three organisations are using work built on this method, two of them paying, delivered through a channel partner.  [[ROB: confirm wording and whether the channel partner may be named]]
+
+#### The Frame Bureau
+
+The Frame Bureau is EchoFrame’s training division. It brings investigative journalism, data science and political risk analysis into practical work on research questions. Participants check sources, distinguish evidence from assumptions, write assessments and review them when the evidence changes.
+
+Training is available on request through  contact@echoframe.co .
 
 Watch / Inside EchoFrame
 
@@ -152,7 +145,7 @@ Political events rarely speak for themselves. Our work starts with the evidence 
 
 [Video](https://www.echoframe.co/images/EchoFramev3.mp4)
 
-Explore the methods, sample briefs, and programme notes behind the research. [Explore the research approach](https://www.echoframe.co/capabilities.html)
+Explore the methods, sample briefs, and programme notes behind the research. [Research approach](https://www.echoframe.co/capabilities.html)
 
 Expert perspectives
 
@@ -162,11 +155,15 @@ Reflections from contributors to EchoFrame’s work.
 
 > “EchoFrame's probabilistic risk modeling is set to disrupt how open-source analysis is done, helping clients manage risk before it manages them.”
 
-**Luis Matos Azócar** EchoFrame contributor · Former Venezuelan finance minister and central bank director
+**Luis Matos Azócar**  EchoFrame contributor · Former Venezuelan finance minister and central bank director
 
 > “EchoFrame's spatial analytics and network modeling bring academic rigor to real-world analysis, the kind of methodological depth that's rare in the open-source research space.”
 
-**Jean-Christophe Loubier** EchoFrame contributor · Geospatial science professor
+**Jean-Christophe Loubier**  EchoFrame contributor · Geospatial science professor
+
+[[ROB: confirm written permission on file for the Luis Matos Azócar quote]]
+
+[[ROB: confirm written permission on file for the Jean-Christophe Loubier quote]]
 
 A little more context
 
@@ -182,11 +179,11 @@ Bring the decision you face, the assets or contracts involved, and your time hor
 
 **What is the status of the Venezuela programme?**
 
-Venezuela is our lead development programme. Collection and indexing form part of the foundation. The connected event, corroboration, spatial-analysis, and forecasting workflow remains in development. Public examples explain the intended approach and are labeled as illustrative.
+Venezuela is our lead development programme. Collection and indexing form part of the foundation. The connected event, corroboration, spatial-analysis, and forecasting workflow remains in development. Real, redacted material will be added when it is ready for publication.
 
 **Can I explore the research before getting in touch?**
 
-Yes. The intelligence library includes complete research essays, field guides, and programme notes. These explain our reasoning and methods. They are not a live feed or a record of validated forecasts.
+Yes. The four library articles explain source comparison, question design, Venezuela collection priorities and European energy policy research. They do not present a live feed or a validated forecast record.
 
 **How do you handle conflicting sources?**
 
@@ -194,17 +191,9 @@ Our editorial approach keeps the original claim, source, timing, and uncertainty
 
 **How do we start?**
 
-Request a demo or send us a question through the contact form. Share a bounded research question and the date that matters. Scope, access, and delivery are discussed directly.
+Send us a question through the contact form. Share a bounded research question and the date that matters. Scope, access, and delivery are discussed directly.
 
-[Have a more specific question? Let’s talk](https://www.echoframe.co/briefing.html)
-
-Put intelligence in context
-
-#### What would better evidence change for you?
-
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
+[Ask about EchoFrame and training](https://www.echoframe.co/briefing.html)
 
 <a id="page-04"></a>
 
@@ -216,39 +205,13 @@ Capability 01 / Actor & asset mapping
 
 ### Who has the power to change the outcome?
 
-An organisation chart tells you who holds a title. A useful stakeholder map goes further: who makes the decision, who carries it out, and who may be affected. This fictional example shows how we examine those relationships.
+An organisation chart identifies formal positions. A stakeholder assessment examines who makes a decision, who carries it out and who is affected. Each relationship needs evidence of the role it describes, together with its date and any uncertainty.
 
-STAKEHOLDER EXPLORER / TERMINAL A FICTIONAL EXAMPLE
+#### Worked example to follow
 
-Terminal AOperating access question
+Real, redacted material will be added here when it is ready for publication.
 
-Port authorityFormal authority
-
-OperatorOperating responsibility
-
-Worker representativesReported local position
-
-Service counterpartyOperational dependency
-
-Inspect the connection
-
-#### Port authority
-
-Relationship to examine
-
-Formal responsibility for the access procedure described in the fictional permit.
-
-Evidence required
-
-The published instrument, named office, scope of authority, and effective date.
-
-What remains unresolved
-
-Whether the procedure has been implemented at this terminal and whether another body has a separate approval role.
-
-[Read the complete sample](https://www.echoframe.co/sample-asset-access.html)
-
-Select an actor to inspect the relationship. All names and connections are illustrative. Line length and position do not encode influence scores.
+[[ROB: supply real redacted material for actor and asset mapping]]
 
 Every connection needs a source
 
@@ -278,8 +241,6 @@ The resulting brief
 
 A map is the index to the reasoning. The accompanying note explains why a relationship matters and what remains uncertain.
 
-[Inspect the asset-access brief](https://www.echoframe.co/sample-asset-access.html)
-
 PROPOSED BRIEF CONTENTS
 
 1. Decision and institutional pathway
@@ -293,15 +254,9 @@ PROPOSED BRIEF CONTENTS
 
 For government affairs teams, the map can focus the next stakeholder conversation. For investment teams, it can help test assumptions about counterparties, authority, and implementation. It does not turn reported relationships into legal findings or imply access to the people represented.
 
-[Government affairs use cases](https://www.echoframe.co/government-affairs.html) [Distressed-debt use cases](https://www.echoframe.co/distressed-debt.html) [Explore the source directory](https://www.echoframe.co/sources.html)
+[Government affairs use cases](https://www.echoframe.co/government-affairs.html) [Distressed-debt use cases](https://www.echoframe.co/distressed-debt.html) [Primary-source directory](https://www.echoframe.co/sources.html)
 
-A conversation with context
-
-#### Bring us the question that matters to you
-
-Tell us your sector, the decision you face, and what you would need to see in a first briefing.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
+[Discuss the relationships your decision depends on](https://www.echoframe.co/briefing.html)
 
 <a id="page-05"></a>
 
@@ -313,35 +268,19 @@ Talk to EchoFrame
 
 ### Tell us what you need to understand
 
-Start with your sector, your decision, and what you need the evidence to show. We will use those details to shape a useful first conversation.
+Tell us the decision you face and the evidence you need. We will review your request and reply using your work email.
 
 A useful first conversation
 
 #### Your question Our starting point
 
-You might be preparing a stakeholder meeting, assessing an operating asset, or reviewing the politics behind an investment. Start with the decision you face.
+Describe the policy issue, asset or investment question you are working on. Include the deadline and any background that would help us understand what matters to your team.
 
-01
+We use the first conversation to establish whether the question fits our research, what sources it needs and what a useful output would contain.
 
-Tell us who you are and what you want to discuss.
-
-02
-
-We review your request and follow up using your work email.
-
-03
-
-Together, we agree the right demo, briefing, or next step.
-
-[contact@echoframe.co](mailto:contact@echoframe.co) [Prefer to choose a meeting time?](https://cal.eu/robertshaw)
+Please leave out confidential documents and information that could identify a protected source.
 
 #### How can we help?
-
-I’d like to
-
-See a demo
-
-Discuss a question
 
 Fields marked * are required.
 
@@ -351,61 +290,29 @@ Work email * (you@company.com)
 
 Organisation * (Company or institution)
 
-Your role * (Role or team)
-
-Location * (City or country)
-
-Phone number (Optional, with country code)
+Your role (Role or team)
 
 Your sector *
 
 Options: Select your sector; Oil & gas; Distressed debt & special situations; Energy & infrastructure; Advisory & research; Other
 
-What decision are you working towards? * (The decision you face, the asset or market involved, and the date that matters. Please leave out confidential information.)
+What decision or question are you working on? * (Describe the decision or question you need to understand.)
 
-What would a useful first briefing need to demonstrate? (For example: identify who controls access, test a political assumption in our thesis, or show the sources behind an assessment.)
+Additional details (Include the asset or market, your deadline and any non-confidential background.)
 
-Choose a sector so we can suggest a starting point. Please use non-confidential examples.
-
-**Add research details Optional +**
-
-Region of interest
-
-Options: Multiple regions; Venezuela; Europe; Latin America
-
-Your perspective
-
-Options: Not specified; Oil & gas government affairs; Distressed debt / hedge fund; Operator; Entrant; Creditor; Supplier; Research or advisory
-
-Requirement to explore
-
-Options: To discuss; Rule of law; Enforceable contracts; Predictable rules; Infrastructure; Credible institutions; Policy continuity
-
-Asset, contract, or place (Optional research subject)
-
-Decision deadline
-
-Research format
-
-Options: To discuss; Scoping conversation; Focused research brief; Recurring research review; Stakeholder mapping; Thesis-assumption review; Training programme
-
-How did you find EchoFrame?
+How did you find us?
 
 Options: Prefer not to say; Colleague or professional referral; LinkedIn; Search; Event or publication
 
-Your request and the details you provide will be emailed to EchoFrame so we can respond. [Read our privacy notice](https://www.echoframe.co/privacy.html) .
+Your request and the details you provide will be emailed to contact@echoframe.co so we can respond. [Privacy notice](https://www.echoframe.co/privacy.html) .
 
-Send demo request
+Book a conversation
 
 ##### Your request is on its way
 
-Our email service has accepted your request. We’ll reply using the work email you provided.
+Our email service has accepted your request for contact@echoframe.co. We will reply using the work email you provided.
 
-Send another request
-
-Your details are still in the form. You can also [open an email with these details](mailto:contact@echoframe.co) .
-
-Please enable JavaScript to send this form, or email [contact@echoframe.co](mailto:contact@echoframe.co) .
+JavaScript is needed to submit this form. You can reach us at contact@echoframe.co.
 
 <a id="page-06"></a>
 
@@ -417,15 +324,13 @@ The EchoFrame research system
 
 ### Judgment you can defend to a board
 
-Turn a stream of reporting into a structured answer: where the country is heading, how the outlook could change, and whether the opportunity meets your requirements. Follow each judgment back to the evidence that supports it.
+A structured assessment examines where the country is heading, what could change and whether an opportunity meets your requirements. Follow each judgment back to the evidence that supports it.
 
-[Explore sample briefs](https://www.echoframe.co/sample-briefs.html) [Inside the capabilities](https://www.echoframe.co/capabilities.html#capability-modules)
-
-ECHOFRAME / RESEARCH WORKFLOW ILLUSTRATIVE PRODUCT DESIGN
+ECHOFRAME / RESEARCH WORKFLOW  ILLUSTRATIVE PRODUCT DESIGN
 
 01 / Collect & preserve [Official records Authority · Document · Date](https://www.echoframe.co/sources.html#ofac) [Local reporting Claim · Place · Provenance](https://www.echoframe.co/evidence-workspace.html) [Physical observations Coverage · Precision · Limits](https://www.echoframe.co/evidence-workspace.html)
 
-02 / Connect & challenge [**The event record** One happening. Competing accounts.](https://www.echoframe.co/evidence-workspace.html) [**The actor & asset context** Roles, relationships, and dependencies.](https://www.echoframe.co/actor-mapping.html)
+02 / Connect & challenge [**The event record** Accounts of the same event.](https://www.echoframe.co/evidence-workspace.html) [**The actor & asset context** Roles, relationships, and dependencies.](https://www.echoframe.co/actor-mapping.html)
 
 03 / Assess & explain
 
@@ -433,7 +338,7 @@ ECHOFRAME / RESEARCH WORKFLOW ILLUSTRATIVE PRODUCT DESIGN
 
 What has changed? Why does it matter? What should you watch next?
 
-[Inspect a sample brief](https://www.echoframe.co/sample-briefs.html)
+[Research brief formats](https://www.echoframe.co/sample-briefs.html)
 
 Connections show a proposed analytical workflow, not data volumes or live integrations. This public illustration does not establish the deployment or update cadence of a client service.
 
@@ -453,8 +358,6 @@ Understand who can influence a decision and which operational dependencies surro
 - Relationship evidence
 - Asset dependencies
 
-[Explore the capability](https://www.echoframe.co/actor-mapping.html)
-
 [02](https://www.echoframe.co/evidence-workspace.html)
 
 ##### [Evidence workspace](https://www.echoframe.co/evidence-workspace.html)
@@ -465,8 +368,6 @@ Keep claims, contradictions, timing, and source independence visible in one rese
 - Event review
 - Contradiction handling
 
-[Explore the capability](https://www.echoframe.co/evidence-workspace.html)
-
 [03](https://www.echoframe.co/decision-pathways.html)
 
 ##### [Decision pathways](https://www.echoframe.co/decision-pathways.html)
@@ -476,8 +377,6 @@ Identify observable milestones, alternative explanations, and the evidence that 
 - Bounded questions
 - Review triggers
 - Resolution rules
-
-[Explore the capability](https://www.echoframe.co/decision-pathways.html)
 
 Built around a research mandate
 
@@ -500,93 +399,45 @@ Good research starts with a clear question. It gathers the evidence, weighs comp
 
 The country assessment
 
-#### Five dimensions A more useful risk picture
+#### Six dimensions A more useful risk picture
 
-A single country score can hide the change that matters to your business. Read these five dimensions separately, then examine their connections.
+A single country score can hide the change that matters to your business. Read these six dimensions separately, then examine their connections.
 
-##### Security & military risk
-
-The use or threat of force, security constraints, and their implications for people, access, and continuity.
-
-##### Elite fracture risk
+##### Elite Cohesion
 
 Changes in alignment among decision-makers, and what those changes could mean for authority and implementation.
 
-##### Political risk
+##### Political Order
 
-The institutions, rules, and policy decisions that shape the operating and contractual environment.
+The institutions, rules and policy decisions that shape the operating and contractual environment.
 
-##### Economic & fiscal stress
+##### Security and Military
 
-Pressure on public finances, payment capacity, and the services or infrastructure an asset depends on.
+The use or threat of force, security constraints and their implications for people, access and continuity.
 
-##### Geopolitical pressure
+##### Economic and Fiscal Stability
 
-External alignments, sanctions decisions, and international actions that could change the available options.
+Pressure on public finances, payment capacity and the services or infrastructure an asset depends on.
 
-A risk score, a scenario probability, and a commercial threshold answer different questions. Any numerical reading needs its date, evidence, scale, and uncertainty attached.
+##### Geopolitical and External Pressure
 
-The Venezuela scenario frame
+External alignments, sanctions decisions and international actions that could change the available options.
 
-#### Five ways the outlook could change
+##### Social
 
-Scenario odds should move with evidence. Open each pathway to see the kind of development that would prompt a review.
+[[ROB: confirm the definition and evidence covered by the Social dimension]]
 
-The starting point
+A risk score, a question probability, and a commercial threshold answer different questions. Any numerical reading needs its date, evidence, scale, and uncertainty attached.
 
-##### One country Several plausible paths
-
-Compare alternatives over a defined horizon. Explain which observations would favour one over another.
-
-**01 Regime consolidation**
-
-**Authority becomes more cohesive and durable.**
-
-Look for evidence of alignment, implementation capacity, and control. Distinguish public expressions of unity from observed cooperation.
-
-**02 Elite fracture**
-
-**Key actors cease to act as a coherent group.**
-
-Look for documented departures, conflicting orders, broken commitments, or changes in who controls decisions and resources.
-
-**03 Negotiated transition**
-
-**A political settlement changes who governs and on what terms.**
-
-Look for credible negotiating mandates, guarantees, agreed steps, and evidence that the parties can deliver on them.
-
-**04 Security-force rupture**
-
-**A break within the security apparatus changes the balance of power.**
-
-Look for independently supported changes in command, compliance, or deployment. Rumour alone should not establish a rupture.
-
-**05 External escalation**
-
-**Outside action materially increases pressure or disruption.**
-
-Look for a specific decision and its implementation, alongside the responses it triggers. Separate capability and rhetoric from action.
-
-A qualitative explanation of the scenario framework, not today’s forecast. Numerical probabilities require a dated assessment with defined outcomes and rules for events that overlap.
-
-[How the analytical layers inform these judgments](https://www.echoframe.co/methodology.html#six-layers)
+The scenario layer has been replaced by dated questions with tracked probabilities.
 
 Read the result in context
 
 #### Every number needs an explanation
 
-An assessment should show its date, the evidence behind a movement, the alternatives considered, and the next review trigger. This public walkthrough explains the framework. It does not present a live risk feed or client-specific scenario odds.
+An assessment should show its date, the evidence behind a movement, the alternatives considered, and the next review trigger. This public walkthrough explains the framework. It does not present a live risk feed or client-specific probabilities.
 
-[Explore the six decision tests](https://www.echoframe.co/decision-pathways.html#entry-tests)
-
-A conversation with context
-
-#### Bring us the question that matters to you
-
-Tell us your sector, the decision you face, and what you would need to see in a first briefing.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
+[Outline the research you need](https://www.echoframe.co/briefing.html)
 
 <a id="page-07"></a>
 
@@ -608,27 +459,19 @@ Explore our Venezuela programme and European energy policy research. Connect reg
 
 Our lead development programme connects local events, conflicting accounts, and documented viability to specific asset-level questions. Explore the proposed workflow and collection priorities for Venezuela.
 
-Venezuela programme Asset-level questions In development
+Venezuela programme  Asset-level questions  In development
 
 ##### Venezuela research platform
 
-[Open platform](https://vz.echoframe.co) [Read a related guide](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
+[Venezuela field guide](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
 Platform access is managed by the platform. Contact us if you need an account.
 
-Intended brief / Fictional worked example
+#### Worked example to follow
 
-Q-DEMO-01 IN DEVELOPMENT
+Real, redacted material will be added here when it is ready for publication.
 
-##### One asset One question An inspectable record
-
-Official position **Account retained**
-
-Competing report **Review required**
-
-Probability **Not assigned**
-
-[Explore the sample brief](https://www.echoframe.co/venezuela.html)
+[[ROB: supply real redacted material for the coverage overview]]
 
 02 / Europe
 
@@ -636,17 +479,15 @@ Probability **Not assigned**
 
 Follow energy policy through institutions, negotiations, and implementation. Connect the documentary record to the technologies, projects, and markets within your research scope.
 
-Energy policy Regulatory process Institutional influence
+Energy policy  Regulatory process  Institutional influence
 
 ##### EU Energy Tracker
 
-[Open platform](https://eu-regulatory-monitor.onrender.com/) [Read a related guide](https://www.echoframe.co/research/following-european-energy-policy.html)
+The European energy policy tracker is available to clients on request.
+
+[Europe field guide](https://www.echoframe.co/research/following-european-energy-policy.html)
 
 Platform access is managed by the platform. Contact us if you need an account.
-
-[Image: Historical EU Energy Tracker interface preview](https://www.echoframe.co/images/eu-regulatory-map.png)
-
-Archive platform screenshot · Illustrates the interface, not current conditions.
 
 On the horizon
 
@@ -656,27 +497,21 @@ Our regional coverage is expanding. These five countries are coming soon.
 
 - ##### Colombia
 
-  Coming soon
+   Coming soon
 - ##### Mexico
 
-  Coming soon
+   Coming soon
 - ##### Nigeria
 
-  Coming soon
+   Coming soon
 - ##### Rwanda
 
-  Coming soon
+   Coming soon
 - ##### Pakistan
 
-  Coming soon
+   Coming soon
 
-Put intelligence in context
-
-#### What would better evidence change for you?
-
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
+[Enquire about research coverage](https://www.echoframe.co/briefing.html)
 
 <a id="page-08"></a>
 
@@ -688,7 +523,7 @@ Capability 03 / Decision pathways
 
 ### Know what would change your assessment
 
-What would make you change your view? A useful scenario names the event, the date, and the evidence that would matter. This fictional example shows how to make that question concrete.
+An assessment becomes easier to review when the question names an outcome, a deadline and the evidence needed to establish it. Record the observation that would change your view and explain why it matters to the decision.
 
 The commercial decision
 
@@ -722,8 +557,6 @@ What would trigger a review
 
 A documented change in enforcement or access to a remedy.
 
-[Discuss this requirement](https://www.echoframe.co/briefing.html?test=Rule of law)
-
 ##### Enforceable contracts
 
 Your requirement
@@ -737,8 +570,6 @@ The contract, governing law, dispute process, security arrangements, and special
 What would trigger a review
 
 A material change in the agreement, its implementation, or the available remedy.
-
-[Discuss this requirement](https://www.echoframe.co/briefing.html?test=Enforceable contracts)
 
 ##### Predictable rules
 
@@ -754,8 +585,6 @@ What would trigger a review
 
 A new instrument, an implementation decision, or evidence that practice differs from the published rule.
 
-[Discuss this requirement](https://www.echoframe.co/briefing.html?test=Predictable rules)
-
 ##### Infrastructure
 
 Your requirement
@@ -769,8 +598,6 @@ Dated evidence on power, transport, inputs, maintenance, and the dependencies sp
 What would trigger a review
 
 A verified change in a critical service or access route.
-
-[Discuss this requirement](https://www.echoframe.co/briefing.html?test=Infrastructure)
 
 ##### Credible institutions
 
@@ -786,8 +613,6 @@ What would trigger a review
 
 A change in authority, capacity, or compliance that affects the decision.
 
-[Discuss this requirement](https://www.echoframe.co/briefing.html?test=Credible institutions)
-
 ##### Policy continuity
 
 Your requirement
@@ -802,39 +627,17 @@ What would trigger a review
 
 A decision or actor change that alters the expected policy path.
 
-[Discuss this requirement](https://www.echoframe.co/briefing.html?test=Policy continuity)
-
 This walkthrough explains the questions to ask. It does not disclose a client’s thresholds or assign scores to an actual opportunity.
 
-QUESTION REGISTER / Q-01 FICTIONAL EXAMPLE
+#### Worked example to follow
 
-Resolution horizon / Day 30
+Real, redacted material will be added here when it is ready for publication.
 
-#### Will ordinary contractor access to Terminal A be independently documented by Day 30?
-
-Resolution requires a dated record of the relevant access procedure and an independent observation within the review window.
-
-01 / Evidence supports **Access is documented.**
-
-02 / Evidence challenges **A restriction is documented.**
-
-03 / Evidence is insufficient **The question stays open.**
-
-Next analytical step
-
-##### Check scope before revising the assessment
-
-Confirm that the observed access applies to ordinary contractors, the relevant gate, and the stated period. An exceptional one-off entry does not resolve the broader question.
-
-Review record
-
-Record the new evidence, the prior assessment, the change in reasoning, and the next date for review.
-
-A qualitative research illustration. No branch is assigned a probability, valuation, or investment recommendation.
+[[ROB: supply real redacted material for decision pathways]]
 
 Make the question resolvable
 
-#### A better question than “How risky is the country?”
+#### A better question
 
 01
 
@@ -860,8 +663,6 @@ For distressed-debt research
 
 Start with the part of the investment case that depends on politics or operations. Name the decision that must happen, the party responsible, and the evidence that would make you reconsider.
 
-[Read the thesis-review sample](https://www.echoframe.co/sample-thesis-review.html)
-
 QUESTION REGISTER / SUGGESTED FIELDS
 
 1. Question and decision owner
@@ -875,15 +676,9 @@ QUESTION REGISTER / SUGGESTED FIELDS
 
 A numerical forecast needs a documented basis, timestamped updates, resolution criteria, and evaluation against observed outcomes. Review the complete record and its benchmark, including unsuccessful calls. A selected historical case is not a substitute for that evaluation.
 
-[Download a question register](https://www.echoframe.co/downloads/question-register.csv) [Explore the full methodology](https://www.echoframe.co/methodology.html)
+[Question register template](https://www.echoframe.co/downloads/question-register.csv) [Methodology](https://www.echoframe.co/methodology.html)
 
-A conversation with context
-
-#### Bring us the question that matters to you
-
-Tell us your sector, the decision you face, and what you would need to see in a first briefing.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
+[Discuss your decision criteria](https://www.echoframe.co/briefing.html)
 
 <a id="page-09"></a>
 
@@ -897,17 +692,15 @@ Hedge funds / Distressed debt & special situations
 
 Research for fund managers examining the political, counterparty, and operational assumptions behind a distressed-debt thesis.
 
-[Discuss a distressed-debt brief](https://www.echoframe.co/briefing.html?audience=credit)
-
-POLICY ACTORS ASSETS EXPOSURE RESEARCH WITH A DEFINED MANDATE
+POLICY ACTORS ASSETS EXPOSURE  RESEARCH WITH A DEFINED MANDATE
 
 Your question, in focus
 
 #### Find the political assumption in your thesis
 
-Take one expectation from the investment case: access will improve, a counterparty will perform, or a political decision will arrive on time. Define the observable event behind it, then seek evidence that could challenge it as well as support it.
+Identify a political or operating assumption in the investment case. Define the event that would establish whether it holds, then seek evidence that could challenge it as well as support it.
 
-> Which observable developments would make us revisit the political assumptions in this thesis?AN ILLUSTRATIVE RESEARCH MANDATE
+> Which observable developments would make us revisit the political assumptions in this thesis?RESEARCH QUESTION
 
 01 / Research question
 
@@ -919,7 +712,7 @@ Which named decision, actor, or institutional milestone matters, and over what h
 
 ##### The counterparty narrative
 
-Which statements are supported by documents and independent observations—and where do accounts diverge?
+Which statements are supported by documents and independent observations? Where do accounts diverge?
 
 03 / Research question
 
@@ -937,7 +730,7 @@ These are possible research formats. Scope, source access, and delivery are agre
 
 ##### Thesis-question register
 
-Clear questions, deadlines, and the evidence needed to answer them—with unresolved assumptions kept in view.
+Clear questions, deadlines and the evidence needed to answer them, with unresolved assumptions kept in view.
 
 02
 
@@ -955,11 +748,9 @@ Lead development programme
 
 #### Venezuela *Closer to the asset*
 
-Explore the five risk dimensions, scenario framework, and six decision tests alongside an anonymised historical assessment and fictional asset-level examples.
+Explore the risk dimensions and decision criteria alongside the historical assessment. Real, redacted asset material will be added when it is ready.
 
-[Inside the Venezuela programme](https://www.echoframe.co/venezuela.html)
-
-Start with the research [Give the question a deadline.](https://www.echoframe.co/research/questions-that-can-resolve.html) [A sanctions headline is only the starting point.](https://www.echoframe.co/research/sanctions-and-operational-reality.html) [Venezuela, at the level of the asset.](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
+Start with the research [Give the question a deadline.](https://www.echoframe.co/research/questions-that-can-resolve.html) [Give the question a deadline.](https://www.echoframe.co/research/questions-that-can-resolve.html) [Venezuela, at the level of the asset.](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
 A briefing built for the decision
 
@@ -967,7 +758,7 @@ A briefing built for the decision
 
 Country direction and commercial viability belong alongside one another. Keep the evidence, the interpretation, and the client’s requirements distinct.
 
-[**05** ##### Risk dimensions See which part of the country picture is changing. Explore the dimensions](https://www.echoframe.co/capabilities.html#risk-dimensions) [**05** ##### Scenario pathways Compare what could happen and what would change the outlook. Explore the scenarios](https://www.echoframe.co/capabilities.html#five-scenarios) [**06** ##### Decision tests Assess the opportunity against your own requirements. Explore the tests](https://www.echoframe.co/decision-pathways.html#entry-tests)
+[**06** Risk dimensions See which part of the country picture is changing. Explore the dimensions](https://www.echoframe.co/capabilities.html#risk-dimensions) [**06** Decision tests Assess the opportunity against your own requirements. Explore the tests](https://www.echoframe.co/decision-pathways.html#entry-tests)
 
 Recognise the research problem
 
@@ -993,7 +784,7 @@ The team needs to know which new evidence would support, challenge, or leave the
 
 Where the approach fits
 
-#### Get more from a defined mandate
+#### Get more from
 
 - Your thesis depends on a political or operational assumption.
 - You research distressed debt, special situations, or complex counterparties.
@@ -1001,29 +792,17 @@ Where the approach fits
 - You can name an issuer, asset, counterparty, and decision horizon.
 - You want research that complements legal and valuation specialists.
 
-BEFORE AFTER / FICTIONAL WORKFLOW
+#### Worked example to follow
 
-##### From a country thesis to an assumption register
+Real, redacted material will be added here when it is ready for publication.
 
-Starting point
-
-An investment narrative that assumes an operational milestone will follow a political announcement.
-
-Research work
-
-Define the question, compare the documentary record, preserve contradictions, and name the next observation.
-
-Resulting format
-
-An assumption register, catalyst review, and committee questions.
-
-[Inspect the complete sample](https://www.echoframe.co/sample-thesis-review.html)
+[[ROB: supply real redacted material for distressed-debt research]]
 
 Explore the work in more detail
 
-#### See the method Inspect the output
+#### See the method
 
-[01 / Capability ##### Actor & asset mapping Inspect a fictional relationship map and its evidence requirements.](https://www.echoframe.co/actor-mapping.html) [02 / Capability ##### Evidence workspace Follow conflicting claims through an inspectable source ledger.](https://www.echoframe.co/evidence-workspace.html) [03 / Working together ##### Research formats Explore the scoping, delivery, and review process.](https://www.echoframe.co/engagement.html)
+[01 / Capability Actor & asset mapping Read how relationships are documented and checked.](https://www.echoframe.co/actor-mapping.html) [02 / Capability Evidence workspace Follow conflicting claims through an inspectable source ledger.](https://www.echoframe.co/evidence-workspace.html) [03 / Working together Research formats Explore the scoping, delivery, and review process.](https://www.echoframe.co/engagement.html)
 
 How to assess the fit
 
@@ -1033,15 +812,7 @@ We can scope a first briefing around a political or operational expectation in y
 
 Judge the proposed work by whether it makes that assumption testable and the reasoning traceable. Valuation, legal conclusions, and investment decisions remain with your team and advisers.
 
-[Inspect the fictional thesis-review brief](https://www.echoframe.co/sample-thesis-review.html)
-
-Start with the question that matters
-
-#### Which political or operational assumption in your thesis would be most costly to leave untested?
-
-[See how we can help you](https://www.echoframe.co/briefing.html?audience=credit)
-
-Tell us your decision and what you would need to see to judge whether our research is useful.
+[Examine an investment assumption with us](https://www.echoframe.co/briefing.html)
 
 <a id="page-10"></a>
 
@@ -1053,7 +824,7 @@ Editorial standards
 
 ### Show the work *Keep the context*
 
-Our public editorial standard: a reader should be able to identify the evidence, understand the interpretation, and see where uncertainty remains.
+Our public editorial standard requires a reader to be able to identify the evidence, understand the interpretation and see where uncertainty remains.
 
 #### Different formats, clearly labeled
 
@@ -1113,8 +884,6 @@ Possible output
 
 An agreed next step and the boundaries of a potential mandate.
 
-[Discuss this format](https://www.echoframe.co/briefing.html?format=Scoping conversation)
-
 02 / Investigate a question
 
 #### Focused research brief
@@ -1129,8 +898,6 @@ Possible output
 
 An evidence-linked brief, unresolved questions, and a review horizon.
 
-[Discuss this format](https://www.echoframe.co/briefing.html?format=Focused research brief)
-
 03 / Follow the change
 
 #### Recurring research review
@@ -1144,8 +911,6 @@ A continuing policy process or a thesis with observable milestones.
 Possible output
 
 A change log, revised assessment, and agreed escalation criteria.
-
-[Discuss this format](https://www.echoframe.co/briefing.html?format=Recurring research review)
 
 From introduction to output
 
@@ -1194,15 +959,9 @@ The deadline and the policy, operational, or procedural milestone that creates i
 
 What you already know, which assumption is unresolved, and the evidence that would help.
 
-[Download a mandate template](https://www.echoframe.co/downloads/research-mandate.md) [Inspect complete fictional examples](https://www.echoframe.co/sample-briefs.html) [Review information-handling boundaries](https://www.echoframe.co/trust.html)
+[Research mandate template](https://www.echoframe.co/downloads/research-mandate.md) [Research templates and forthcoming briefs](https://www.echoframe.co/sample-briefs.html) [Review information-handling boundaries](https://www.echoframe.co/trust.html)
 
-A conversation with context
-
-#### Bring us the question that matters to you
-
-Tell us your sector, the decision you face, and what you would need to see in a first briefing.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
+[Arrange a scoping conversation](https://www.echoframe.co/briefing.html)
 
 <a id="page-12"></a>
 
@@ -1218,109 +977,25 @@ Investigación de fuentes abiertas, contexto regional y análisis estructurado p
 
 #### Del acontecimiento al contexto
 
-EchoFrame desarrolla plataformas de análisis de riesgo político para el sector energético, investigadores de materias primas y organizaciones que necesitan comprender los cambios geopolíticos.
+EchoFrame trabaja para equipos de asuntos gubernamentales del sector del petróleo y el gas e inversores en deuda en dificultades y situaciones especiales.
 
-Nuestra cobertura incluye Oriente Medio, la política energética europea, América Latina y el sector energético de México. El programa de Venezuela se está desarrollando en torno a activos concretos, hechos locales, fuentes que discrepan y preguntas con una fecha y una regla de resolución. La integración de eventos y pronósticos sigue en desarrollo.
+Venezuela es nuestro programa principal. Nuestra segunda área es la política energética europea. El programa de Venezuela se está desarrollando en torno a activos concretos, hechos locales, fuentes que discrepan y preguntas con una fecha y una regla de resolución. La integración de eventos y pronósticos sigue en desarrollo.
 
-[Conozca el programa de Venezuela (en inglés)](https://www.echoframe.co/venezuela.html)
+[Programa de Venezuela (en inglés)](https://www.echoframe.co/venezuela.html)
 
 #### Explore nuestra investigación
 
 La biblioteca en inglés incluye ensayos, guías regionales y cuadernos de metodología. La colección inicial explica cómo evaluar fuentes, interpretar señales y formular preguntas de investigación. No presenta pronósticos de mercado en tiempo real.
 
-[Explorar la biblioteca en inglés](https://www.echoframe.co/research.html) [Ver cobertura](https://www.echoframe.co/coverage.html)
-
 #### Conversemos sobre sus prioridades
 
 Escríbanos con la región y las preguntas que le interesan. Podemos comentar el alcance de la investigación y las opciones de acceso.
 
-[Contactar con EchoFrame](mailto:contact@echoframe.co?subject=Consulta%20sobre%20EchoFrame)
+contact@echoframe.co
+
+[Comente sus necesidades de investigación](https://www.echoframe.co/briefing.html)
 
 <a id="page-13"></a>
-
-## Registros de eventos en el oriente de Venezuela
-
-Page: [es/map.html](https://www.echoframe.co/es/map.html)
-
-PRISMA / Demostración pública
-
-### Registros de eventos en el oriente de Venezuela
-
-Este mapa abarca Monagas y Anzoátegui durante dos años. Muestra registros de eventos elaborados a partir de fuentes con licencia o uso permitido, con una regla explícita de corroboración. No contiene textos de artículos. Las probabilidades son estimaciones retrospectivas provisionales, no un historial de resultados predictivos.
-
-[Leer las definiciones y los límites](https://www.echoframe.co/es/map.html#map-notes)
-
-Mes de primera observación
-
-Reproducir
-
-Oct 2024 Sep 2026 · mes parcial
-
-Cargando los registros exportados
-
-Reintentar la carga
-
-Comprobando el mapa base
-
-**Municipios**
-
-0 1 2 4+
-
-Eventos corroborados observados por primera vez en el mes seleccionado
-
-**Estado de corroboración** Corroborado Fuente única Contradicho
-
-**Gravedad y precisión** Baja, media, alta Gravedad desconocida sin relleno Registro estatal mostrado como área
-
-**Activos** Ubicación aproximada del activo Radio de referencia de 25 km El radio no determina la asignación de eventos.
-
-Examinar un registro
-
-Eventos de este mes
-
-Activos y ámbitos de las preguntas
-
-#### Seleccione un evento o activo
-
-Utilice el mapa o las listas. Los registros estatales y los activos sin coordenadas resueltas siguen disponibles en las listas.
-
-Los registros exportados
-
-#### Eventos corroborados por mes
-
-Incluye registros a nivel estatal. Un cero indica ausencia en esta exportación, no demuestra condiciones normales.
-
-**Consultar los recuentos mensuales**
-
-Definiciones y límites
-
-#### Cómo interpretar esta demostración
-
-##### Corroboración
-
-Un evento se corrobora mediante dos medios con propietarios y ciudades de origen distintos y conocidos, o mediante un medio y una fuente no periodística que cumpla los criterios. Un registro contradicho contiene una afirmación y una negación de una fuente habitualmente fiable. El recuento de fuentes cuenta elementos aportados, no medios independientes. Los bloques describen categorías sin identificar a personas.
-
-##### Ubicación y gravedad
-
-Los puntos municipales son centroides de visualización, no lugares exactos de los hechos. Los registros estatales cubren el polígono del estado. Las coordenadas de activos son aproximadas y los sitios sin resolver no tienen marcador. Dos puntos están fuera del límite de su estado registrado y conservan esa advertencia. La gravedad describe la magnitud del evento, no la confianza en él. Todos los eventos de esta exportación tienen gravedad desconocida.
-
-##### Fechas y probabilidades
-
-La ventana de origen comienza el 11 de septiembre de 2024. El control muestra los últimos 24 meses naturales, de octubre de 2024 a septiembre de 2026. La exportación está fechada el 12 de septiembre de 2026 y el último evento recopilado, el 10 de septiembre. Los eventos se cuentan en su mes de primera observación. La vigencia y la corroboración son etiquetas almacenadas, no dictámenes históricos reconstruidos. Las series semanales usan asignaciones exactas a activos y muestran solo semanas completas. Las preguntas muestran la última estimación retrospectiva almacenada hasta la fecha seleccionada, mientras la pregunta sigue abierta. Estas probabilidades indicativas no son pronósticos en tiempo real ni un historial evaluado.
-
-##### Límites de recopilación
-
-La red de información del oriente carece de una segunda fuente local independiente. La cobertura de instalaciones está limitada por la resolución geográfica. Las observaciones VIIRS están disponibles solo desde el 7 de septiembre de 2026. La falta de evidencia no demuestra operaciones normales.
-
-##### Límites administrativos y uso permitido
-
-Los límites administrativos proceden de OpenStreetMap. Esta página aplica selección y redondeo de coordenadas. La base de límites se ofrece bajo la Open Database Licence. Los registros no contienen textos de artículos. Cada fuente aportada superó los controles de uso permitido y protección de fuentes de la exportación.
-
-[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)  · [ODbL 1.0](https://www.echoframe.co/assets/gis-demo/LICENSE.txt)  · [Datos de límites](https://www.echoframe.co/assets/gis-demo/boundaries.json)
-
- [Consultar la cobertura de sus activos](https://www.echoframe.co/briefing.html?format=Asset%20Watch)
-
-<a id="page-14"></a>
 
 ## Evidence workspace
 
@@ -1330,42 +1005,13 @@ Capability 02 / Evidence workspace
 
 ### When accounts differ, follow the evidence
 
-Four reports can tell one story without providing four independent accounts. In this fictional example, we follow the original claims, identify repetition, and keep the disagreement in view.
+Each source needs to be read for what it establishes. Compare the activity, location and observation period before deciding whether accounts agree or conflict. Keep the original source and the reason for your assessment together.
 
-EVIDENCE REVIEW / ACCESS QUESTION FICTIONAL EXAMPLE
+#### Worked example to follow
 
-All records
+Real, redacted material will be added here when it is ready for publication.
 
-Competing accounts
-
-Repeated reporting
-
-Limited observation
-
-| Record / channel | Observed claim | Review state | Interpretation limit |
-| --- | --- | --- | --- |
-| E-01Official · Day 1, 09:00 | The terminal remains open. | Contradicted | An operator statement about general operations. It does not isolate contractor access. |
-| E-02Local · Day 1, 11:30 | Contractor entry was interrupted. | Contradicted | A fictional local account refers to a specific gate and a narrower activity. |
-| E-03Media · Day 1, 13:00 | The terminal remains open. | Repeated | This fictional item repeats E-01 and adds no independent observation. |
-| E-04Physical · Day 2, 08:00 | Activity is visible in the wider terminal area. | Limited | The illustrative observation cannot establish who entered or whether every operation continued. |
-
-4 fictional records shown.
-
-The analyst's task
-
-#### An open terminal A closed gate Both can be true
-
-The statement about an open terminal and the report of interrupted contractor access may describe different scopes. Establish the activity, location, and observation window before treating them as direct opposites.
-
-An image of activity around a terminal cannot tell you whether a particular contractor got through a particular gate. The next piece of evidence needs to answer that narrower question.
-
-Sample analytical judgment
-
-##### Access remains unresolved
-
-The available fictional record does not establish normal contractor access. Seek a dated observation of the access procedure, distinguish visitor categories, and retain the operator statement alongside the narrower local account.
-
-[Read the full reasoning](https://www.echoframe.co/sample-asset-access.html)
+[[ROB: supply real redacted material for evidence review]]
 
 A record you can inspect
 
@@ -1391,93 +1037,13 @@ Grouping rationale, independence check, contradictions, analyst interpretation, 
 
 #### Build the source register before the score
 
-The connected event and corroboration workflow is development work. This public example shows the intended research discipline. It contains no source intake, private reporting, automated verification, or production monitoring.
+The connected event and corroboration workflow remains in development. A useful research record preserves the source, its limits and the review history. The fields below describe the information needed for that record.
 
-[Download a blank evidence register](https://www.echoframe.co/downloads/evidence-register.csv) [Source handling and publication rules](https://www.echoframe.co/trust.html) [Read the evidence guide](https://www.echoframe.co/research/when-sources-disagree.html)
+[Evidence register template](https://www.echoframe.co/downloads/evidence-register.csv) [Source handling and publication rules](https://www.echoframe.co/trust.html) [Evidence guide](https://www.echoframe.co/research/when-sources-disagree.html)
 
-A conversation with context
+[Discuss the evidence your team needs](https://www.echoframe.co/briefing.html)
 
-#### Bring us the question that matters to you
-
-Tell us your sector, the decision you face, and what you would need to see in a first briefing.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-15"></a>
-
-## The Frame Bureau
-
-Page: [frame-bureau.html](https://www.echoframe.co/frame-bureau.html)
-
-The Frame Bureau / EchoFrame’s training division
-
-### Good judgment is a practice
-
-Learn to find the evidence, question the account, and explain what it means.
-
-[Discuss a training programme](https://www.echoframe.co/briefing.html?kind=contact&format=Training%20programme) [Explore the approach](https://www.echoframe.co/frame-bureau.html#bureau-approach)
-
-From information to understanding
-
-#### A stronger question A clearer answer
-
-The Frame Bureau brings investigative journalism, data science, and political risk analysis into the same classroom. Participants work through research questions, learning to distinguish what is known from what is assumed.
-
-The emphasis is on practice: checking a source, making an assessment, and revisiting it when the evidence changes.
-
-THE FRAME BUREAU Notes on judgment
-
-1. 01 / Evidence
-
-  ##### How do we know?
-
-  Examine the source and the limits of its account.
-2. 02 / Judgment
-
-  ##### What does it change?
-
-  Explain why an observation matters to the question.
-3. 03 / Review
-
-  ##### What did we miss?
-
-  Return to the assessment and learn from the outcome.
-
-Ask. Examine. Reconsider.
-
-Learning through the work
-
-#### Build something you can stand behind
-
-Training connects the reasoning to a practical piece of work.
-
-01
-
-##### An evidence file
-
-Keep the sources behind each claim close enough to inspect.
-
-02
-
-##### A reasoned assessment
-
-Write a clear conclusion, with its assumptions and uncertainties.
-
-03
-
-##### A habit of review
-
-Use what happened next to improve the next judgment.
-
-Begin with your team
-
-#### What do they need to understand?
-
-Tell us about the participants and the questions they face. We can discuss the scope and shape of a programme.
-
-[Talk to The Frame Bureau](https://www.echoframe.co/briefing.html?kind=contact&format=Training%20programme)
-
-<a id="page-16"></a>
+<a id="page-14"></a>
 
 ## Oil & gas government affairs
 
@@ -1489,9 +1055,7 @@ Oil & gas / Government affairs
 
 Political intelligence for government affairs teams navigating the connections between policy, stakeholders, and operating assets.
 
-[Discuss a government affairs brief](https://www.echoframe.co/briefing.html?audience=government)
-
-POLICY ACTORS ASSETS EXPOSURE RESEARCH WITH A DEFINED MANDATE
+POLICY ACTORS ASSETS EXPOSURE  RESEARCH WITH A DEFINED MANDATE
 
 Your question, in focus
 
@@ -1499,7 +1063,7 @@ Your question, in focus
 
 An announcement tells you what an institution intends. To understand what it means for your asset, trace who must act, which conditions remain, and what evidence would show that implementation has begun.
 
-> Which decisions and relationships could change the conditions around our asset?AN ILLUSTRATIVE RESEARCH MANDATE
+> Which decisions and relationships could change the conditions around our asset?RESEARCH QUESTION
 
 01 / Research question
 
@@ -1547,11 +1111,9 @@ Lead development programme
 
 #### Venezuela *Closer to the asset*
 
-Explore the five risk dimensions, scenario framework, and six decision tests alongside an anonymised historical assessment and fictional asset-level examples.
+Explore the risk dimensions and decision criteria alongside the historical assessment. Real, redacted asset material will be added when it is ready.
 
-[Inside the Venezuela programme](https://www.echoframe.co/venezuela.html)
-
-Start with the research [A better map of who matters.](https://www.echoframe.co/research/mapping-power-without-false-precision.html) [Policy is a process. Track the whole chain.](https://www.echoframe.co/research/following-european-energy-policy.html) [When the accounts do not add up.](https://www.echoframe.co/research/when-sources-disagree.html)
+Start with the research [Venezuela, at the level of the asset.](https://www.echoframe.co/research/venezuela-from-country-to-asset.html) [Policy is a process. Track the whole chain.](https://www.echoframe.co/research/following-european-energy-policy.html) [When the accounts do not add up.](https://www.echoframe.co/research/when-sources-disagree.html)
 
 A briefing built for the decision
 
@@ -1559,7 +1121,7 @@ A briefing built for the decision
 
 Country direction and commercial viability belong alongside one another. Keep the evidence, the interpretation, and the client’s requirements distinct.
 
-[**05** ##### Risk dimensions See which part of the country picture is changing. Explore the dimensions](https://www.echoframe.co/capabilities.html#risk-dimensions) [**05** ##### Scenario pathways Compare what could happen and what would change the outlook. Explore the scenarios](https://www.echoframe.co/capabilities.html#five-scenarios) [**06** ##### Decision tests Assess the opportunity against your own requirements. Explore the tests](https://www.echoframe.co/decision-pathways.html#entry-tests)
+[**06** Risk dimensions See which part of the country picture is changing. Explore the dimensions](https://www.echoframe.co/capabilities.html#risk-dimensions) [**06** Decision tests Assess the opportunity against your own requirements. Explore the tests](https://www.echoframe.co/decision-pathways.html#entry-tests)
 
 Recognise the research problem
 
@@ -1585,7 +1147,7 @@ The team needs a defensible set of questions, the supporting evidence, and a cle
 
 Where the approach fits
 
-#### Get more from a defined mandate
+#### Get more from
 
 - Your mandate spans national policy and a local operating footprint.
 - You need to distinguish formal authority from reported influence.
@@ -1593,133 +1155,29 @@ Where the approach fits
 - You can define an asset, project, approval process, or access question.
 - You value a source-linked record and explicit uncertainty.
 
-BEFORE AFTER / FICTIONAL WORKFLOW
+#### Worked example to follow
 
-##### From a list of names to a decision pathway
+Real, redacted material will be added here when it is ready for publication.
 
-Starting point
-
-A general stakeholder list and conflicting accounts of terminal access.
-
-Research work
-
-Define the question, compare the documentary record, preserve contradictions, and name the next observation.
-
-Resulting format
-
-A source-linked actor view, access question, and meeting brief.
-
-[Inspect the complete sample](https://www.echoframe.co/sample-asset-access.html)
+[[ROB: supply real redacted material for government affairs]]
 
 Explore the work in more detail
 
-#### See the method Inspect the output
+#### See the method
 
-[01 / Capability ##### Actor & asset mapping Inspect a fictional relationship map and its evidence requirements.](https://www.echoframe.co/actor-mapping.html) [02 / Capability ##### Evidence workspace Follow conflicting claims through an inspectable source ledger.](https://www.echoframe.co/evidence-workspace.html) [03 / Working together ##### Research formats Explore the scoping, delivery, and review process.](https://www.echoframe.co/engagement.html)
+[01 / Capability Actor & asset mapping Read how relationships are documented and checked.](https://www.echoframe.co/actor-mapping.html) [02 / Capability Evidence workspace Follow conflicting claims through an inspectable source ledger.](https://www.echoframe.co/evidence-workspace.html) [03 / Working together Research formats Explore the scoping, delivery, and review process.](https://www.echoframe.co/engagement.html)
 
 How to assess the fit
 
 #### Bring one asset, not your entire agenda
 
-We can scope a first briefing around the decision that matters most: who holds authority, what still has to happen, and which local evidence would establish a change.
+We can scope a first briefing around the decision that matters most. The research establishes who holds authority, what still has to happen and which local evidence would demonstrate a change.
 
 Judge the proposed work by whether it gives your team a sourced view of the decision, clear gaps to investigate, and sharper questions for the next meeting.
 
-[Inspect the fictional asset-access brief](https://www.echoframe.co/sample-asset-access.html)
+[Prepare a government affairs enquiry](https://www.echoframe.co/briefing.html)
 
-Start with the question that matters
-
-#### What are the three decisions over the next twelve months that depend on the policy environment around your assets?
-
-[See how we can help you](https://www.echoframe.co/briefing.html?audience=government)
-
-Tell us your decision and what you would need to see to judge whether our research is useful.
-
-<a id="page-17"></a>
-
-## Event records in eastern Venezuela
-
-Page: [map.html](https://www.echoframe.co/map.html)
-
-PRISMA / Public demonstration
-
-### Event records in eastern Venezuela
-
-This map covers Monagas and Anzoátegui over two years. It shows event records built from licensed and permitted sources, with corroboration determined by an explicit rule. It contains no article text. The question probabilities are provisional hindcasts, not a track record.
-
-[Read the definitions and limits](https://www.echoframe.co/map.html#map-notes)
-
-Month of first observation
-
-Play
-
-Oct 2024 Sep 2026 · partial month
-
-Loading the exported records
-
-Retry loading
-
-Checking the basemap
-
-**Municipalities**
-
-0 1 2 4+
-
-Corroborated events first seen in the selected month
-
-**Event status** Corroborated Single source Contradicted
-
-**Severity and precision** Low, medium, high Unknown severity is hollow State record shown as an area
-
-**Assets** Approximate asset location 25 km reference radius The radius does not determine event membership.
-
-Inspect a record
-
-Events in this month
-
-Assets and question scopes
-
-#### Select an event or asset
-
-Use the map or the lists above. State records and assets without resolved coordinates remain available in the lists.
-
-The exported record
-
-#### Corroborated events by month
-
-Includes state-level records. A zero is an absence in this export, not evidence of normal conditions.
-
-**Read the monthly counts**
-
-Definitions and limits
-
-#### How to read this demonstration
-
-##### Corroboration
-
-An event is corroborated by two media outlets with different known owners and home cities, or by a media source and a qualifying non-media source. A contradicted record contains an assertion and a denial from a normally trusted source. Source count counts contributing items, not independent outlets. Source blocks describe categories without identifying people.
-
-##### Location and severity
-
-Municipality points are display centroids, not incident locations. State records cover the state polygon. Asset coordinates are approximate and unresolved sites have no pin. Two stored points fall outside their recorded state boundary and remain flagged. Severity describes the extent of an event, not confidence in it. All events in this export have unknown severity.
-
-##### Dates and probabilities
-
-The source window starts on 11 September 2024. The slider shows the latest 24 calendar months, from October 2024 to September 2026. The snapshot is dated 12 September 2026 and the last collected event is dated 10 September. Events are counted in their first-seen month. Freshness and corroboration are stored snapshot labels, not reconstructed historical verdicts. Weekly asset counts use exact asset assignments and show completed weeks only. Questions show the last stored hindcast available by the selected date, while the question remains open. These retrospective, indicative probabilities are neither live forecasts nor an evaluated track record.
-
-##### Collection limits
-
-The eastern reporting network lacks an independent second local source. Facility coverage is limited by place resolution. VIIRS observations are available only from 7 September 2026. Missing evidence cannot establish normal operations.
-
-##### Boundaries and permitted use
-
-The administrative boundaries are drawn from OpenStreetMap. Selection and coordinate rounding are applied for this page. The boundary database is available under the Open Database Licence. The event records contain no article text. Each contributing source passed the export’s permitted-use and source-protection checks.
-
-[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)  · [ODbL 1.0](https://www.echoframe.co/assets/gis-demo/LICENSE.txt)  · [Boundary data](https://www.echoframe.co/assets/gis-demo/boundaries.json)
-
- [Discuss your asset coverage](https://www.echoframe.co/briefing.html?format=Asset%20Watch)
-
-<a id="page-18"></a>
+<a id="page-15"></a>
 
 ## Our approach
 
@@ -1729,9 +1187,9 @@ Our method / Evidence to judgment
 
 ### Political science, *run as data science*
 
-Six analytical layers connect reporting to events, actors, incentives, and possible outcomes. The reasoning should be visible enough to challenge, and clear enough to use in a decision.
+Five analytical layers connect reporting to events, actors, incentives, and possible outcomes. The reasoning should be visible enough to challenge, and clear enough to use in a decision.
 
-Six analytical layers
+Five analytical layers
 
 #### Different lenses One evidence record
 
@@ -1745,10 +1203,6 @@ Turn reporting into events you can examine
 
 Identify the people, organisations, places, and actions in a report. Keep the original source beside the extracted event, so an analyst can check what the text actually establishes.
 
-**See how to use it**
-
-A statement that a terminal is open becomes a claim about a named place, activity, and time. It does not become proof that operations are normal.
-
 Layer 02
 
 ##### Network analysis
@@ -1757,63 +1211,41 @@ Follow the relationships behind the decision
 
 Connect documented authority, ownership, sanctions, and operating relationships. A useful graph shows the evidence for a connection and distinguishes a formal role from inferred influence.
 
-**See how to use it**
-
-An approval may involve a national ministry, a local authority, and a service provider. Map the dependencies before deciding which relationship matters most.
-
 Layer 03
 
 ##### Drama theory
 
 Ask whether a threat or promise is credible
 
-Examine the positions in a confrontation: what each actor wants, what they threaten, and what would make another actor comply. Compare the declared position with the options actually available.
-
-**See how to use it**
-
-A threatened withdrawal matters differently when the actor has an alternative buyer, a financial constraint, or allies unwilling to follow.
+Examine what each actor wants, what they threaten and what would make another actor comply. Compare the declared position with the options actually available.
 
 Layer 04
 
-##### Prospect theory
+##### Bayesian inference
 
-Examine how pressure changes behaviour
+Let evidence change the probability assessment
 
-Consider whether an actor sees the situation as a gain to protect or a loss to reverse. Use that as a hypothesis about risk-taking, then test it against observed decisions.
-
-**See how to use it**
-
-A costly escalation may reflect an attempt to recover a deteriorating position. The explanation needs behavioural evidence, not an assumption about personality.
+Start with a clearly defined question and an initial probability. Assess how the new evidence changes the likelihood of its outcome, then record the reason for any revision.
 
 Layer 05
 
-##### Bayesian inference
-
-Let evidence change the scenario assessment
-
-Start with explicit alternatives and prior judgments. Ask how much more likely a new observation would be under one scenario than another, then record the reason for any revision.
-
-**See how to use it**
-
-Several reports repeating one announcement are one evidentiary chain. Treating them as independent updates would create false confidence.
-
-Layer 06
-
 ##### Revealed preference
 
-Set the bar from decisions, not slogans
+Identify the criteria behind previous decisions
 
 With the client, examine previous entries, declines, and stated constraints. Use that record to propose decision criteria, then confirm which requirements apply to the opportunity at hand.
 
-**See how to use it**
+#### Worked example to follow
 
-Past decisions may suggest a minimum requirement for contract protection or access. They do not establish a universal threshold, or replace the client’s current mandate.
+Real, redacted material will be added here when it is ready for publication.
 
-From source to judgment
+[[ROB: supply real redacted material for the analytical method]]
+
+The assessment process
 
 #### How evidence moves the assessment
 
-01 / Observe **Reports become reviewable events**
+01 / Observe **Reports are organised into event records**
 
 Source, actor, place, time, and competing accounts.
 
@@ -1821,7 +1253,7 @@ Source, actor, place, time, and competing accounts.
 
 Authority, incentives, dependencies, and alternatives.
 
-03 / Reassess **Scenarios meet the client’s criteria**
+03 / Reassess **Assessments are compared with the client’s criteria**
 
 What changed, what it means, and what needs review.
 
@@ -1845,7 +1277,7 @@ Evidence state
 
 Reports trace back to one source or source family. Repetition does not make the underlying account independently confirmed.
 
-METHOD DEMONSTRATION / NO PROBABILITY ASSIGNED
+ METHOD DEMONSTRATION / NO PROBABILITY ASSIGNED
 
 What to establish
 
@@ -1859,7 +1291,7 @@ Freshness is separate
 
 A record can be corroborated or contradicted and also be stale. Review windows depend on event type; freshness does not settle the disagreement.
 
-The hard ask
+Reviewing an assessment
 
 #### No soft answers
 
@@ -1867,7 +1299,7 @@ Ask what supports the judgment, what challenges it, and what would change the an
 
 **What would make you change your mind?**
 
-Name the observation, the relevant scenario, and the reason it would change the assessment. Set a review date. If the evidence is insufficient, say what is missing.
+Name the observation, the relevant question, and the reason it would change the assessment. Set a review date. If the evidence is insufficient, say what is missing.
 
 **Does lower country risk mean the opportunity is viable?**
 
@@ -1877,15 +1309,9 @@ Not necessarily. Country direction and commercial readiness are separate judgmen
 
 Agree what a first briefing must demonstrate. For forecast performance, inspect dated forecasts, revisions, outcomes, and a consistent benchmark across the record, including unsuccessful calls.
 
-Put intelligence in context
+[Ask about the analytical method](https://www.echoframe.co/briefing.html)
 
-#### What would better evidence change for you?
-
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-19"></a>
+<a id="page-16"></a>
 
 ## Privacy
 
@@ -1899,15 +1325,15 @@ What happens when you read this website, save an article, or send EchoFrame a re
 
 #### When you send a request
 
-The contact form sends the details you enter to the website’s contact service, which forwards them to EchoFrame through its configured email provider. These details include your name, work email, organisation, role, location, message, and any optional phone or research information you supply.
+The contact form sends the details you enter to the website’s contact service, which forwards them to EchoFrame through its configured email provider. These details include your name, work email, organisation, sector and decision or question, together with any role, additional details and referral information you provide.
 
-We use this information to respond to your demo or contact request. The form does not subscribe you to marketing. Please do not send confidential documents or information that identifies a protected source.
+We use this information to respond to your conversation request. The form does not subscribe you to marketing. Please do not send confidential documents or information that identifies a protected source.
 
-If the email connection is unavailable, the form tells you that delivery has not been confirmed. Your details remain in the page so you can use the direct email link. They are not saved in your browser when you leave.
+If the email connection is unavailable, the form tells you that delivery has not been confirmed. Your details remain in the form so you can review them. They are not saved in your browser when you leave.
 
 #### Delivery records and abuse prevention
 
-The website keeps short-lived technical records to limit repeated requests and prevent duplicate email. These contain a random request reference, a keyed digest of the request, its delivery state, and a timestamp—not the text of your message. Request records expire after 24 hours; rate-limit records expire after an hour. Expired records are cleared when new requests are processed.
+The website keeps short-lived technical records to limit repeated requests and prevent duplicate email. These contain a random request reference, a keyed digest of the request, its delivery state and a timestamp. They do not contain the text of your message. Request records expire after 24 hours; rate-limit records expire after an hour. Expired records are cleared when new requests are processed.
 
 A keyed digest of the connection address is used for rate limiting. Hosting and email providers may also process normal service logs and message records. Messages delivered to EchoFrame are held in its email service so the team can respond. Contact us to discuss deletion or retention of correspondence you have sent.
 
@@ -1921,7 +1347,7 @@ This build contains no advertising trackers, analytics scripts, or newsletter da
 
 Google Fonts serves the website’s typography. Your browser connects to Google to retrieve it. The host may process ordinary request information to deliver pages and media.
 
-Calendar booking opens Cal.com. Regional platform and social links open separate websites with their own data-handling and account arrangements. The fallback email link opens your chosen email application.
+Calendar booking opens Cal.com. Regional platform and social links open separate websites with their own data-handling and account arrangements. Email links elsewhere on the website open your chosen email application.
 
 #### Contact
 
@@ -1929,7 +1355,7 @@ For privacy questions or requests about information you have provided, email [co
 
 Last updated: 11 September 2026.
 
-<a id="page-20"></a>
+<a id="page-17"></a>
 
 ## Intelligence library
 
@@ -1943,101 +1369,51 @@ Asset-level questions, evidence guides, and regional context. Explore the Venezu
 
 All intelligence
 
-Venezuela
-
 Europe
-
-Latin America
 
 Methods
 
+Venezuela
+
 (Search the library)
 
-8 perspectives
+4 perspectives
 
 Saved on this device
 
-RESEARCH & PROGRAMME NOTES / SEPTEMBER 2026
-
-[Methods](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-Methods· Research essay
-
-##### [Attention is not evidence](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-A burst of headlines can draw attention to an asset. It takes a closer reading of the evidence to understand what has actually changed.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/from-signal-to-significance.html)
+ RESEARCH & PROGRAMME NOTES / SEPTEMBER 2026
 
 [Europe](https://www.echoframe.co/research/following-european-energy-policy.html)
 
-Europe· Field guide
+Europe · Field guide
 
 ##### [Policy is a process Track the whole chain](https://www.echoframe.co/research/following-european-energy-policy.html)
 
-How to structure an energy-policy watchlist around institutions, implementation, and the evidence still missing.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-[Latin America](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-Latin America· Research note
-
-##### [A sanctions headline is only the starting point](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-A source-first approach to researching sanctions developments and keeping legal status separate from operational evidence.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-[Methods](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
-
-Methods· Methods notebook
-
-##### [A better map of who matters](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
-
-Local authority, operating control, and stated positions: build actor maps around the decision an asset depends on.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
-
-[Methods](https://www.echoframe.co/research/scenarios-that-can-be-tested.html)
-
-Methods· Methods notebook
-
-##### [What would change your mind?](https://www.echoframe.co/research/scenarios-that-can-be-tested.html)
-
-Build scenarios around observable triggers, competing explanations, and an explicit review horizon.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/scenarios-that-can-be-tested.html)
+How to follow an energy policy from its first announcement to the decisions that put it into practice.
 
 [Venezuela](https://www.echoframe.co/research/when-sources-disagree.html)
 
-Venezuela· Evidence guide
+Venezuela · Evidence guide
 
 ##### [When the accounts do not add up](https://www.echoframe.co/research/when-sources-disagree.html)
 
-Keep the official position, the local account, and the physical observation in the same brief without pretending that they say the same thing.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/when-sources-disagree.html)
+How to compare an official statement, a local report and a physical observation when they appear to disagree.
 
 [Methods](https://www.echoframe.co/research/questions-that-can-resolve.html)
 
-Methods· Question design
+Methods · Question design
 
 ##### [Give the question a deadline](https://www.echoframe.co/research/questions-that-can-resolve.html)
 
-Turn a broad concern about an asset or contract into a question with a defined outcome, evidence rule, and review record.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/questions-that-can-resolve.html)
+How to turn a concern about an asset or contract into a question that can be answered and reviewed.
 
 [Venezuela](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
-Venezuela· Programme note
+Venezuela · Programme note
 
 ##### [Venezuela, at the level of the asset](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
-A proposed collection framework for Oriente, Occidente, and Guayana, built around the questions operators, entrants, creditors, and suppliers need answered.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
+How the proposed Venezuela collection plan connects local evidence to the decisions around a particular asset.
 
 #### A different angle?
 
@@ -2045,17 +1421,11 @@ No articles match this search. Try another topic or reset the filters.
 
 Show all intelligence
 
-This library contains evergreen research guides and programme-design notes. Venezuela collection priorities and sample briefs describe work in development, not live coverage or current forecasts.
+These articles explain research methods and plans for collection. They do not report current asset conditions or present a forecast performance record.
 
-Put intelligence in context
+[Suggest a research question for discussion](https://www.echoframe.co/briefing.html)
 
-#### What would better evidence change for you?
-
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-21"></a>
+<a id="page-18"></a>
 
 ## Policy is a process. Track the whole chain.
 
@@ -2067,9 +1437,9 @@ Europe / Field guide
 
 ### Policy is a process Track the whole chain
 
-How to structure an energy-policy watchlist around institutions, implementation, and the evidence still missing.
+How to follow an energy policy from its first announcement to the decisions that put it into practice.
 
-EchoFrame editorial11 September 2026  · 2 min read · Foundations collection
+Robert Shaw  [[ROB: confirm dates]]  · Foundations collection
 
 Save article +
 
@@ -2083,312 +1453,86 @@ In this perspective
 
 The central idea
 
-Record the stage of a policy process before interpreting its significance. An ambition, a published instrument, and an implementation measure answer different questions.
+Before asking what a policy means for your business, establish where it stands. An ambition, an adopted law and a decision to apply it are different things.
 
 #### Identify what you are reading
 
-The European Commission's energy portal groups policy around topics including energy security, affordability, and the transition to clean energy. Its implementation resources provide a separate route into how measures are applied. These are useful starting points for a research register.
+The European Commission’s energy website groups policy material by subjects such as energy security, affordability and the move to clean energy. Its implementation pages explain how measures are put into practice. Together, these provide starting points for a record of the policy you want to follow.
 
-For each document, record its issuing institution, publication date, document type, geographic scope, and reference number. Preserve the original link and the exact version consulted. A press release can help locate a development, but the underlying instrument is the stronger reference for what the text says.
+For each document, note who issued it, when it was published, what kind of document it is, where it applies and its reference number. Keep the original link and the version you read. A press release can alert you to a change. The underlying document is the better source for what has actually been proposed or decided.
 
 #### Build an institutional timeline
 
-A policy timeline should distinguish proposals, negotiations, adopted texts, and subsequent implementation. Do not assume that every instrument follows an identical path. Verify the procedure relevant to the document being tracked.
+Build a timeline that separates proposals, negotiations, adopted texts and decisions about implementation. The next step depends on the particular policy. Check the procedure rather than assuming that every measure follows the same route.
 
-Give each entry an owner and a next check. A deadline without an accountable reviewer easily becomes a stale label on a dashboard. Where timing remains uncertain, state what is known and leave the rest unresolved.
+Give each entry a person responsible for reviewing it and a date for the next check. A deadline on a page is of little use if nobody follows it up. If the timetable is uncertain, record what is known and what still needs confirmation.
 
 #### Connect the text to a research question
 
-A broad theme such as energy transition is too expansive for a useful watchlist. Narrow it to a defined technology, geography, activity, or project stage. Ask which part of the text could affect that exposure and which interpretation still needs specialist review.
+A subject such as the energy transition is too broad to guide a useful watchlist. Narrow the question to a technology, place, activity or stage of a project. Identify the part of the policy that could affect it, then note any interpretation that needs more evidence or specialist advice.
 
-Keep the research record distinct from a compliance determination. A policy monitor can surface an issue and organize the relevant documents; an organization must still establish how the applicable rules relate to its circumstances.
+Keep the research separate from a decision about legal compliance. A policy tracker can find a relevant development and organise its documents. The organisation must still establish which rules apply to its own circumstances.
 
 #### Make updates easy to compare
 
-Use a consistent update format: previous position, new evidence, changed interpretation, next milestone. This lets readers identify a substantive change without rereading the full history.
+Use the same structure for each update. Record the previous position, the new evidence, what changed in the assessment and the next step to watch. Readers can then see what is different without having to read the whole history again.
 
-Keep earlier versions available internally. A publication should show when its source material was checked, and a substantial correction should explain what changed.
+Keep previous versions available internally. State when sources were checked. If a correction changes the meaning of an assessment, explain the change and why it was necessary.
+
+#### Worked example to follow
+
+Real, redacted material will be added here when it is ready for publication.
+
+[[ROB: supply real redacted material for following-european-energy-policy]]
 
 Questions to carry forward
 
 #### What to watch
 
-- What is the document's formal status?
-- Which institution owns the next step?
-- Which part of the interpretation needs additional evidence or specialist review?
+- What is the document’s formal status?
+- Which institution is responsible for the next step?
+- Which part of the assessment still needs evidence or specialist review?
 
 #### Sources & editorial notes
 
-A research workflow, not an interpretation of a particular legal obligation. Consult the current primary instrument for any specific policy question.
+This article explains how to follow a policy. It does not determine a particular legal obligation. Consult the current official document for a specific policy question.
 
 1. [European Commission · Energy strategy](https://energy.ec.europa.eu/strategy_en)
 2. [European Commission · Implementation in EU countries](https://commission.europa.eu/energy-climate-change-environment/implementation-eu-countries_en)
 
-Prepared 11 September 2026. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, [contact the editorial desk](mailto:contact@echoframe.co?subject=Editorial%20correction%3A%20following-european-energy-policy) .
+Publication date [[ROB: confirm dates]]. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
 
 Continue exploring
 
 #### Connect another perspective
 
-[Methods](https://www.echoframe.co/research/from-signal-to-significance.html)
+[Venezuela](https://www.echoframe.co/research/when-sources-disagree.html)
 
-Methods· Research essay
+Venezuela · Evidence guide
 
-##### [Attention is not evidence](https://www.echoframe.co/research/from-signal-to-significance.html)
+##### [When the accounts do not add up](https://www.echoframe.co/research/when-sources-disagree.html)
 
-A burst of headlines can draw attention to an asset. It takes a closer reading of the evidence to understand what has actually changed.
+How to compare an official statement, a local report and a physical observation when they appear to disagree.
 
-2 min read [Read the analysis](https://www.echoframe.co/research/from-signal-to-significance.html)
+[Methods](https://www.echoframe.co/research/questions-that-can-resolve.html)
 
-[Latin America](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+Methods · Question design
 
-Latin America· Research note
+##### [Give the question a deadline](https://www.echoframe.co/research/questions-that-can-resolve.html)
 
-##### [A sanctions headline is only the starting point](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+How to turn a concern about an asset or contract into a question that can be answered and reviewed.
 
-A source-first approach to researching sanctions developments and keeping legal status separate from operational evidence.
+[Venezuela](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
-2 min read [Read the analysis](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+Venezuela · Programme note
 
-[Methods](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
+##### [Venezuela, at the level of the asset](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
-Methods· Methods notebook
+How the proposed Venezuela collection plan connects local evidence to the decisions around a particular asset.
 
-##### [A better map of who matters](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
+[Discuss a European energy policy question](https://www.echoframe.co/briefing.html)
 
-Local authority, operating control, and stated positions: build actor maps around the decision an asset depends on.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
-
-Put intelligence in context
-
-#### What would better evidence change for you?
-
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-22"></a>
-
-## Attention is not evidence.
-
-Page: [research/from-signal-to-significance.html](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-[Intelligence library](https://www.echoframe.co/research.html)
-
-Methods / Research essay
-
-### Attention is not evidence
-
-A burst of headlines can draw attention to an asset. It takes a closer reading of the evidence to understand what has actually changed.
-
-EchoFrame editorial11 September 2026  · 2 min read · Venezuela programme / Methods
-
-Save article +
-
-Copy link
-
-Print
-
-In this perspective
-
-[01 The story at the gate](https://www.echoframe.co/research/from-signal-to-significance.html#section-1) [02 Attention is a starting point](https://www.echoframe.co/research/from-signal-to-significance.html#section-2) [03 Read the claims closely](https://www.echoframe.co/research/from-signal-to-significance.html#section-3) [04 Bring the evidence back to the decision](https://www.echoframe.co/research/from-signal-to-significance.html#section-4) [Sources & notes](https://www.echoframe.co/research/from-signal-to-significance.html#source-notes)
-
-The central idea
-
-More reporting does not always mean more evidence. The useful question is what happened, whose account supports it, and what it means for the decision you face.
-
-#### The story at the gate
-
-Consider a fictional energy terminal. Its operator says business continues as usual. A local report says contractors have been turned away at a gate. Within hours, several other publications repeat the operator’s statement. A dashboard shows a surge in mentions.
-
-What has changed? The number of articles cannot answer that question. The operator may be describing the terminal as a whole, while the local account concerns one entrance, one shift, or one group of workers. Both accounts could be accurate. Neither, on its own, tells a company whether its contractors can get in.
-
-#### Attention is a starting point
-
-Search tools and topic scores help an analyst find material worth reading. A rise in mentions can draw attention to a place or an issue that would otherwise be missed. That is useful. But a measure of attention is not a measure of whether an event occurred, or how likely another event is to follow.
-
-The distinction matters when a report is repeated. Five publications may rely on the same statement. Counting them as five confirmations would make the evidence look stronger without adding a single new observation. The analyst needs to follow each account back to its origin.
-
-#### Read the claims closely
-
-Return to the terminal. The first task is to establish what each source actually says: the activity, the location, and the period it describes. “Open” may mean that cargo is moving. It may say nothing about contractor access. “Turned away” may describe a brief interruption rather than a lasting restriction.
-
-The next useful source would distinguish between those possibilities. It might be a dated access procedure or an independent observation of the relevant gate. Another broad statement would add little. An image showing activity across the wider site could provide context while leaving the access question unanswered.
-
-#### Bring the evidence back to the decision
-
-For a government affairs team, the practical questions are who sets the access rules, who applies them, and which office can explain the discrepancy. For an investor, the issue may be whether a service interruption challenges an assumption about the asset. The same evidence can matter in different ways.
-
-That is the approach behind EchoFrame’s Venezuela programme: start with a specific asset, contract, or local question, then gather the evidence needed to answer it. The connected event and forecasting workflow is still being developed. The aim is a clearer account of what is known, what remains uncertain, and what would change the view.
-
-Questions to carry forward
-
-#### What to watch
-
-- Which specific decision does the research question support?
-- Are the apparent confirmations independent accounts of the same event?
-- What evidence would change the judgment, and how will the question resolve?
-
-#### Sources & editorial notes
-
-Adapted from the Venezuela programme design supplied in September 2026. This is a methods essay, not a current asset assessment or an independent audit of the platform.
-
-Prepared 11 September 2026. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, [contact the editorial desk](mailto:contact@echoframe.co?subject=Editorial%20correction%3A%20from-signal-to-significance) .
-
-Continue exploring
-
-#### Connect another perspective
-
-[Europe](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-Europe· Field guide
-
-##### [Policy is a process Track the whole chain](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-How to structure an energy-policy watchlist around institutions, implementation, and the evidence still missing.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-[Latin America](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-Latin America· Research note
-
-##### [A sanctions headline is only the starting point](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-A source-first approach to researching sanctions developments and keeping legal status separate from operational evidence.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-[Methods](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
-
-Methods· Methods notebook
-
-##### [A better map of who matters](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
-
-Local authority, operating control, and stated positions: build actor maps around the decision an asset depends on.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
-
-Put intelligence in context
-
-#### What would better evidence change for you?
-
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-23"></a>
-
-## A better map of who matters.
-
-Page: [research/mapping-power-without-false-precision.html](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
-
-[Intelligence library](https://www.echoframe.co/research.html)
-
-Methods / Methods notebook
-
-### A better map of who matters
-
-Local authority, operating control, and stated positions: build actor maps around the decision an asset depends on.
-
-EchoFrame editorial11 September 2026  · 2 min read · Foundations collection
-
-Save article +
-
-Copy link
-
-Print
-
-In this perspective
-
-[01 Define the question before the network](https://www.echoframe.co/research/mapping-power-without-false-precision.html#section-1) [02 Give each edge a meaning](https://www.echoframe.co/research/mapping-power-without-false-precision.html#section-2) [03 Add the missing dimension: time](https://www.echoframe.co/research/mapping-power-without-false-precision.html#section-3) [04 Publish an argument, not just a graphic](https://www.echoframe.co/research/mapping-power-without-false-precision.html#section-4) [Sources & notes](https://www.echoframe.co/research/mapping-power-without-false-precision.html#source-notes)
-
-The central idea
-
-Every line in an actor map is a claim. Define what it means, attach evidence, and give it a date.
-
-#### Define the question before the network
-
-An actor map should answer a clearly defined question: who can influence a particular decision, through which mechanism, over what period? For an asset-level question, that may include regional managers, public authorities, contractors, unions, or community representatives. A map of national names alone may miss the decision pathway.
-
-Choose a scope and write a rule for including an actor. Formal authority, operational responsibility, ownership, and an evidenced representative role are different reasons for inclusion. Preserve those distinctions.
-
-#### Give each edge a meaning
-
-A line might represent formal appointment, an ownership stake, a reported meeting, or a public endorsement. These are not interchangeable. Label the relationship and link to evidence that supports that specific claim.
-
-A meeting establishes contact if the source is reliable. It does not automatically establish agreement, control, or a durable alliance. Avoid stronger visual language than the evidence supports.
-
-#### Add the missing dimension: time
-
-Relationships change. Each record needs a date observed, a period of validity if known, and a next review date. Historical ties can be relevant, but the reader should be able to distinguish them from current roles.
-
-Use successive snapshots to show change. A short annotation describing why a relationship changed often communicates more than an animated network with no explanation.
-
-#### Publish an argument, not just a graphic
-
-Pair the map with a short account of the decision pathway: who initiates, who can block, who implements, and what remains uncertain. Distinguish an actor’s stated position from an analyst’s interpretation of their incentives.
-
-An actor model needs maintained evidence about roles and positions. The Venezuela programme does not present automated actor-behaviour modelling as operational. For public reporting, omit identifying relationships or details that could expose a protected source.
-
-Questions to carry forward
-
-#### What to watch
-
-- What exactly does each relationship claim?
-- Is the relationship current, historical, or unresolved?
-- Does the map explain a decision pathway?
-
-#### Sources & editorial notes
-
-An original editorial method. No specific individual or organization is assessed in this notebook.
-
-Prepared 11 September 2026. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, [contact the editorial desk](mailto:contact@echoframe.co?subject=Editorial%20correction%3A%20mapping-power-without-false-precision) .
-
-Continue exploring
-
-#### Connect another perspective
-
-[Methods](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-Methods· Research essay
-
-##### [Attention is not evidence](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-A burst of headlines can draw attention to an asset. It takes a closer reading of the evidence to understand what has actually changed.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-[Europe](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-Europe· Field guide
-
-##### [Policy is a process Track the whole chain](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-How to structure an energy-policy watchlist around institutions, implementation, and the evidence still missing.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-[Latin America](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-Latin America· Research note
-
-##### [A sanctions headline is only the starting point](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-A source-first approach to researching sanctions developments and keeping legal status separate from operational evidence.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-Put intelligence in context
-
-#### What would better evidence change for you?
-
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-24"></a>
+<a id="page-19"></a>
 
 ## Give the question a deadline.
 
@@ -2400,9 +1544,9 @@ Methods / Question design
 
 ### Give the question a deadline
 
-Turn a broad concern about an asset or contract into a question with a defined outcome, evidence rule, and review record.
+How to turn a concern about an asset or contract into a question that can be answered and reviewed.
 
-EchoFrame editorial11 September 2026  · 2 min read · Venezuela programme / Design notes
+Robert Shaw  [[ROB: confirm dates]]  · Venezuela programme / Design notes
 
 Save article +
 
@@ -2416,314 +1560,85 @@ In this perspective
 
 The central idea
 
-A forecast needs a subject, an outcome, a horizon, and a resolution rule agreed in advance. An unresolved question is not automatically a negative outcome.
+A forecast needs a clear subject, an outcome, a deadline and an agreed way to decide what happened. If the evidence is missing, the answer can remain unresolved.
 
 #### Start with the decision the client faces
 
-A broad question such as whether the labour situation is a problem does not specify what would count as an answer. Begin with the decision it informs, then name the relevant asset and observable outcome.
+Begin with the decision the research will support. A broad concern about labour conditions does not say what would count as an answer. Identify the asset, the activity and the outcome the client needs to understand.
 
-A fictional example asks whether Terminal A experiences a continuous work stoppage of at least 48 hours during a stated month. The wording should make clear which activities count, how the duration is established, and what evidence can resolve the question.
+Define any duration or scale that matters to the question. State which activities count and what evidence could establish the result. Another reader should be able to apply the same rule.
 
 #### Write the evidence rule before the outcome
 
-Specify the resolution date and acceptable evidence at commissioning. Also define how late reporting, conflicting sources, ambiguous duration, or unavailable evidence will be handled. No report of an event does not necessarily mean that the event did not happen.
+Agree the deadline and acceptable evidence before starting. Decide how to handle late reporting, contradictory sources, uncertain duration and missing information. The absence of a report does not establish that an event did not happen.
 
-Freeze the wording once the question is registered. If the scope must change, create an identified revision or a new question and preserve the original. Otherwise the result can become easier to fit after the fact.
+Keep the wording fixed once the question is registered. If its scope changes, retain the original and identify the revision or create a new question. Otherwise it becomes too easy to fit the question to an outcome already known.
 
 #### Preserve the prior and every revision
 
-The programme proposes starting judgments based on relevant historical evidence, expert input, and analyst reasoning. Record disagreements and the reasons for the chosen prior. An archive of articles does not automatically supply a clean historical event base rate.
+The programme proposes initial estimates based on relevant history, expert input and analyst reasoning. Record the reasons for the estimate and any disagreement. A collection of articles does not, by itself, tell you how often a clearly defined event happened in the past.
 
-For each later update, preserve the forecast timestamp, evidence reference, model or rule version, and explanation. Hand-set weights should be described as judgments to evaluate, rather than presented as learned or validated likelihood ratios.
+Keep the time of every update, the evidence used, the rule or model version and the explanation for the change. If an analyst chooses how much weight to give evidence, describe that as a judgment to be tested. It should not be presented as a relationship already established by data.
 
 #### Evaluate against a stated reference
 
-For a binary outcome, a Brier score uses the squared difference between the forecast probability and the recorded outcome. Lower values indicate lower error under that scoring rule. A skill comparison also needs a reference forecast; a score on its own does not establish useful predictive skill.
+For a question with a yes-or-no outcome, a Brier score measures the squared difference between the probability forecast and the recorded result. Lower scores mean less error under this rule. To show whether a method adds value, compare it with a stated reference forecast. A score on its own cannot establish that.
 
-Define which forecast timestamps will be scored before evaluation. Treat questions consistently so that issuing more updates does not give one question disproportionate influence. Keep unresolved cases visible, state the evaluation sample, and retain unsuccessful forecasts. The Venezuela programme does not yet claim a validated track record.
+Decide in advance which forecast dates will be evaluated. A question should not count more heavily merely because it received more updates. Keep unresolved cases and unsuccessful forecasts in the record, and state which questions were included. The Venezuela programme does not yet claim a validated forecast record.
+
+#### Worked example to follow
+
+Real, redacted material will be added here when it is ready for publication.
+
+[[ROB: supply real redacted material for questions-that-can-resolve]]
 
 Questions to carry forward
 
 #### What to watch
 
-- Is the outcome precise enough for an independent reviewer to resolve?
-- What happens if the named evidence is unavailable or contradictory?
-- Which forecast timestamps and reference forecast will be used for evaluation?
+- Could another reviewer decide the outcome using the stated rule?
+- What happens when evidence is missing or contradictory?
+- Which forecast dates and reference forecast will be used to assess the results?
 
 #### Sources & editorial notes
 
-A programme-design guide adapted from the September 2026 working plan. Examples describe intended methods, not current incidents, confirmed partnerships, or operating field coverage.
+This article explains a research method. It does not assess a current asset or establish operating coverage.
 
 1. [ECMWF · Verification of probability forecasts](https://www.ecmwf.int/sites/default/files/elibrary/2007/15489-verification-probability-forecasts.pdf)
 
-Prepared 11 September 2026. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, [contact the editorial desk](mailto:contact@echoframe.co?subject=Editorial%20correction%3A%20questions-that-can-resolve) .
+Publication date [[ROB: confirm dates]]. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
 
 Continue exploring
 
 #### Connect another perspective
 
-[Methods](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-Methods· Research essay
-
-##### [Attention is not evidence](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-A burst of headlines can draw attention to an asset. It takes a closer reading of the evidence to understand what has actually changed.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/from-signal-to-significance.html)
-
 [Europe](https://www.echoframe.co/research/following-european-energy-policy.html)
 
-Europe· Field guide
+Europe · Field guide
 
 ##### [Policy is a process Track the whole chain](https://www.echoframe.co/research/following-european-energy-policy.html)
 
-How to structure an energy-policy watchlist around institutions, implementation, and the evidence still missing.
+How to follow an energy policy from its first announcement to the decisions that put it into practice.
 
-2 min read [Read the analysis](https://www.echoframe.co/research/following-european-energy-policy.html)
+[Venezuela](https://www.echoframe.co/research/when-sources-disagree.html)
 
-[Latin America](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+Venezuela · Evidence guide
 
-Latin America· Research note
+##### [When the accounts do not add up](https://www.echoframe.co/research/when-sources-disagree.html)
 
-##### [A sanctions headline is only the starting point](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+How to compare an official statement, a local report and a physical observation when they appear to disagree.
 
-A source-first approach to researching sanctions developments and keeping legal status separate from operational evidence.
+[Venezuela](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
-2 min read [Read the analysis](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+Venezuela · Programme note
 
-Put intelligence in context
+##### [Venezuela, at the level of the asset](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
-#### What would better evidence change for you?
+How the proposed Venezuela collection plan connects local evidence to the decisions around a particular asset.
 
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
+[Develop a dated research question with us](https://www.echoframe.co/briefing.html)
 
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-25"></a>
-
-## A sanctions headline is only the starting point.
-
-Page: [research/sanctions-and-operational-reality.html](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-[Intelligence library](https://www.echoframe.co/research.html)
-
-Latin America / Research note
-
-### A sanctions headline is only the starting point
-
-A source-first approach to researching sanctions developments and keeping legal status separate from operational evidence.
-
-EchoFrame editorial11 September 2026  · 2 min read · Foundations collection
-
-Save article +
-
-Copy link
-
-Print
-
-In this perspective
-
-[01 Go back to the issuing authority](https://www.echoframe.co/research/sanctions-and-operational-reality.html#section-1) [02 Separate three research layers](https://www.echoframe.co/research/sanctions-and-operational-reality.html#section-2) [03 Keep assumptions visible](https://www.echoframe.co/research/sanctions-and-operational-reality.html#section-3) [04 Escalate questions the research cannot settle](https://www.echoframe.co/research/sanctions-and-operational-reality.html#section-4) [Sources & notes](https://www.echoframe.co/research/sanctions-and-operational-reality.html#source-notes)
-
-The central idea
-
-Build separate records for the official instrument, the entities involved, and observed activity. Do not collapse them into a single claim about what is permitted or happening.
-
-#### Go back to the issuing authority
-
-OFAC publishes sanctions information, frequently asked questions, and licensing resources. Its materials distinguish general licenses from specific licenses. These official resources are starting points for source collection; a headline or secondary summary is not a substitute for the relevant text.
-
-Record the instrument title, identifier, publication date, effective dates stated in the document, and official source link. If the text changes, retain a dated record of the version used in the assessment.
-
-#### Separate three research layers
-
-The first layer is documentary: what does the official material actually state? The second is entity research: which people, companies, ownership relationships, and counterparties are relevant? The third is operational: what activity is observable, through which sources, and over what period?
-
-Evidence in one layer does not settle every question in another. An announced policy change is not itself proof of a corresponding operational change. Observed activity is not itself a determination that a transaction is authorized.
-
-#### Keep assumptions visible
-
-For a regional energy research brief, list the assumptions connecting the official development to the operational question. Examples might include the availability of infrastructure, the identity of a counterparty, or the reliability of production reporting. Mark each as supported, disputed, or unresolved.
-
-Seek a second collection method where practical. Company statements, public filings, and observed movements may illuminate different parts of a question, but their dates and definitions must be comparable.
-
-#### Escalate questions the research cannot settle
-
-A well-scoped research product identifies issues that need legal or compliance review without claiming to resolve them. It should provide the original documents and a precise statement of the uncertainty.
-
-This note is an editorial research framework. It does not establish the current sanctions status of any person, company, jurisdiction, or transaction.
-
-Questions to carry forward
-
-#### What to watch
-
-- Is the source the current official instrument?
-- Which ownership or identity relationships remain unverified?
-- What observed evidence supports the claimed operational change?
-
-#### Sources & editorial notes
-
-Research methodology only. No transaction-specific legal or investment advice is provided.
-
-1. [OFAC · Frequently asked questions](https://ofac.treasury.gov/faqs/search)
-2. [OFAC · Specific licenses and interpretive guidance](https://ofac.treasury.gov/ofac-license-application-page)
-
-Prepared 11 September 2026. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, [contact the editorial desk](mailto:contact@echoframe.co?subject=Editorial%20correction%3A%20sanctions-and-operational-reality) .
-
-Continue exploring
-
-#### Connect another perspective
-
-[Methods](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-Methods· Research essay
-
-##### [Attention is not evidence](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-A burst of headlines can draw attention to an asset. It takes a closer reading of the evidence to understand what has actually changed.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-[Europe](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-Europe· Field guide
-
-##### [Policy is a process Track the whole chain](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-How to structure an energy-policy watchlist around institutions, implementation, and the evidence still missing.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-[Methods](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
-
-Methods· Methods notebook
-
-##### [A better map of who matters](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
-
-Local authority, operating control, and stated positions: build actor maps around the decision an asset depends on.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/mapping-power-without-false-precision.html)
-
-Put intelligence in context
-
-#### What would better evidence change for you?
-
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-26"></a>
-
-## What would change your mind?
-
-Page: [research/scenarios-that-can-be-tested.html](https://www.echoframe.co/research/scenarios-that-can-be-tested.html)
-
-[Intelligence library](https://www.echoframe.co/research.html)
-
-Methods / Methods notebook
-
-### What would change your mind?
-
-Build scenarios around observable triggers, competing explanations, and an explicit review horizon.
-
-EchoFrame editorial11 September 2026  · 2 min read · Foundations collection
-
-Save article +
-
-Copy link
-
-Print
-
-In this perspective
-
-[01 Bound the question](https://www.echoframe.co/research/scenarios-that-can-be-tested.html#section-1) [02 Describe the mechanism](https://www.echoframe.co/research/scenarios-that-can-be-tested.html#section-2) [03 Distinguish confidence from probability](https://www.echoframe.co/research/scenarios-that-can-be-tested.html#section-3) [04 Keep a revision record](https://www.echoframe.co/research/scenarios-that-can-be-tested.html#section-4) [Sources & notes](https://www.echoframe.co/research/scenarios-that-can-be-tested.html#source-notes)
-
-The central idea
-
-A scenario earns its place when it changes what you monitor. Write down the evidence that would strengthen it and the evidence that would weaken it.
-
-#### Bound the question
-
-A scenario exercise starts with a clear outcome and time horizon. Will a defined activity continue, experience a temporary interruption, or face a sustained constraint over the chosen period? The categories need enough precision for a later review to distinguish them.
-
-Avoid mixing outcomes that can happen together into a set that appears mutually exclusive. If the categories overlap, acknowledge that and use a structure appropriate to the question.
-
-#### Describe the mechanism
-
-For each scenario, write a short causal sequence. Identify the actors, constraints, and enabling conditions. Separate evidence already observed from conditions that would need to occur.
-
-The exercise is most useful when different scenarios imply different observations. If every new development can be made to fit every scenario, the framework is too vague to guide collection.
-
-#### Distinguish confidence from probability
-
-The likelihood of an outcome and the quality of the evidence behind a judgment are different concepts. A view can favor one outcome while still resting on limited evidence. A publication should explain the meaning of any numerical estimate and any confidence label it uses.
-
-If there is no documented basis for a number, do not invent one for visual effect. A qualitative scenario comparison with explicit assumptions is more inspectable than an unexplained percentage.
-
-#### Keep a revision record
-
-Log the original assessment, new evidence, revised judgment, and reason for the change. Review scenarios against their predefined outcomes after the horizon closes. Retain unsuccessful calls as well as successful ones.
-
-Turn the review into the next research question: which source failed, which assumption held, and which trigger arrived too late? A scenario system becomes more useful when it preserves its own learning history.
-
-Questions to carry forward
-
-#### What to watch
-
-- Are the outcome and review horizon explicit?
-- What evidence would weaken the preferred scenario?
-- Can an independent reader understand why the judgment changed?
-
-#### Sources & editorial notes
-
-An original editorial framework. Scenarios shown on this website are illustrative, not current forecasts.
-
-Prepared 11 September 2026. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, [contact the editorial desk](mailto:contact@echoframe.co?subject=Editorial%20correction%3A%20scenarios-that-can-be-tested) .
-
-Continue exploring
-
-#### Connect another perspective
-
-[Methods](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-Methods· Research essay
-
-##### [Attention is not evidence](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-A burst of headlines can draw attention to an asset. It takes a closer reading of the evidence to understand what has actually changed.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-[Europe](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-Europe· Field guide
-
-##### [Policy is a process Track the whole chain](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-How to structure an energy-policy watchlist around institutions, implementation, and the evidence still missing.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/following-european-energy-policy.html)
-
-[Latin America](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-Latin America· Research note
-
-##### [A sanctions headline is only the starting point](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-A source-first approach to researching sanctions developments and keeping legal status separate from operational evidence.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
-
-Put intelligence in context
-
-#### What would better evidence change for you?
-
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-27"></a>
+<a id="page-20"></a>
 
 ## Venezuela, at the level of the asset.
 
@@ -2735,9 +1650,9 @@ Venezuela / Programme note
 
 ### Venezuela, at the level of the asset
 
-A proposed collection framework for Oriente, Occidente, and Guayana, built around the questions operators, entrants, creditors, and suppliers need answered.
+How the proposed Venezuela collection plan connects local evidence to the decisions around a particular asset.
 
-EchoFrame editorial11 September 2026  · 2 min read · Venezuela programme / Design notes
+Robert Shaw  [[ROB: confirm dates]]  · Venezuela programme / Design notes
 
 Save article +
 
@@ -2751,89 +1666,83 @@ In this perspective
 
 The central idea
 
-Collection priorities should follow a client question. A zone brief connects local events to a named asset while preserving location limits, source protection, and the difference between operational evidence and documented viability.
+Start with the client’s question. A regional brief should connect relevant events to a named asset, show how precisely each event is located and protect its sources. Operating activity and an asset’s contractual position need separate evidence.
 
 #### Begin with four priority states
 
-The working programme proposes initial collection priorities in Zulia, Monagas, Bolívar, and Anzoátegui. These are priorities for development, not a statement that correspondent agreements or full operational coverage are in place.
+The working plan identifies Zulia, Monagas, Bolívar and Anzoátegui as the first collection priorities. These are development priorities. They do not mean that correspondent agreements or full coverage are already in place.
 
-The right starting question is which decisions over the client’s chosen horizon depend on those places. A question about access may require different sources from one about a contractual change, labour disruption, or operating continuity.
+Begin by asking which decisions depend on those places over the client’s chosen period. Research into access, a contractual change, labour disruption or operating continuity may require different sources. The question determines what needs to be collected.
 
 #### Organize the local questions by zone
 
-For Oriente, the proposed frame connects Anzoátegui and Monagas with questions about facilities, terminals, inputs, labour, contractors, and regional authorities. For Occidente, it starts with Zulia and may extend to Falcón as the commissioned scope develops.
+In Oriente, the proposed work covers Anzoátegui and Monagas. Questions concern facilities, terminals, supplies, labour, contractors and regional authorities. In Occidente, the starting point is Zulia, with possible expansion to Falcón as the agreed work develops.
 
-For Guayana, the proposed frame includes Bolívar and possible extension to Delta Amacuro. Power, industrial constraints, local authority, community positions, and access provide possible collection themes. Each theme still needs an asset, a defined question, and a source plan.
+In Guayana, the proposed work includes Bolívar and could extend to Delta Amacuro. It may examine power, industrial constraints, local authority, community positions and access. Each subject still needs a named asset, a clear question and a plan for obtaining the evidence.
 
 #### Keep operating evidence and viability distinct
 
-A report of activity answers a different question from a judgment about an asset’s contractual position. The proposed viability view covers contract standing, licence and sanctions standing, arbitration exposure, counterparty solvency, operational access, and security of tenure.
+Evidence that an asset is active does not establish its contractual position. The proposed assessment considers contract standing, licence and sanctions standing, arbitration exposure, the counterparty’s ability to pay, operating access and security of tenure.
 
-Every assessed criterion needs a supporting document and an assessment date. Missing support should produce an unassessed entry. A relevant new event should prompt a review, not an unexamined automatic legal or contractual conclusion.
+Each assessment needs a supporting document and a date. If the evidence is missing, leave the matter unassessed. A new event can require another review. It should not automatically determine a legal or contractual conclusion.
 
 #### Match the output to what can safely be known
 
-A record known only at state level should remain at state level. Placing it on a precise-looking facility pin can overstate the evidence. Sensitive reporting needs stricter disclosure controls even when the underlying location is known.
+If a record can only be located to a state, show it at state level. A precise-looking facility pin would imply more knowledge than the evidence provides. Sensitive reporting can need further limits on what is disclosed, even when the location is known.
 
-A useful zone brief should identify the client question, the changes that matter to it, the sources that support or dispute them, and the next review. Partner identities, reporter identities, commercial terms, and source-protecting detail do not belong in a public sample.
+A regional brief should identify the client’s question, the changes relevant to it, the evidence that supports or disputes them and the next review. Partner and reporter identities, commercial terms and details that could expose a source should remain outside a public example.
+
+#### Worked example to follow
+
+Real, redacted material will be added here when it is ready for publication.
+
+[[ROB: supply real redacted material for venezuela-from-country-to-asset]]
 
 Questions to carry forward
 
 #### What to watch
 
-- Which decision determines the collection priority?
-- Is the geographic precision supported and safe to disclose?
-- Which viability judgments need fresh documentary review?
+- Which client decision sets the collection priority?
+- Is the location detail supported by evidence and safe to disclose?
+- Which assessments need a fresh review of their supporting documents?
 
 #### Sources & editorial notes
 
-A programme-design guide adapted from the September 2026 working plan. Examples describe intended methods, not current incidents, confirmed partnerships, or operating field coverage.
+This article explains a research method. It does not assess a current asset or establish operating coverage.
 
-Prepared 11 September 2026. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, [contact the editorial desk](mailto:contact@echoframe.co?subject=Editorial%20correction%3A%20venezuela-from-country-to-asset) .
+Publication date [[ROB: confirm dates]]. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
 
 Continue exploring
 
 #### Connect another perspective
 
-[Methods](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-Methods· Research essay
-
-##### [Attention is not evidence](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-A burst of headlines can draw attention to an asset. It takes a closer reading of the evidence to understand what has actually changed.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/from-signal-to-significance.html)
-
 [Europe](https://www.echoframe.co/research/following-european-energy-policy.html)
 
-Europe· Field guide
+Europe · Field guide
 
 ##### [Policy is a process Track the whole chain](https://www.echoframe.co/research/following-european-energy-policy.html)
 
-How to structure an energy-policy watchlist around institutions, implementation, and the evidence still missing.
+How to follow an energy policy from its first announcement to the decisions that put it into practice.
 
-2 min read [Read the analysis](https://www.echoframe.co/research/following-european-energy-policy.html)
+[Venezuela](https://www.echoframe.co/research/when-sources-disagree.html)
 
-[Latin America](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+Venezuela · Evidence guide
 
-Latin America· Research note
+##### [When the accounts do not add up](https://www.echoframe.co/research/when-sources-disagree.html)
 
-##### [A sanctions headline is only the starting point](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+How to compare an official statement, a local report and a physical observation when they appear to disagree.
 
-A source-first approach to researching sanctions developments and keeping legal status separate from operational evidence.
+[Methods](https://www.echoframe.co/research/questions-that-can-resolve.html)
 
-2 min read [Read the analysis](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+Methods · Question design
 
-Put intelligence in context
+##### [Give the question a deadline](https://www.echoframe.co/research/questions-that-can-resolve.html)
 
-#### What would better evidence change for you?
+How to turn a concern about an asset or contract into a question that can be answered and reviewed.
 
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
+[Discuss a Venezuela collection requirement](https://www.echoframe.co/briefing.html)
 
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-28"></a>
+<a id="page-21"></a>
 
 ## When the accounts do not add up.
 
@@ -2845,9 +1754,9 @@ Venezuela / Evidence guide
 
 ### When the accounts do not add up
 
-Keep the official position, the local account, and the physical observation in the same brief without pretending that they say the same thing.
+How to compare an official statement, a local report and a physical observation when they appear to disagree.
 
-EchoFrame editorial11 September 2026  · 2 min read · Venezuela programme / Design notes
+Robert Shaw  [[ROB: confirm dates]]  · Venezuela programme / Design notes
 
 Save article +
 
@@ -2861,192 +1770,107 @@ In this perspective
 
 The central idea
 
-A disagreement is a research finding in its own right. Preserve each claim, check whether its time and scope are comparable, and identify the next independent observation needed to resolve it.
+A disagreement can be a useful finding. Keep each account, compare the time and activity it describes, and identify the evidence that could settle the difference.
 
 #### Put the claims beside one another
 
-A brief can be balanced and still leave its reader unable to understand a contradiction. The intended Venezuela event brief shows what each source asserts, when it was published, what period it describes, and what it can actually establish.
+Quoting both sides does not necessarily explain a disagreement. A useful brief shows what each source claims, when it was published, which period it describes and what the source was able to observe. This is the intended structure of the Venezuela event brief.
 
-The public worked example uses a fictional terminal. An operator statement describes normal operations, a local account reports a stoppage, and a physical indicator changes. None of those inputs is a report about a real Venezuelan facility. The example demonstrates how the format should handle tension between accounts.
+Put the accounts beside one another before drawing a conclusion. A statement of an organisation’s position and an independent observation may offer different kinds of evidence. The reader needs to understand the distinction.
 
 #### Check whether the disagreement is real
 
-Before assigning a contradicted label, establish that the accounts refer to the same event. A statement about loading activity and a report about an access-road protest may both be accurate. Publication times can also hide a change that happened between the two observations.
+First check that the accounts concern the same event. They may describe different activities, places or times. Something may have changed between observations, even if the reports were published close together.
 
-Keep the original wording in the controlled research record, where usage rights permit it. In the public brief, present a rights-reviewed summary, a source reference where appropriate, and the unresolved question. Do not reproduce protected material or identify a confidential source.
+Keep the original wording in the controlled research record where usage rights allow it. A public brief should contain a summary reviewed for permitted use, a source reference where appropriate and an explanation of what remains unresolved. It must not reproduce protected material or identify a confidential source.
 
 #### Use physical observations for what they establish
 
-A difference in a physical indicator can be an important lead. It does not establish its cause. Sensor coverage, baseline choice, maintenance, and unrelated operating changes can affect interpretation. An analyst should explain which explanations remain plausible.
+A change in a physical measurement can be a useful lead without revealing its cause. Sensor coverage, the period used for comparison, maintenance and unrelated operating changes can affect the reading. Explain which possibilities the measurement leaves open.
 
-A field account likewise needs its own context: direct observation or second-hand information, time observed, access limitations, and sensitivity. Being closer to the site is useful, but it does not remove the need to check the claim.
+Reporting from the area needs context too. Establish whether the person observed the event directly or heard about it, when it happened, what they could see and what needs protection. Being close to an event does not remove the need to check the account.
 
 #### Make the next verification step explicit
 
-The conclusion may be that the disagreement remains unresolved. State the observation that could distinguish the accounts, who will review it, and when the issue should be revisited. A contradiction should not be silently converted into positive evidence for a forecast.
+Sometimes the evidence does not settle the disagreement. Say what observation could distinguish the accounts, who will review it and when the question will be checked again. A contradiction should not quietly become supporting evidence for a forecast.
 
-The event brief is an intended deliverable. Its value depends on a connected source record and an accountable review process, not on the visual appearance of a dashboard.
+The event brief remains an intended deliverable. Its usefulness depends on a source record that can be checked and a person responsible for reviewing the conclusion. A dashboard alone cannot provide either.
+
+#### Worked example to follow
+
+Real, redacted material will be added here when it is ready for publication.
+
+[[ROB: supply real redacted material for when-sources-disagree]]
 
 Questions to carry forward
 
 #### What to watch
 
-- Are the sources describing the same time, place, and activity?
-- Which accounts are independently obtained?
-- What can resolve the disagreement without exposing a source?
+- Do the accounts describe the same time, place and activity?
+- Were they obtained independently?
+- What evidence could resolve the disagreement without exposing a source?
 
 #### Sources & editorial notes
 
-A programme-design guide adapted from the September 2026 working plan. Examples describe intended methods, not current incidents, confirmed partnerships, or operating field coverage.
+This article explains a research method. It does not assess a current asset or establish operating coverage.
 
-Prepared 11 September 2026. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, [contact the editorial desk](mailto:contact@echoframe.co?subject=Editorial%20correction%3A%20when-sources-disagree) .
+Publication date [[ROB: confirm dates]]. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
 
 Continue exploring
 
 #### Connect another perspective
 
-[Methods](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-Methods· Research essay
-
-##### [Attention is not evidence](https://www.echoframe.co/research/from-signal-to-significance.html)
-
-A burst of headlines can draw attention to an asset. It takes a closer reading of the evidence to understand what has actually changed.
-
-2 min read [Read the analysis](https://www.echoframe.co/research/from-signal-to-significance.html)
-
 [Europe](https://www.echoframe.co/research/following-european-energy-policy.html)
 
-Europe· Field guide
+Europe · Field guide
 
 ##### [Policy is a process Track the whole chain](https://www.echoframe.co/research/following-european-energy-policy.html)
 
-How to structure an energy-policy watchlist around institutions, implementation, and the evidence still missing.
+How to follow an energy policy from its first announcement to the decisions that put it into practice.
 
-2 min read [Read the analysis](https://www.echoframe.co/research/following-european-energy-policy.html)
+[Methods](https://www.echoframe.co/research/questions-that-can-resolve.html)
 
-[Latin America](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+Methods · Question design
 
-Latin America· Research note
+##### [Give the question a deadline](https://www.echoframe.co/research/questions-that-can-resolve.html)
 
-##### [A sanctions headline is only the starting point](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+How to turn a concern about an asset or contract into a question that can be answered and reviewed.
 
-A source-first approach to researching sanctions developments and keeping legal status separate from operational evidence.
+[Venezuela](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
-2 min read [Read the analysis](https://www.echoframe.co/research/sanctions-and-operational-reality.html)
+Venezuela · Programme note
 
-Put intelligence in context
+##### [Venezuela, at the level of the asset](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
-#### What would better evidence change for you?
+How the proposed Venezuela collection plan connects local evidence to the decisions around a particular asset.
 
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
+[Ask about reviewing conflicting evidence](https://www.echoframe.co/briefing.html)
 
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-29"></a>
+<a id="page-22"></a>
 
 ## Terminal access: the national statement and the local question.
 
 Page: [sample-asset-access.html](https://www.echoframe.co/sample-asset-access.html)
 
-[All sample briefs](https://www.echoframe.co/sample-briefs.html)
-
-EF / SAMPLE 01 / Oil & gas government affairs
+Oil & gas government affairs
 
 ### Terminal access: the national statement and the local question
 
 Asset-context and stakeholder brief
 
-FICTIONAL RESEARCH EXERCISE [Download the brief](https://www.echoframe.co/downloads/sample-asset-access.md)
+#### Worked example to follow
 
-Print / Save PDF
+Real, redacted material will be added here when it is ready for publication.
 
-All entities, source records, observations, and timelines below are invented. This is a complete format example, not a current assessment or a client case study.
+[[ROB: supply real redacted material for Asset-context and stakeholder brief]]
 
-Inside this brief [Executive assessment](https://www.echoframe.co/sample-asset-access.html#brief-assessment) [01 The decision this brief supports](https://www.echoframe.co/sample-asset-access.html#brief-section-1) [02 What the evidence does and does not establish](https://www.echoframe.co/sample-asset-access.html#brief-section-2) [03 The actor and authority questions](https://www.echoframe.co/sample-asset-access.html#brief-section-3) [04 Alternative explanations to retain](https://www.echoframe.co/sample-asset-access.html#brief-section-4) [05 Questions for the stakeholder conversation](https://www.echoframe.co/sample-asset-access.html#brief-section-5) [06 Review trigger and next output](https://www.echoframe.co/sample-asset-access.html#brief-section-6) [Evidence register](https://www.echoframe.co/sample-asset-access.html#brief-ledger)
+The brief will identify the research question, the evidence supporting the assessment, unresolved issues and the next review. Source-identifying details will be removed before publication.
 
-Executive assessment
+[Research templates](https://www.echoframe.co/sample-briefs.html)
 
-#### Unresolved A general statement that the terminal remains open does not establish ordinary contractor access through the relevant gate
+[Discuss an asset access research brief](https://www.echoframe.co/briefing.html)
 
-Research question
-
-Will ordinary contractor access to Terminal A be independently documented by Day 30?
-
-Subject
-
-Terminal A · Fictional coastal energy asset
-
-Resolution horizon
-
-Day 30 in the fictional exercise
-
-Resolution rule
-
-A dated record of the applicable access procedure and an independent observation of ordinary contractor entry within the specified period. A one-off exception does not satisfy the rule.
-
-#### The decision this brief supports
-
-A government affairs team is preparing a meeting about continuity of access to an operating asset. Its immediate need is to distinguish a formal approval problem from an implementation problem, and to identify which question belongs with which institution.
-
-The brief does not establish the current condition of a real terminal. All entities, records, times, and observations in this exercise are invented to demonstrate the structure of an inspectable research output.
-
-#### What the evidence does and does not establish
-
-E-01 records the operator's broad statement that the terminal remains open. E-02 describes an interruption to contractor entry at a particular gate. These claims appear to conflict, but their scopes differ. The terminal could continue some operations while a class of visitors experiences restricted access.
-
-E-03 repeats the operator statement. It adds distribution, not a second independent observation. E-04 describes visible activity in the wider terminal area; it cannot identify the visitors entering a gate or demonstrate that all access categories are unaffected.
-
-The defensible assessment is therefore narrower than either headline: the fictional record does not resolve ordinary contractor access. The next collection step should discriminate between the different activities and observation periods.
-
-#### The actor and authority questions
-
-The port authority is relevant to the formal procedure. The operator is relevant to implementation and operating responsibility. Worker representatives may provide a documented local position. A service counterparty may depend on access without controlling the underlying procedure.
-
-Before attributing responsibility, obtain the instrument that assigns authority, its effective date, and any separate approval role. Do not infer informal control from proximity on a stakeholder map. The meeting brief should distinguish a verified statutory responsibility from a relationship that still needs evidence.
-
-#### Alternative explanations to retain
-
-The interruption may be confined to one gate, one shift, or one category of contractor. It could reflect a temporary administrative procedure rather than a broader closure. The operator statement could refer to a different time window. The local account could also be incomplete.
-
-Each alternative creates a collection requirement. Seek the scope and duration of the interruption, the exact visitor category, and the timing of the observation. A new national statement without those details would not settle the question.
-
-#### Questions for the stakeholder conversation
-
-Which office issued the access procedure, and where is the written instrument? Does it apply to ordinary contractors, employees, visitors, and emergency services in the same way? What evidence records its implementation at the relevant gate?
-
-What changed from the previous procedure, when did the change take effect, and which office handles exceptions or review? Can a dated operational record be shared in a form that protects individuals and respects permitted use?
-
-#### Review trigger and next output
-
-Revisit the assessment when an authenticated procedure or independent access observation becomes available. Record the source, observation period, and reason for any change in the assessment. If the evidence remains insufficient at Day 30, record the question as unresolved under the stated rule.
-
-The next output would be a revised access note and a relationship ledger showing which responsibilities were documented. The research scope does not include legal clearance, a physical safety assessment, or a promise that operations will continue.
-
-#### Evidence register
-
-| ID | Record | Time | What it establishes |
-| --- | --- | --- | --- |
-| E-01 | Fictional operator statement | Day 1, 09:00 | Terminal remains open; access categories are unspecified. |
-| E-02 | Fictional local account | Day 1, 11:30 | Contractor entry interrupted at a particular gate. |
-| E-03 | Fictional repeated media item | Day 1, 13:00 | Repeats E-01; no independent observation. |
-| E-04 | Fictional physical observation | Day 2, 08:00 | Wider-area activity; insufficient detail to resolve contractor access. |
-
-Source IDs refer only to the fictional exercise. For real research starting points, use the [primary-source directory](https://www.echoframe.co/sources.html) .
-
-Continue into the method
-
-[Inspect the actor map](https://www.echoframe.co/actor-mapping.html) [Explore the source ledger](https://www.echoframe.co/evidence-workspace.html) [Government affairs research](https://www.echoframe.co/government-affairs.html)
-
-A conversation with context
-
-#### Bring us the question that matters to you
-
-Tell us your sector, the decision you face, and what you would need to see in a first briefing.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-30"></a>
+<a id="page-23"></a>
 
 ## Sample briefs & templates
 
@@ -3056,25 +1880,13 @@ Inside the research / Complete examples
 
 ### Read the brief Follow the reasoning
 
-These two fictional briefs show the whole argument: the question, the evidence, the judgment, and what to watch next. Read them in full or download a copy.
+The blank templates below help define a research question and organise its evidence. The worked briefs are awaiting real, redacted material.
 
-[EF / SAMPLE 01 / FICTIONAL EXAMPLE #### Terminal access: the national statement and the local question Asset-context and stakeholder brief](https://www.echoframe.co/sample-asset-access.html)
+#### Worked example to follow
 
-Oil & gas government affairs
+Real, redacted material will be added here when it is ready for publication.
 
-Will ordinary contractor access to Terminal A be independently documented by Day 30?
-
-[Read the complete brief](https://www.echoframe.co/sample-asset-access.html) [Download](https://www.echoframe.co/downloads/sample-asset-access.md)
-
-[EF / SAMPLE 02 / FICTIONAL EXAMPLE #### A political announcement is not an operating milestone Thesis-assumption and catalyst review](https://www.echoframe.co/sample-thesis-review.html)
-
-Distressed debt & special situations
-
-Will Issuer B's stated operating milestone be independently documented by Day 60?
-
-[Read the complete brief](https://www.echoframe.co/sample-thesis-review.html) [Download](https://www.echoframe.co/downloads/sample-thesis-review.md)
-
-The examples demonstrate a proposed analytical format. They are not client work, verified field reports, or evidence of platform performance.
+[[ROB: supply real redacted material for the sample brief collection]]
 
 A useful brief has layers
 
@@ -3099,122 +1911,35 @@ Build your own research brief
 
 #### Templates for a better starting point
 
-[MARKDOWN / BLANK TEMPLATE ##### Research mandate Frame the question, intended use, delivery format, and handling requirements.](https://www.echoframe.co/downloads/research-mandate.md) [CSV / BLANK TEMPLATE ##### Evidence register Keep provenance, timing, scope, and review status with the record.](https://www.echoframe.co/downloads/evidence-register.csv) [CSV / BLANK TEMPLATE ##### Question register Track the outcome rule, alternative explanations, and revision history.](https://www.echoframe.co/downloads/question-register.csv)
+[MARKDOWN / BLANK TEMPLATE Research mandate Frame the question, intended use, delivery format, and handling requirements.](https://www.echoframe.co/downloads/research-mandate.md) [CSV / BLANK TEMPLATE Evidence register Keep provenance, timing, scope, and review status with the record.](https://www.echoframe.co/downloads/evidence-register.csv) [CSV / BLANK TEMPLATE Question register Track the outcome rule, alternative explanations, and revision history.](https://www.echoframe.co/downloads/question-register.csv)
 
-A conversation with context
+[Discuss a brief for your team](https://www.echoframe.co/briefing.html)
 
-#### Bring us the question that matters to you
-
-Tell us your sector, the decision you face, and what you would need to see in a first briefing.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-31"></a>
+<a id="page-24"></a>
 
 ## A political announcement is not an operating milestone.
 
 Page: [sample-thesis-review.html](https://www.echoframe.co/sample-thesis-review.html)
 
-[All sample briefs](https://www.echoframe.co/sample-briefs.html)
-
-EF / SAMPLE 02 / Distressed debt & special situations
+Distressed debt & special situations
 
 ### A political announcement is not an operating milestone
 
 Thesis-assumption and catalyst review
 
-FICTIONAL RESEARCH EXERCISE [Download the brief](https://www.echoframe.co/downloads/sample-thesis-review.md)
+#### Worked example to follow
 
-Print / Save PDF
+Real, redacted material will be added here when it is ready for publication.
 
-All entities, source records, observations, and timelines below are invented. This is a complete format example, not a current assessment or a client case study.
+[[ROB: supply real redacted material for Thesis-assumption and catalyst review]]
 
-Inside this brief [Executive assessment](https://www.echoframe.co/sample-thesis-review.html#brief-assessment) [01 The assumption under review](https://www.echoframe.co/sample-thesis-review.html#brief-section-1) [02 Separate intention, authority, and implementation](https://www.echoframe.co/sample-thesis-review.html#brief-section-2) [03 The counterparty and asset dependencies](https://www.echoframe.co/sample-thesis-review.html#brief-section-3) [04 What would support or challenge the assumption](https://www.echoframe.co/sample-thesis-review.html#brief-section-4) [05 Questions to take to committee](https://www.echoframe.co/sample-thesis-review.html#brief-section-5) [06 Review discipline](https://www.echoframe.co/sample-thesis-review.html#brief-section-6) [Evidence register](https://www.echoframe.co/sample-thesis-review.html#brief-ledger)
+The brief will identify the research question, the evidence supporting the assessment, unresolved issues and the next review. Source-identifying details will be removed before publication.
 
-Executive assessment
+[Research templates](https://www.echoframe.co/sample-briefs.html)
 
-#### The assumption remains unverified An announcement of intent and an issuer expectation do not establish implementation, delivery, or an economic outcome
+[Discuss a thesis review brief](https://www.echoframe.co/briefing.html)
 
-Research question
-
-Will Issuer B's stated operating milestone be independently documented by Day 60?
-
-Subject
-
-Issuer B · Fictional energy counterparty
-
-Resolution horizon
-
-Day 60 in the fictional exercise
-
-Resolution rule
-
-A dated record demonstrating the specific operating milestone, matched to the named asset and supported by an independent implementation record. A statement of intention alone is insufficient.
-
-#### The assumption under review
-
-A fictional investment team is reviewing a thesis that expects an operating milestone to follow a political announcement. The research task is to identify what must happen between the two, which party controls each step, and what evidence would justify revisiting the assumption.
-
-Issuer B, the asset, and every document in this exercise are fictional. This sample contains no security price, recovery estimate, trade recommendation, or claim about a real issuer. The analytical format is designed to complement legal and valuation work.
-
-#### Separate intention, authority, and implementation
-
-C-01 is a policy announcement expressing an intention. It does not itself document the completion of a project-specific approval. C-02 is an issuer update describing an expected timetable. That statement is evidence of the issuer's position, not independent confirmation that the timetable will be met.
-
-C-03 describes a service dependency that remains unresolved. C-04 records that a procedural meeting was scheduled. A scheduled meeting is a milestone to monitor, but the record does not establish the meeting's outcome or any resulting operational change.
-
-The working assumption should therefore be decomposed into observable steps: the relevant authority acts, a project-specific condition is met, a service dependency is available, and the named operating activity is documented.
-
-#### The counterparty and asset dependencies
-
-Identify the legal entity making each statement and the entity responsible for the operating activity. Distinguish the issuer, project company, service provider, and public authority. An announcement about one entity should not be silently transferred to another.
-
-The asset question also requires a defined observation period. A historical operating record can establish context without resolving whether a dependency is available now. The next collection plan should prioritise the missing implementation record rather than additional commentary about the announcement.
-
-#### What would support or challenge the assumption
-
-Supporting evidence would include the required project-specific instrument and an independent record of the operating milestone within the stated horizon. Both should identify the activity and asset clearly enough to match the research question.
-
-Challenging evidence would include a documented failure to meet a necessary condition, an authenticated deferral, or a service interruption directly relevant to implementation. An unrelated negative headline would require a relevance assessment before it affected the view.
-
-If new material only repeats the issuer's expectation, the assumption remains unresolved. Repetition should not move it from an expectation to an established fact.
-
-#### Questions to take to committee
-
-Which single assumption in the thesis depends most heavily on this milestone? What would the team expect to observe first if the assumption were right? Which record would discriminate between implementation and continued intention?
-
-Which questions concern political authority or operational dependencies, and which belong to counsel or valuation specialists? What is the consequence for the research timetable if the milestone remains unverified at Day 60?
-
-#### Review discipline
-
-Maintain a dated assumption register with the original reasoning, new evidence, alternatives, and revision rationale. Revisit the question on a material documentary milestone or at the agreed review date, rather than on every increase in media attention.
-
-At resolution, preserve the original question and evidence rule. Do not change the outcome definition retrospectively to fit the available record. An unresolved result is informative when it identifies the remaining gap and its consequence for further research.
-
-#### Evidence register
-
-| ID | Record | Time | What it establishes |
-| --- | --- | --- | --- |
-| C-01 | Fictional policy announcement | Day 1 | States an intention; project-specific implementation not demonstrated. |
-| C-02 | Fictional issuer update | Day 4 | Sets out an expected timetable; no independent confirmation. |
-| C-03 | Fictional service-dependency note | Day 6 | A prerequisite remains unresolved in the supplied record. |
-| C-04 | Fictional procedural notice | Day 9 | A meeting is scheduled; no outcome is documented. |
-
-Source IDs refer only to the fictional exercise. For real research starting points, use the [primary-source directory](https://www.echoframe.co/sources.html) .
-
-Continue into the method
-
-[Explore decision pathways](https://www.echoframe.co/decision-pathways.html) [Find primary research sources](https://www.echoframe.co/sources.html?category=Disputes%20%26%20counterparties) [Distressed-debt research](https://www.echoframe.co/distressed-debt.html)
-
-A conversation with context
-
-#### Bring us the question that matters to you
-
-Tell us your sector, the decision you face, and what you would need to see in a first briefing.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-32"></a>
+<a id="page-25"></a>
 
 ## Primary-source directory
 
@@ -3224,7 +1949,7 @@ Research resources / Primary sources
 
 ### Go to the source Read it in context
 
-Official records are a starting point, not the whole story. This directory explains where to find them, what to look for, and what each source can—and cannot—tell you.
+These sources provide official records relevant to the research. Each entry explains where to find the material, what to look for and the limits of what it establishes.
 
 Find a source (Try sanctions, filings, or energy)
 
@@ -3232,13 +1957,13 @@ Research area
 
 Options: All sources; Policy & law; Energy & assets; Disputes & counterparties
 
-6 sources DIRECTORY REVIEWED 11 SEPTEMBER 2026 · SOURCE VINTAGES VARY
+6 sources  DIRECTORY REVIEWED 11 SEPTEMBER 2026 · SOURCE VINTAGES VARY
 
 Policy & law
 
 #### [OFAC · Venezuela sanctions](https://ofac.treasury.gov/sanctions-programs-and-country-information/venezuela-related-sanctions)
 
-U.S. Department of the Treasury
+ U.S. Department of the Treasury
 
 The official programme page brings together Venezuela-related sanctions material, general licences, guidance, and recent actions.
 
@@ -3250,13 +1975,13 @@ Read with this limitation
 
 A programme summary does not establish that a particular transaction is authorised. Refer transaction-specific interpretation to qualified counsel.
 
-[Open the primary source](https://ofac.treasury.gov/sanctions-programs-and-country-information/venezuela-related-sanctions)
+[Source document](https://ofac.treasury.gov/sanctions-programs-and-country-information/venezuela-related-sanctions)
 
 Energy & assets
 
 #### [EIA · Venezuela country analysis](https://www.eia.gov/international/content/analysis/countries_long/Venezuela/)
 
-U.S. Energy Information Administration
+ U.S. Energy Information Administration
 
 Country analysis covering petroleum, natural gas, electricity, infrastructure, and trade. Figures in this edition refer to different historical periods.
 
@@ -3268,13 +1993,13 @@ Read with this limitation
 
 Historical production, reserves, and infrastructure descriptions are not evidence of a facility's current operating condition.
 
-[Open the primary source](https://www.eia.gov/international/content/analysis/countries_long/Venezuela/)
+[Source document](https://www.eia.gov/international/content/analysis/countries_long/Venezuela/)
 
 Disputes & counterparties
 
 #### [ICSID · Registered cases](https://icsid.worldbank.org/cases)
 
-International Centre for Settlement of Investment Disputes
+ International Centre for Settlement of Investment Disputes
 
 A starting point for registered ICSID cases and the public case record.
 
@@ -3286,13 +2011,13 @@ Read with this limitation
 
 A registered proceeding is not proof of the merits of a claim, collection prospects, or an enforceable recovery value. Some documents may not be public.
 
-[Open the primary source](https://icsid.worldbank.org/cases)
+[Source document](https://icsid.worldbank.org/cases)
 
 Disputes & counterparties
 
 #### [SEC · EDGAR filings](https://www.sec.gov/search-filings)
 
-U.S. Securities and Exchange Commission
+ U.S. Securities and Exchange Commission
 
 Public access to company filings, with company and full-text search tools.
 
@@ -3304,13 +2029,13 @@ Read with this limitation
 
 A filing records what the filer disclosed. Coverage is limited to the relevant filers and documents; it does not independently verify every underlying assertion.
 
-[Open the primary source](https://www.sec.gov/search-filings)
+[Source document](https://www.sec.gov/search-filings)
 
 Energy & assets
 
 #### [EIA · World oil transit chokepoints](https://www.eia.gov/international/content/analysis/special_topics/World_Oil_Transit_Chokepoints/)
 
-U.S. Energy Information Administration
+ U.S. Energy Information Administration
 
 Analysis of major maritime energy routes, transit volumes, and geographic constraints.
 
@@ -3322,13 +2047,13 @@ Read with this limitation
 
 Transit estimates have reporting periods. Route-level flows do not establish the status of an individual cargo or vessel.
 
-[Open the primary source](https://www.eia.gov/international/content/analysis/special_topics/World_Oil_Transit_Chokepoints/)
+[Source document](https://www.eia.gov/international/content/analysis/special_topics/World_Oil_Transit_Chokepoints/)
 
 Policy & law
 
 #### [EUR-Lex · EU law](https://eur-lex.europa.eu/)
 
-Publications Office of the European Union
+ Publications Office of the European Union
 
 The European Union's portal for legal documents and the Official Journal.
 
@@ -3340,7 +2065,7 @@ Read with this limitation
 
 The relevant instrument and jurisdiction must be identified. A policy announcement and an applicable legal obligation are different research objects.
 
-[Open the primary source](https://eur-lex.europa.eu/)
+[Source document](https://eur-lex.europa.eu/)
 
 #### No sources match
 
@@ -3356,15 +2081,13 @@ Venezuela context notebook
 
 Explore a short sourced notebook on reserves, operating constraints, and the documents needed for an asset-level question.
 
-[Open the context notebook](https://www.echoframe.co/venezuela-context.html)
-
 ##### Build a repeatable source record
 
 Use the blank register to record the source, date, claim, precision, independence check, and publication permissions for each item.
 
-[Download the evidence register](https://www.echoframe.co/downloads/evidence-register.csv)
+[Evidence register template](https://www.echoframe.co/downloads/evidence-register.csv)
 
-<a id="page-33"></a>
+<a id="page-26"></a>
 
 ## Trust, evidence & privacy
 
@@ -3374,61 +2097,13 @@ Trust / Evidence, access & privacy
 
 ### Trust begins with showing the work
 
-Readers should be able to see where a claim comes from and where its limits lie. Here we explain our editorial standards, how this website handles information, and what we agree before private research begins.
-
-01
-
-##### Source traceability
-
-Public research identifies sources or labels original editorial frameworks. Fictional examples and historical interface previews are disclosed where they appear.
-
-02
-
-##### Data minimisation
-
-The contact form emails the details you provide to EchoFrame through its configured email service. Include only what we need to understand your request.
-
-03
-
-##### Reader control
-
-Saved article identifiers stay in this browser. You can remove them using the save control or by clearing the site data on your device.
-
-04
-
-##### Clear service boundaries
-
-External platforms, calendar booking, email, and font delivery involve other services. Their access and data-handling arrangements are separate.
-
-Current public website
-
-#### What happens to your information
-
-This website is a research publication and enquiry interface. It is not a private document room or a protected field-report intake channel.
-
-[Read the full privacy notice](https://www.echoframe.co/privacy.html)
-
-**Enquiry form**
-
-Your details are sent to EchoFrame when you click Send. The form reports whether the email service accepted the request.
-
-**Saved reading list**
-
-Article identifiers in local browser storage; no reading-list account.
-
-**Analytics & marketing**
-
-No advertising trackers, analytics scripts, or newsletter database in this build.
-
-**External requests**
-
-Google Fonts serves typography. The host and configured email service process the requests needed to deliver pages and messages. Calendar and platform links open separately.
+Before private research begins, we agree how the material will be used, who can receive it and how sensitive information will be handled.
 
 Before a private engagement
 
 #### Agree the handling before sharing the material
 
-The following are scoping requirements, not claims of deployed certifications or platform controls.
+These requirements form part of the discussion before work begins. They need to reflect the sources, intended recipients and sensitivity of the particular engagement.
 
 01
 
@@ -3448,27 +2123,19 @@ Agree a suitable exchange channel and source-protection arrangements before send
 
 Document the retention period, storage arrangements, responsibilities, and process for correction or deletion requests.
 
-##### Platform assurance must be specific
+The agreed scope should identify the material covered by these arrangements and who is responsible for applying them. Resolve questions about access and permitted use before sensitive material is shared.
 
-This public site does not assert AES-256 deployment, AWS hosting, multi-factor authentication, SOC 2 certification, or end-to-end encryption for EchoFrame platforms. Any assurance statement should identify the actual service, control, evidence, and scope of review.
+#### What happens to your information
 
-Editorial accountability
+The [privacy notice](https://www.echoframe.co/privacy.html)  explains how this website handles enquiries, saved reading lists and service records.
 
 #### Show uncertainty Make corrections possible
 
-Keep evidence quality distinct from outcome likelihood. Record competing accounts and explain what would change the assessment.
+The [editorial standards](https://www.echoframe.co/editorial-standards.html)  explain attribution, uncertainty, source protection and corrections.
 
-[Editorial standards](https://www.echoframe.co/editorial-standards.html) [See the evidence-review example](https://www.echoframe.co/evidence-workspace.html) [Send a correction to the editorial desk](mailto:contact@echoframe.co?subject=Editorial%20correction)
+[Discuss handling arrangements for an engagement](https://www.echoframe.co/briefing.html)
 
-A conversation with context
-
-#### Discuss the research Agree the boundaries
-
-Tell us your sector, the decision you face, and what you would need to see in a first briefing.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-34"></a>
+<a id="page-27"></a>
 
 ## Venezuela context notebook
 
@@ -3496,7 +2163,7 @@ Historical figures and resource description: [EIA, Venezuela country analysis](h
 
 #### What the gap asks of the research
 
-Our inference from this historical contrast is a research priority: a large resource base does not answer a question about present operating access, deliverability, or a particular commercial position. The analyst needs a narrower unit of analysis and a more recent evidence record.
+This historical contrast points to a research need. A large resource base does not establish present operating access, deliverability or a particular commercial position. The analyst needs a narrower unit of analysis and a more recent evidence record.
 
 For a government affairs team, that unit might be an approval pathway around a terminal or project. For a distressed-debt team, it might be the political and operational assumptions attached to a counterparty. These questions call for different documents even when they share the same country context.
 
@@ -3516,7 +2183,7 @@ Record the instrument, named parties, relevant activity, effective date, and rev
 
 Define the asset, access route, service dependency, and observation period. Compare public statements with independently sourced local or physical observations. A national production series cannot resolve a gate-level access question.
 
-[Inspect the fictional asset-access example](https://www.echoframe.co/sample-asset-access.html)
+[Asset research material to follow](https://www.echoframe.co/sample-asset-access.html)
 
 03
 
@@ -3524,7 +2191,7 @@ Define the asset, access route, service dependency, and observation period. Comp
 
 Keep issuer disclosures and procedural records separate from assertions about recovery. EDGAR and ICSID provide useful starting points for filings and registered cases, with their respective coverage and disclosure limits.
 
-[Explore counterparty research sources](https://www.echoframe.co/sources.html?category=Disputes%20%26%20counterparties)
+[Counterparty research sources](https://www.echoframe.co/sources.html?category=Disputes%20%26%20counterparties)
 
 #### Make the date part of the claim
 
@@ -3532,15 +2199,9 @@ A source can be authoritative and still describe an earlier period. Store the pu
 
 This notebook combines cited historical background with EchoFrame's original research framework. It contains no current production estimate, legal clearance, issuer valuation, or trade recommendation.
 
-A conversation with context
+[Discuss the context around your asset](https://www.echoframe.co/briefing.html)
 
-#### Take the country context down to the asset
-
-Tell us your sector, the decision you face, and what you would need to see in a first briefing.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
-
-<a id="page-35"></a>
+<a id="page-28"></a>
 
 ## Venezuela · Asset-level intelligence
 
@@ -3550,13 +2211,23 @@ EchoFrame Venezuela / Country direction and commercial exposure
 
 ### Understand the paths ahead *Test what they mean for you*
 
-Venezuela reporting, turned into a structured assessment of risk, competing scenarios, and the conditions an opportunity must meet. Start with the country picture, then work down to the decision on your desk.
+Venezuela reporting, turned into a structured assessment of risk, dated questions and the conditions an opportunity must meet. Start with the country picture, then work down to the decision on your desk.
 
-PRISMA / Public demonstration
+The eastern Venezuela asset record is being rebuilt around a three-class corroboration rule and an asset-first view. A public demonstration will return when the first asset case is complete.
 
-Explore the event record for Monagas and Anzoátegui by month, with location precision and source status attached.
+#### Visualisations
 
-[See the map](https://www.echoframe.co/map.html)
+##### Asset map
+
+To follow
+
+[[ROB: supply the completed José asset map for public review]]
+
+##### Question probability chart
+
+To follow
+
+[[ROB: supply a dated question probability chart for public review]]
 
 A briefing built for the decision
 
@@ -3564,7 +2235,7 @@ A briefing built for the decision
 
 Country direction and commercial viability belong alongside one another. Keep the evidence, the interpretation, and the client’s requirements distinct.
 
-[**05** ##### Risk dimensions See which part of the country picture is changing. Explore the dimensions](https://www.echoframe.co/capabilities.html#risk-dimensions) [**05** ##### Scenario pathways Compare what could happen and what would change the outlook. Explore the scenarios](https://www.echoframe.co/capabilities.html#five-scenarios) [**06** ##### Decision tests Assess the opportunity against your own requirements. Explore the tests](https://www.echoframe.co/decision-pathways.html#entry-tests)
+[**06** Risk dimensions See which part of the country picture is changing. Explore the dimensions](https://www.echoframe.co/capabilities.html#risk-dimensions) [**06** Decision tests Assess the opportunity against your own requirements. Explore the tests](https://www.echoframe.co/decision-pathways.html#entry-tests)
 
 Selected historical assessment / EchoFrame’s account
 
@@ -3588,117 +2259,21 @@ The subsequent event / 3 January 2026
 
 U.S. forces captured Nicolás Maduro on 3 January 2026. The dates place that event 32 days after the assessment described by EchoFrame.
 
-[Read the official account of the operation](https://www.govinfo.gov/content/pkg/CDOC-119hdoc124/pdf/CDOC-119hdoc124.pdf)
-
 ##### What this asks of your next briefing
 
 Look beyond a single expected outcome. Ask which alternative paths deserve attention, which actors could change the balance, and which observations would require a new assessment. That is the method to examine before your next decision.
 
 The probability is drawn from EchoFrame’s account of its private assessment; the original record is not published here. The official source supports the subsequent event, not the forecast claim. One selected case does not establish calibration or a complete performance record.
 
-[Discuss the reasoning behind the assessment](https://www.echoframe.co/briefing.html?region=Venezuela&format=Scoping%20conversation)
-
 Where the programme stands
 
-The product framework brings risk dimensions, scenarios, and commercial criteria together. The asset-level examples below are fictional walkthroughs of the evidence process, not current findings or a live forecast feed. Collection scope, delivery cadence, and access are agreed for each engagement.
+The product framework brings risk dimensions, dated questions and commercial criteria together. Real, redacted asset material is being prepared for this page. Collection scope, delivery cadence, and access are agreed for each engagement.
 
-01 / The unit of intelligence
+#### Worked example to follow
 
-#### A question you can resolve
+Real, redacted material will be added here when it is ready for publication.
 
-A country score cannot tell you whether a particular asset will keep operating. Define the outcome and the evidence needed to establish it.
-
-Illustrative question / Q-DEMO-01 FICTIONAL ASSET
-
-##### Will Terminal A experience a continuous work stoppage of at least 48 hours between 1 and 30 June 2027?
-
-Subject
-
-Terminal A · hypothetical facility
-
-Resolution date
-
-1 July 2027
-
-Resolution evidence
-
-Two independent reports, or a field report plus an independently sourced media report, establishing the duration.
-
-If evidence is insufficient
-
-Mark the question unresolved. Absence of a report does not establish that no stoppage occurred.
-
-A worked editorial example. No probability is assigned, and no real facility or incident is described.
-
-02 / The evidence brief
-
-#### The disagreement belongs in the picture
-
-Compare what is said, what is reported locally, and what is observable. Keep each source’s limits attached to its claim.
-
-FICTIONAL WORKED EXAMPLE · RELATIVE TIMES ARE ILLUSTRATIVE · NOT CURRENT VENEZUELA REPORTING
-
-01 / Official position
-
-##### “Operations are normal”
-
-An operator statement describes routine activity. It does not define whether every part of the facility is operating.
-
-Time reference
-
-Example day 2, morning
-
-What it establishes
-
-The operator’s stated position.
-
-What it does not establish
-
-Independent confirmation of activity.
-
-02 / Local account
-
-##### A stoppage is reported
-
-A local account reports workers outside the gate. The report’s access, timing, and scope still need to be checked.
-
-Time reference
-
-Example day 2, afternoon
-
-What it establishes
-
-A competing account requiring review.
-
-What it does not establish
-
-A facility-wide stoppage or its duration.
-
-03 / Physical observation
-
-##### An indicator changes
-
-A physical observation differs from its baseline. Coverage gaps, maintenance, and other explanations must be assessed.
-
-Time reference
-
-Example day 3, collection window
-
-What it establishes
-
-A measured difference in the example.
-
-What it does not establish
-
-The cause of that difference.
-
-CONFLICT UNRESOLVED
-
-##### Preserve both accounts Investigate the gap
-
-These statements are in tension, but their scope may differ. An analyst would check whether they describe the same activity, establish the timeline, and seek independent confirmation before changing the assessment.
-
-[Read the evidence guide](https://www.echoframe.co/research/when-sources-disagree.html)
+[[ROB: supply real redacted material for the Venezuela asset case]]
 
 03 / Proposed collection priorities
 
@@ -3771,17 +2346,9 @@ A dated event record, the accounts that support or dispute it, location precisio
 
 Forecast revisions preserved before outcomes are known. Results assessed against a defined evaluation policy and benchmark.
 
-These examples explain the brief structure. Forecast performance needs a complete dated record, defined resolution rules, and a benchmark; the selected historical case above is not that evaluation.
+The sections above explain the intended brief structure. Forecast performance needs a complete dated record, defined resolution rules, and a benchmark; the selected historical case above is not that evaluation.
 
-[Discuss a Venezuela research question](https://www.echoframe.co/briefing.html?region=Venezuela)
-
-Put intelligence in context
-
-#### What would better evidence change for you?
-
-Tell us your sector, the decision you face, and what a useful first briefing would need to demonstrate.
-
-[See how we can help you](https://www.echoframe.co/briefing.html)
+[Discuss a Venezuela research mandate](https://www.echoframe.co/briefing.html)
 
 ## Shared navigation and footer content
 
@@ -3815,15 +2382,15 @@ Who we help
 
 Research
 
-[**Intelligence library** Essays, field guides, and programme notes.](https://www.echoframe.co/research.html) [**Sample briefs & templates** Complete fictional examples and downloads.](https://www.echoframe.co/sample-briefs.html) [**Primary-source directory** Official records and how to use them.](https://www.echoframe.co/sources.html) [**Regional perspective** Explore the wider research frame.](https://www.echoframe.co/coverage.html)
+[**Intelligence library** Essays, field guides, and programme notes.](https://www.echoframe.co/research.html) [**Sample briefs & templates** Research templates and forthcoming briefs.](https://www.echoframe.co/sample-briefs.html) [**Primary-source directory** Official records and how to use them.](https://www.echoframe.co/sources.html) [**Regional perspective** Explore the wider research frame.](https://www.echoframe.co/coverage.html)
 
 **Company**
 
 Company
 
-[**About EchoFrame** The purpose and approach behind the research.](https://www.echoframe.co/about.html) [**The Frame Bureau** Practical training in evidence and analytical judgment.](https://www.echoframe.co/frame-bureau.html) [**Our methodology** From collection to an inspectable judgment.](https://www.echoframe.co/methodology.html) [**Trust & privacy** Evidence, information handling, and boundaries.](https://www.echoframe.co/trust.html) [**Editorial standards** Attribution, uncertainty, and corrections.](https://www.echoframe.co/editorial-standards.html)
+[**About EchoFrame** The purpose and approach behind the research.](https://www.echoframe.co/about.html) [**Our methodology** From collection to an inspectable judgment.](https://www.echoframe.co/methodology.html) [**Trust & privacy** Evidence, information handling, and boundaries.](https://www.echoframe.co/trust.html) [**Editorial standards** Attribution, uncertainty, and corrections.](https://www.echoframe.co/editorial-standards.html)
 
-[Venezuela](https://www.echoframe.co/venezuela.html) [Request a demo](https://www.echoframe.co/briefing.html)
+[Venezuela](https://www.echoframe.co/venezuela.html)
 
 ### Footer
 
@@ -3831,9 +2398,9 @@ Variant shown on index.html.
 
 [EchoFrame](https://www.echoframe.co/index.html)
 
-A clearer view of a complex world.
+Research on political decisions and their consequences.
 
-Evidence. Context. Judgment.
+ Venezuela and European energy policy
 
 #### Explore
 
@@ -3841,13 +2408,13 @@ Evidence. Context. Judgment.
 
 #### Connect
 
-[Contact us](https://www.echoframe.co/briefing.html?kind=contact) [Working with EchoFrame](https://www.echoframe.co/engagement.html) [contact@echoframe.co](mailto:contact@echoframe.co) [LinkedIn](https://ie.linkedin.com/company/echoframing)
+[Working with EchoFrame](https://www.echoframe.co/engagement.html)  contact@echoframe.co [LinkedIn](https://ie.linkedin.com/company/echoframing)
 
 #### Company
 
-[About EchoFrame](https://www.echoframe.co/about.html) [The Frame Bureau](https://www.echoframe.co/frame-bureau.html) [Trust & privacy](https://www.echoframe.co/trust.html) [Sample briefs & templates](https://www.echoframe.co/sample-briefs.html) [Primary-source directory](https://www.echoframe.co/sources.html) [Editorial standards](https://www.echoframe.co/editorial-standards.html) [En español](https://www.echoframe.co/es/index.html)
+[About EchoFrame](https://www.echoframe.co/about.html) [Trust & privacy](https://www.echoframe.co/trust.html) [Sample briefs & templates](https://www.echoframe.co/sample-briefs.html) [Primary-source directory](https://www.echoframe.co/sources.html) [Editorial standards](https://www.echoframe.co/editorial-standards.html) [En español](https://www.echoframe.co/es/index.html)
 
-© 2026 EchoFrame Intelligence AB [Privacy](https://www.echoframe.co/privacy.html) / Intelligence with perspective. [Back to top](https://www.echoframe.co/index.html#main)
+© 2026 EchoFrame Intelligence AB  [Privacy](https://www.echoframe.co/privacy.html)  / EchoFrame research [Back to top](https://www.echoframe.co/index.html#main)
 
 ### Footer
 
@@ -3855,9 +2422,9 @@ Variant shown on es/index.html.
 
 [EchoFrame](https://www.echoframe.co/index.html)
 
-A clearer view of a complex world.
+Research on political decisions and their consequences.
 
-Evidence. Context. Judgment.
+ Venezuela and European energy policy
 
 #### Explore
 
@@ -3865,113 +2432,17 @@ Evidence. Context. Judgment.
 
 #### Connect
 
-[Contact us](https://www.echoframe.co/briefing.html?kind=contact) [Working with EchoFrame](https://www.echoframe.co/engagement.html) [contact@echoframe.co](mailto:contact@echoframe.co) [LinkedIn](https://ie.linkedin.com/company/echoframing)
+[Working with EchoFrame](https://www.echoframe.co/engagement.html)  contact@echoframe.co [LinkedIn](https://ie.linkedin.com/company/echoframing)
 
 #### Company
 
-[About EchoFrame](https://www.echoframe.co/about.html) [The Frame Bureau](https://www.echoframe.co/frame-bureau.html) [Trust & privacy](https://www.echoframe.co/trust.html) [Sample briefs & templates](https://www.echoframe.co/sample-briefs.html) [Primary-source directory](https://www.echoframe.co/sources.html) [Editorial standards](https://www.echoframe.co/editorial-standards.html) [English](https://www.echoframe.co/index.html)
+[About EchoFrame](https://www.echoframe.co/about.html) [Trust & privacy](https://www.echoframe.co/trust.html) [Sample briefs & templates](https://www.echoframe.co/sample-briefs.html) [Primary-source directory](https://www.echoframe.co/sources.html) [Editorial standards](https://www.echoframe.co/editorial-standards.html) [English](https://www.echoframe.co/index.html)
 
-© 2026 EchoFrame Intelligence AB [Privacy](https://www.echoframe.co/privacy.html) / Intelligence with perspective. [Back to top](https://www.echoframe.co/es/index.html#main)
-
-### Navigation
-
-Variant shown on es/map.html.
-
-[EchoFrame](https://www.echoframe.co/index.html)
-
-Menú
-
-[Venezuela (en inglés)](https://www.echoframe.co/venezuela.html) [Metodología (en inglés)](https://www.echoframe.co/methodology.html) [English](https://www.echoframe.co/map.html) [Solicitar una demostración](https://www.echoframe.co/briefing.html)
-
-### Footer
-
-Variant shown on es/map.html.
-
-© 2026 EchoFrame Intelligence AB [Privacidad (en inglés)](https://www.echoframe.co/privacy.html) [Volver al inicio](https://www.echoframe.co/es/map.html#main)
-
-### Navigation
-
-Variant shown on map.html.
-
-[EchoFrame](https://www.echoframe.co/index.html)
-
-Menu
-
-[Venezuela](https://www.echoframe.co/venezuela.html) [Methodology](https://www.echoframe.co/methodology.html) [Español](https://www.echoframe.co/es/map.html) [Request a demo](https://www.echoframe.co/briefing.html)
-
-### Footer
-
-Variant shown on map.html.
-
-© 2026 EchoFrame Intelligence AB [Privacy](https://www.echoframe.co/privacy.html) [Back to top](https://www.echoframe.co/map.html#main)
+© 2026 EchoFrame Intelligence AB  [Privacy](https://www.echoframe.co/privacy.html)  / EchoFrame research [Back to top](https://www.echoframe.co/es/index.html#main)
 
 ## Interactive explanations
 
-These alternatives appear when a visitor changes a selector or opens a tailored briefing form.
-
-### Research mandate previews
-
-#### Policy
-
-Who can change the conditions around an operating asset?
-
-Trace formal authority, documented positions, and the next policy milestone. Compare the official account with local evidence.
-
-[Related page](https://www.echoframe.co/government-affairs.html)
-
-Explore the government affairs perspective
-
-#### Asset
-
-What would establish that access to an asset has changed?
-
-Define the asset, the observation window, and the evidence needed. Keep official statements, local accounts, and physical observations distinct.
-
-[Related page](https://www.echoframe.co/venezuela.html)
-
-Explore the Venezuela programme
-
-#### Credit
-
-Which political assumption in the thesis needs another look?
-
-Identify a named decision or counterparty milestone. Record the evidence that could support, challenge, or leave the assumption unresolved.
-
-[Related page](https://www.echoframe.co/distressed-debt.html)
-
-Explore the distressed-debt perspective
-
-### Decision context
-
-#### Policy
-
-Government affairs / The decision pathway
-
-Who has authority—and what happens next?
-
-Identify the issuing institution, the formal status of its proposal, and the next decision point. Separate a public position from an implemented measure.
-
-[Related page](https://www.echoframe.co/government-affairs.html)
-
-#### Asset
-
-Asset-level research / The operating context
-
-What changed at the asset, and what is still a claim?
-
-Compare the documentary position with dated observations about activity, access, or counterparties. Keep disagreements visible and identify the evidence that could resolve them.
-
-[Related page](https://www.echoframe.co/venezuela.html)
-
-#### Capital
-
-Distressed debt / The thesis assumption
-
-Which assumption now needs fresh evidence?
-
-Connect the verified development to a bounded research question about the thesis. Identify which political or operational assumptions require review, while leaving valuation and legal determinations to the appropriate specialists.
-
-[Related page](https://www.echoframe.co/distressed-debt.html)
+These explanations appear when the visitor changes the evidence-status selector on the methodology page.
 
 ### Evidence status
 
@@ -4004,448 +2475,6 @@ Credible accounts assert incompatible claims about the same event. Retain the su
 Establish that the apparent contradiction is not a difference in timing, location, or the activity being described.
 
 Seek a discriminating observation. Do not silently resolve the conflict or turn a denial into another positive signal.
-
-### Briefing forms by audience
-
-#### Government
-
-Oil & gas government affairs
-
-Your government affairs brief.
-
-Tell us about the policy decision, stakeholder meeting, or operating asset you are working on.
-
-#### Credit
-
-Distressed debt / hedge fund
-
-Your distressed-debt research brief.
-
-Tell us which political or operating assumption you want to examine, and when it matters to your investment decision.
-
-### Briefing guidance by sector
-
-#### Oil & gas
-
-A useful starting point: one asset, the authority that affects it, and the evidence you need before your next stakeholder meeting.
-
-#### Distressed debt & special situations
-
-A useful starting point: one political assumption in the thesis, its time horizon, and the evidence that would make you revisit it.
-
-#### Energy & infrastructure
-
-A useful starting point: one project dependency, the decision-maker involved, and the next milestone you need to understand.
-
-#### Advisory & research
-
-A useful starting point: the question your team must answer and a source or method you would like us to walk through.
-
-#### Other
-
-Tell us your sector and the decision in your message. We will assess whether the question fits our research scope.
-
-### Electricity generation chart
-
-#### Hydro
-
-64%
-
-Hydropower
-
-Hydropower supplied almost two-thirds of generation in 2021. For an asset-level inquiry, the next question is how the site gets its power.
-
-#### Gas
-
-25%
-
-Natural gas
-
-Natural gas supplied a quarter of electricity in 2021. A site-level inquiry should examine its power source and any backup arrangements.
-
-#### Oil
-
-11%
-
-Petroleum
-
-Petroleum supplied 11% of electricity in 2021. This national share does not establish the fuel supply or resilience of a particular site.
-
-### Fictional actor mapping
-
-#### Authority
-
-Port authority
-
-Formal responsibility for the access procedure described in the fictional permit.
-
-The published instrument, named office, scope of authority, and effective date.
-
-Whether the procedure has been implemented at this terminal and whether another body has a separate approval role.
-
-#### Operator
-
-Operator
-
-Responsibility for operating the fictional terminal and communicating its operating position.
-
-The operating agreement, dated statement, and records that identify the activity and access category being described.
-
-Whether a statement about an open terminal also describes ordinary contractor access at the relevant gate.
-
-#### Workers
-
-Worker representatives
-
-A documented local position concerning entry and working conditions.
-
-The underlying statement, its date, the group represented, and an independently recorded observation of the relevant activity.
-
-Whether the account concerns every contractor, a particular shift, or one access point.
-
-#### Counterparty
-
-Service counterparty
-
-A fictional service dependency that may require ordinary contractor access.
-
-The relevant service scope, named entity, access requirement, and dated record of the dependency.
-
-Whether the provider controls access, is affected by it, or can use an alternative operating arrangement.
-
-### Fictional decision pathways
-
-#### Supported
-
-Check scope before revising the assessment.
-
-Confirm that the observed access applies to ordinary contractors, the relevant gate, and the stated period. An exceptional one-off entry does not resolve the broader question.
-
-Record the new evidence, the prior assessment, the change in reasoning, and the next date for review.
-
-#### Challenged
-
-Test whether the restriction matches the question.
-
-Identify the responsible office, activity, access category, and duration. Confirm that the document or observation actually concerns Terminal A during the resolution period.
-
-Preserve the original assumption. Record the contrary evidence, surviving alternatives, and the reason for revising or retaining the assessment.
-
-#### Unresolved
-
-Keep the gap visible at the deadline.
-
-A lack of adequate evidence is not proof that access is normal or restricted. Record the question as unresolved under its original rule and identify the observation still needed.
-
-Do not change the outcome definition retrospectively. Record why the evidence was insufficient and what that means for the next research decision.
-
-### Historical exports chart
-
-2021: 263,000 barrels a day. The series describes historical exports, not current capacity.
-
-2022: 442,000 barrels a day. The series describes historical exports, not current capacity.
-
-2023: an estimated 621,000 barrels a day. The series describes historical exports, not current capacity.
-
-## Map question wording
-
-The map labels these probability series as hindcast, provisional and indicative. Probabilities are not a track record. The following wording is taken from the published catalogue.
-
-### HC2Y-ORI-001
-
-Will OFAC amend, revoke, or let lapse the general licence or specific licence under which Chevron operates Petropiar before 2025-03-31?
-
-### HC2Y-ORI-002
-
-Will a change to the Petromonagas JV ownership or operating terms be published in the Gaceta Oficial or announced by PDVSA before 2025-09-30?
-
-### HC2Y-ORI-003
-
-Will PDVSA announce a new foreign partner or operator for Petrocedeño before 2025-09-30?
-
-### HC2Y-ORI-004
-
-Will a new JV or service contract covering any Carabobo block be published in the Gaceta Oficial before 2026-03-31?
-
-### HC2Y-ORI-005
-
-Will a US court order or arbitration award be entered that names cargoes or receivables from the José terminal before 2025-09-30?
-
-### HC2Y-ORI-006
-
-Will there be a stoppage of 48 hours or more affecting at least one upgrader at the José complex, reported by two independent sources or a field report plus a media item, before 2025-03-31?
-
-### HC2Y-ORI-007
-
-Will there be a work stoppage or shut-in of 48 hours or more at the Punta de Mata fields before 2025-03-31?
-
-### HC2Y-ORI-008
-
-Will the José complex lose grid power for more than 24 hours in any single week before 2025-03-31?
-
-### HC2Y-ORI-009
-
-Will EIA weekly data show zero US crude imports from Venezuela for two consecutive weeks before 2025-03-31?
-
-### HC2Y-ORI-010
-
-Will PDVSA or a partner report that the Petrocedeño upgrader has resumed sustained operation before 2025-09-30?
-
-### HC2Y-ORI-011
-
-Will an armed incident, theft of equipment or product, or extortion of a contractor within 25 km of El Furrial be reported before 2025-03-31?
-
-### HC2Y-ORI-012
-
-Will the armed forces or a ZODI command take over access control or security at the José complex before 2025-09-30?
-
-### HC2Y-ORI-013
-
-Will a blockade of an access road or gate to the José complex lasting 12 hours or more be reported before 2025-03-31?
-
-### HC2Y-ORI-014
-
-Will an oil spill or fire at or near Jusepín draw a community protest or an official inspection before 2025-09-30?
-
-### HC2Y-ORI-015
-
-Will the governor of Anzoátegui be replaced, suspended, or removed before 2025-09-30?
-
-### HC2Y-ORI-016
-
-Will the governor of Monagas be replaced, suspended, or removed before 2025-09-30?
-
-### HC2Y-ORI-017
-
-Will the head of PDVSA's Oriente division be replaced before 2025-03-31?
-
-### HC2Y-ORI-018
-
-Will workers or contractors at Punta de Mata report payroll or invoice arrears of four weeks or more before 2025-03-31?
-
-### HC2Y-ORI-019
-
-Will contractors at the José complex report unpaid invoices of four weeks or more before 2025-03-31?
-
-### HC2Y-ORI-020
-
-Will the settlement channel for Petropiar crude sales (currency, intermediary, or bank) change, as reported by two independent sources, before 2025-09-30?
-
-### Preguntas en español
-
-001. ¿OFAC modificará, revocará o dejará vencer la licencia general o específica que permite a Chevron operar Petropiar antes del 31 de marzo de 2025?
-
-002. ¿Se publicará en la Gaceta Oficial o anunciará PDVSA un cambio en la propiedad o las condiciones operativas de la empresa mixta Petromonagas antes del 30 de septiembre de 2025?
-
-003. ¿Anunciará PDVSA un nuevo socio u operador extranjero para Petrocedeño antes del 30 de septiembre de 2025?
-
-004. ¿Se publicará en la Gaceta Oficial una nueva empresa mixta o un contrato de servicios que abarque algún bloque Carabobo antes del 31 de marzo de 2026?
-
-005. ¿Se dictará una orden judicial estadounidense o un laudo arbitral que mencione cargamentos o cuentas por cobrar de la terminal de José antes del 30 de septiembre de 2025?
-
-006. ¿Habrá una paralización de al menos 48 horas que afecte a un mejorador del complejo de José, documentada por dos fuentes independientes o por un informe de terreno y una información de prensa, antes del 31 de marzo de 2025?
-
-007. ¿Habrá una paralización laboral o un cierre operativo de al menos 48 horas en los campos de Punta de Mata antes del 31 de marzo de 2025?
-
-008. ¿Perderá el complejo de José el suministro eléctrico de la red durante más de 24 horas en una misma semana antes del 31 de marzo de 2025?
-
-009. ¿Mostrarán los datos semanales de la EIA importaciones estadounidenses de crudo venezolano iguales a cero durante dos semanas consecutivas antes del 31 de marzo de 2025?
-
-010. ¿Informarán PDVSA o un socio de que el mejorador Petrocedeño ha reanudado operaciones sostenidas antes del 30 de septiembre de 2025?
-
-011. ¿Se informará de un incidente armado, robo de equipos o productos, o extorsión a un contratista en un radio de 25 km de El Furrial antes del 31 de marzo de 2025?
-
-012. ¿Asumirán las fuerzas armadas o un mando ZODI el control de acceso o la seguridad del complejo de José antes del 30 de septiembre de 2025?
-
-013. ¿Se informará de un bloqueo de una vía de acceso o puerta del complejo de José que dure al menos 12 horas antes del 31 de marzo de 2025?
-
-014. ¿Provocará un derrame de petróleo o incendio en Jusepín o sus alrededores una protesta comunitaria o una inspección oficial antes del 30 de septiembre de 2025?
-
-015. ¿Será sustituido, suspendido o destituido el gobernador de Anzoátegui antes del 30 de septiembre de 2025?
-
-016. ¿Será sustituido, suspendido o destituido el gobernador de Monagas antes del 30 de septiembre de 2025?
-
-017. ¿Será sustituido el jefe de la división Oriente de PDVSA antes del 31 de marzo de 2025?
-
-018. ¿Informarán trabajadores o contratistas de Punta de Mata de atrasos salariales o de facturas de al menos cuatro semanas antes del 31 de marzo de 2025?
-
-019. ¿Informarán contratistas del complejo de José de facturas impagadas durante al menos cuatro semanas antes del 31 de marzo de 2025?
-
-020. ¿Cambiará el canal de liquidación de las ventas de crudo de Petropiar, en cuanto a moneda, intermediario o banco, según dos fuentes independientes, antes del 30 de septiembre de 2025?
-
-### Map interface copy / Texto de la interfaz
-
-- José complex / Complejo de José
-
-- José terminal / Terminal de José
-
-- Single source / Fuente única
-
-- Corroborated / Corroborado
-
-- Contradicted / Contradicho
-
-- Unassessed / Sin evaluar
-
-- Low / Baja
-
-- Medium / Media
-
-- High / Alta
-
-- Stale / Sin vigencia
-
-- Fresh / Vigente
-
-- Current in snapshot / Vigente en la exportación
-
-- State / Estado
-
-- Municipality / Municipio
-
-- Facility / Instalación
-
-- Approximate / Aproximada
-
-- Unresolved / Sin resolver
-
-- Operator / Operador
-
-- Creditor / Acreedor
-
-- Ground reporting / Información sobre el terreno
-
-- Media / Medios
-
-- Official / Oficial
-
-- Physical observation / Observación física
-
-- Expert / Experto
-
-- External expert / Experto externo
-
-- Unknown / Desconocida
-
-- Select an event or asset / Seleccione un evento o activo
-
-- Use the map or the lists above. Records at the same location can be selected individually from the event list. / Utilice el mapa o las listas. Los registros que comparten ubicación se pueden seleccionar individualmente en la lista.
-
-- Event record / Registro de evento
-
-- Type code / Código de tipo
-
-- Family code / Código de familia
-
-- Severity / Gravedad
-
-- Status / Estado
-
-- Freshness / Vigencia
-
-- First seen / Primera observación
-
-- Last seen / Última observación
-
-- Source count / Recuento de fuentes
-
-- State / Estado territorial
-
-- Location precision / Precisión geográfica
-
-- Source blocks / Bloques de fuentes
-
-- No source blocks recorded / Sin bloques de fuentes registrados
-
-- The source count counts items. It does not establish independence. Freshness and status are stored snapshot labels. / El recuento cuenta elementos. No establece independencia. La vigencia y el estado son etiquetas almacenadas.
-
-- This record does not establish an incident at a specific facility. / Este registro no establece un incidente en una instalación concreta.
-
-- The stored point is outside its recorded state boundary. The location requires review. / El punto almacenado está fuera del límite de su estado registrado. La ubicación requiere revisión.
-
-- Weekly event counts / Recuentos semanales de eventos
-
-- Monthly corroborated event counts for both states / Recuentos mensuales de eventos corroborados en ambos estados
-
-- Corroborated events by month / Eventos corroborados por mes
-
-- Exact values are available in the adjacent table. / Los valores exactos están disponibles en la tabla adjunta.
-
-- This question scope is a state or organisation. It has no asset pin. / Este ámbito corresponde a un estado o una organización. No tiene marcador de activo.
-
-- Site / Sitio
-
-- Approximate coordinates. The faint circle shows a 25 km reference radius. / Coordenadas aproximadas. El círculo tenue muestra un radio de referencia de 25 km.
-
-- Coordinates unresolved. No map pin is shown. / Coordenadas sin resolver. No se muestra un marcador.
-
-- Coordinate source / Fuente de coordenadas
-
-- Weekly assigned events / Eventos asignados por semana
-
-- Read weekly counts / Consultar recuentos semanales
-
-- Week starting / Inicio de semana
-
-- Events / Eventos
-
-- No weekly asset series is available at this date. / No hay serie semanal disponible para esta fecha.
-
-- Counts use exact asset assignments, not proximity. Only completed weeks are shown. / Los recuentos usan asignaciones exactas, no proximidad. Solo se muestran semanas completas.
-
-- Open questions at this date / Preguntas abiertas en esta fecha
-
-- Hindcast · Provisional · Indicative / Retrospectiva · Provisional · Indicativa
-
-- No open questions at this date. Move the month control to an earlier date to inspect the historical question set. / No hay preguntas abiertas en esta fecha. Seleccione un mes anterior para consultar las preguntas históricas.
-
-- Unavailable / No disponible
-
-- Stored estimate / Estimación almacenada
-
-- No stored estimate by this date / Sin estimación almacenada hasta esta fecha
-
-- Question deadline / Fecha límite
-
-- Retrospective estimates are not a track record. The probabilities can draw on evidence outside the map area. Profile variants are not independent forecasts. / Las estimaciones retrospectivas no son un historial predictivo. Las probabilidades pueden usar evidencia externa al área del mapa. Las variantes por perfil no son pronósticos independientes.
-
-- Month / Mes
-
-- Municipality and event map. Use the record lists for details. / Mapa de municipios y eventos. Utilice las listas para consultar detalles.
-
-- Simplified map. Interactive zoom is unavailable. Use the record lists to inspect every record. / Mapa simplificado. El zoom interactivo no está disponible. Utilice las listas para examinar todos los registros.
-
-- Basemap by  / Mapa base de
-
-- No basemap. Municipality boundaries shown in grey.  / Sin mapa base. Límites municipales mostrados en gris.
-
-- Map. Use the event and asset lists for record details. / Mapa. Use las listas de eventos y activos para consultar detalles.
-
-- Loading records for  / Cargando registros de
-
-- Select an event / Seleccione un evento
-
-- events / eventos
-
-- corroborated / corroborados
-
-- located to a state / ubicados a nivel estatal
-
-- This month could not be loaded. No event count is shown. Retry or choose another month. / No se pudo cargar este mes. No se muestra un recuento. Reintente o elija otro mes.
-
-- Play / Reproducir
-
-- Select an asset or scope / Seleccione un activo o ámbito
-
-- The export could not be loaded. Reload this page to retry. No data is inferred. / No se pudo cargar la exportación. Recargue la página para reintentar. No se infieren datos.
-
-- Pause / Pausar
-
-### Map data downloads
-
-[Published map catalogue](https://www.echoframe.co/assets/gis-demo/catalogue.json)
-
-[Map data licence](https://www.echoframe.co/assets/gis-demo/LICENSE.txt)
 
 ## Downloadable text and templates
 
@@ -4500,17 +2529,20 @@ Template fields
 Purpose: prepare a non-confidential research scoping conversation.
 
 ##### Decision
+
 - Who will use the research?
 - What decision or discussion will it inform?
 - What is the deadline?
 
 ##### Subject and scope
+
 - Asset, contract, counterparty, institution, or place:
 - Geographic scope:
 - Observation period:
 - Explicit exclusions:
 
 ##### Research question
+
 - Bounded question:
 - Observable outcome:
 - Resolution date and evidence rule:
@@ -4519,6 +2551,7 @@ Purpose: prepare a non-confidential research scoping conversation.
 - Evidence currently missing:
 
 ##### Proposed output and handling
+
 - Format and review cadence:
 - Intended recipients and permitted use:
 - Source-access requirements:
@@ -4526,143 +2559,3 @@ Purpose: prepare a non-confidential research scoping conversation.
 - Delivery date and commercial terms to discuss:
 
 This template does not submit information or establish an engagement. Contact contact@echoframe.co to discuss scope. Do not include confidential or source-identifying material before handling arrangements are agreed.
-
-### sample-asset-access.md
-
-[Download original](https://www.echoframe.co/downloads/sample-asset-access.md)
-
-#### Terminal access: the national statement and the local question.
-
-EchoFrame | EF / SAMPLE 01 | Asset-context and stakeholder brief
-
-FICTIONAL RESEARCH EXERCISE: All entities, records, observations, and timelines are invented. Not a current assessment or a client case study.
-
-##### Executive assessment
-
-Unresolved. A general statement that the terminal remains open does not establish ordinary contractor access through the relevant gate.
-
-Question: Will ordinary contractor access to Terminal A be independently documented by Day 30?
-
-Subject: Terminal A · Fictional coastal energy asset
-
-Horizon: Day 30 in the fictional exercise
-
-Resolution rule: A dated record of the applicable access procedure and an independent observation of ordinary contractor entry within the specified period. A one-off exception does not satisfy the rule.
-
-##### The decision this brief supports
-
-A government affairs team is preparing a meeting about continuity of access to an operating asset. Its immediate need is to distinguish a formal approval problem from an implementation problem, and to identify which question belongs with which institution.
-
-The brief does not establish the current condition of a real terminal. All entities, records, times, and observations in this exercise are invented to demonstrate the structure of an inspectable research output.
-
-##### What the evidence does and does not establish
-
-E-01 records the operator's broad statement that the terminal remains open. E-02 describes an interruption to contractor entry at a particular gate. These claims appear to conflict, but their scopes differ. The terminal could continue some operations while a class of visitors experiences restricted access.
-
-E-03 repeats the operator statement. It adds distribution, not a second independent observation. E-04 describes visible activity in the wider terminal area; it cannot identify the visitors entering a gate or demonstrate that all access categories are unaffected.
-
-The defensible assessment is therefore narrower than either headline: the fictional record does not resolve ordinary contractor access. The next collection step should discriminate between the different activities and observation periods.
-
-##### The actor and authority questions
-
-The port authority is relevant to the formal procedure. The operator is relevant to implementation and operating responsibility. Worker representatives may provide a documented local position. A service counterparty may depend on access without controlling the underlying procedure.
-
-Before attributing responsibility, obtain the instrument that assigns authority, its effective date, and any separate approval role. Do not infer informal control from proximity on a stakeholder map. The meeting brief should distinguish a verified statutory responsibility from a relationship that still needs evidence.
-
-##### Alternative explanations to retain
-
-The interruption may be confined to one gate, one shift, or one category of contractor. It could reflect a temporary administrative procedure rather than a broader closure. The operator statement could refer to a different time window. The local account could also be incomplete.
-
-Each alternative creates a collection requirement. Seek the scope and duration of the interruption, the exact visitor category, and the timing of the observation. A new national statement without those details would not settle the question.
-
-##### Questions for the stakeholder conversation
-
-Which office issued the access procedure, and where is the written instrument? Does it apply to ordinary contractors, employees, visitors, and emergency services in the same way? What evidence records its implementation at the relevant gate?
-
-What changed from the previous procedure, when did the change take effect, and which office handles exceptions or review? Can a dated operational record be shared in a form that protects individuals and respects permitted use?
-
-##### Review trigger and next output
-
-Revisit the assessment when an authenticated procedure or independent access observation becomes available. Record the source, observation period, and reason for any change in the assessment. If the evidence remains insufficient at Day 30, record the question as unresolved under the stated rule.
-
-The next output would be a revised access note and a relationship ledger showing which responsibilities were documented. The research scope does not include legal clearance, a physical safety assessment, or a promise that operations will continue.
-
-##### Fictional evidence register
-
-E-01 | Fictional operator statement | Day 1, 09:00 | Terminal remains open; access categories are unspecified.
-E-02 | Fictional local account | Day 1, 11:30 | Contractor entry interrupted at a particular gate.
-E-03 | Fictional repeated media item | Day 1, 13:00 | Repeats E-01; no independent observation.
-E-04 | Fictional physical observation | Day 2, 08:00 | Wider-area activity; insufficient detail to resolve contractor access.
-
-Prepared as an illustrative EchoFrame research format. Contact contact@echoframe.co to discuss a research mandate.
-
-### sample-thesis-review.md
-
-[Download original](https://www.echoframe.co/downloads/sample-thesis-review.md)
-
-#### A political announcement is not an operating milestone.
-
-EchoFrame | EF / SAMPLE 02 | Thesis-assumption and catalyst review
-
-FICTIONAL RESEARCH EXERCISE: All entities, records, observations, and timelines are invented. Not a current assessment or a client case study.
-
-##### Executive assessment
-
-The assumption remains unverified. An announcement of intent and an issuer expectation do not establish implementation, delivery, or an economic outcome.
-
-Question: Will Issuer B's stated operating milestone be independently documented by Day 60?
-
-Subject: Issuer B · Fictional energy counterparty
-
-Horizon: Day 60 in the fictional exercise
-
-Resolution rule: A dated record demonstrating the specific operating milestone, matched to the named asset and supported by an independent implementation record. A statement of intention alone is insufficient.
-
-##### The assumption under review
-
-A fictional investment team is reviewing a thesis that expects an operating milestone to follow a political announcement. The research task is to identify what must happen between the two, which party controls each step, and what evidence would justify revisiting the assumption.
-
-Issuer B, the asset, and every document in this exercise are fictional. This sample contains no security price, recovery estimate, trade recommendation, or claim about a real issuer. The analytical format is designed to complement legal and valuation work.
-
-##### Separate intention, authority, and implementation
-
-C-01 is a policy announcement expressing an intention. It does not itself document the completion of a project-specific approval. C-02 is an issuer update describing an expected timetable. That statement is evidence of the issuer's position, not independent confirmation that the timetable will be met.
-
-C-03 describes a service dependency that remains unresolved. C-04 records that a procedural meeting was scheduled. A scheduled meeting is a milestone to monitor, but the record does not establish the meeting's outcome or any resulting operational change.
-
-The working assumption should therefore be decomposed into observable steps: the relevant authority acts, a project-specific condition is met, a service dependency is available, and the named operating activity is documented.
-
-##### The counterparty and asset dependencies
-
-Identify the legal entity making each statement and the entity responsible for the operating activity. Distinguish the issuer, project company, service provider, and public authority. An announcement about one entity should not be silently transferred to another.
-
-The asset question also requires a defined observation period. A historical operating record can establish context without resolving whether a dependency is available now. The next collection plan should prioritise the missing implementation record rather than additional commentary about the announcement.
-
-##### What would support or challenge the assumption
-
-Supporting evidence would include the required project-specific instrument and an independent record of the operating milestone within the stated horizon. Both should identify the activity and asset clearly enough to match the research question.
-
-Challenging evidence would include a documented failure to meet a necessary condition, an authenticated deferral, or a service interruption directly relevant to implementation. An unrelated negative headline would require a relevance assessment before it affected the view.
-
-If new material only repeats the issuer's expectation, the assumption remains unresolved. Repetition should not move it from an expectation to an established fact.
-
-##### Questions to take to committee
-
-Which single assumption in the thesis depends most heavily on this milestone? What would the team expect to observe first if the assumption were right? Which record would discriminate between implementation and continued intention?
-
-Which questions concern political authority or operational dependencies, and which belong to counsel or valuation specialists? What is the consequence for the research timetable if the milestone remains unverified at Day 60?
-
-##### Review discipline
-
-Maintain a dated assumption register with the original reasoning, new evidence, alternatives, and revision rationale. Revisit the question on a material documentary milestone or at the agreed review date, rather than on every increase in media attention.
-
-At resolution, preserve the original question and evidence rule. Do not change the outcome definition retrospectively to fit the available record. An unresolved result is informative when it identifies the remaining gap and its consequence for further research.
-
-##### Fictional evidence register
-
-C-01 | Fictional policy announcement | Day 1 | States an intention; project-specific implementation not demonstrated.
-C-02 | Fictional issuer update | Day 4 | Sets out an expected timetable; no independent confirmation.
-C-03 | Fictional service-dependency note | Day 6 | A prerequisite remains unresolved in the supplied record.
-C-04 | Fictional procedural notice | Day 9 | A meeting is scheduled; no outcome is documented.
-
-Prepared as an illustrative EchoFrame research format. Contact contact@echoframe.co to discuss a research mandate.

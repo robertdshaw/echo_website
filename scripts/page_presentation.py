@@ -28,6 +28,20 @@ INVITATIONS = {
     'venezuela.html': 'Discuss a Venezuela research mandate',
 }
 REFERENCE_PAGES = {'sources.html', 'privacy.html', 'editorial-standards.html'}
+REFERENCE_LABELS = {
+    'Watch the film': 'EchoFrame presentation video',
+    'Explore the research approach': 'Research approach',
+    'Explore the source directory': 'Primary-source directory',
+    'Read our privacy notice': 'Privacy notice',
+    'Download a question register': 'Question register template',
+    'Explore the full methodology': 'Methodology',
+    'Download a mandate template': 'Research mandate template',
+    'Download a blank evidence register': 'Evidence register template',
+    'Download the evidence register': 'Evidence register template',
+    'Read the evidence guide': 'Evidence guide',
+    'Explore counterparty research sources': 'Counterparty research sources',
+    'Conozca el programa de Venezuela (en inglés)': 'Programa de Venezuela (en inglés)',
+}
 
 
 def enquiry_policy(body, path):
@@ -39,11 +53,21 @@ def enquiry_policy(body, path):
         if not href:
             return match.group(0)
         target = html.unescape(href.group(1))
+        plain_label = re.sub(r'<[^>]+>', '', label).strip()
+        label = REFERENCE_LABELS.get(plain_label, label)
         if 'briefing.html' in target or target.startswith('https://cal.eu/'):
             return ''
         if target.startswith('mailto:') and path not in REFERENCE_PAGES:
             return 'contact@echoframe.co'
-        return match.group(0)
+        classes = re.search(r'class=[\"\']([^\"\']+)', attrs)
+        if classes and {'button', 'text-link'} & set(classes.group(1).split()) and path != '404.html':
+            # Keep document references as ordinary links; remove secondary invitations.
+            if '/downloads/' in '/' + target or target.startswith('https://') and path in REFERENCE_PAGES:
+                attrs = attrs.replace(classes.group(0), 'class="document-reference"')
+                label = re.sub(r'^Open the primary source', 'Source document', label.strip())
+                return '<a' + attrs + '>' + label + '</a>'
+            return ''
+        return '<a' + attrs + '>' + label + '</a>'
     body = re.sub(r'<a\b([^>]*)>(.*?)</a>', contact_anchor, body, flags=re.S)
     if path in INVITATIONS:
         prefix = '../' if '/' in path else ''

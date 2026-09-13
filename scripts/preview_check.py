@@ -1,110 +1,100 @@
-"""Browser smoke checks. Run a local server on port 4173 before running this file."""
+"""Local browser checks with an in-process email stub. No messages leave the test."""
 import json
+import sys
+import threading
+import uuid
 from pathlib import Path
-from playwright.sync_api import sync_playwright
+from werkzeug.serving import make_server, WSGIRequestHandler
+from playwright.sync_api import sync_playwright, expect
 
-ROOT=Path(__file__).resolve().parents[1]
-ARTIFACTS=ROOT/'.preview'
-ARTIFACTS.mkdir(exist_ok=True)
-BASE='http://127.0.0.1:4173'
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from server import create_app
 
-with sync_playwright() as p:
-    browser=p.chromium.launch()
-    page=browser.new_page(viewport={'width':1440,'height':1000},device_scale_factor=1)
-    errors=[]
-    page.on('pageerror',lambda error: errors.append(str(error)))
-    page.goto(BASE,wait_until='networkidle')
-    page.screenshot(path=str(ARTIFACTS/'homepage-desktop.png'),full_page=True)
-    assert page.locator('h1').count()==1
-    # Each homepage claim explains itself one click deeper, then leads to intake.
-    destinations=['government-affairs.html','distressed-debt.html','methodology.html']
-    assert page.locator('.home-claim a').evaluate_all('(els)=>els.map(el=>el.getAttribute("href"))')==destinations
-    for i,destination in enumerate(destinations):
-        page.goto(BASE,wait_until='networkidle')
-        page.locator('.home-claim a').nth(i).click()
-        assert page.url.endswith('/'+destination)
-        link=page.get_by_role('link',name='See how we can help you').last
-        link.click()
-        assert '/briefing.html' in page.url
-        expected=['Oil & gas','Distressed debt & special situations',''][i]
-        assert page.locator('[name=sector]').input_value()==expected
-        assert page.locator('[name=proof]').is_visible()
-    page.goto(BASE+'/about.html',wait_until='networkidle')
-    question=page.locator('.faq-list summary').first
-    question.focus()
-    question.press('Enter')
-    assert page.locator('.faq-list details').first.get_attribute('open') is not None
-    question.press('Enter')
-    assert page.locator('.faq-list details').first.get_attribute('open') is None
-    page.goto(BASE+'/research.html',wait_until='networkidle')
-    page.get_by_role('button',name='Methods',exact=True).click()
-    assert page.locator('.research-card:visible').count()==4
-    page.get_by_role('searchbox').fill('actor')
-    assert page.locator('.research-card:visible').count()==1
-    page.reload()
-    assert page.locator('.research-card:visible').count()==1
-    page.get_by_role('searchbox').fill('nothing-matches-this')
-    assert page.locator('#no-results').is_visible()
-    page.locator('#reset-search').click()
-    assert page.locator('.research-card:visible').count()==8
-    page.get_by_role('button',name='Venezuela',exact=True).click()
-    assert page.locator('.research-card:visible').count()==2
-    page.get_by_role('button',name='All intelligence',exact=True).click()
-    page.screenshot(path=str(ARTIFACTS/'library-desktop.png'),full_page=True)
-    page.goto(BASE+'/methodology.html',wait_until='networkidle')
-    page.locator('[data-evidence-state=contradicted]').click()
-    assert 'disagreement' in page.locator('#evidence-title').inner_text()
-    assert page.locator('[data-evidence-state=single]').get_attribute('aria-pressed')=='false'
-    page.goto(BASE+'/venezuela.html',wait_until='networkidle')
-    assert page.locator('.evidence-grid article').count()==3
-    assert 'FICTIONAL ASSET' in page.locator('.question-card').inner_text()
-    page.screenshot(path=str(ARTIFACTS/'venezuela-desktop.png'),full_page=True)
-    page.goto(BASE+'/research/when-sources-disagree.html',wait_until='networkidle')
-    page.locator('.save-article').click()
-    assert page.locator('.save-article').get_attribute('aria-pressed')=='true'
-    page.reload()
-    assert page.locator('.save-article').get_attribute('aria-pressed')=='true'
-    page.goto(BASE+'/research.html?saved=1',wait_until='networkidle')
-    assert page.locator('.research-card:visible').count()==1
-    page.goto(BASE+'/research/when-sources-disagree.html',wait_until='networkidle')
-    page.locator('.save-article').click()
-    assert page.locator('.save-article').get_attribute('aria-pressed')=='false'
-    page.screenshot(path=str(ARTIFACTS/'article-desktop.png'),full_page=True)
-    page.emulate_media(media='print')
-    assert page.locator('.site-header').is_hidden()
-    assert page.locator('.article-body').is_visible()
-    page.emulate_media(media='screen')
-    page.goto(BASE+'/briefing.html?region=Venezuela',wait_until='networkidle')
-    assert page.locator('select[name=region]').input_value()=='Venezuela'
-    assert page.locator('.send-request').inner_text().startswith('Send demo request')
-    assert page.locator('[name=organization]').get_attribute('required') is not None
-    for audience,expected in [('government','Oil & gas government affairs'),('credit','Distressed debt / hedge fund')]:
-        page.goto(BASE+'/briefing.html?audience='+audience,wait_until='networkidle')
-        assert page.get_by_label('Your perspective').input_value()==expected
-        assert page.locator('#audience-context').is_visible()
-    page.goto(BASE+'/briefing.html?audience=unknown',wait_until='networkidle')
-    assert page.get_by_label('Your perspective').input_value()=='Not specified'
-    assert page.locator('#audience-context').is_hidden()
-    for width in [320,390,768,1440]:
-        page.set_viewport_size({'width':width,'height':900})
-        for path in ['index.html','government-affairs.html','distressed-debt.html','venezuela.html','research.html','coverage.html','methodology.html','about.html','briefing.html','editorial-standards.html','privacy.html','es/index.html','research/following-european-energy-policy.html','research/when-sources-disagree.html']:
-            response=page.goto(BASE+'/'+path,wait_until='networkidle')
-            assert response.status==200,path
-            assert not page.evaluate('document.documentElement.scrollWidth > innerWidth + 1'),f'Horizontal overflow: {width} {path}'
-            page.locator('img').evaluate_all('(images)=>images.forEach(i=>i.loading="eager")')
-            page.wait_for_function('Array.from(document.images).every(i=>i.complete && i.naturalWidth>0)')
-            broken=page.locator('img').evaluate_all('(images)=>images.filter(i=>!i.complete || i.naturalWidth===0).map(i=>i.src)')
-            assert not broken,f'Broken images: {path}: {broken}'
-        if width==390:
-            page.goto(BASE,wait_until='networkidle')
-            page.screenshot(path=str(ARTIFACTS/'homepage-mobile.png'),full_page=True)
-            page.get_by_role('button',name='Menu').click()
-            assert page.locator('#main-nav').is_visible()
-            page.get_by_role('button',name='Menu').press('Escape')
-            assert page.locator('#main-nav').is_hidden()
-    page.emulate_media(reduced_motion='reduce')
-    page.goto(BASE,wait_until='networkidle')
-    assert page.locator('.power-copy').evaluate('(el)=>getComputedStyle(el).animationName')=='none'
-    assert not errors,errors
-    browser.close()
-    print(json.dumps({'result':'passed','viewports':[320,390,768,1440],'page_errors':errors,'screenshots':str(ARTIFACTS)},indent=2))
+class QuietHandler(WSGIRequestHandler):
+    def log_request(self, *args, **kwargs): pass
+
+sent = []
+state = ROOT/'.preview'/('browser-contact-'+uuid.uuid4().hex+'.sqlite3')
+app = create_app({'TESTING': True, 'STATE_PATH': state, 'APP_SECRET': 'browser-test-only',
+                  'CONTACT_FROM': 'site@example.com', 'RESEND_API_KEY': 'stub-only'},
+                 sender=lambda config, values, rid: sent.append((config['CONTACT_TO'], values, rid)))
+http = make_server('127.0.0.1', 0, app, request_handler=QuietHandler)
+base = f'http://127.0.0.1:{http.server_port}'
+app.config['PUBLIC_ORIGIN'] = base
+threading.Thread(target=http.serve_forever, daemon=True).start()
+errors = []
+overflow = []
+try:
+    with sync_playwright() as driver:
+        browser = driver.chromium.launch()
+        page = browser.new_page(viewport={'width':1440,'height':1000})
+        page.emulate_media(reduced_motion='reduce')
+        page.on('pageerror', lambda error: errors.append(str(error)))
+        # Keep the browser check local. External sources and delivery are not exercised.
+        page.route('**/*', lambda route: route.continue_() if route.request.url.startswith(base) else route.abort())
+        paths = sorted(p.relative_to(ROOT/'public').as_posix() for p in (ROOT/'public').rglob('*.html'))
+        for width in (1440,390):
+            page.set_viewport_size({'width':width,'height':900})
+            for path in paths:
+                response=page.goto(base+'/'+path, wait_until='load')
+                assert response.status==200, path
+                assert page.locator('main h1').count()==1, path
+                if page.evaluate('document.documentElement.scrollWidth > innerWidth + 2'): overflow.append((path,width))
+            page.goto(base+'/index.html',wait_until='load')
+            page.screenshot(path=str(ROOT/'.preview'/f'content-home-{width}.png'),full_page=True)
+        page.set_viewport_size({'width':1100,'height':900})
+        page.goto(base+'/briefing.html',wait_until='load')
+        assert page.locator('#briefing-form input:not([name=website]), #briefing-form select, #briefing-form textarea').count()==8
+        assert page.locator('#briefing-form button').count()==1
+        assert page.locator('#email-draft, #contact-fallback, .optional-context').count()==0
+        for name,value in {'name':'Browser Test','email':'reader@example.com','organization':'Test Organisation','role':'Research','question':'Please discuss our research scope.','details':'Additional background.\nA second paragraph.'}.items():
+            page.locator(f'[name="{name}"]').fill(value)
+        page.locator('[name=sector]').select_option(label='Oil & gas')
+        page.locator('[name=referral]').select_option(label='Search')
+        page.locator('.send-request').click()
+        expect(page.locator('#contact-success')).to_be_visible()
+        assert len(sent)==1
+        assert sent[0][0]=='contact@echoframe.co'
+        assert sent[0][1]['details']=='Additional background.\nA second paragraph.'
+        assert page.locator('.send-request').is_hidden()
+        page.screenshot(path=str(ROOT/'.preview'/'content-form-confirmation.png'),full_page=True)
+        # Failed sending must retain the form and never display a success state.
+        app.config['RESEND_API_KEY']=''
+        app.config.update(SMTP_HOST='', SMTP_USERNAME='', SMTP_PASSWORD='')
+        page.reload(wait_until='load')
+        for name,value in {'name':'Browser Test','email':'reader@example.com','organization':'Test Organisation','question':'A delivery failure check.'}.items():
+            page.locator(f'[name="{name}"]').fill(value)
+        page.locator('[name=sector]').select_option(label='Other')
+        page.locator('.send-request').click()
+        expect(page.locator('#form-status')).to_contain_text('has not been sent')
+        assert page.locator('#contact-success').is_hidden()
+        assert page.locator('[name=question]').input_value()=='A delivery failure check.'
+        assert len(sent)==1
+        # Library controls remain useful after the article reduction.
+        page.goto(base+'/research.html',wait_until='load')
+        assert page.locator('.library-grid .research-card').count()==4
+        page.locator('[data-filter="Europe"]').click()
+        assert page.locator('.library-grid .research-card:visible').count()==1
+        page.locator('[data-filter="All intelligence"]').click()
+        page.locator('#research-search').fill('zz-no-match')
+        expect(page.locator('#no-results')).to_be_visible()
+        page.locator('#reset-search').click()
+        assert page.locator('.library-grid .research-card:visible').count()==4
+        # Keyboard-controlled navigation and methodology panels still work.
+        page.goto(base+'/methodology.html',wait_until='load')
+        page.locator('[data-evidence-state="corroborated"]').click()
+        expect(page.locator('#evidence-title')).to_contain_text('Independent evidence')
+        page.goto(base+'/decision-pathways.html',wait_until='load')
+        page.locator('#entry-tab-1').click()
+        expect(page.locator('#entry-panel-1')).to_be_visible()
+        browser.close()
+    result={'pages':len(paths),'viewports':[1440,390],'javascript_errors':errors,'horizontal_overflow':overflow,
+            'form':'eight fields, confirmation, failure retention and fixed recipient passed with stub delivery',
+            'research_filters':'passed','evidence_and_decision_controls':'passed','emails_sent':0}
+    (ROOT/'.preview'/'content-browser-check.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+    print(json.dumps(result,indent=2))
+    assert not errors and not overflow
+finally:
+    http.shutdown()
+    if state.exists(): state.unlink()

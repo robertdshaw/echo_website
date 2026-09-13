@@ -37,8 +37,14 @@ for path,doc in documents.items():
         elif parts.fragment and target in documents and unquote(parts.fragment) not in documents[target].ids:
             errors.append(f'{path.relative_to(PUBLIC)}: missing fragment {link}')
 
-for forbidden in ['admin.html','all-in-one-auth-system.html','gmtl-data-collection.html','latinnews-data-collection.html','content','docs']:
-    if (PUBLIC/forbidden).exists(): errors.append(f'Internal file published: {forbidden}')
+for forbidden in ['admin.html','all-in-one-auth-system.html','gmtl-data-collection.html','latinnews-data-collection.html','content','docs',
+                  '_unpublished','map.html','es/map.html','assets/gis-demo','assets/map.js','assets/map.css','frame-bureau.html',
+                  'research/from-signal-to-significance.html','research/mapping-power-without-false-precision.html',
+                  'research/sanctions-and-operational-reality.html','research/scenarios-that-can-be-tested.html',
+                  'downloads/sample-asset-access.md','downloads/sample-thesis-review.md']:
+    target = PUBLIC / forbidden
+    if target.is_file() or target.is_dir() and any(p.is_file() for p in target.rglob('*')):
+        errors.append(f'Internal file published: {forbidden}')
 for path in PUBLIC.rglob('*'):
     if path.is_file() and path.suffix in ('.html','.js'):
         content=path.read_text(encoding='utf-8')

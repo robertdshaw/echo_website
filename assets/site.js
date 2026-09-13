@@ -131,7 +131,7 @@ document.querySelectorAll('[data-select-perspective]').forEach(link => link.addE
 const consequences = {
   policy: {
     kicker: 'Government affairs / The decision pathway',
-    title: 'Who has authority—and what happens next?',
+    title: 'Who has authority and what happens next?',
     text: 'Identify the issuing institution, the formal status of its proposal, and the next decision point. Separate a public position from an implemented measure.',
     url: 'government-affairs.html'
   },

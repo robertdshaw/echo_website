@@ -4,13 +4,13 @@
 def claims():
     sections = [
         ('01 / Government affairs', 'Judgment you can defend to a board',
-         'Political reporting becomes useful when you can explain what it changes. Examine five dimensions of risk, the people behind the decisions, and the evidence behind the assessment.',
+         'Political reporting becomes useful when you can explain what it changes. Examine the six risk dimensions, the people behind the decisions and the evidence behind the assessment.',
          'government-affairs.html', 'Learn how we build the brief'),
         ('02 / Distressed debt', 'The opportunity has to clear your bar',
-         'Where a country is heading is one question. Whether the terms hold under different scenarios—and meet your own requirements—is another.',
+         'The country outlook does not establish whether a particular opportunity meets your requirements. Examine the terms and the evidence for the conditions you need.',
          'distressed-debt.html', 'Learn how we test the opportunity'),
         ('03 / Our method', 'Political science, run as data science',
-         'Six analytical layers connect events, relationships, and behaviour to competing scenarios. Each judgment should show its evidence—and what would change it.',
+         'Five analytical layers connect events, relationships and behaviour to dated research questions. Each judgment should show its evidence and explain what would change it.',
          'methodology.html', 'Learn how it works'),
     ]
     return '<div class="home-claims container">'+''.join(

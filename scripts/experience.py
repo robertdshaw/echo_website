@@ -3,7 +3,7 @@
 
 def hero():
     return '''<section class="power-hero" aria-labelledby="power-title"><div class="container power-hero-inner"><div class="power-copy"><div class="eyebrow">Political intelligence / Material exposure</div><h1 id="power-title" aria-label="Power shifts Exposure follows"><span class="hero-line"><span class="hero-word" style="--word-order:0">Power</span> <span class="hero-word" style="--word-order:1">shifts</span></span><em class="hero-line"><span class="hero-word" style="--word-order:2">Exposure</span> <span class="hero-word" style="--word-order:3">follows</span></em></h1><p>EchoFrame serves oil and gas government affairs teams and distressed-debt and special-situations investors. Venezuela is our lead programme. Our second area is European energy policy.</p><div class="power-actions"><a class="text-link" href="capabilities.html">Tell me more</a></div></div></div>
-<div class="container landscape-wrap" id="research-preview"><div class="research-landscape"><img class="power-hero-image" src="assets/energy-horizon.png" alt="" width="1774" height="887" fetchpriority="high"><div class="landscape-caption"><span>THE BIG PICTURE / THE LOCAL DETAIL</span><span>VENEZUELA / LEAD DEVELOPMENT PROGRAMME</span></div></div></div></section>
+<div class="container landscape-wrap" id="research-preview"><div class="research-landscape"><img class="power-hero-image" src="assets/energy-horizon.png" alt="" width="1774" height="887" fetchpriority="high"><div class="landscape-caption"><span>POLITICAL AND OPERATING CONDITIONS</span><span>VENEZUELA / LEAD DEVELOPMENT PROGRAMME</span></div></div></div></section>
 '''
 
 
@@ -24,7 +24,7 @@ def faq(limit=None):
         ('Who is EchoFrame for?', 'Our primary audience is oil and gas government affairs teams and fund managers researching distressed debt and special situations. Each engagement starts with a defined policy, actor, counterparty, or asset question.'),
         ('What can a private briefing cover?', 'Bring the decision you face, the assets or contracts involved, and your time horizon. We can discuss a stakeholder brief, a policy milestone note, a thesis-question register, or another research format suited to that question.'),
         ('What is the status of the Venezuela programme?', 'Venezuela is our lead development programme. Collection and indexing form part of the foundation. The connected event, corroboration, spatial-analysis, and forecasting workflow remains in development. Real, redacted material will be added when it is ready for publication.'),
-        ('Can I explore the research before getting in touch?', 'Yes. The intelligence library includes complete research essays, field guides, and programme notes. These explain our reasoning and methods. They are not a live feed or a record of validated forecasts.'),
+        ('Can I explore the research before getting in touch?', 'Yes. The four library articles explain source comparison, question design, Venezuela collection priorities and European energy policy research. They do not present a live feed or a validated forecast record.'),
         ('How do you handle conflicting sources?', 'Our editorial approach keeps the original claim, source, timing, and uncertainty visible. Repeated reporting is not counted as independent confirmation. A disagreement can become a research question rather than being averaged away.'),
         ('How do we start?', 'Send us a question through the contact form. Share a bounded research question and the date that matters. Scope, access, and delivery are discussed directly.'),
     ]
