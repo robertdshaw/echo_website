@@ -15,11 +15,11 @@ def hero():
       <g class="ef-found-5"><circle cx="736" cy="266" r="34" fill="url(#efFound)"/><circle cx="736" cy="266" r="2.8" fill="#FFD9A8"/></g>
     </svg>
     <div class="ef-hero-copy">
-      <h1><span class="ef-l1">We watch the places</span><span class="ef-l2">nobody is watching</span></h1>
+      <h1><span class="ef-l1"><span class="ef-w" style="--w:0">We</span><span class="ef-w" style="--w:1">watch</span><span class="ef-w" style="--w:2">the</span><span class="ef-w" style="--w:3">places</span></span><span class="ef-l2"><span class="ef-w" style="--w:4">nobody</span><span class="ef-w" style="--w:5">is</span><span class="ef-w" style="--w:6">watching</span></span></h1>
     </div>
-    <p class="ef-hero-tag">all the time</p>
+    <p class="ef-hero-tag"><span class="ef-dot ef-dot-1">&#8230;</span><span class="ef-dot ef-dot-2">&#8230;</span><span class="ef-tag-words">all the time</span></p>
   </div>
-  <p class="ef-hero-standfirst">EchoFrame builds a dated, sourced record of what is happening in emerging markets where the information is thin. We work with local newsrooms, and check what they report against official records, physical data and markets. Clients use the record to answer questions a single report cannot.</p>
+  <p class="ef-hero-standfirst">We pay local newsrooms for reporting from places the wires do not cover, and check it against official records, physical data and markets. What you get is a dated record you can act on.</p>
 </div></section>
 '''
 
