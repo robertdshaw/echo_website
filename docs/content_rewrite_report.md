@@ -79,6 +79,7 @@ It was committed by accident in an earlier item.
 | The Qatar Leadership Centre framing and the embedded chat | Frame Bureau | Client-specific, per item 5. |
 | The condensed Frame Bureau section on About | About | Superseded by the page. |
 | Nigeria | Coverage | Not in the brief's list of four. Removed on your instruction. |
+| Worked example card 1, the succession | Worked examples | The case study is the better version of the same engagement and it carries the chart. A card pointing at another page is a signpost, not content. |
 | The role field | Contact form and server | Item 9 names seven fields and role is not one of them. |
 | The request reference on the confirmation | Contact form | Meaningless to the visitor. Still generated and still in the email, so duplicate suppression is unaffected. |
 | Per-format buttons on engagement, per-card links on the home page | Engagement, home | One invitation per page. |
@@ -105,10 +106,9 @@ Both sample pages lost their examples in that earlier cleanup, so each now carri
 ## Where the brief and the existing content contradicted each other
 
 1. **The probability.** Covered above. Three-way conflict, resolved by decision.
-2. **The case study and worked example card 1 are the same engagement.** The brief asks for both,
-   and the house rules forbid stating the same idea on two pages. Card 1 is written short, keeps its
-   five headings, and points at the case study for the account of how the readings moved. This is
-   the clearest remaining overlap on the site and you may want to cut the card entirely.
+2. **The case study and worked example card 1 were the same engagement.** Settled. Card 1 is cut.
+   The case study is the only place that story appears, and it has the chart. The worked examples
+   page runs cards 2, 3 and 4 plus card 6, the capability build.
 3. **Corroboration appears on the home page and on How it works.** The brief specifies home block 2
    and separately requires a corroboration section on How it works. Home states it in one line and
    How it works carries the mechanism and the mastheads argument.
@@ -134,18 +134,16 @@ Both sample pages lost their examples in that earlier cleanup, so each now carri
 2. Case study: "A minority probability on a major political rupture within thirty days." This is the
    agreed replacement for forty per cent. Check that "minority probability" is how you want the call
    described.
-3. Worked example card 1: "The mechanism, not the outcome. We have written the outcome and the
-   mechanism as separate questions ever since." The second half states a change in practice that
-   follows from the card but is not written in your source. Cut it if it is not true.
+3. Withdrawn. The sentence was in worked example card 1, which is cut.
 4. Engagement, scoping conversation: "Most engagements start here, and some stop here, because the
-   honest answer is sometimes that the record cannot carry the question." Strong and, I think, in
-   the spirit of the brief, but it is not from your source.
+   honest answer is sometimes that the record cannot carry the question." Settled. Kept.
 5. About: the first-person paragraph is attributed to "Robert Shaw, founder". First person needs a
    speaker. Remove the attribution if you would rather it read unsigned.
 6. The two testimonials keep the American spellings "modeling" and "rigor". They are quoted and item
    7 says to keep them exactly, so British spelling was not applied to them.
-7. "Judgement" is used throughout for British spelling, including in "structured judgement". The
-   reference page writes "structured judgment". If that is a fixed term, it should be changed back.
+7. "Judgement" is used throughout, including in "structured judgement". Settled. British spelling
+   is the rule and it is not a fixed term. American spelling survives only where a document is
+   quoted verbatim, which on this site means the two testimonials.
 
 **Spanish.** The mirror is one page. These are the sentences where I am least sure of the register.
 
@@ -157,8 +155,8 @@ Both sample pages lost their examples in that earlier cleanup, so each now carri
 10. "Los medios de comunicación cuentan como una sola clase, por muchos que publiquen la misma
     noticia." The subjunctive "por muchos que" is correct but formal.
 11. "Un acuerdo con corresponsales en preparación." For "a correspondent agreement in progress".
-12. "Formar a una institución para que lleve su propia mesa." "Mesa" for a desk in the intelligence
-    sense may not carry. "Unidad de análisis" would be safer but less exact.
+12. Settled. "Mesa" was wrong for an intelligence desk. The navigation now reads
+    "Formar a una institución para que lleve su propia unidad de análisis."
 13. The navigation panels say "(en inglés)" because the Spanish labels link to English pages. The
     alternative was leaving the navigation in English, which item 12 forbids.
 

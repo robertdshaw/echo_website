@@ -1,25 +1,6 @@
 """Worked examples. Real engagements, no client named, one shape for every card."""
 
 CARDS = [
-    ('The succession, and the part we got wrong',
-     'A distressed credit fund holding sovereign and state oil paper. Four weeks of monitoring, late 2025.',
-     [('The situation',
-       'A US carrier group was off the Venezuelan coast and Washington was divided between a strike and a deal.'),
-      ('The question',
-       'Will the president be out of office within ninety days, and if he goes, who is left holding power?'),
-      ('What the evidence showed',
-       'Through the second half of November the same pattern appeared from sources that do not usually agree and '
-       'were not talking to each other. Families of senior officials were leaving the country. Ministries were '
-       'destroying records. Senior figures were preparing fallback positions in the south. Two figures inside the '
-       'government had opened direct contact with Washington while the interior minister, under US indictment, had '
-       'no channel of his own.'),
-      ('What it changed',
-       'The client read the counterparty risk differently, and the contract assumptions that followed from that '
-       'reading were the ones that held. The case study sets out how the four readings moved and why the call was '
-       'made when it was.'),
-      ('What we got wrong',
-       'The mechanism, not the outcome. We have written the outcome and the mechanism as separate questions ever '
-       'since.')]),
     ('The headline number was double the real one',
      'The same desk, six months later.',
      [('The situation',
@@ -119,7 +100,7 @@ def page(intro):
               f'<p><strong>Answer, shortened.</strong> {ANSWER}</p></div></section>')
     return intro(
         'Worked examples',
-        'Five engagements, described by type',
+        'Four engagements, described by type',
         'Every one of these is real work. No client is named and no figure from a client document appears. Where a '
         'number carried the argument it has been replaced by the proportion or the direction.'
     ) + '<section class="section container worked-examples">' + cards + '</section>' + teaser
