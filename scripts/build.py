@@ -18,6 +18,7 @@ from how_it_works import page as how_it_works_page
 from case_study import page as case_study_page
 from worked_examples import page as worked_examples_page
 from frame_bureau import page as frame_bureau_page
+from coverage_page import page as coverage_page
 from intelligence import analytical_layers, evidence_flow, hard_questions
 from contact import contact_page
 from testimonials import testimonials
@@ -92,32 +93,6 @@ def home():
     return research_hero()+claims()
 
 
-REGIONS = [
-    {'id':'europe','name':'Europe','subtitle':'Understand policy as it takes shape.','description':'Follow energy policy through institutions, negotiations, and implementation. Connect the documentary record to the technologies, projects, and markets within your research scope.','tags':['Energy policy','Regulatory process','Institutional influence'],'image':'eu-regulatory-map.png','platform':'EU Energy Tracker','url':'https://eu-regulatory-monitor.onrender.com/','article':'following-european-energy-policy'},
-    {'id':'latin-america','name':'Venezuela','subtitle':'Venezuela, at the level of the asset.','description':'Our lead development programme connects local events, conflicting accounts, and documented viability to specific asset-level questions. Explore the proposed workflow and collection priorities for Venezuela.','tags':['Venezuela programme','Asset-level questions','In development'],'image':'venezuela-predictive.png','platform':'Venezuela research platform','url':'https://vz.echoframe.co','article':'venezuela-from-country-to-asset'},
-]
-REGIONS = [REGIONS[1], REGIONS[0]]
-COMING_REGIONS = ['Colombia', 'Mexico', 'Nigeria', 'Rwanda', 'Pakistan']
-
-
-def coming_coverage():
-    countries = ''.join(f'<li><h3>{E(country)}</h3><span>Coming soon</span></li>' for country in COMING_REGIONS)
-    return f'<section class="coverage-coming" aria-labelledby="coming-coverage-title"><div class="eyebrow">On the horizon</div><h2 id="coming-coverage-title">Next in our frame.</h2><p>Our regional coverage is expanding. These five countries are coming soon.</p><ul class="coming-countries">{countries}</ul></section>'
-
-
-def coverage_widget():
-    buttons = ''.join(f'<button role="tab" id="tab-{r["id"]}" aria-controls="panel-{r["id"]}" aria-selected="{str(i==0).lower()}" tabindex="{0 if i==0 else -1}">{r["name"]} <span>0{i+1}</span></button>' for i,r in enumerate(REGIONS))
-    panels = ''
-    for i,r in enumerate(REGIONS):
-        panels += f'''<div class="coverage-panel" role="tabpanel" id="panel-{r['id']}" aria-labelledby="tab-{r['id']}" {'' if i==0 else 'hidden'}><div class="coverage-copy"><div class="eyebrow">Regional focus / 0{i+1}</div><h3>{r['subtitle']}</h3><p>{r['description']}</p><div class="tags">{''.join(f'<span>{t}</span>' for t in r['tags'])}</div><a class="text-link" href="coverage.html#{r['id']}">Explore {r['name']} {ARROW}</a></div><div class="platform-preview"><div class="preview-bar"><span><i></i><i></i><i></i></span><span>PLATFORM PREVIEW</span></div><img src="images/{r['image']}" alt="Existing {r['platform']} interface screenshot; historical preview, not live data" loading="lazy" width="900" height="550"><span class="preview-label">{r['platform']} <span>ARCHIVE SCREENSHOT</span></span></div></div>'''
-    # Replace the legacy Venezuela scoring screenshot with an explicitly
-    # illustrative brief; it must not imply validated forecast performance.
-    start = panels.index('<div class="platform-preview">', panels.index('id="panel-latin-america"'))
-    end = panels.index('</div></div>', start) + len('</div>')
-    panels = panels[:start] + question_preview() + panels[end:]
-    return f'<div class="coverage-tabs" role="tablist" aria-label="Explore coverage regions">{buttons}</div>{panels}'+coming_coverage()
-
-
 def intro(kicker, title, description):
     return f'<section class="page-intro container"><div class="eyebrow">{kicker}</div><h1>{title}</h1><p>{description}</p></section>'
 
@@ -135,20 +110,6 @@ def article_page(a):
     sources = ''.join(f'<li><a href="{E(s["url"])}" target="_blank" rel="noopener noreferrer">{E(s["title"])} </a></li>' for s in a['sources'])
     related = [r for r in ARTICLES if r['slug']!=a['slug']][:3]
     return f'''<div class="reading-progress" aria-hidden="true"></div><article><header class="article-header container"><a class="back-link" href="../research.html"> Intelligence library</a><div class="eyebrow">{E(a['category'])} / {E(a['format'])}</div><h1>{E(a['title'])}</h1><p class="article-dek">{E(a['dek'])}</p><div class="article-byline"><span class="author-mark">{MARK}</span><span>{E(a['author'])}<small>{date_byline}{E(a.get('collection','Foundations collection'))}</small></span><div class="reader-actions"><button class="save-article" data-slug="{a['slug']}" aria-pressed="false">Save article +</button><button class="copy-link">Copy link </button><button class="print-article">Print </button></div></div><span class="reader-status" role="status" aria-live="polite"></span></header><div class="article-layout container"><aside class="article-toc"><div class="eyebrow">In this perspective</div>{toc}<a href="#source-notes"><span></span>Sources & notes</a></aside><div class="article-body"><div class="takeaway"><div class="eyebrow">The central idea</div><p>{E(a['takeaway'])}</p></div>{sections}<section class="watch-box"><div class="eyebrow">Questions to carry forward</div><h2>What to watch.</h2><ul>{''.join(f'<li>{E(w)}</li>' for w in a['watch'])}</ul></section><section id="source-notes" class="source-notes"><h2>Sources & editorial notes</h2><p>{E(a['sourceNote'])}</p>{'<ol>'+sources+'</ol>' if sources else ''}<p>{date_note}Read our <a href="../editorial-standards.html">editorial standards</a>. To suggest a correction, <a href="mailto:contact@echoframe.co?subject=Editorial%20correction%3A%20{a['slug']}">contact the editorial desk</a>.</p></section></div></div></article><section class="section container"><div class="section-heading"><div><div class="eyebrow">Continue exploring</div><h2>Connect another perspective.</h2></div></div><div class="card-grid">{''.join(card(r,'../') for r in related)}</div></section>'''+cta('../')
-
-
-def coverage():
-    result = intro('Regional coverage','The world is connected.<br><em>The details are local.</em>','Explore our Venezuela programme and European energy policy research. Connect regional context with evidence you can inspect.')
-    result += '<div class="container region-jump">'+''.join(f'<a href="#{r["id"]}">{r["name"]} </a>' for r in REGIONS)+'</div>'
-    for i,r in enumerate(REGIONS):
-        link = f'<a class="button" href="{r["url"]}" target="_blank" rel="noopener noreferrer">Open platform {ARROW}</a>'
-        if r["id"] == "europe":
-            link = "<p>The European energy policy tracker is available to clients on request.</p>"
-        result += f'''<section id="{r['id']}" class="region-detail container"><div><div class="eyebrow">0{i+1} / {r['name']}</div><h2>{r['subtitle']}</h2><p>{r['description']}</p><div class="tags">{''.join(f'<span>{t}</span>' for t in r['tags'])}</div><h3>{r['platform']}</h3><div class="region-actions">{link}<a class="research-reference" href="research/{r['article']}.html">{E(r["name"])} field guide</a></div><p class="fine-print">{'Platform access is managed by the platform. Contact us if you need an account.' if r['url'] else 'Contact the team to discuss current research scope and access.'}</p></div><figure class="coverage-figure"><img src="images/{r['image']}" alt="Historical {r['platform']} interface preview" loading="lazy"><figcaption>Archive platform screenshot · Illustrates the interface, not current conditions.</figcaption></figure></section>'''
-    result = re.sub(r'<figure class="coverage-figure"><img src="images/eu-regulatory-map.png".*?</figure>', "", result)
-    old_figure = '<figure class="coverage-figure"><img src="images/venezuela-predictive.png" alt="Historical Venezuela research platform interface preview" loading="lazy"><figcaption>Archive platform screenshot · Illustrates the interface, not current conditions.</figcaption></figure>'
-    result = result.replace(old_figure, question_preview())
-    return result+'<div class="container">'+coming_coverage()+'</div>'+cta()
 
 
 def about():
@@ -262,7 +223,7 @@ def main():
     write('government-affairs.html','Oil & gas government affairs',audience_page('government'),'government',description='Political intelligence for oil and gas government affairs teams. Scope research on stakeholders, policy milestones, and the evidence around operating assets.')
     write('distressed-debt.html','Distressed debt & special situations',audience_page('credit'),'credit',description='Political and asset-level research for distressed-debt investors. Frame thesis questions, inspect counterparty narratives, and identify evidence worth reviewing.')
     write('research.html','Intelligence library',library(),'research')
-    write('coverage.html','Regional coverage',coverage(),'coverage')
+    write('coverage.html','Regional coverage',coverage_page(intro),'coverage')
     write('venezuela.html','Venezuela · Asset-level intelligence',venezuela_page(intro,cta),'venezuela')
     write('how-it-works.html','How it works',how_it_works_page(intro),'how-it-works')
     write('case-study-venezuela.html','Case study, Venezuela',case_study_page(intro),'case-study')
