@@ -9,19 +9,15 @@ GROUPS = [
         ('question-book.html','Question Book','Dated questions, scored when the date arrives.'),
         ('ground-truth.html','Ground Truth','Reporting filed from the place itself.'),
         ('projects.html','Projects','Single pieces of work with a defined scope.')]),
-    ('Who we work for', [
+    ('Our work', [
         ('government-affairs.html','Government affairs','Policy, stakeholders, and operating assets.'),
         ('distressed-debt.html','Distressed debt','Political assumptions and counterparty research.'),
         ('case-study-venezuela.html','Case study, Venezuela','A call made before the outcome.'),
         ('worked-examples.html','Worked examples','Three pieces of work, and what each changed.'),
         ('engagement.html','Working with EchoFrame','Formats, scope, and delivery.')]),
-    ('Company', [
+    ('About', [
         ('about.html','About EchoFrame','The purpose and approach behind the research.'),
         ('how-it-works.html','How it works','The six steps, and how a development is confirmed.'),
-        ('capabilities.html','Research system','The full analytical workflow.'),
-        ('actor-mapping.html','Actor & asset mapping','Document the relationships behind a decision.'),
-        ('evidence-workspace.html','Evidence workspace','Sources, contradictions, and limits.'),
-        ('decision-pathways.html','Decision pathways','Milestones and review triggers.'),
         ('frame-bureau.html','The Frame Bureau','Training an institution to run its own desk.'),
         ('trust.html','Trust & privacy','Evidence, information handling, and boundaries.'),
         ('editorial-standards.html','Editorial standards','Attribution, uncertainty, and corrections.')])
