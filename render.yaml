@@ -1,16 +1,22 @@
 services:
   - type: web
     name: echoframe-website
-    env: static
-    staticPublishPath: .
-    headers:
-      - path: "/*.html"
-        name: Cache-Control
-        value: no-cache, must-revalidate
-      - path: /images/*
-        name: Cache-Control
-        value: public, max-age=86400
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    runtime: python
+    buildCommand: pip install -r requirements.txt && python scripts/build.py
+    startCommand: gunicorn --workers 1 --threads 4 --timeout 60 --bind 0.0.0.0:$PORT server:app
+    healthCheckPath: /api/contact/status
+    envVars:
+      - key: APP_SECRET
+        generateValue: true
+      - key: CONTACT_TO
+        value: contact@echoframe.co
+      - key: CONTACT_FROM
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: SENDGRID_API_KEY
+        sync: false
+      - key: PUBLIC_ORIGIN
+        sync: false
+      - key: TRUST_PROXY
+        value: "true"

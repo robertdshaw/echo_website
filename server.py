@@ -53,7 +53,7 @@ def valid_email(value):
 def mail_configured(config):
     if not valid_email(config.get('CONTACT_FROM','')) or not valid_email(config.get('CONTACT_TO','')):
         return False
-    return bool(config.get('RESEND_API_KEY') or (config.get('SMTP_HOST') and config.get('SMTP_USERNAME') and config.get('SMTP_PASSWORD') and config.get('SMTP_SECURITY') in ('ssl','starttls')))
+    return bool(config.get('RESEND_API_KEY') or config.get('SENDGRID_API_KEY') or (config.get('SMTP_HOST') and config.get('SMTP_USERNAME') and config.get('SMTP_PASSWORD') and config.get('SMTP_SECURITY') in ('ssl','starttls')))
 
 
 def send_contact(config, values, request_id):
@@ -66,6 +66,20 @@ def send_contact(config, values, request_id):
         with urllib.request.urlopen(req,timeout=20) as response:
             receipt=json.loads(response.read())
             if not receipt.get('id'):
+                raise RuntimeError('Missing delivery acceptance receipt')
+        return
+    if config.get('SENDGRID_API_KEY'):
+        # SendGrid's v3 send endpoint answers 202 with an empty body; the
+        # accepted message identifier arrives in the X-Message-Id header.
+        payload={'personalizations':[{'to':[{'email':config['CONTACT_TO']}]}],
+                 'from':{'email':config['CONTACT_FROM']},
+                 'reply_to':{'email':values['email']},
+                 'subject':subject,
+                 'custom_args':{'request_id':request_id},
+                 'content':[{'type':'text/plain','value':body}]}
+        req=urllib.request.Request('https://api.sendgrid.com/v3/mail/send',data=json.dumps(payload).encode(),headers={'Authorization':'Bearer '+config['SENDGRID_API_KEY'],'Content-Type':'application/json'},method='POST')
+        with urllib.request.urlopen(req,timeout=20) as response:
+            if response.status!=202 or not response.headers.get('X-Message-Id'):
                 raise RuntimeError('Missing delivery acceptance receipt')
         return
     message=EmailMessage()
@@ -88,7 +102,7 @@ def send_contact(config, values, request_id):
 def create_app(overrides=None, sender=None):
     load_local_environment()
     app=Flask(__name__,static_folder=None)
-    app.config.update(MAX_CONTENT_LENGTH=16000,CONTACT_TO='robert@echoframe.co',CONTACT_FROM=os.getenv('CONTACT_FROM',''),APP_SECRET=os.getenv('APP_SECRET') or secrets.token_hex(32),PUBLIC_ORIGIN=os.getenv('PUBLIC_ORIGIN',''),STATE_PATH=ROOT/'.contact-state'/'requests.sqlite3',RESEND_API_KEY=os.getenv('RESEND_API_KEY',''),SMTP_HOST=os.getenv('SMTP_HOST',''),SMTP_PORT=os.getenv('SMTP_PORT','587'),SMTP_USERNAME=os.getenv('SMTP_USERNAME',''),SMTP_PASSWORD=os.getenv('SMTP_PASSWORD',''),SMTP_SECURITY=os.getenv('SMTP_SECURITY','starttls'))
+    app.config.update(MAX_CONTENT_LENGTH=16000,CONTACT_TO='robert@echoframe.co',CONTACT_FROM=os.getenv('CONTACT_FROM',''),APP_SECRET=os.getenv('APP_SECRET') or secrets.token_hex(32),PUBLIC_ORIGIN=os.getenv('PUBLIC_ORIGIN',''),STATE_PATH=ROOT/'.contact-state'/'requests.sqlite3',RESEND_API_KEY=os.getenv('RESEND_API_KEY',''),SENDGRID_API_KEY=os.getenv('SENDGRID_API_KEY',''),SMTP_HOST=os.getenv('SMTP_HOST',''),SMTP_PORT=os.getenv('SMTP_PORT','587'),SMTP_USERNAME=os.getenv('SMTP_USERNAME',''),SMTP_PASSWORD=os.getenv('SMTP_PASSWORD',''),SMTP_SECURITY=os.getenv('SMTP_SECURITY','starttls'))
     if overrides:
         app.config.update(overrides)
     if os.getenv('TRUST_PROXY')=='true':

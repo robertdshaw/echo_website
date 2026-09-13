@@ -50,7 +50,7 @@ class ContactTests(unittest.TestCase):
         self.assertEqual(len(self.sent),1)
 
     def test_missing_provider_never_reports_success(self):
-        self.app.config.update(RESEND_API_KEY='',SMTP_HOST='',SMTP_USERNAME='',SMTP_PASSWORD='')
+        self.app.config.update(RESEND_API_KEY='',SENDGRID_API_KEY='',SMTP_HOST='',SMTP_USERNAME='',SMTP_PASSWORD='')
         self.assertFalse(self.client.get('/api/contact/status').json['ready'])
         self.assertEqual(self.post().status_code,503)
         self.assertFalse(self.sent)
@@ -132,6 +132,36 @@ class ContactTests(unittest.TestCase):
             self.assertIn('Sector: Distressed debt & special situations',data['text'])
             self.assertIn(self.payload['details'],data['text'])
             self.assertIn('Additional details: '+self.payload['details'],data['text'])
+
+    def test_sendgrid_request_carries_fixed_recipient_and_reply_to(self):
+        config=dict(self.app.config,RESEND_API_KEY='',SENDGRID_API_KEY='sendgrid-test-key')
+        with patch('server.urllib.request.urlopen') as call:
+            response=call.return_value.__enter__.return_value
+            response.status=202
+            response.headers={'X-Message-Id':'accepted-test'}
+            send_contact(config,self.payload,self.payload['request_id'])
+            req=call.call_args.args[0]
+            data=json.loads(req.data)
+            self.assertEqual(req.full_url,'https://api.sendgrid.com/v3/mail/send')
+            self.assertEqual(data['personalizations'][0]['to'],[{'email':'desk@example.com'}])
+            self.assertEqual(data['from']['email'],'website@example.com')
+            self.assertEqual(data['reply_to']['email'],'reader@example.com')
+            self.assertEqual(data['custom_args']['request_id'],self.payload['request_id'])
+            self.assertIn('Role / team: Research director',data['content'][0]['value'])
+            self.assertIn('Additional details: '+self.payload['details'],data['content'][0]['value'])
+
+    def test_sendgrid_without_acceptance_receipt_is_an_error(self):
+        config=dict(self.app.config,RESEND_API_KEY='',SENDGRID_API_KEY='sendgrid-test-key')
+        with patch('server.urllib.request.urlopen') as call:
+            response=call.return_value.__enter__.return_value
+            response.status=202
+            response.headers={}
+            with self.assertRaises(RuntimeError):
+                send_contact(config,self.payload,self.payload['request_id'])
+
+    def test_sendgrid_key_alone_makes_the_form_available(self):
+        self.app.config.update(RESEND_API_KEY='',SMTP_HOST='',SMTP_USERNAME='',SMTP_PASSWORD='',SENDGRID_API_KEY='sendgrid-test-key')
+        self.assertTrue(self.client.get('/api/contact/status').json['ready'])
 
     def test_private_files_are_not_served_and_video_supports_range(self):
         self.assertEqual(self.client.get('/.env.local').status_code,404)

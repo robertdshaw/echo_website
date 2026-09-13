@@ -5,7 +5,6 @@ All contact responses are intercepted; no email is sent by this check.
 import json
 import re
 from pathlib import Path
-from urllib.parse import parse_qs, urlsplit
 from playwright.sync_api import sync_playwright, expect
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -67,48 +66,38 @@ with sync_playwright() as p:
         else:
             route.fulfill(json={'ok':True,'reference':values['request_id']})
     page.route('**/api/contact',capture)
-    fields={'name':'Example Reader','email':'reader@example.com','organization':'Example Research','role':'Research director','headquarters':'London','phone':'+44 000 000','question':'Policy changes & access.\nA second paragraph.','proof':'Identify the source behind the catalyst.\nShow the contrary evidence.','subject':'Terminal A','deadline':'2027-06-30'}
-    for kind,button in [('demo','Send demo request'),('contact','Send contact request')]:
-        page.goto(BASE+'/briefing.html?audience=credit&format=Focused%20research%20brief&kind='+kind,wait_until='networkidle')
-        for name,value in fields.items():
-            page.locator('[name="'+name+'"]').fill(value)
-        page.locator('[name=region]').select_option('Venezuela')
-        page.locator('[name=referral]').select_option('LinkedIn')
-        page.locator('[name=decision_test]').select_option('Policy continuity')
-        draft=parse_qs(urlsplit(page.locator('#email-draft').get_attribute('href')).query)['body'][0]
-        assert 'Hello EchoFrame,\n\nFull name:' not in draft # Request type comes first.
-        assert '\nFull name: Example Reader\n' in draft
-        page.get_by_role('button',name=button).click()
-        expect(page.locator('#contact-success')).to_be_visible()
-        assert page.locator('[name=name]').is_disabled()
-        values=delivered[-1]
-        assert all(values[key]==value for key,value in fields.items())
-        assert values['request_type']==('Demo request' if kind=='demo' else 'Contact request')
-        assert values['perspective']=='Distressed debt / hedge fund'
-        assert values['sector']=='Distressed debt & special situations'
-        assert values['decision_test']=='Policy continuity'
-        assert 'Requirement to explore: Policy continuity' in draft
-        assert fields['proof'] in draft
-        assert 'Sector: Distressed debt & special situations' in draft
-        assert values['region']=='Venezuela' and values['referral']=='LinkedIn'
-        assert values['format']=='Focused research brief'
-        page.locator('#new-request').click()
-        expect(page.locator('#contact-success')).to_be_hidden()
-        assert page.locator('[name=name]').is_enabled()
+    fields={'name':'Example Reader','email':'reader@example.com','organization':'Example Research','role':'Research director','question':'Policy changes & access.\nA second paragraph.','details':'Our deadline is approaching.\nPlease explain the scope.'}
+    page.goto(BASE+'/briefing.html?audience=credit',wait_until='networkidle')
+    # The audience parameter preselects the sector for the visitor.
+    assert page.locator('[name=sector]').input_value()=='Distressed debt & special situations'
+    for name,value in fields.items():
+        page.locator('[name="'+name+'"]').fill(value)
+    page.locator('[name=referral]').select_option('LinkedIn')
+    page.locator('.send-request').click()
+    expect(page.locator('#contact-success')).to_be_visible()
+    assert page.locator('[name=name]').is_disabled()
+    values=delivered[-1]
+    assert all(values[key]==value for key,value in fields.items()),'A submitted field was not delivered'
+    assert values['sector']=='Distressed debt & special situations'
+    assert values['referral']=='LinkedIn' and values['website']==''
+    assert values['token']=='browser-test-token'
+    assert values['request_id'] in page.locator('#contact-reference').inner_text()
+
+    # A refused delivery keeps the details in the form and reuses the reference.
     response_mode['error']=True
-    page.goto(BASE+'/briefing.html?region=Venezuela',wait_until='networkidle')
+    page.goto(BASE+'/briefing.html',wait_until='networkidle')
     for name,value in fields.items():
         page.locator('[name="'+name+'"]').fill(value)
     page.locator('[name=sector]').select_option('Oil & gas')
     page.locator('.send-request').click()
-    expect(page.locator('#contact-fallback')).to_be_visible()
+    expect(page.locator('#form-status')).to_contain_text('could not confirm delivery')
     expect(page.locator('#contact-success')).to_be_hidden()
     assert page.locator('[name=name]').input_value()==fields['name']
     failed_id=delivered[-1]['request_id']
-    page.locator('[name=sector]').select_option('Oil & gas')
     page.locator('.send-request').click()
-    expect(page.locator('#contact-fallback')).to_be_visible()
-    assert delivered[-1]['request_id']==failed_id
+    expect(page.locator('#form-status')).to_contain_text('could not confirm delivery')
+    assert delivered[-1]['request_id']==failed_id,'An unchanged retry must reuse the request reference'
+    response_mode['error']=False
 
     paths=[path.relative_to(ROOT/'public').as_posix() for path in (ROOT/'public').rglob('*.html')]
     for width in [320,390,768,1440]:
