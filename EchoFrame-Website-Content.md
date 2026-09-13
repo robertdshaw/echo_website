@@ -2262,11 +2262,7 @@ Who we help
 
 [**Government affairs** Policy, stakeholders, and operating assets.](https://www.echoframe.co/government-affairs.html) [**Distressed debt** Political assumptions and counterparty research.](https://www.echoframe.co/distressed-debt.html) [**Working with EchoFrame** Research formats, scope, and delivery.](https://www.echoframe.co/engagement.html)
 
-**Research**
-
 Research
-
-[**Intelligence library** Essays, field guides, and programme notes.](https://www.echoframe.co/research.html) [**Sample briefs & templates** Research templates and brief structure.](https://www.echoframe.co/sample-briefs.html) [**Primary-source directory** Official records and how to use them.](https://www.echoframe.co/sources.html) [**Regional perspective** Explore the wider research frame.](https://www.echoframe.co/coverage.html)
 
 **Company**
 

@@ -27,6 +27,9 @@ GROUPS = [
 def navigation(prefix=''):
     result=''
     for title,items in GROUPS:
+        if title == 'Research':
+            result += '<button class="nav-disabled" type="button" disabled aria-disabled="true">Research</button>'
+            continue
         result+=f'<details class="nav-group"><summary>{title}</summary><div class="nav-panel"><div class="nav-panel-label">{title}</div>'
         result+=''.join(f'<a href="{prefix}{url}"><strong>{E(label)}</strong><small>{E(desc)}</small></a>' for url,label,desc in items)
         result+='</div></details>'

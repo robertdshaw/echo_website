@@ -28,3 +28,7 @@ Deployment commit `cd3b52b` addresses requests to `robert@echoframe.co`, removes
 Deployment `0551ba9` removed the Venezuela rebuild notice and empty visualisation cards. Deployment `060b40c` removes all unfinished worked-example sections, public ROB notes and related promises of material to follow across the site. Unconfirmed article dates are omitted, and the pending About traction area is removed. Testimonials and the six risk-dimension names are retained. The content snapshot and generators reflect these removals.
 
 All 28 pages passed local link and structure checks and browser checks at 1440px and 390px widths, with no JavaScript errors or horizontal overflow. A public-output scan found no remaining unfinished-example sections or ROB markers.
+
+## Research navigation disabled
+
+Deployment `e58321c` replaces the Research dropdown with a disabled button across all 28 pages. The other three navigation menus remain available. Page, link and browser checks passed at desktop and mobile widths.
