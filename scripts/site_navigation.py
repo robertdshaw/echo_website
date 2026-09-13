@@ -18,7 +18,6 @@ GROUPS = [
         ('coverage.html','Regional perspective','Explore the wider research frame.')]),
     ('Company', [
         ('about.html','About EchoFrame','The purpose and approach behind the research.'),
-        ('frame-bureau.html','The Frame Bureau','Practical training in evidence and analytical judgment.'),
         ('methodology.html','Our methodology','From collection to an inspectable judgment.'),
         ('trust.html','Trust & privacy','Evidence, information handling, and boundaries.'),
         ('editorial-standards.html','Editorial standards','Attribution, uncertainty, and corrections.')])
