@@ -12,7 +12,7 @@ GROUPS = [
         ('case-study-venezuela.html','Case study, Venezuela','A call made before the outcome.'),
         ('worked-examples.html','Worked examples','Three pieces of work, and what each changed.'),
         ]),
-    ('Training', 'frame-bureau.html'),
+    ('The Frame Bureau', 'frame-bureau.html'),
     ('About', [
         ('about.html','About EchoFrame','The purpose and approach behind the research.'),
         ('how-it-works.html','How it works','The six steps, and how a development is confirmed.'),

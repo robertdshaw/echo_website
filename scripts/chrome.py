@@ -71,7 +71,7 @@ CHROME = {
 GROUPS_ES = {
     'Our work': 'Nuestro trabajo',
     'Cases': 'Casos',
-    'Training': 'Formación',
+    'The Frame Bureau': 'The Frame Bureau',
     'About': 'Quiénes somos',
 }
 
