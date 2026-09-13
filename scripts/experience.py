@@ -2,8 +2,25 @@
 
 
 def hero():
-    return '''<section class="power-hero" aria-labelledby="power-title"><div class="container power-hero-inner"><div class="power-copy"><div class="eyebrow">Emerging markets / Continuous collection</div><h1 id="power-title" aria-label="Continuous intelligence from places that only produce snapshots"><span class="hero-line"><span class="hero-word" style="--word-order:0">Continuous</span> <span class="hero-word" style="--word-order:1">intelligence</span> <span class="hero-word" style="--word-order:2">from</span> <span class="hero-word" style="--word-order:3">places</span></span><em class="hero-line"><span class="hero-word" style="--word-order:4">that</span> <span class="hero-word" style="--word-order:5">only</span> <span class="hero-word" style="--word-order:6">produce</span> <span class="hero-word" style="--word-order:7">snapshots</span></em></h1><p>EchoFrame builds a dated, sourced record of what is happening in the parts of emerging markets where information is thin. We pay local newsrooms for the reporting and archives they already have, and check what they report against official records, physical data and markets. Companies and investors use the record to answer questions a one-off report cannot.</p></div></div>
-<div class="container landscape-wrap" id="research-preview"><div class="research-landscape"><img class="power-hero-image" src="assets/energy-horizon.png" alt="" width="1774" height="887" fetchpriority="high"><div class="landscape-caption"><span>WHERE THE REPORTING IS THINNEST</span><span>VENEZUELA / THE WORKING PROGRAMME</span></div></div></div></section>
+    """The photograph hero supplied in docs/files.zip, with the image served from assets/."""
+    return '''<section class="ef-hero"><div class="container">
+  <div class="ef-hero-media">
+    <div class="ef-hero-photo" role="img" aria-label="An oil export terminal at night, a tanker moored at a jetty, storage tanks and a refinery lit along the shore, with dark open water filling the rest of the frame"></div>
+    <svg class="ef-hero-lights" viewBox="0 0 1598 418" preserveAspectRatio="none" aria-hidden="true">
+      <defs><radialGradient id="efFound"><stop offset="0" stop-color="#FFD9A8" stop-opacity="0.95"/><stop offset="0.4" stop-color="#F25120" stop-opacity="0.3"/><stop offset="1" stop-color="#F25120" stop-opacity="0"/></radialGradient></defs>
+      <g class="ef-found-1"><circle cx="352" cy="300" r="40" fill="url(#efFound)"/><circle cx="352" cy="300" r="3.2" fill="#FFD9A8"/></g>
+      <g class="ef-found-2"><circle cx="210" cy="186" r="36" fill="url(#efFound)"/><circle cx="210" cy="186" r="3" fill="#FFD9A8"/></g>
+      <g class="ef-found-3"><circle cx="556" cy="352" r="38" fill="url(#efFound)"/><circle cx="556" cy="352" r="3.2" fill="#FFD9A8"/></g>
+      <g class="ef-found-4"><circle cx="424" cy="92" r="34" fill="url(#efFound)"/><circle cx="424" cy="92" r="2.8" fill="#FFD9A8"/></g>
+      <g class="ef-found-5"><circle cx="736" cy="266" r="34" fill="url(#efFound)"/><circle cx="736" cy="266" r="2.8" fill="#FFD9A8"/></g>
+    </svg>
+    <div class="ef-hero-copy">
+      <h1><span class="ef-l1">We watch the places</span><span class="ef-l2">nobody is watching</span></h1>
+    </div>
+    <p class="ef-hero-tag">all the time</p>
+  </div>
+  <p class="ef-hero-standfirst">EchoFrame builds a dated, sourced record of what is happening in emerging markets where the information is thin. We work with local newsrooms, and check what they report against official records, physical data and markets. Clients use the record to answer questions a single report cannot.</p>
+</div></section>
 '''
 
 
