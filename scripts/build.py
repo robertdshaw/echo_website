@@ -17,8 +17,6 @@ from homepage import claims
 from intelligence import six_layers, evidence_flow, hard_questions
 from contact import contact_page
 from testimonials import testimonials
-from map_data import build_map_data
-from map_page import map_page
 from placeholders import worked_example
 from page_presentation import enquiry_policy
 
@@ -234,12 +232,6 @@ def write(path, title, body, page='home', prefix='', lang='en', description=''):
 def main():
     validate(); globe()
     downloads = write_downloads() + write_sample_downloads()
-    map_files = build_map_data()
-    for lang, path in [('en', 'map.html'), ('es', 'es/map.html')]:
-        dest = OUT / path
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(map_page(layout, brand, lang), encoding='utf-8')
-        GENERATED.append(path)
     for path, title, render, key in PAGES:
         write(path, title, render(), key)
     write('sample-briefs.html','Sample briefs & templates',sample_library(),'samples')
@@ -275,7 +267,6 @@ def main():
             obsolete.unlink()
     files = published_pages + ['favicon.png', 'assets/site.css', 'assets/presence.css', 'assets/depth.css', 'assets/refinements.css', 'assets/bureau.css', 'assets/site.js', 'assets/globe.svg', 'assets/energy-horizon.png', 'assets/social-card.svg', 'assets/social-card.png', 'assets/ATTRIBUTION.md']
     files += downloads + ['images/EchoFramev3.mp4']
-    files += map_files + ['assets/map.css', 'assets/map.js']
     # Archive interface screenshots are not part of the publication output.
     for obsolete in public.rglob('*'):
         if obsolete.is_file() and obsolete.relative_to(public).as_posix() not in files:
