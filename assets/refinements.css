@@ -104,3 +104,14 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
  .ef-hero-tag{z-index:2}
  .ef-hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,7,11,.08) 0%,rgba(4,7,11,.85) 66%,rgba(4,7,11,.96) 100%);pointer-events:none}
 }
+
+/* Figures. The .ef-fig rules were repeated in all five drop-in files; they live
+   here once. The two genuine per-figure differences are kept as modifiers. */
+.ef-fig{margin:28px 0;overflow-x:auto}
+.ef-fig svg{display:block;width:100%;height:auto}
+.ef-fig figcaption{margin-top:14px;font-size:13.5px;line-height:1.55;color:var(--muted,#6E7B85);max-width:640px}
+.ef-fig-loop figcaption,.ef-fig-chart figcaption{max-width:620px}
+.ef-fig-machine svg{min-width:900px}
+@media (prefers-reduced-motion: reduce){
+ .ef-fig animateMotion{display:none}
+}
