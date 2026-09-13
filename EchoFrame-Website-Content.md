@@ -2213,22 +2213,6 @@ EchoFrame Venezuela / Country direction and commercial exposure
 
 Venezuela reporting, turned into a structured assessment of risk, dated questions and the conditions an opportunity must meet. Start with the country picture, then work down to the decision on your desk.
 
-The eastern Venezuela asset record is being rebuilt around a three-class corroboration rule and an asset-first view. A public demonstration will return when the first asset case is complete.
-
-#### Visualisations
-
-##### Asset map
-
-To follow
-
-[[ROB: supply the completed José asset map for public review]]
-
-##### Question probability chart
-
-To follow
-
-[[ROB: supply a dated question probability chart for public review]]
-
 A briefing built for the decision
 
 #### Where it is heading Whether it clears your bar
