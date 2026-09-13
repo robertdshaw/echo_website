@@ -217,6 +217,11 @@ def create_app(overrides=None, sender=None):
     def legacy():
         return redirect('/',code=301)
 
+    @app.get('/methodology.html')
+    def retired_methodology():
+        # The methodology page was replaced by How it works; keep the old link alive.
+        return redirect('/how-it-works.html',code=301)
+
     @app.get('/')
     @app.get('/<path:path>')
     def website(path='index.html'):

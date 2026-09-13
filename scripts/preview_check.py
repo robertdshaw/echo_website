@@ -82,7 +82,7 @@ try:
         page.locator('#reset-search').click()
         assert page.locator('.library-grid .research-card:visible').count()==4
         # Keyboard-controlled navigation and methodology panels still work.
-        page.goto(base+'/methodology.html',wait_until='load')
+        page.goto(base+'/how-it-works.html',wait_until='load')
         page.locator('[data-evidence-state="corroborated"]').click()
         expect(page.locator('#evidence-title')).to_contain_text('Independent evidence')
         page.goto(base+'/decision-pathways.html',wait_until='load')

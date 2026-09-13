@@ -3,6 +3,7 @@ from html import escape as E
 
 GROUPS = [
     ('Capabilities', [
+        ('how-it-works.html','How it works','The six steps, and how a development is confirmed.'),
         ('capabilities.html','Research system','Explore the full analytical workflow.'),
         ('actor-mapping.html','Actor & asset mapping','Document the relationships behind a decision.'),
         ('evidence-workspace.html','Evidence workspace','Inspect sources, contradictions, and limits.'),
@@ -18,7 +19,6 @@ GROUPS = [
         ('coverage.html','Regional perspective','Explore the wider research frame.')]),
     ('Company', [
         ('about.html','About EchoFrame','The purpose and approach behind the research.'),
-        ('methodology.html','Our methodology','From collection to an inspectable judgment.'),
         ('trust.html','Trust & privacy','Evidence, information handling, and boundaries.'),
         ('editorial-standards.html','Editorial standards','Attribution, uncertainty, and corrections.')])
 ]

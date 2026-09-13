@@ -6,7 +6,7 @@ import math
 import re
 import shutil
 from pathlib import Path
-from programme import programme_teaser, venezuela_page, evidence_methodology, question_preview
+from programme import programme_teaser, venezuela_page, question_preview
 from audiences import perspectives, consequence_section, audience_page
 from experience import hero as research_hero, formats, faq
 from depth import PAGES, write_downloads
@@ -14,6 +14,7 @@ from samples import SAMPLES, sample_library, sample_page, write_sample_downloads
 from site_navigation import navigation, home_directory
 from visuals import video_section
 from homepage import claims
+from how_it_works import page as how_it_works_page
 from intelligence import analytical_layers, evidence_flow, hard_questions
 from contact import contact_page
 from testimonials import testimonials
@@ -77,7 +78,7 @@ def layout(title, body, page='home', prefix='', description='', lang='en'):
 <body class="page-{page}"><a class="skip-link" href="#main">Skip to content</a><div class="topline"><div class="container"><span>✳ &nbsp; A closer view of Venezuela. Our lead research programme is taking shape.</span><a href="{prefix}venezuela.html">Explore the programme </a></div></div>
 <header class="site-header"><div class="container nav-shell">{brand(prefix)}<button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button><nav id="main-nav" aria-label="Main navigation">{links}</nav></div></header>
 <main id="main">{body}</main>
-<footer class="site-footer"><div class="container"><div class="footer-top"><div>{brand(prefix)}<p>Research on political decisions and their consequences.</p><span class="eyebrow">Venezuela and European energy policy</span></div><div><h2>Explore</h2><a href="{prefix}capabilities.html">Research capabilities</a><a href="{prefix}government-affairs.html">Government affairs</a><a href="{prefix}distressed-debt.html">Distressed debt</a><a href="{prefix}venezuela.html">Venezuela programme</a><a href="{prefix}research.html">Intelligence library</a><a href="{prefix}coverage.html">Regional coverage</a><a href="{prefix}methodology.html">Our approach</a></div><div><h2>Connect</h2><a href="{prefix}engagement.html">Working with EchoFrame</a><span>contact@echoframe.co</span><a href="https://ie.linkedin.com/company/echoframing" target="_blank" rel="noopener noreferrer">LinkedIn </a></div><div><h2>Company</h2><a href="{prefix}about.html">About EchoFrame</a><a href="{prefix}trust.html">Trust &amp; privacy</a><a href="{prefix}sample-briefs.html">Sample briefs &amp; templates</a><a href="{prefix}sources.html">Primary-source directory</a><a href="{prefix}editorial-standards.html">Editorial standards</a><a href="{prefix}{'index.html' if lang=='es' else 'es/index.html'}" lang="{'en' if lang=='es' else 'es'}">{'English' if lang=='es' else 'En español'}</a></div></div><div class="footer-bottom"><span>© 2026 {E(SITE['legal_name'])}{' · '+E(SITE['registration_line']) if SITE['registration_line'] else ''}</span><span><a href="{prefix}privacy.html">Privacy</a><span class="meta-dot">/</span>EchoFrame research</span><a href="#main">Back to top </a></div></div></footer></body></html>'''
+<footer class="site-footer"><div class="container"><div class="footer-top"><div>{brand(prefix)}<p>Research on political decisions and their consequences.</p><span class="eyebrow">Venezuela and European energy policy</span></div><div><h2>Explore</h2><a href="{prefix}capabilities.html">Research capabilities</a><a href="{prefix}government-affairs.html">Government affairs</a><a href="{prefix}distressed-debt.html">Distressed debt</a><a href="{prefix}venezuela.html">Venezuela programme</a><a href="{prefix}research.html">Intelligence library</a><a href="{prefix}coverage.html">Regional coverage</a><a href="{prefix}how-it-works.html">How it works</a></div><div><h2>Connect</h2><a href="{prefix}engagement.html">Working with EchoFrame</a><span>contact@echoframe.co</span><a href="https://ie.linkedin.com/company/echoframing" target="_blank" rel="noopener noreferrer">LinkedIn </a></div><div><h2>Company</h2><a href="{prefix}about.html">About EchoFrame</a><a href="{prefix}trust.html">Trust &amp; privacy</a><a href="{prefix}sample-briefs.html">Sample briefs &amp; templates</a><a href="{prefix}sources.html">Primary-source directory</a><a href="{prefix}editorial-standards.html">Editorial standards</a><a href="{prefix}{'index.html' if lang=='es' else 'es/index.html'}" lang="{'en' if lang=='es' else 'es'}">{'English' if lang=='es' else 'En español'}</a></div></div><div class="footer-bottom"><span>© 2026 {E(SITE['legal_name'])}{' · '+E(SITE['registration_line']) if SITE['registration_line'] else ''}</span><span><a href="{prefix}privacy.html">Privacy</a><span class="meta-dot">/</span>EchoFrame research</span><a href="#main">Back to top </a></div></div></footer></body></html>'''
 
 
 def cta(prefix=''):
@@ -145,15 +146,6 @@ def coverage():
     old_figure = '<figure class="coverage-figure"><img src="images/venezuela-predictive.png" alt="Historical Venezuela research platform interface preview" loading="lazy"><figcaption>Archive platform screenshot · Illustrates the interface, not current conditions.</figcaption></figure>'
     result = result.replace(old_figure, question_preview())
     return result+'<div class="container">'+coming_coverage()+'</div>'+cta()
-
-
-def methodology():
-    legacy = evidence_methodology(intro, cta)
-    # Retain the working evidence-state explorer; replace the dated status tour.
-    start = legacy.index('<section class="scenario-section">')
-    end = legacy.index('<section class="section container">', start)
-    evidence_demo = legacy[start:end]
-    return intro('Our method / Evidence to judgment', 'Political science,<br><em>run as data science</em>', 'Five analytical layers connect reporting to events, actors, incentives, and possible outcomes. The reasoning should be visible enough to challenge, and clear enough to use in a decision.')+analytical_layers()+evidence_flow()+evidence_demo+hard_questions()+cta()
 
 
 def frame_bureau_summary():
@@ -244,7 +236,7 @@ def main():
     write('research.html','Intelligence library',library(),'research')
     write('coverage.html','Regional coverage',coverage(),'coverage')
     write('venezuela.html','Venezuela · Asset-level intelligence',venezuela_page(intro,cta),'venezuela')
-    write('methodology.html','Our approach',methodology(),'methodology')
+    write('how-it-works.html','How it works',how_it_works_page(intro),'how-it-works')
     write('about.html','About',about(),'about')
     write('briefing.html','Book a briefing',briefing(),'briefing')
     write('editorial-standards.html','Editorial standards',standards(),'standards')

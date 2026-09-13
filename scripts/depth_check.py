@@ -21,7 +21,7 @@ with sync_playwright() as p:
     groups.nth(1).locator('summary').press('Escape')
     assert groups.nth(1).get_attribute('open') is None
     assert groups.nth(1).locator('summary').evaluate('(el)=>el===document.activeElement')
-    page.goto(BASE+'/methodology.html',wait_until='networkidle')
+    page.goto(BASE+'/how-it-works.html',wait_until='networkidle')
     assert page.locator('.analytical-layers article').count()==6
     page.locator('.analytical-layers summary').nth(4).click()
     assert page.locator('.analytical-layers details').nth(4).get_attribute('open') is not None
