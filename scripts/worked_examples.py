@@ -3,6 +3,8 @@
 CARDS = [
     ('The headline number was double the real one',
      'The same desk, six months later.',
+     'assets/example-evidence.jpg',
+     'Working papers. The export figure had to be rebuilt from the licence terms rather than read off the trade data.',
      [('The situation',
        'Oil exports were reported at close to double the previous year, and the market read the figure as capacity '
        'to pay.'),
@@ -21,6 +23,7 @@ CARDS = [
     ('The deal that was not yours still moved your position',
      'A US company holding substantial unpaid arbitration awards against a sovereign, with no operations in the '
      'country. April 2026.',
+     None, None,
      [('The situation',
        'Two competitors announced an asset swap, one consolidating heavy crude, the other consolidating cross-border '
        'gas.'),
@@ -38,6 +41,7 @@ CARDS = [
        'the hardliners and the military, and that is what we watch.')]),
     ('A state that wanted the capability, not the service',
      'A Gulf government. Capability design, 2026.',
+     None, None,
      [('The situation',
        'Ministries were commissioning the same country and sector analysis repeatedly from outside firms, with '
        'nothing accumulating between engagements.'),
@@ -56,7 +60,7 @@ CARDS = [
 
 def page(intro):
     cards = ''
-    for i, (title, context, rows) in enumerate(CARDS, 1):
+    for i, (title, context, image, caption, rows) in enumerate(CARDS, 1):
         lead = dict(rows)
         head = ''.join(
             f'<div class="we-line"><span class="eyebrow">{h}</span><p>{lead[h]}</p></div>'
@@ -67,7 +71,9 @@ def page(intro):
         cards += (f'<article class="worked-example" id="example-{i}">'
                   f'<header class="we-head"><span class="we-number">{i:02d}</span>'
                   f'<div><h2>{title}</h2><p class="we-meta">{context}</p></div></header>'
-                  f'<div class="we-frame">{head}</div>'
+                  + (f'<figure class="we-figure"><img src="{image}" alt="" width="1200" height="675" loading="lazy">'
+                     f'<figcaption>{caption}</figcaption></figure>' if image else '')
+                  + f'<div class="we-frame">{head}</div>'
                   f'<div class="we-body">{rest}</div></article>')
     return intro(
         'Worked examples',

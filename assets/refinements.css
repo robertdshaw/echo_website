@@ -165,3 +165,6 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
  .nav-panel{left:auto;right:-45px}
  .nav-group:last-of-type .nav-panel{right:-20px}
 }
+.we-figure{margin:20px 0 0}
+.we-figure img{display:block;width:100%;height:auto;border-radius:10px}
+.we-figure figcaption{margin-top:10px;font-size:13px;line-height:1.55;color:var(--muted,#6E7B85);max-width:620px}
