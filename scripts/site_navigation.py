@@ -3,12 +3,7 @@ from html import escape as E
 from chrome import GROUPS_ES, ITEMS_ES
 
 GROUPS = [
-    ('Services', [
-        ('services.html','What we deliver','The subscriptions and the projects, in one view.'),
-        ('asset-watch.html','Asset Watch','Continuous coverage of the assets you name.'),
-        ('question-book.html','Question Book','Dated questions, scored when the date arrives.'),
-        ('ground-truth.html','Ground Truth','Reporting filed from the place itself.'),
-        ('projects.html','Projects','Single pieces of work with a defined scope.')]),
+    ('Services', 'services.html'),
     ('Our work', [
         ('government-affairs.html','Government affairs','Policy, stakeholders, and operating assets.'),
         ('distressed-debt.html','Distressed debt','Political assumptions and counterparty research.'),
