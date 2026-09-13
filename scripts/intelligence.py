@@ -30,7 +30,7 @@ RISKS = [
     ('Security and Military', 'The use or threat of force, security constraints and their implications for people, access and continuity.'),
     ('Economic and Fiscal Stability', 'Pressure on public finances, payment capacity and the services or infrastructure an asset depends on.'),
     ('Geopolitical and External Pressure', 'External alignments, sanctions decisions and international actions that could change the available options.'),
-    ('Social', '[[ROB: confirm the definition and evidence covered by the Social dimension]]'),
+    ('Social', ''),
 ]
 
 

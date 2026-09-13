@@ -13,7 +13,7 @@ GROUPS = [
         ('engagement.html','Working with EchoFrame','Research formats, scope, and delivery.')]),
     ('Research', [
         ('research.html','Intelligence library','Essays, field guides, and programme notes.'),
-        ('sample-briefs.html','Sample briefs & templates','Research templates and forthcoming briefs.'),
+        ('sample-briefs.html','Sample briefs & templates','Research templates and brief structure.'),
         ('sources.html','Primary-source directory','Official records and how to use them.'),
         ('coverage.html','Regional perspective','Explore the wider research frame.')]),
     ('Company', [

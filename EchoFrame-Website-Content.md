@@ -127,10 +127,6 @@ Research for investors examining the political, counterparty and operating assum
 
 Our lead programme connects national decisions with local evidence around assets and contracts. Collection follows the question being investigated and the evidence needed to answer it.
 
-Where the programme stands
-
-Three organisations are using work built on this method, two of them paying, delivered through a channel partner.  [[ROB: confirm wording and whether the channel partner may be named]]
-
 #### The Frame Bureau
 
 The Frame Bureau is EchoFrame’s training division. It brings investigative journalism, data science and political risk analysis into practical work on research questions. Participants check sources, distinguish evidence from assumptions, write assessments and review them when the evidence changes.
@@ -161,10 +157,6 @@ Reflections from contributors to EchoFrame’s work.
 
 **Jean-Christophe Loubier**  EchoFrame contributor · Geospatial science professor
 
-[[ROB: confirm written permission on file for the Luis Matos Azócar quote]]
-
-[[ROB: confirm written permission on file for the Jean-Christophe Loubier quote]]
-
 A little more context
 
 #### Frequently asked questions
@@ -179,7 +171,7 @@ Bring the decision you face, the assets or contracts involved, and your time hor
 
 **What is the status of the Venezuela programme?**
 
-Venezuela is our lead development programme. Collection and indexing form part of the foundation. The connected event, corroboration, spatial-analysis, and forecasting workflow remains in development. Real, redacted material will be added when it is ready for publication.
+Venezuela is our lead development programme. Collection and indexing form part of the foundation. The connected event, corroboration, spatial-analysis, and forecasting workflow remains in development.
 
 **Can I explore the research before getting in touch?**
 
@@ -206,12 +198,6 @@ Capability 01 / Actor & asset mapping
 ### Who has the power to change the outcome?
 
 An organisation chart identifies formal positions. A stakeholder assessment examines who makes a decision, who carries it out and who is affected. Each relationship needs evidence of the role it describes, together with its date and any uncertainty.
-
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for actor and asset mapping]]
 
 Every connection needs a source
 
@@ -425,8 +411,6 @@ External alignments, sanctions decisions and international actions that could ch
 
 ##### Social
 
-[[ROB: confirm the definition and evidence covered by the Social dimension]]
-
 A risk score, a question probability, and a commercial threshold answer different questions. Any numerical reading needs its date, evidence, scale, and uncertainty attached.
 
 The scenario layer has been replaced by dated questions with tracked probabilities.
@@ -466,12 +450,6 @@ Venezuela programme  Asset-level questions  In development
 [Venezuela field guide](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
 Platform access is managed by the platform. Contact us if you need an account.
-
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for the coverage overview]]
 
 02 / Europe
 
@@ -629,12 +607,6 @@ A decision or actor change that alters the expected policy path.
 
 This walkthrough explains the questions to ask. It does not disclose a client’s thresholds or assign scores to an actual opportunity.
 
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for decision pathways]]
-
 Make the question resolvable
 
 #### A better question
@@ -748,7 +720,7 @@ Lead development programme
 
 #### Venezuela *Closer to the asset*
 
-Explore the risk dimensions and decision criteria alongside the historical assessment. Real, redacted asset material will be added when it is ready.
+Explore the risk dimensions and decision criteria alongside the historical assessment.
 
 Start with the research [Give the question a deadline.](https://www.echoframe.co/research/questions-that-can-resolve.html) [Give the question a deadline.](https://www.echoframe.co/research/questions-that-can-resolve.html) [Venezuela, at the level of the asset.](https://www.echoframe.co/research/venezuela-from-country-to-asset.html)
 
@@ -791,12 +763,6 @@ Where the approach fits
 - You need to distinguish procedural developments from recovery assumptions.
 - You can name an issuer, asset, counterparty, and decision horizon.
 - You want research that complements legal and valuation specialists.
-
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for distressed-debt research]]
 
 Explore the work in more detail
 
@@ -959,7 +925,7 @@ The deadline and the policy, operational, or procedural milestone that creates i
 
 What you already know, which assumption is unresolved, and the evidence that would help.
 
-[Research mandate template](https://www.echoframe.co/downloads/research-mandate.md) [Research templates and forthcoming briefs](https://www.echoframe.co/sample-briefs.html) [Review information-handling boundaries](https://www.echoframe.co/trust.html)
+[Research mandate template](https://www.echoframe.co/downloads/research-mandate.md) [Research templates and brief structure](https://www.echoframe.co/sample-briefs.html) [Review information-handling boundaries](https://www.echoframe.co/trust.html)
 
 [Arrange a scoping conversation](https://www.echoframe.co/briefing.html)
 
@@ -1006,12 +972,6 @@ Capability 02 / Evidence workspace
 ### When accounts differ, follow the evidence
 
 Each source needs to be read for what it establishes. Compare the activity, location and observation period before deciding whether accounts agree or conflict. Keep the original source and the reason for your assessment together.
-
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for evidence review]]
 
 A record you can inspect
 
@@ -1111,7 +1071,7 @@ Lead development programme
 
 #### Venezuela *Closer to the asset*
 
-Explore the risk dimensions and decision criteria alongside the historical assessment. Real, redacted asset material will be added when it is ready.
+Explore the risk dimensions and decision criteria alongside the historical assessment.
 
 Start with the research [Venezuela, at the level of the asset.](https://www.echoframe.co/research/venezuela-from-country-to-asset.html) [Policy is a process. Track the whole chain.](https://www.echoframe.co/research/following-european-energy-policy.html) [When the accounts do not add up.](https://www.echoframe.co/research/when-sources-disagree.html)
 
@@ -1154,12 +1114,6 @@ Where the approach fits
 - Your team prepares stakeholder meetings or internal policy briefings.
 - You can define an asset, project, approval process, or access question.
 - You value a source-linked record and explicit uncertainty.
-
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for government affairs]]
 
 Explore the work in more detail
 
@@ -1234,12 +1188,6 @@ Layer 05
 Identify the criteria behind previous decisions
 
 With the client, examine previous entries, declines, and stated constraints. Use that record to propose decision criteria, then confirm which requirements apply to the opportunity at hand.
-
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for the analytical method]]
 
 The assessment process
 
@@ -1439,7 +1387,7 @@ Europe / Field guide
 
 How to follow an energy policy from its first announcement to the decisions that put it into practice.
 
-Robert Shaw  [[ROB: confirm dates]]  · Foundations collection
+Robert Shaw Foundations collection
 
 Save article +
 
@@ -1479,12 +1427,6 @@ Use the same structure for each update. Record the previous position, the new ev
 
 Keep previous versions available internally. State when sources were checked. If a correction changes the meaning of an assessment, explain the change and why it was necessary.
 
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for following-european-energy-policy]]
-
 Questions to carry forward
 
 #### What to watch
@@ -1500,7 +1442,7 @@ This article explains how to follow a policy. It does not determine a particular
 1. [European Commission · Energy strategy](https://energy.ec.europa.eu/strategy_en)
 2. [European Commission · Implementation in EU countries](https://commission.europa.eu/energy-climate-change-environment/implementation-eu-countries_en)
 
-Publication date [[ROB: confirm dates]]. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
+Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
 
 Continue exploring
 
@@ -1546,7 +1488,7 @@ Methods / Question design
 
 How to turn a concern about an asset or contract into a question that can be answered and reviewed.
 
-Robert Shaw  [[ROB: confirm dates]]  · Venezuela programme / Design notes
+Robert Shaw Venezuela programme / Design notes
 
 Save article +
 
@@ -1586,12 +1528,6 @@ For a question with a yes-or-no outcome, a Brier score measures the squared diff
 
 Decide in advance which forecast dates will be evaluated. A question should not count more heavily merely because it received more updates. Keep unresolved cases and unsuccessful forecasts in the record, and state which questions were included. The Venezuela programme does not yet claim a validated forecast record.
 
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for questions-that-can-resolve]]
-
 Questions to carry forward
 
 #### What to watch
@@ -1606,7 +1542,7 @@ This article explains a research method. It does not assess a current asset or e
 
 1. [ECMWF · Verification of probability forecasts](https://www.ecmwf.int/sites/default/files/elibrary/2007/15489-verification-probability-forecasts.pdf)
 
-Publication date [[ROB: confirm dates]]. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
+Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
 
 Continue exploring
 
@@ -1652,7 +1588,7 @@ Venezuela / Programme note
 
 How the proposed Venezuela collection plan connects local evidence to the decisions around a particular asset.
 
-Robert Shaw  [[ROB: confirm dates]]  · Venezuela programme / Design notes
+Robert Shaw Venezuela programme / Design notes
 
 Save article +
 
@@ -1692,12 +1628,6 @@ If a record can only be located to a state, show it at state level. A precise-lo
 
 A regional brief should identify the client’s question, the changes relevant to it, the evidence that supports or disputes them and the next review. Partner and reporter identities, commercial terms and details that could expose a source should remain outside a public example.
 
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for venezuela-from-country-to-asset]]
-
 Questions to carry forward
 
 #### What to watch
@@ -1710,7 +1640,7 @@ Questions to carry forward
 
 This article explains a research method. It does not assess a current asset or establish operating coverage.
 
-Publication date [[ROB: confirm dates]]. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
+Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
 
 Continue exploring
 
@@ -1756,7 +1686,7 @@ Venezuela / Evidence guide
 
 How to compare an official statement, a local report and a physical observation when they appear to disagree.
 
-Robert Shaw  [[ROB: confirm dates]]  · Venezuela programme / Design notes
+Robert Shaw Venezuela programme / Design notes
 
 Save article +
 
@@ -1796,12 +1726,6 @@ Sometimes the evidence does not settle the disagreement. Say what observation co
 
 The event brief remains an intended deliverable. Its usefulness depends on a source record that can be checked and a person responsible for reviewing the conclusion. A dashboard alone cannot provide either.
 
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for when-sources-disagree]]
-
 Questions to carry forward
 
 #### What to watch
@@ -1814,7 +1738,7 @@ Questions to carry forward
 
 This article explains a research method. It does not assess a current asset or establish operating coverage.
 
-Publication date [[ROB: confirm dates]]. Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
+Read our [editorial standards](https://www.echoframe.co/editorial-standards.html) . To suggest a correction, contact@echoframe.co.
 
 Continue exploring
 
@@ -1858,12 +1782,6 @@ Oil & gas government affairs
 
 Asset-context and stakeholder brief
 
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for Asset-context and stakeholder brief]]
-
 The brief will identify the research question, the evidence supporting the assessment, unresolved issues and the next review. Source-identifying details will be removed before publication.
 
 [Research templates](https://www.echoframe.co/sample-briefs.html)
@@ -1876,17 +1794,11 @@ The brief will identify the research question, the evidence supporting the asses
 
 Page: [sample-briefs.html](https://www.echoframe.co/sample-briefs.html)
 
-Inside the research / Complete examples
+Inside the research / Brief structure
 
 ### Read the brief Follow the reasoning
 
-The blank templates below help define a research question and organise its evidence. The worked briefs are awaiting real, redacted material.
-
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for the sample brief collection]]
+The blank templates below help define a research question and organise its evidence.
 
 A useful brief has layers
 
@@ -1926,12 +1838,6 @@ Distressed debt & special situations
 ### A political announcement is not an operating milestone
 
 Thesis-assumption and catalyst review
-
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for Thesis-assumption and catalyst review]]
 
 The brief will identify the research question, the evidence supporting the assessment, unresolved issues and the next review. Source-identifying details will be removed before publication.
 
@@ -2183,7 +2089,7 @@ Record the instrument, named parties, relevant activity, effective date, and rev
 
 Define the asset, access route, service dependency, and observation period. Compare public statements with independently sourced local or physical observations. A national production series cannot resolve a gate-level access question.
 
-[Asset research material to follow](https://www.echoframe.co/sample-asset-access.html)
+[Asset research brief structure](https://www.echoframe.co/sample-asset-access.html)
 
 03
 
@@ -2251,13 +2157,7 @@ The probability is drawn from EchoFrame’s account of its private assessment; t
 
 Where the programme stands
 
-The product framework brings risk dimensions, dated questions and commercial criteria together. Real, redacted asset material is being prepared for this page. Collection scope, delivery cadence, and access are agreed for each engagement.
-
-#### Worked example to follow
-
-Real, redacted material will be added here when it is ready for publication.
-
-[[ROB: supply real redacted material for the Venezuela asset case]]
+The product framework brings risk dimensions, dated questions and commercial criteria together. Collection scope, delivery cadence, and access are agreed for each engagement.
 
 03 / Proposed collection priorities
 
@@ -2366,7 +2266,7 @@ Who we help
 
 Research
 
-[**Intelligence library** Essays, field guides, and programme notes.](https://www.echoframe.co/research.html) [**Sample briefs & templates** Research templates and forthcoming briefs.](https://www.echoframe.co/sample-briefs.html) [**Primary-source directory** Official records and how to use them.](https://www.echoframe.co/sources.html) [**Regional perspective** Explore the wider research frame.](https://www.echoframe.co/coverage.html)
+[**Intelligence library** Essays, field guides, and programme notes.](https://www.echoframe.co/research.html) [**Sample briefs & templates** Research templates and brief structure.](https://www.echoframe.co/sample-briefs.html) [**Primary-source directory** Official records and how to use them.](https://www.echoframe.co/sources.html) [**Regional perspective** Explore the wider research frame.](https://www.echoframe.co/coverage.html)
 
 **Company**
 
