@@ -25,7 +25,7 @@ AUDIENCES = {
         'outputs': [('Stakeholder brief', 'A map of documented roles and positions, with source dates and unresolved relationships.'), ('Policy milestone note', 'The relevant documents, formal status, next decision point, and questions requiring specialist review.'), ('Asset-context brief', 'Local observations, competing accounts, and the implications to investigate for the operating footprint.')],
         'prompt': 'What are the three decisions over the next twelve months that depend on the policy environment around your assets?',
         'cta': 'Discuss a government affairs brief',
-        'reading': [('mapping-power-without-false-precision', 'A better map of who matters.'), ('following-european-energy-policy', 'Policy is a process. Track the whole chain.'), ('when-sources-disagree', 'When the accounts do not add up.')]
+        'reading': [('venezuela-from-country-to-asset', 'Venezuela, at the level of the asset.'), ('following-european-energy-policy', 'Policy is a process. Track the whole chain.'), ('when-sources-disagree', 'When the accounts do not add up.')]
     },
     'credit': {
         'slug': 'distressed-debt',
@@ -39,7 +39,7 @@ AUDIENCES = {
         'outputs': [('Thesis-question register', 'Clear questions, deadlines, and the evidence needed to answer them—with unresolved assumptions kept in view.'), ('Catalyst and counterparty brief', 'Relevant actors, documentary milestones, competing accounts, and a record of what has changed.'), ('Asset viability note', 'Documented criteria and missing evidence, kept separate from security valuation or legal conclusions.')],
         'prompt': 'Which political or operational assumption in your thesis would be most costly to leave untested?',
         'cta': 'Discuss a distressed-debt brief',
-        'reading': [('questions-that-can-resolve', 'Give the question a deadline.'), ('sanctions-and-operational-reality', 'A sanctions headline is only the starting point.'), ('venezuela-from-country-to-asset', 'Venezuela, at the level of the asset.')]
+        'reading': [('questions-that-can-resolve', 'Give the question a deadline.'), ('questions-that-can-resolve', 'Give the question a deadline.'), ('venezuela-from-country-to-asset', 'Venezuela, at the level of the asset.')]
     }
 }
 

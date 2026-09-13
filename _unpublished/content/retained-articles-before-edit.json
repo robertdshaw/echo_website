@@ -1,0 +1,215 @@
+[
+  {
+    "slug": "following-european-energy-policy",
+    "title": "Policy is a process. Track the whole chain.",
+    "dek": "How to structure an energy-policy watchlist around institutions, implementation, and the evidence still missing.",
+    "category": "Europe",
+    "format": "Field guide",
+    "art": "policy",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "Record the stage of a policy process before interpreting its significance. An ambition, a published instrument, and an implementation measure answer different questions.",
+    "sections": [
+      {
+        "heading": "Identify what you are reading",
+        "paragraphs": [
+          "The European Commission's energy portal groups policy around topics including energy security, affordability, and the transition to clean energy. Its implementation resources provide a separate route into how measures are applied. These are useful starting points for a research register.",
+          "For each document, record its issuing institution, publication date, document type, geographic scope, and reference number. Preserve the original link and the exact version consulted. A press release can help locate a development, but the underlying instrument is the stronger reference for what the text says."
+        ]
+      },
+      {
+        "heading": "Build an institutional timeline",
+        "paragraphs": [
+          "A policy timeline should distinguish proposals, negotiations, adopted texts, and subsequent implementation. Do not assume that every instrument follows an identical path. Verify the procedure relevant to the document being tracked.",
+          "Give each entry an owner and a next check. A deadline without an accountable reviewer easily becomes a stale label on a dashboard. Where timing remains uncertain, state what is known and leave the rest unresolved."
+        ]
+      },
+      {
+        "heading": "Connect the text to a research question",
+        "paragraphs": [
+          "A broad theme such as energy transition is too expansive for a useful watchlist. Narrow it to a defined technology, geography, activity, or project stage. Ask which part of the text could affect that exposure and which interpretation still needs specialist review.",
+          "Keep the research record distinct from a compliance determination. A policy monitor can surface an issue and organize the relevant documents; an organization must still establish how the applicable rules relate to its circumstances."
+        ]
+      },
+      {
+        "heading": "Make updates easy to compare",
+        "paragraphs": [
+          "Use a consistent update format: previous position, new evidence, changed interpretation, next milestone. This lets readers identify a substantive change without rereading the full history.",
+          "Keep earlier versions available internally. A publication should show when its source material was checked, and a substantial correction should explain what changed."
+        ]
+      }
+    ],
+    "watch": [
+      "What is the document's formal status?",
+      "Which institution owns the next step?",
+      "Which part of the interpretation needs additional evidence or specialist review?"
+    ],
+    "sources": [
+      {
+        "title": "European Commission · Energy strategy",
+        "url": "https://energy.ec.europa.eu/strategy_en"
+      },
+      {
+        "title": "European Commission · Implementation in EU countries",
+        "url": "https://commission.europa.eu/energy-climate-change-environment/implementation-eu-countries_en"
+      }
+    ],
+    "sourceNote": "A research workflow, not an interpretation of a particular legal obligation. Consult the current primary instrument for any specific policy question.",
+    "status": "published"
+  },
+  {
+    "slug": "when-sources-disagree",
+    "status": "published",
+    "title": "When the accounts do not add up.",
+    "dek": "Keep the official position, the local account, and the physical observation in the same brief without pretending that they say the same thing.",
+    "category": "Venezuela",
+    "format": "Evidence guide",
+    "art": "network",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "collection": "Venezuela programme / Design notes",
+    "takeaway": "A disagreement is a research finding in its own right. Preserve each claim, check whether its time and scope are comparable, and identify the next independent observation needed to resolve it.",
+    "sections": [
+      {
+        "heading": "Put the claims beside one another",
+        "paragraphs": [
+          "A brief can be balanced and still leave its reader unable to understand a contradiction. The intended Venezuela event brief shows what each source asserts, when it was published, what period it describes, and what it can actually establish.",
+          "The public worked example uses a fictional terminal. An operator statement describes normal operations, a local account reports a stoppage, and a physical indicator changes. None of those inputs is a report about a real Venezuelan facility. The example demonstrates how the format should handle tension between accounts."
+        ]
+      },
+      {
+        "heading": "Check whether the disagreement is real",
+        "paragraphs": [
+          "Before assigning a contradicted label, establish that the accounts refer to the same event. A statement about loading activity and a report about an access-road protest may both be accurate. Publication times can also hide a change that happened between the two observations.",
+          "Keep the original wording in the controlled research record, where usage rights permit it. In the public brief, present a rights-reviewed summary, a source reference where appropriate, and the unresolved question. Do not reproduce protected material or identify a confidential source."
+        ]
+      },
+      {
+        "heading": "Use physical observations for what they establish",
+        "paragraphs": [
+          "A difference in a physical indicator can be an important lead. It does not establish its cause. Sensor coverage, baseline choice, maintenance, and unrelated operating changes can affect interpretation. An analyst should explain which explanations remain plausible.",
+          "A field account likewise needs its own context: direct observation or second-hand information, time observed, access limitations, and sensitivity. Being closer to the site is useful, but it does not remove the need to check the claim."
+        ]
+      },
+      {
+        "heading": "Make the next verification step explicit",
+        "paragraphs": [
+          "The conclusion may be that the disagreement remains unresolved. State the observation that could distinguish the accounts, who will review it, and when the issue should be revisited. A contradiction should not be silently converted into positive evidence for a forecast.",
+          "The event brief is an intended deliverable. Its value depends on a connected source record and an accountable review process, not on the visual appearance of a dashboard."
+        ]
+      }
+    ],
+    "watch": [
+      "Are the sources describing the same time, place, and activity?",
+      "Which accounts are independently obtained?",
+      "What can resolve the disagreement without exposing a source?"
+    ],
+    "sources": [],
+    "sourceNote": "A programme-design guide adapted from the September 2026 working plan. Examples describe intended methods, not current incidents, confirmed partnerships, or operating field coverage."
+  },
+  {
+    "slug": "questions-that-can-resolve",
+    "status": "published",
+    "title": "Give the question a deadline.",
+    "dek": "Turn a broad concern about an asset or contract into a question with a defined outcome, evidence rule, and review record.",
+    "category": "Methods",
+    "format": "Question design",
+    "art": "scenario",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "collection": "Venezuela programme / Design notes",
+    "takeaway": "A forecast needs a subject, an outcome, a horizon, and a resolution rule agreed in advance. An unresolved question is not automatically a negative outcome.",
+    "sections": [
+      {
+        "heading": "Start with the decision the client faces",
+        "paragraphs": [
+          "A broad question such as whether the labour situation is a problem does not specify what would count as an answer. Begin with the decision it informs, then name the relevant asset and observable outcome.",
+          "A fictional example asks whether Terminal A experiences a continuous work stoppage of at least 48 hours during a stated month. The wording should make clear which activities count, how the duration is established, and what evidence can resolve the question."
+        ]
+      },
+      {
+        "heading": "Write the evidence rule before the outcome",
+        "paragraphs": [
+          "Specify the resolution date and acceptable evidence at commissioning. Also define how late reporting, conflicting sources, ambiguous duration, or unavailable evidence will be handled. No report of an event does not necessarily mean that the event did not happen.",
+          "Freeze the wording once the question is registered. If the scope must change, create an identified revision or a new question and preserve the original. Otherwise the result can become easier to fit after the fact."
+        ]
+      },
+      {
+        "heading": "Preserve the prior and every revision",
+        "paragraphs": [
+          "The programme proposes starting judgments based on relevant historical evidence, expert input, and analyst reasoning. Record disagreements and the reasons for the chosen prior. An archive of articles does not automatically supply a clean historical event base rate.",
+          "For each later update, preserve the forecast timestamp, evidence reference, model or rule version, and explanation. Hand-set weights should be described as judgments to evaluate, rather than presented as learned or validated likelihood ratios."
+        ]
+      },
+      {
+        "heading": "Evaluate against a stated reference",
+        "paragraphs": [
+          "For a binary outcome, a Brier score uses the squared difference between the forecast probability and the recorded outcome. Lower values indicate lower error under that scoring rule. A skill comparison also needs a reference forecast; a score on its own does not establish useful predictive skill.",
+          "Define which forecast timestamps will be scored before evaluation. Treat questions consistently so that issuing more updates does not give one question disproportionate influence. Keep unresolved cases visible, state the evaluation sample, and retain unsuccessful forecasts. The Venezuela programme does not yet claim a validated track record."
+        ]
+      }
+    ],
+    "watch": [
+      "Is the outcome precise enough for an independent reviewer to resolve?",
+      "What happens if the named evidence is unavailable or contradictory?",
+      "Which forecast timestamps and reference forecast will be used for evaluation?"
+    ],
+    "sources": [
+      {
+        "title": "ECMWF · Verification of probability forecasts",
+        "url": "https://www.ecmwf.int/sites/default/files/elibrary/2007/15489-verification-probability-forecasts.pdf"
+      }
+    ],
+    "sourceNote": "A programme-design guide adapted from the September 2026 working plan. Examples describe intended methods, not current incidents, confirmed partnerships, or operating field coverage."
+  },
+  {
+    "slug": "venezuela-from-country-to-asset",
+    "status": "published",
+    "title": "Venezuela, at the level of the asset.",
+    "dek": "A proposed collection framework for Oriente, Occidente, and Guayana, built around the questions operators, entrants, creditors, and suppliers need answered.",
+    "category": "Venezuela",
+    "format": "Programme note",
+    "art": "maritime",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "collection": "Venezuela programme / Design notes",
+    "takeaway": "Collection priorities should follow a client question. A zone brief connects local events to a named asset while preserving location limits, source protection, and the difference between operational evidence and documented viability.",
+    "sections": [
+      {
+        "heading": "Begin with four priority states",
+        "paragraphs": [
+          "The working programme proposes initial collection priorities in Zulia, Monagas, Bolívar, and Anzoátegui. These are priorities for development, not a statement that correspondent agreements or full operational coverage are in place.",
+          "The right starting question is which decisions over the client’s chosen horizon depend on those places. A question about access may require different sources from one about a contractual change, labour disruption, or operating continuity."
+        ]
+      },
+      {
+        "heading": "Organize the local questions by zone",
+        "paragraphs": [
+          "For Oriente, the proposed frame connects Anzoátegui and Monagas with questions about facilities, terminals, inputs, labour, contractors, and regional authorities. For Occidente, it starts with Zulia and may extend to Falcón as the commissioned scope develops.",
+          "For Guayana, the proposed frame includes Bolívar and possible extension to Delta Amacuro. Power, industrial constraints, local authority, community positions, and access provide possible collection themes. Each theme still needs an asset, a defined question, and a source plan."
+        ]
+      },
+      {
+        "heading": "Keep operating evidence and viability distinct",
+        "paragraphs": [
+          "A report of activity answers a different question from a judgment about an asset’s contractual position. The proposed viability view covers contract standing, licence and sanctions standing, arbitration exposure, counterparty solvency, operational access, and security of tenure.",
+          "Every assessed criterion needs a supporting document and an assessment date. Missing support should produce an unassessed entry. A relevant new event should prompt a review, not an unexamined automatic legal or contractual conclusion."
+        ]
+      },
+      {
+        "heading": "Match the output to what can safely be known",
+        "paragraphs": [
+          "A record known only at state level should remain at state level. Placing it on a precise-looking facility pin can overstate the evidence. Sensitive reporting needs stricter disclosure controls even when the underlying location is known.",
+          "A useful zone brief should identify the client question, the changes that matter to it, the sources that support or dispute them, and the next review. Partner identities, reporter identities, commercial terms, and source-protecting detail do not belong in a public sample."
+        ]
+      }
+    ],
+    "watch": [
+      "Which decision determines the collection priority?",
+      "Is the geographic precision supported and safe to disclose?",
+      "Which viability judgments need fresh documentary review?"
+    ],
+    "sources": [],
+    "sourceNote": "A programme-design guide adapted from the September 2026 working plan. Examples describe intended methods, not current incidents, confirmed partnerships, or operating field coverage."
+  }
+]

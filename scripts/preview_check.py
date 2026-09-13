@@ -59,14 +59,14 @@ with sync_playwright() as p:
     assert page.locator('.evidence-grid article').count()==3
     assert 'FICTIONAL ASSET' in page.locator('.question-card').inner_text()
     page.screenshot(path=str(ARTIFACTS/'venezuela-desktop.png'),full_page=True)
-    page.goto(BASE+'/research/from-signal-to-significance.html',wait_until='networkidle')
+    page.goto(BASE+'/research/when-sources-disagree.html',wait_until='networkidle')
     page.locator('.save-article').click()
     assert page.locator('.save-article').get_attribute('aria-pressed')=='true'
     page.reload()
     assert page.locator('.save-article').get_attribute('aria-pressed')=='true'
     page.goto(BASE+'/research.html?saved=1',wait_until='networkidle')
     assert page.locator('.research-card:visible').count()==1
-    page.goto(BASE+'/research/from-signal-to-significance.html',wait_until='networkidle')
+    page.goto(BASE+'/research/when-sources-disagree.html',wait_until='networkidle')
     page.locator('.save-article').click()
     assert page.locator('.save-article').get_attribute('aria-pressed')=='false'
     page.screenshot(path=str(ARTIFACTS/'article-desktop.png'),full_page=True)

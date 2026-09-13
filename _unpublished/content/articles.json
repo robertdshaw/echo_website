@@ -1,0 +1,262 @@
+[
+  {
+    "slug": "from-signal-to-significance",
+    "title": "Attention is not evidence.",
+    "dek": "A burst of headlines can draw attention to an asset. It takes a closer reading of the evidence to understand what has actually changed.",
+    "category": "Methods",
+    "format": "Research essay",
+    "art": "signals",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "More reporting does not always mean more evidence. The useful question is what happened, whose account supports it, and what it means for the decision you face.",
+    "sections": [
+      {
+        "heading": "The story at the gate",
+        "paragraphs": [
+          "Consider a fictional energy terminal. Its operator says business continues as usual. A local report says contractors have been turned away at a gate. Within hours, several other publications repeat the operator’s statement. A dashboard shows a surge in mentions.",
+          "What has changed? The number of articles cannot answer that question. The operator may be describing the terminal as a whole, while the local account concerns one entrance, one shift, or one group of workers. Both accounts could be accurate. Neither, on its own, tells a company whether its contractors can get in."
+        ]
+      },
+      {
+        "heading": "Attention is a starting point",
+        "paragraphs": [
+          "Search tools and topic scores help an analyst find material worth reading. A rise in mentions can draw attention to a place or an issue that would otherwise be missed. That is useful. But a measure of attention is not a measure of whether an event occurred, or how likely another event is to follow.",
+          "The distinction matters when a report is repeated. Five publications may rely on the same statement. Counting them as five confirmations would make the evidence look stronger without adding a single new observation. The analyst needs to follow each account back to its origin."
+        ]
+      },
+      {
+        "heading": "Read the claims closely",
+        "paragraphs": [
+          "Return to the terminal. The first task is to establish what each source actually says: the activity, the location, and the period it describes. “Open” may mean that cargo is moving. It may say nothing about contractor access. “Turned away” may describe a brief interruption rather than a lasting restriction.",
+          "The next useful source would distinguish between those possibilities. It might be a dated access procedure or an independent observation of the relevant gate. Another broad statement would add little. An image showing activity across the wider site could provide context while leaving the access question unanswered."
+        ]
+      },
+      {
+        "heading": "Bring the evidence back to the decision",
+        "paragraphs": [
+          "For a government affairs team, the practical questions are who sets the access rules, who applies them, and which office can explain the discrepancy. For an investor, the issue may be whether a service interruption challenges an assumption about the asset. The same evidence can matter in different ways.",
+          "That is the approach behind EchoFrame’s Venezuela programme: start with a specific asset, contract, or local question, then gather the evidence needed to answer it. The connected event and forecasting workflow is still being developed. The aim is a clearer account of what is known, what remains uncertain, and what would change the view."
+        ]
+      }
+    ],
+    "watch": [
+      "Which specific decision does the research question support?",
+      "Are the apparent confirmations independent accounts of the same event?",
+      "What evidence would change the judgment, and how will the question resolve?"
+    ],
+    "sources": [],
+    "sourceNote": "Adapted from the Venezuela programme design supplied in September 2026. This is a methods essay, not a current asset assessment or an independent audit of the platform.",
+    "status": "published",
+    "collection": "Venezuela programme / Methods"
+  },
+  {
+    "slug": "reading-maritime-disruption",
+    "title": "Reading a chokepoint beyond the headline.",
+    "dek": "A research guide to the Strait of Hormuz: connect maritime observations, operational constraints, and alternative explanations.",
+    "category": "Middle East",
+    "format": "Field guide",
+    "art": "maritime",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "Treat maritime disruption as a chain of testable questions about movement, capacity, and duration. A political statement alone cannot answer them.",
+    "sections": [
+      {
+        "heading": "Establish the physical context",
+        "paragraphs": [
+          "The U.S. Energy Information Administration describes the Strait of Hormuz as a major oil transit chokepoint. Its historical analysis provides a starting point for understanding the route and its role in energy transport. Historical flow estimates should not be presented as a live reading of traffic.",
+          "Build a baseline with a stated period, vessel class, direction of travel, and collection method. Without those definitions, a change in observed traffic can reflect a change in the dataset rather than a change in activity."
+        ]
+      },
+      {
+        "heading": "Follow the transmission mechanism",
+        "paragraphs": [
+          "An analytical sequence might run from a reported incident to operator decisions, vessel movements, voyage duration, and delivery schedules. Each link requires its own evidence. A strong brief identifies the links that are observed and those that remain assumptions.",
+          "Use a compact evidence table: observation, timestamp, original source, alternative explanation, and next verification step. Include operational notices where available and make gaps in vessel coverage explicit."
+        ]
+      },
+      {
+        "heading": "Distinguish a delay from a sustained constraint",
+        "paragraphs": [
+          "A short interruption and a persistent loss of usable capacity are different research questions. Separate the duration of an incident from the time needed for operators to restore routine activity. Record both the event clock and the recovery clock.",
+          "For an illustrative scenario set, compare continuity, temporary disruption, and sustained disruption. Describe the observable conditions associated with each. Do not assign numerical probabilities without a documented estimation process."
+        ]
+      },
+      {
+        "heading": "Publish the limits alongside the finding",
+        "paragraphs": [
+          "A map can communicate location, but it cannot prove causality. A traffic chart can show recorded movements, but it cannot establish every operator's intentions. A useful caption states the period covered, the data source, and the principal limitation.",
+          "This guide is a method for organizing research, not a current assessment of transit conditions. A current briefing would require refreshed operational evidence and a named analyst's review."
+        ]
+      }
+    ],
+    "watch": [
+      "Are observed movements comparable with the baseline?",
+      "Which operational notices independently support the interpretation?",
+      "What would demonstrate recovery, rather than a pause in reporting?"
+    ],
+    "sources": [
+      {
+        "title": "U.S. EIA · Historical context on the Strait of Hormuz",
+        "url": "https://www.eia.gov/todayinenergy/detail.php?id=61002"
+      }
+    ],
+    "sourceNote": "Source used for geographic and historical context. This guide contains no live transit data or current market forecast.",
+    "status": "draft"
+  },
+  {
+    "slug": "sanctions-and-operational-reality",
+    "title": "A sanctions headline is only the starting point.",
+    "dek": "A source-first approach to researching sanctions developments and keeping legal status separate from operational evidence.",
+    "category": "Latin America",
+    "format": "Research note",
+    "art": "maritime",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "Build separate records for the official instrument, the entities involved, and observed activity. Do not collapse them into a single claim about what is permitted or happening.",
+    "sections": [
+      {
+        "heading": "Go back to the issuing authority",
+        "paragraphs": [
+          "OFAC publishes sanctions information, frequently asked questions, and licensing resources. Its materials distinguish general licenses from specific licenses. These official resources are starting points for source collection; a headline or secondary summary is not a substitute for the relevant text.",
+          "Record the instrument title, identifier, publication date, effective dates stated in the document, and official source link. If the text changes, retain a dated record of the version used in the assessment."
+        ]
+      },
+      {
+        "heading": "Separate three research layers",
+        "paragraphs": [
+          "The first layer is documentary: what does the official material actually state? The second is entity research: which people, companies, ownership relationships, and counterparties are relevant? The third is operational: what activity is observable, through which sources, and over what period?",
+          "Evidence in one layer does not settle every question in another. An announced policy change is not itself proof of a corresponding operational change. Observed activity is not itself a determination that a transaction is authorized."
+        ]
+      },
+      {
+        "heading": "Keep assumptions visible",
+        "paragraphs": [
+          "For a regional energy research brief, list the assumptions connecting the official development to the operational question. Examples might include the availability of infrastructure, the identity of a counterparty, or the reliability of production reporting. Mark each as supported, disputed, or unresolved.",
+          "Seek a second collection method where practical. Company statements, public filings, and observed movements may illuminate different parts of a question, but their dates and definitions must be comparable."
+        ]
+      },
+      {
+        "heading": "Escalate questions the research cannot settle",
+        "paragraphs": [
+          "A well-scoped research product identifies issues that need legal or compliance review without claiming to resolve them. It should provide the original documents and a precise statement of the uncertainty.",
+          "This note is an editorial research framework. It does not establish the current sanctions status of any person, company, jurisdiction, or transaction."
+        ]
+      }
+    ],
+    "watch": [
+      "Is the source the current official instrument?",
+      "Which ownership or identity relationships remain unverified?",
+      "What observed evidence supports the claimed operational change?"
+    ],
+    "sources": [
+      {
+        "title": "OFAC · Frequently asked questions",
+        "url": "https://ofac.treasury.gov/faqs/search"
+      },
+      {
+        "title": "OFAC · Specific licenses and interpretive guidance",
+        "url": "https://ofac.treasury.gov/ofac-license-application-page"
+      }
+    ],
+    "sourceNote": "Research methodology only. No transaction-specific legal or investment advice is provided.",
+    "status": "published"
+  },
+  {
+    "slug": "mapping-power-without-false-precision",
+    "title": "A better map of who matters.",
+    "dek": "Local authority, operating control, and stated positions: build actor maps around the decision an asset depends on.",
+    "category": "Methods",
+    "format": "Methods notebook",
+    "art": "network",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "Every line in an actor map is a claim. Define what it means, attach evidence, and give it a date.",
+    "sections": [
+      {
+        "heading": "Define the question before the network",
+        "paragraphs": [
+          "An actor map should answer a clearly defined question: who can influence a particular decision, through which mechanism, over what period? For an asset-level question, that may include regional managers, public authorities, contractors, unions, or community representatives. A map of national names alone may miss the decision pathway.",
+          "Choose a scope and write a rule for including an actor. Formal authority, operational responsibility, ownership, and an evidenced representative role are different reasons for inclusion. Preserve those distinctions."
+        ]
+      },
+      {
+        "heading": "Give each edge a meaning",
+        "paragraphs": [
+          "A line might represent formal appointment, an ownership stake, a reported meeting, or a public endorsement. These are not interchangeable. Label the relationship and link to evidence that supports that specific claim.",
+          "A meeting establishes contact if the source is reliable. It does not automatically establish agreement, control, or a durable alliance. Avoid stronger visual language than the evidence supports."
+        ]
+      },
+      {
+        "heading": "Add the missing dimension: time",
+        "paragraphs": [
+          "Relationships change. Each record needs a date observed, a period of validity if known, and a next review date. Historical ties can be relevant, but the reader should be able to distinguish them from current roles.",
+          "Use successive snapshots to show change. A short annotation describing why a relationship changed often communicates more than an animated network with no explanation."
+        ]
+      },
+      {
+        "heading": "Publish an argument, not just a graphic",
+        "paragraphs": [
+          "Pair the map with a short account of the decision pathway: who initiates, who can block, who implements, and what remains uncertain. Distinguish an actor’s stated position from an analyst’s interpretation of their incentives.",
+          "An actor model needs maintained evidence about roles and positions. The Venezuela programme does not present automated actor-behaviour modelling as operational. For public reporting, omit identifying relationships or details that could expose a protected source."
+        ]
+      }
+    ],
+    "watch": [
+      "What exactly does each relationship claim?",
+      "Is the relationship current, historical, or unresolved?",
+      "Does the map explain a decision pathway?"
+    ],
+    "sources": [],
+    "sourceNote": "An original editorial method. No specific individual or organization is assessed in this notebook.",
+    "status": "published"
+  },
+  {
+    "slug": "scenarios-that-can-be-tested",
+    "title": "What would change your mind?",
+    "dek": "Build scenarios around observable triggers, competing explanations, and an explicit review horizon.",
+    "category": "Methods",
+    "format": "Methods notebook",
+    "art": "scenario",
+    "date": "2026-09-11",
+    "author": "EchoFrame editorial",
+    "takeaway": "A scenario earns its place when it changes what you monitor. Write down the evidence that would strengthen it and the evidence that would weaken it.",
+    "sections": [
+      {
+        "heading": "Bound the question",
+        "paragraphs": [
+          "A scenario exercise starts with a clear outcome and time horizon. Will a defined activity continue, experience a temporary interruption, or face a sustained constraint over the chosen period? The categories need enough precision for a later review to distinguish them.",
+          "Avoid mixing outcomes that can happen together into a set that appears mutually exclusive. If the categories overlap, acknowledge that and use a structure appropriate to the question."
+        ]
+      },
+      {
+        "heading": "Describe the mechanism",
+        "paragraphs": [
+          "For each scenario, write a short causal sequence. Identify the actors, constraints, and enabling conditions. Separate evidence already observed from conditions that would need to occur.",
+          "The exercise is most useful when different scenarios imply different observations. If every new development can be made to fit every scenario, the framework is too vague to guide collection."
+        ]
+      },
+      {
+        "heading": "Distinguish confidence from probability",
+        "paragraphs": [
+          "The likelihood of an outcome and the quality of the evidence behind a judgment are different concepts. A view can favor one outcome while still resting on limited evidence. A publication should explain the meaning of any numerical estimate and any confidence label it uses.",
+          "If there is no documented basis for a number, do not invent one for visual effect. A qualitative scenario comparison with explicit assumptions is more inspectable than an unexplained percentage."
+        ]
+      },
+      {
+        "heading": "Keep a revision record",
+        "paragraphs": [
+          "Log the original assessment, new evidence, revised judgment, and reason for the change. Review scenarios against their predefined outcomes after the horizon closes. Retain unsuccessful calls as well as successful ones.",
+          "Turn the review into the next research question: which source failed, which assumption held, and which trigger arrived too late? A scenario system becomes more useful when it preserves its own learning history."
+        ]
+      }
+    ],
+    "watch": [
+      "Are the outcome and review horizon explicit?",
+      "What evidence would weaken the preferred scenario?",
+      "Can an independent reader understand why the judgment changed?"
+    ],
+    "sources": [],
+    "sourceNote": "An original editorial framework. Scenarios shown on this website are illustrative, not current forecasts.",
+    "status": "published"
+  }
+]
