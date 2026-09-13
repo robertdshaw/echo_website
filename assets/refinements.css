@@ -70,3 +70,6 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 .analytical-layers summary,.scenario-options summary{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:900px){.workflow-columns{grid-template-columns:1fr}}
 @media(max-width:680px){.judgment-flow,.consequence-flow{grid-template-columns:1fr}}
+
+/* Worked examples read as three separate pieces of work, not a grid of cards. */
+.worked-examples .worked-example + .worked-example { margin-top: clamp(3.5rem, 7vw, 6rem); }

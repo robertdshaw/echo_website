@@ -36,23 +36,6 @@ CARDS = [
        'The client moved from enforcement to structured settlement, timed to the government licensing window rather '
        'than to the arbitration calendar. What would close that window is resistance to the licensing framework from '
        'the hardliners and the military, and that is what we watch.')]),
-    ('Which claim, in what structure, below what price',
-     'A distressed credit fund with no existing position. Scoping work, September 2026.',
-     [('The situation',
-       'A court-run sale of a sovereign US refining subsidiary, with a public queue of creditors waiting to be paid '
-       'from the proceeds.'),
-      ('The question', 'Should we enter the queue, and if so how?'),
-      ('What the evidence showed',
-       'The queue is public in the court docket and the arithmetic is unforgiving. Expected proceeds covered the '
-       'first nine priorities comfortably and the first thirteen at a stretch. The largest claim sat fourteenth and '
-       'needed proceeds far above any plausible sale price to be paid at all, which makes it a call option rather '
-       'than a claim. Three routes existed that were not the queue. Buying a senior position from a holder with a '
-       'reason to sell. Co-investing in a buyer group. Or waiting for a licence expiry that would improve price '
-       'discovery on the deep positions.'),
-      ('What it changed',
-       'The question the fund brought was whether to enter the queue. The question the scoping produced was which of '
-       'four holders would sell, at what price, and which of three structures suited them. That is a four-week '
-       'decision and we scoped it as one.')]),
     ('A state that wanted the capability, not the service',
      'A Gulf government. Capability design, 2026.',
      [('The situation',
@@ -71,19 +54,6 @@ CARDS = [
        'is a different and more useful question.')]),
 ]
 
-QUESTION = ('If this government breaks a contract signed under the new hydrocarbons law, what are an investor’s '
-            'realistic chances of being paid, and what single event would most improve them within a year?')
-
-ANSWER = ('Low on the current record, and the reason is structural rather than political. Contracts signed under the '
-          'new framework have not been tested by an enforcement action, so there is no precedent for what the state '
-          'does when challenged. Two things would change that within a year. A first arbitration filing that the '
-          'state chooses to answer rather than ignore would establish whether the framework is treated as binding. '
-          'And a settlement paid to any existing claimant would be stronger than any statement, because it would '
-          'show that clearing claims is worth more to the state than holding them. What would push my estimate down '
-          'is a second licensing round issued while existing awards remain unpaid, which would indicate the state '
-          'believes it can attract capital without settling.')
-
-
 def page(intro):
     cards = ''
     for i, (title, context, rows) in enumerate(CARDS, 1):
@@ -91,16 +61,9 @@ def page(intro):
         cards += (f'<article class="worked-example" id="example-{i}"><div class="eyebrow">{i:02d}</div>'
                   f'<h2>{title}</h2><p class="example-context"><em>{context}</em></p>'
                   f'<div class="standards-grid">{body}</div></article>')
-    teaser = ('<section class="section container" id="ask-the-desk"><div class="section-heading"><div>'
-              '<div class="eyebrow">Put a question to the desk</div>'
-              '<h2>It answers from the record, or it tells you it cannot</h2></div>'
-              '<p>The desk analyst answers only from the material in front of it. It cites what it used. It does not '
-              'hedge. If you ask what would change its mind, it tells you.</p></div><div class="prose-page">'
-              f'<p><strong>Question.</strong> {QUESTION}</p>'
-              f'<p><strong>Answer, shortened.</strong> {ANSWER}</p></div></section>')
     return intro(
         'Worked examples',
-        'Four engagements, described by type',
+        'Three engagements, described by type',
         'Every one of these is real work. No client is named and no figure from a client document appears. Where a '
         'number carried the argument it has been replaced by the proportion or the direction.'
-    ) + '<section class="section container worked-examples">' + cards + '</section>' + teaser
+    ) + '<section class="section container worked-examples">' + cards + '</section>'

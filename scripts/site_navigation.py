@@ -13,7 +13,7 @@ GROUPS = [
         ('government-affairs.html','Government affairs','Policy, stakeholders, and operating assets.'),
         ('distressed-debt.html','Distressed debt','Political assumptions and counterparty research.'),
         ('case-study-venezuela.html','Case study, Venezuela','A call made before the outcome.'),
-        ('worked-examples.html','Worked examples','Four engagements, described by type.'),
+        ('worked-examples.html','Worked examples','Three engagements, described by type.'),
         ('engagement.html','Working with EchoFrame','Research formats, scope, and delivery.')]),
     ('Company', [
         ('about.html','About EchoFrame','The purpose and approach behind the research.'),

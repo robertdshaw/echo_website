@@ -83,7 +83,7 @@ ITEMS_ES = {
     'government-affairs.html': ('Asuntos gubernamentales', 'Política, actores y activos en operación.'),
     'distressed-debt.html': ('Deuda en dificultades', 'Supuestos políticos y estudio de contrapartes.'),
     'case-study-venezuela.html': ('Caso práctico, Venezuela', 'Una valoración hecha antes del desenlace.'),
-    'worked-examples.html': ('Ejemplos de trabajo', 'Cuatro encargos, descritos por tipo.'),
+    'worked-examples.html': ('Ejemplos de trabajo', 'Tres encargos, descritos por tipo.'),
     'engagement.html': ('Trabajar con EchoFrame', 'Formatos, alcance y entrega.'),
     'sample-briefs.html': ('Plantillas e informes de muestra', 'Estructura de un informe de investigación.'),
     'sources.html': ('Directorio de fuentes primarias', 'Registros oficiales y cómo utilizarlos.'),
