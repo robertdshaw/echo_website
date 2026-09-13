@@ -54,7 +54,7 @@ TESTS = [
 
 
 def six_layers():
-    items = ''.join(f'<article><span class="eyebrow">Layer {i:02}</span><h3>{E(name)}</h3><p class="layer-claim">{E(claim)}</p><p>{E(copy)}</p><details><summary>See how to use it</summary><p>{E(example)}</p></details></article>' for i, (name, claim, copy, example) in enumerate(LAYERS, 1))
+    items = ''.join(f'<article><span class="eyebrow">Layer {i:02}</span><h3>{E(name)}</h3><p class="layer-claim">{E(claim)}</p><p>{E(copy)}</p></article>' for i, (name, claim, copy, example) in enumerate(LAYERS, 1))
     return '<section class="section container" id="six-layers"><div class="section-heading"><div><div class="eyebrow">Six analytical layers</div><h2>Different lenses<br>One evidence record</h2></div><p>Each layer asks a different question of the same material. The value lies in seeing how the interpretation was reached and where it could be wrong.</p></div><div class="analytical-layers">'+items+'</div></section>'
 
 

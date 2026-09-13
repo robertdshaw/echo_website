@@ -19,6 +19,7 @@ from contact import contact_page
 from testimonials import testimonials
 from map_data import build_map_data
 from map_page import map_page
+from placeholders import worked_example
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT  # Source pages are checked in; Render serves the same generated files.
@@ -127,6 +128,7 @@ def article_page(a):
     date_label = datetime.date.fromisoformat(a['date']).strftime('%d %B %Y').lstrip('0') if a.get('date_confirmed', True) else a['date_marker']
     toc = ''.join(f'<a href="#section-{i}"><span>0{i}</span>{E(s["heading"])}</a>' for i,s in enumerate(a['sections'],1))
     sections = ''.join(f'<section id="section-{i}"><h2>{E(s["heading"])}</h2>'+''.join(f'<p>{E(p)}</p>' for p in s['paragraphs'])+'</section>' for i,s in enumerate(a['sections'],1))
+    sections += worked_example(a["slug"])
     sources = ''.join(f'<li><a href="{E(s["url"])}" target="_blank" rel="noopener noreferrer">{E(s["title"])} </a></li>' for s in a['sources'])
     related = [r for r in ARTICLES if r['slug']!=a['slug']][:3]
     return f'''<div class="reading-progress" aria-hidden="true"></div><article><header class="article-header container"><a class="back-link" href="../research.html"> Intelligence library</a><div class="eyebrow">{E(a['category'])} / {E(a['format'])}</div><h1>{E(a['title'])}</h1><p class="article-dek">{E(a['dek'])}</p><div class="article-byline"><span class="author-mark">{MARK}</span><span>{E(a['author'])}<small><span class="article-date">{E(date_label)}</span> · {E(a.get('collection','Foundations collection'))}</small></span><div class="reader-actions"><button class="save-article" data-slug="{a['slug']}" aria-pressed="false">Save article +</button><button class="copy-link">Copy link </button><button class="print-article">Print </button></div></div><span class="reader-status" role="status" aria-live="polite"></span></header><div class="article-layout container"><aside class="article-toc"><div class="eyebrow">In this perspective</div>{toc}<a href="#source-notes"><span></span>Sources & notes</a></aside><div class="article-body"><div class="takeaway"><div class="eyebrow">The central idea</div><p>{E(a['takeaway'])}</p></div>{sections}<section class="watch-box"><div class="eyebrow">Questions to carry forward</div><h2>What to watch.</h2><ul>{''.join(f'<li>{E(w)}</li>' for w in a['watch'])}</ul></section><section id="source-notes" class="source-notes"><h2>Sources & editorial notes</h2><p>{E(a['sourceNote'])}</p>{'<ol>'+sources+'</ol>' if sources else ''}<p>Publication date {E(date_label)}. Read our <a href="../editorial-standards.html">editorial standards</a>. To suggest a correction, <a href="mailto:contact@echoframe.co?subject=Editorial%20correction%3A%20{a['slug']}">contact the editorial desk</a>.</p></section></div></div></article><section class="section container"><div class="section-heading"><div><div class="eyebrow">Continue exploring</div><h2>Connect another perspective.</h2></div></div><div class="card-grid">{''.join(card(r,'../') for r in related)}</div></section>'''+cta('../')
@@ -152,7 +154,7 @@ def methodology():
     start = legacy.index('<section class="scenario-section">')
     end = legacy.index('<section class="section container">', start)
     evidence_demo = legacy[start:end]
-    return intro('Our method / Evidence to judgment', 'Political science,<br><em>run as data science</em>', 'Six analytical layers connect reporting to events, actors, incentives, and possible outcomes. The reasoning should be visible enough to challenge, and clear enough to use in a decision.')+six_layers()+evidence_flow()+evidence_demo+hard_questions()+cta()
+    return intro('Our method / Evidence to judgment', 'Political science,<br><em>run as data science</em>', 'Six analytical layers connect reporting to events, actors, incentives, and possible outcomes. The reasoning should be visible enough to challenge, and clear enough to use in a decision.')+six_layers()+worked_example("the analytical method")+evidence_flow()+evidence_demo+hard_questions()+cta()
 
 
 def frame_bureau_summary():
