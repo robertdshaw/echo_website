@@ -14,7 +14,7 @@ def contact_page():
 <label>Additional details<textarea name="details" rows="4" maxlength="3000" placeholder="Include the asset or market, your deadline and any non-confidential background."></textarea></label>
 <label>How did you find us?<select name="referral"><option>Prefer not to say</option><option>Colleague or professional referral</option><option>LinkedIn</option><option>Search</option><option>Event or publication</option></select></label>
 <div class="contact-honeypot" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
-<p class="contact-privacy">Your request and the details you provide will be emailed to contact@echoframe.co so we can respond. <a href="privacy.html">Read our privacy notice</a>.</p>
+<p class="contact-privacy"><a href="privacy.html">Read our privacy notice</a>.</p>
 <button class="button button-coral send-request" type="submit">Book a conversation</button><p id="form-status" role="status" aria-live="polite"></p>
-<div id="contact-success" class="contact-success" hidden tabindex="-1"><h3>Your request is on its way</h3><p>Our email service has accepted your request for contact@echoframe.co. We will reply using the work email you provided.</p><p id="contact-reference"></p></div>
-<noscript><p>JavaScript is needed to submit this form. You can reach us at contact@echoframe.co.</p></noscript></form></section>'''
+<div id="contact-success" class="contact-success" hidden tabindex="-1"><h3>Your request is on its way</h3><p>Our email service has accepted your request. We will reply using the work email you provided.</p><p id="contact-reference"></p></div>
+<noscript><p>JavaScript is needed to submit this form. You can reach us at robert@echoframe.co.</p></noscript></form></section>'''

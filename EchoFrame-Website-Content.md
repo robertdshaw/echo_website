@@ -304,15 +304,15 @@ How did you find us?
 
 Options: Prefer not to say; Colleague or professional referral; LinkedIn; Search; Event or publication
 
-Your request and the details you provide will be emailed to contact@echoframe.co so we can respond. [Privacy notice](https://www.echoframe.co/privacy.html) .
+[Privacy notice](https://www.echoframe.co/privacy.html) .
 
 Book a conversation
 
 ##### Your request is on its way
 
-Our email service has accepted your request for contact@echoframe.co. We will reply using the work email you provided.
+Our email service has accepted your request. We will reply using the work email you provided.
 
-JavaScript is needed to submit this form. You can reach us at contact@echoframe.co.
+JavaScript is needed to submit this form. You can reach us at robert@echoframe.co.
 
 <a id="page-06"></a>
 

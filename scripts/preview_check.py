@@ -55,7 +55,7 @@ try:
         page.locator('.send-request').click()
         expect(page.locator('#contact-success')).to_be_visible()
         assert len(sent)==1
-        assert sent[0][0]=='contact@echoframe.co'
+        assert sent[0][0]=='robert@echoframe.co'
         assert sent[0][1]['details']=='Additional background.\nA second paragraph.'
         assert page.locator('.send-request').is_hidden()
         page.screenshot(path=str(ROOT/'.preview'/'content-form-confirmation.png'),full_page=True)

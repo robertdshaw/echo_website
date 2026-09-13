@@ -13,8 +13,12 @@ The approved revision is live at [www.echoframe.co](https://www.echoframe.co/). 
 
 The eight-field form and matching server are deployed. The production `/api/contact/status` endpoint returns `ready: false`, as it did before deployment. No email provider credentials were available in the local configuration or current environment. No email was sent during verification.
 
-To enable delivery, configure an authorised `CONTACT_FROM` and `RESEND_API_KEY` in the existing Render service, or supported authenticated SMTP settings. The application fixes the recipient to `contact@echoframe.co`. Provider acceptance and inbox arrival still require a real delivery test after configuration. Until then, the form reports sending unavailable and retains the visitor's entries.
+To enable delivery, configure an authorised `CONTACT_FROM` and `RESEND_API_KEY` in the existing Render service, or supported authenticated SMTP settings. Following Rob's subsequent instruction, the application now fixes the recipient to `robert@echoframe.co`. Provider acceptance and inbox arrival still require a real delivery test after configuration. Until then, the form reports sending unavailable and retains the visitor's entries.
 
 The owner markers for dates, quote permissions, channel naming, real redacted examples, visualisations and the Social dimension remain in the deployed content as approved.
 
 Deployment source [82db54b](https://github.com/EchoFrame-Ltd/echoframe-team-preview/commit/82db54b6da5ac7d4ef96f86f4c77c8ec56c25c20). [Render deployment](https://dashboard.render.com/web/srv-dai1fpm1egvs73d1qde0/deploys/dep-daj89b0ae00c73dut0cg).
+
+## Recipient and copy follow-up
+
+Deployment commit `cd3b52b` addresses requests to `robert@echoframe.co`, removes the sentence explaining that details will be emailed to the previous contact address, and keeps the privacy link. The confirmation no longer names the old recipient. The JavaScript-disabled contact address also uses Robert's address. All 14 server tests and the browser submission check passed with stub delivery; no message was sent.

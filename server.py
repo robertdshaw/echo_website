@@ -88,7 +88,7 @@ def send_contact(config, values, request_id):
 def create_app(overrides=None, sender=None):
     load_local_environment()
     app=Flask(__name__,static_folder=None)
-    app.config.update(MAX_CONTENT_LENGTH=16000,CONTACT_TO='contact@echoframe.co',CONTACT_FROM=os.getenv('CONTACT_FROM',''),APP_SECRET=os.getenv('APP_SECRET') or secrets.token_hex(32),PUBLIC_ORIGIN=os.getenv('PUBLIC_ORIGIN',''),STATE_PATH=ROOT/'.contact-state'/'requests.sqlite3',RESEND_API_KEY=os.getenv('RESEND_API_KEY',''),SMTP_HOST=os.getenv('SMTP_HOST',''),SMTP_PORT=os.getenv('SMTP_PORT','587'),SMTP_USERNAME=os.getenv('SMTP_USERNAME',''),SMTP_PASSWORD=os.getenv('SMTP_PASSWORD',''),SMTP_SECURITY=os.getenv('SMTP_SECURITY','starttls'))
+    app.config.update(MAX_CONTENT_LENGTH=16000,CONTACT_TO='robert@echoframe.co',CONTACT_FROM=os.getenv('CONTACT_FROM',''),APP_SECRET=os.getenv('APP_SECRET') or secrets.token_hex(32),PUBLIC_ORIGIN=os.getenv('PUBLIC_ORIGIN',''),STATE_PATH=ROOT/'.contact-state'/'requests.sqlite3',RESEND_API_KEY=os.getenv('RESEND_API_KEY',''),SMTP_HOST=os.getenv('SMTP_HOST',''),SMTP_PORT=os.getenv('SMTP_PORT','587'),SMTP_USERNAME=os.getenv('SMTP_USERNAME',''),SMTP_PASSWORD=os.getenv('SMTP_PASSWORD',''),SMTP_SECURITY=os.getenv('SMTP_SECURITY','starttls'))
     if overrides:
         app.config.update(overrides)
     if os.getenv('TRUST_PROXY')=='true':
