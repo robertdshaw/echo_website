@@ -16,6 +16,7 @@ from visuals import video_section
 from homepage import claims
 from how_it_works import page as how_it_works_page
 from case_study import page as case_study_page
+from worked_examples import page as worked_examples_page
 from intelligence import analytical_layers, evidence_flow, hard_questions
 from contact import contact_page
 from testimonials import testimonials
@@ -239,6 +240,7 @@ def main():
     write('venezuela.html','Venezuela · Asset-level intelligence',venezuela_page(intro,cta),'venezuela')
     write('how-it-works.html','How it works',how_it_works_page(intro),'how-it-works')
     write('case-study-venezuela.html','Case study, Venezuela',case_study_page(intro),'case-study')
+    write('worked-examples.html','Worked examples',worked_examples_page(intro),'worked-examples')
     write('about.html','About',about(),'about')
     write('briefing.html','Book a briefing',briefing(),'briefing')
     write('editorial-standards.html','Editorial standards',standards(),'standards')

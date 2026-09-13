@@ -8,6 +8,7 @@ INVITATIONS = {
     'actor-mapping.html': 'Discuss the relationships your decision depends on',
     'capabilities.html': 'Outline the research you need',
     'case-study-venezuela.html': 'Put a question like this one to us',
+    'worked-examples.html': 'Put a question to the desk',
     'coverage.html': 'Enquire about research coverage',
     'decision-pathways.html': 'Discuss your decision criteria',
     'distressed-debt.html': 'Examine an investment assumption with us',
