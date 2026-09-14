@@ -73,34 +73,24 @@ def intro(kicker, title, description):
 
 def about():
     story = ('<section class="about-story container"><div class="about-visual"><span class="eyebrow">ECHOFRAME</span>'
-             + MARK + '<span>Research and assessment</span></div><div><div class="eyebrow">In the first person</div>'
-             '<h2>The same observation, twice.</h2>'
-             '<p>I spent twenty years reporting from and working in places where the information was thin, mostly '
-             'Latin America, and then a decade building the data systems that try to fill that gap.</p>'
-             '<p>EchoFrame came out of the same observation twice. The people who know what is happening in a place '
-             'are usually the local journalists, and nobody is paying them for it. Everything we build starts '
-             'there.</p><p class="eyebrow">Robert Shaw, founder</p></div></section>')
-    cards = [
-        ('Government affairs',
-         'Oil and gas government affairs teams use the record to see which decisions and relationships change the '
-         'conditions around an operating asset, and what still has to happen before an announcement becomes a fact '
-         'on the ground.'),
-        ('Distressed debt and special situations',
-         'Funds use it to test the political and operating assumptions inside an investment case, and to see which '
-         'developments would support a view, challenge it or leave it unresolved.'),
-        ('Venezuela',
-         'Our working programme, and the one the rest is built from. Collection follows the question being '
-         'investigated and the evidence needed to answer it.'),
-    ]
-    grid = ''.join(f'<div><span class="eyebrow">{i:02d}</span><h3>{title}</h3><p>{body}</p></div>'
-                   for i, (title, body) in enumerate(cards, 1))
+             + MARK + '<span>Research and assessment</span></div><div>'
+             '<h2>The information exists.<br>It is not where people look.</h2>'
+             '<p>I spent twenty years as an investigative reporter and risk analyst, most of it in Latin America, '
+             'and then a decade building the data systems that try to close the gap between what is known in a '
+             'place and what reaches a desk in London or New York.</p>'
+             '<p>The people who know what is happening somewhere are the journalists who live there. Very little of '
+             'what they know reaches the wires, because nobody is paying for it to. Meanwhile the money goes to '
+             'exactly those places. Emerging-market supply chains run through provinces and districts no '
+             'correspondent covers, and it is there that a licence, a workforce or a road decides whether an asset '
+             'keeps running.</p>'
+             '<p>EchoFrame is built on that gap. Find what local reporting already knows, check it against official '
+             'records, physical data and markets, and read the meaning out of it, and you can see where something '
+             'is going while there is still time to act on it.</p>'
+             '<p class="eyebrow">Robert Shaw, founder</p></div></section>')
     return (intro('About EchoFrame', 'Why the company exists',
                   'The people who know what is happening in a place are usually the local journalists. Everything we '
                   'build starts there.')
             + story
-            + '<section class="section container"><div class="section-heading"><div><div class="eyebrow">Designed '
-              'around the question</div><h2>Different decisions, one record.</h2></div></div>'
-              f'<div class="standards-grid">{grid}</div></section>'
             + video_section() + testimonials() + faq() + cta())
 
 
