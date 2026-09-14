@@ -199,3 +199,4 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 }
 .product-grid ul{font-size:13px;line-height:1.7;color:#665f68;margin:18px 0}.product-grid li{padding:9px 0}.product-grid>article>.eyebrow+h3{margin-top:14px}.service-where{font-size:13px;line-height:1.7;color:#75637f;margin-top:16px}.service-where .eyebrow{display:block;margin-bottom:5px}@media(max-width:680px){.product-grid ul{font-size:13px}}
 .home-claim p a{color:var(--purple);text-decoration:underline;text-underline-offset:3px}
+/* prose-page carries padding-bottom for pages it wraps entirely. Inside a section the section already provides that rhythm, so the two stack into a gap. */.section>.prose-page{padding-bottom:0}
