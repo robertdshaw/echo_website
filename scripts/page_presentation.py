@@ -10,6 +10,8 @@ INVITATIONS = {
     'case-study-venezuela.html': 'Bring us a question with a date on it',
     'worked-examples.html': 'Put a question to the desk',
     'frame-bureau.html': 'Talk to us about training a desk',
+    'oil-and-gas.html': 'Tell us which assets you need watched',
+    'commodities.html': 'Tell us which origins you depend on',
     'services.html': 'Tell us what you need covered',
     'asset-watch.html': 'Tell us which assets to watch',
     'question-book.html': 'Bring us a decision to turn into questions',

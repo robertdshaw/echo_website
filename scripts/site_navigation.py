@@ -7,8 +7,8 @@ GROUPS = [
         ('services.html','What we deliver','Three subscriptions and three kinds of project.'),
         ('engagement.html','Working with EchoFrame','Formats, scope, and delivery.')]),
     ('Sectors Served', [
-        ('government-affairs.html','Government affairs','Policy, stakeholders, and operating assets.'),
-        ('distressed-debt.html','Distressed debt','Political assumptions and counterparty research.')]),
+        ('oil-and-gas.html','Oil and gas','Policy, permits and the assets they decide.'),
+        ('commodities.html','Commodities','Food and farming, from the growing zone to the port.')]),
     ('Cases', [
         ('case-study-venezuela.html','Case study, Venezuela','A call made before the outcome.'),
         ('worked-examples.html','Worked examples','Three pieces of work, and what each changed.'),

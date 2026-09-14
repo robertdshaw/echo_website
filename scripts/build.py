@@ -22,6 +22,7 @@ from worked_examples import page as worked_examples_page
 from frame_bureau import page as frame_bureau_page
 from coverage_page import page as coverage_page
 import services
+import sectors
 from contact import contact_page
 from testimonials import testimonials
 from page_presentation import enquiry_policy
@@ -181,6 +182,9 @@ def main():
     for line in services.SERVICES:
         write(line['slug']+'.html', line['name'], services.service_page(intro, line['slug']), 'services')
     write('projects.html','Projects',services.projects_page(intro),'services')
+    for slug in ('oil-and-gas','commodities'):
+        write(slug+'.html', sectors.SECTORS[slug]['name'], sectors.page(intro, slug), 'sector',
+              description=sectors.SECTORS[slug]['description'])
     write('coverage.html','Regional coverage',coverage_page(intro),'coverage')
     write('venezuela.html','Venezuela · Asset-level intelligence',venezuela_page(intro,cta),'venezuela')
     write('how-it-works.html','How it works',how_it_works_page(intro),'how-it-works')
