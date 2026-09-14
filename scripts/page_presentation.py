@@ -7,7 +7,6 @@ INVITATIONS = {
     'about.html': 'Ask us about the company',
     'actor-mapping.html': 'Discuss the relationships your decision depends on',
     'capabilities.html': 'Outline the research you need',
-    'case-study-venezuela.html': 'Bring us a question with a date on it',
     'worked-examples.html': 'Put a question to the desk',
     'frame-bureau.html': 'Talk to us about training a desk',
     'oil-and-gas.html': 'Tell us which assets you need watched',

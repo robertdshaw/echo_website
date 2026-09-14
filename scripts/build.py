@@ -17,7 +17,6 @@ from spanish_page import page as spanish_page
 from visuals import video_section
 from homepage import claims
 from how_it_works import page as how_it_works_page
-from case_study import page as case_study_page
 from worked_examples import page as worked_examples_page
 from frame_bureau import page as frame_bureau_page
 from coverage_page import page as coverage_page
@@ -188,7 +187,6 @@ def main():
     write('coverage.html','Regional coverage',coverage_page(intro),'coverage')
     write('venezuela.html','Venezuela · Asset-level intelligence',venezuela_page(intro,cta),'venezuela')
     write('how-it-works.html','How it works',how_it_works_page(intro),'how-it-works')
-    write('case-study-venezuela.html','Case study, Venezuela',case_study_page(intro),'case-study')
     write('worked-examples.html','Worked examples',worked_examples_page(intro),'worked-examples')
     write('frame-bureau.html','The Frame Bureau',frame_bureau_page(intro),'frame-bureau')
     write('about.html','About',about(),'about')
@@ -209,7 +207,7 @@ def main():
         if obsolete.relative_to(public).as_posix() not in published_pages:
             assert obsolete.resolve().is_relative_to(publication_root), 'Refusing to remove a page outside public/'
             obsolete.unlink()
-    files = published_pages + ['favicon.png', 'assets/site.css', 'assets/presence.css', 'assets/depth.css', 'assets/refinements.css', 'assets/bureau.css', 'assets/site.js', 'assets/globe.svg', 'assets/energy-horizon.png', 'assets/hero-terminal.jpg', 'assets/example-evidence.jpg', 'assets/case_petrocedeno.jpg', 'assets/case_jose.jpg', 'assets/case_docket.jpg', 'assets/social-card.svg', 'assets/social-card.png', 'assets/ATTRIBUTION.md']
+    files = published_pages + ['favicon.png', 'assets/site.css', 'assets/presence.css', 'assets/depth.css', 'assets/refinements.css', 'assets/bureau.css', 'assets/site.js', 'assets/globe.svg', 'assets/energy-horizon.png', 'assets/hero-terminal.jpg', 'assets/example-evidence.jpg', 'assets/case_upgrader.jpg', 'assets/case_terminal.jpg', 'assets/case_docket.jpg', 'assets/social-card.svg', 'assets/social-card.png', 'assets/ATTRIBUTION.md']
     files += downloads + ['images/EchoFramev3.mp4']
     # Archive interface screenshots are not part of the publication output.
     for obsolete in public.rglob('*'):

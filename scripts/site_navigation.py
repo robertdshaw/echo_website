@@ -9,10 +9,7 @@ GROUPS = [
     ('Sectors Served', [
         ('oil-and-gas.html','Oil and gas','Policy, permits and the assets they decide.'),
         ('commodities.html','Commodities','Food and farming, from the growing zone to the port.')]),
-    ('Cases', [
-        ('case-study-venezuela.html','Case study, Venezuela','A call made before the outcome.'),
-        ('worked-examples.html','Worked examples','Three pieces of work, and what each changed.'),
-        ]),
+    ('Cases', 'worked-examples.html'),
     ('The Frame Bureau', 'frame-bureau.html'),
     ('About', [
         ('about.html','About EchoFrame','The purpose and approach behind the research.'),
