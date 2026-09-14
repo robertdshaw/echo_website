@@ -23,13 +23,15 @@ SECTORS = {
                       'port is open. Which way the politics is turning. What the contract with the '
                       'marketing board actually says.',
         'problem_title': 'The decision is made in a district, not a capital',
-        'problem': 'A state board sets a farmgate price. An export licence is suspended in one province. A '
-                   'quarantine closes a growing zone. A route to the port is taxed by an armed group. None '
-                   'of that reaches a price series until it has already moved the price, and by the time it '
-                   'is news your counterparty has been trading on it for weeks. Indonesia announced a palm '
-                   'oil export ban on 27 April 2022 that took effect the following day. India banned '
-                   'non-basmati rice exports on 20 July 2023 and did not lift it until September 2024. '
-                   'Neither was a forecast anyone could buy.',
+        'problem': [
+            'A state board sets a farmgate price. An export licence is suspended in one province. A '
+            'quarantine closes a growing zone. A route to the port is taxed by an armed group. None of that '
+            'reaches a price series until it has already moved the price, and by the time it is news your '
+            'counterparty has been trading on it for weeks.',
+            'Indonesia announced a palm oil export ban on 27 April 2022 that took effect the following day. '
+            'India banned non-basmati rice exports on 20 July 2023 and did not lift it until September '
+            '2024. Neither was a forecast anyone could buy.',
+        ],
         'watch': [
             ('Licensing and permits', 'Export licences and registration with a marketing board, '
                                       'phytosanitary certificates, quarantine on an infected zone, and the '
@@ -72,6 +74,7 @@ REGULATION = (
 
 def page(intro, slug):
     s = SECTORS[slug]
+    problem = ''.join('<p>%s</p>' % t for t in s['problem'])
     watch = ''.join(
         f'<article><span class="depth-number">{i:02}</span><h3>{title}</h3><p>{text}</p></article>'
         for i, (title, text) in enumerate(s['watch'], 1))
@@ -80,20 +83,22 @@ def page(intro, slug):
         for i, (url, label, text) in enumerate(s['audiences'], 1))
     body = (
         f'<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
-        f'The problem</div><h2>{s["problem_title"]}</h2></div><p>{s["problem"]}</p></div></section>'
+        f'The problem</div><h2>{s["problem_title"]}</h2></div></div>'
+        f'<div class="prose-page">{problem}</div></section>'
         f'<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
         f'What we watch</div><h2>Five things that decide<br>whether it keeps running</h2></div></div>'
         f'<div class="depth-cards">{watch}</div></section>')
     body += REGULATION
     body += (
         '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
-        'Where it matters</div><h2>The countries we open next<br>are farming countries</h2></div>'
+        'Where it matters</div><h2>The countries we open next<br>are farming countries</h2></div></div>'
+        '<div class="prose-page">'
         '<p>Colombia is coffee and bananas, with a quarantine running in the banana zones since 2019. '
         'Rwanda licenses and prices coffee and tea through a national board whose trading rules changed '
         'as recently as 2023. Pakistan is cotton, rice and wheat, where a provincial decision on '
         'procurement moves a farmgate price faster than any market does. Mexico is fresh produce, where '
-        'the labour mechanisms in the trade agreement now reach agriculture.</p></div>'
-        '<div class="container prose-page"><p>Collection runs in Venezuela today. The four countries '
+        'the labour mechanisms in the trade agreement now reach agriculture.</p>'
+        '<p>Collection runs in Venezuela today. The four countries '
         'above are in build. We will tell you plainly whether we cover where you are exposed before you '
         'buy anything, and we would rather lose the sale than imply a desk that does not exist. '
         '<a href="coverage.html">See where collection stands</a>.</p></div></section>')
