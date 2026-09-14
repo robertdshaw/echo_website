@@ -4,9 +4,10 @@
 def claims():
     sections = [
         ('01 / The problem', 'You hear it once it is already priced in',
-         'The places where your exposure is largest are the places with the thinnest reporting. A permit '
-         'condition changes, a workforce walks out, a court reassigns a claim. By the time it reaches the '
-         'wires, the people on the other side of your contract have been acting on it for weeks.'),
+         'Your exposure sits in the places that are hardest to get information out of. A supply chain runs '
+         'from an oilfield in Venezuela to a mine in Rwanda and through a dozen countries in between. '
+         'Finding someone reliable in any of them at short notice is slow and expensive. That is the part '
+         'we are built for.'),
         ('02 / What we watch', 'Licensing, labour, security, politics and contract terms',
          'The five things that decide whether an asset keeps running and what it is worth. Who holds the '
          'permit and on what condition. Whether the workforce is about to stop. What is happening around '
