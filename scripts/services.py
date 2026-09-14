@@ -78,8 +78,8 @@ SERVICES = [
               "It reaches you before the national press has the story, and often when the national press "
               "never runs it at all."]),
             ("How it works",
-             ["We pay local newsrooms for the collection alongside their own reporting.",
-              "The correspondents stay inside their newsroom under their own editors.",
+             ["The reporting is filed by people who already live and work in the place.",
+              "They stay under their own editorial control, not ours.",
               "Their identities stay with them and never reach us or you."]),
             ("Who it is for",
              ["Anyone already taking Asset Watch or Question Book whose assets sit in a covered state.",

@@ -39,7 +39,7 @@ def page(intro):
     nxt = ('<section id="next" class="region-detail container"><div><div class="eyebrow">Next</div>'
            '<h2>Four countries.</h2>'
            '<p>Each is chosen for the same three reasons. Real capital exposure outside the capital, thin local '
-           'reporting, and a newsroom or institutional relationship we can build the collection on.</p></div>'
+           'reporting, and a standing relationship we can build the collection on.</p></div>'
            '</section><div class="container"><section class="coverage-coming" aria-labelledby="coming-coverage-title">'
            '<h2 id="coming-coverage-title" class="visually-hidden">The countries next in the programme</h2>'
            f'<ul>{countries}</ul></section></div>')
