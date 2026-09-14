@@ -3,10 +3,10 @@ from html import escape as E
 from chrome import GROUPS_ES, ITEMS_ES
 
 GROUPS = [
-    ('Services', [
+    ('Products', [
         ('services.html','What we deliver','Three subscriptions and three kinds of project.'),
         ('engagement.html','Working with EchoFrame','Formats, scope, and delivery.')]),
-    ('Our work', [
+    ('Sectors Served', [
         ('government-affairs.html','Government affairs','Policy, stakeholders, and operating assets.'),
         ('distressed-debt.html','Distressed debt','Political assumptions and counterparty research.')]),
     ('Cases', [

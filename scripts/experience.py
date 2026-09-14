@@ -19,7 +19,6 @@ def hero():
     </div>
     <p class="ef-hero-tag"><span class="ef-dot ef-dot-1">&#8230;</span><span class="ef-dot ef-dot-2">&#8230;</span><span class="ef-tag-words">all the time</span></p>
   </div>
-  <p class="ef-hero-standfirst">We pay local newsrooms for reporting from places the wires do not cover, and check it against official records, physical data and markets. What you get is a dated record you can act on.</p>
 </div></section>
 '''
 

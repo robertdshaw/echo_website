@@ -3,18 +3,27 @@
 
 def claims():
     sections = [
-        ('01 / Where we collect', 'Outside the capitals',
-         'Oil states in eastern and western Venezuela, with Colombia, Mexico, Rwanda and Pakistan next. '
-         'We work where the reporting is thinnest and the exposure is largest.'),
-        ('02 / How we check it', 'Nothing counts on one class of source',
-         'News media count as one class however many outlets carry a story. Official records, independent research, '
-         'physical data and reporting from the ground are the others. A development is confirmed when independent classes agree.'),
-        ('03 / What you get', 'A record, not a report',
-         'A dated record of developments at named assets, a short list of written questions with dates on them, '
-         'and a probability on each that moves only when the evidence does.'),
-        ('04 / What we deliver', 'Three things to subscribe to, three to commission',
-         'Asset Watch covers the assets you name. Question Book answers the questions you have to settle. Ground '
-         'Truth files reporting from the places we cover. <a href="services.html">See what we deliver</a>.'),
+        ('01 / The problem', 'You hear it once it is already priced in',
+         'The places where your exposure is largest are the places with the thinnest reporting. A permit '
+         'condition changes, a workforce walks out, a court reassigns a claim. By the time it reaches the '
+         'wires, the people on the other side of your contract have been acting on it for weeks.'),
+        ('02 / What we watch', 'Licensing, labour, security, politics and contract terms',
+         'The five things that decide whether an asset keeps running and what it is worth. Who holds the '
+         'permit and on what condition. Whether the workforce is about to stop. What is happening around '
+         'the site. Which way the politics is turning. What the contract obliges each side to do.'),
+        ('03 / Where we work', 'Outside the capitals, and quick to add the next one',
+         'Oil states in eastern and western Venezuela today, with Colombia, Mexico, Rwanda and Pakistan '
+         'next. The method does not change from one country to the next, so a new desk starts from the '
+         'last one rather than from nothing. Tell us where you operate.'),
+        ('04 / How we check it', 'Nothing counts on one class of source',
+         'News media count as one class however many outlets carry a story. Official records, independent '
+         'research, physical data and reporting from the ground are the others. A development is confirmed '
+         'when independent classes agree, and it reaches you carrying the date and the sources behind it.'),
+        ('05 / What you get', 'An alert, a brief, a report, or an answer',
+         'Continuous coverage of places that are hard to reach, volatile and largely offline, in whatever '
+         'form the decision needs. An alert the day a development is confirmed. A short brief when it needs '
+         'explaining. A full report when it has to go to a board or an investment committee. A direct answer '
+         'when you would rather ask someone who already knows. <a href="services.html">See the products</a>.'),
     ]
     blocks = ''.join(
         f'<section class="home-claim" aria-labelledby="claim-{i}"><div class="eyebrow">{kicker}</div>'

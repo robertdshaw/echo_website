@@ -177,7 +177,7 @@ def main():
     write('site.html','A clearer view of a complex world',home())
     write('government-affairs.html','Oil & gas government affairs',audience_page('government'),'government',description='Political intelligence for oil and gas government affairs teams. Scope research on stakeholders, policy milestones, and the evidence around operating assets.')
     write('distressed-debt.html','Distressed debt & special situations',audience_page('credit'),'credit',description='Political and asset-level research for distressed-debt investors. Frame thesis questions, inspect counterparty narratives, and identify evidence worth reviewing.')
-    write('services.html','What we deliver',services.overview(intro),'services')
+    write('services.html','Products',services.overview(intro),'services')
     for line in services.SERVICES:
         write(line['slug']+'.html', line['name'], services.service_page(intro, line['slug']), 'services')
     write('projects.html','Projects',services.projects_page(intro),'services')

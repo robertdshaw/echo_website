@@ -115,16 +115,30 @@ PRICING = ("Pricing depends on the number of assets, the number of questions and
 
 
 def overview(intro):
-    cards = ''.join(
-        f'<a href="{s["slug"]}.html"><span>{s["index"]} / SUBSCRIPTION</span><h3>{s["name"]}</h3>'
-        f'<p>{s["summary"]}</p><b></b></a>' for s in SERVICES)
-    projects = ''.join(f'<li><h3>{name}</h3></li>' for name, _ in PROJECTS)
+    # The per-product pages already itemise what lands and where it is available.
+    # The overview surfaces that rather than restating the summary line, so a buyer
+    # can see what is included without opening three pages.
+    cards = ''
+    for s in SERVICES:
+        sections = dict(s['sections'])
+        included = ''.join(f'<li>{line}</li>' for line in sections['What arrives'])
+        where = ' '.join(sections.get('Where it is available', []))
+        cards += (
+            f'<article><span class="eyebrow">{s["index"]} / Subscription</span>'
+            f'<h3><a href="{s["slug"]}.html">{s["name"]}</a></h3>'
+            f'<p>{s["summary"]}</p>'
+            f'<span class="eyebrow">What is included</span><ul>{included}</ul>'
+            + (f'<p class="service-where"><span class="eyebrow">Where</span> {where}</p>' if where else '')
+            + '</article>')
+    projects = ''.join(
+        f'<li><h3>{name}</h3><p>{body}</p></li>' for name, body in PROJECTS)
     return intro(
-        'What we deliver', 'Three subscriptions and<br>three kinds of project',
-        'A subscription covers a named asset or a named question and keeps running. A project is one '
-        'piece of work with a scope, a deadline and an end.'
-    ) + f'''<section class="section container" id="subscriptions"><div class="section-heading"><div><div class="eyebrow">Subscriptions</div><h2>Coverage that keeps running</h2></div><p>Access to the record comes with any subscription and is not sold on its own, because what you are paying for is coverage rather than logins.</p></div><div class="depth-link-grid">{cards}</div></section>
-<section class="section container" id="projects"><div class="section-heading"><div><div class="eyebrow">Projects</div><h2>Single pieces of work</h2></div><p>Each has a defined scope and an agreed deliverable. A scoping conversation comes first and carries no charge.</p></div><ul class="project-list project-list-compact">{projects}</ul><p class="service-more"><a href="projects.html">What each project covers</a></p><div class="service-pricing"><span class="eyebrow">What it costs</span><p>{PRICING}</p></div></section>'''
+        'Products', 'What you get,<br>and what is included',
+        'Continuous data from places that are hard to reach, volatile and largely offline, delivered as an '
+        'alert, a brief, a detailed report, or answers to your questions. Three subscriptions run against the '
+        'assets and questions you name. Projects are single pieces of work with a scope and an end.'
+    ) + f'''<section class="section container" id="subscriptions"><div class="section-heading"><div><div class="eyebrow">Subscriptions</div><h2>Coverage that keeps running</h2></div><p>A subscription is coverage, not a login. Access to the record comes with any of them and is not sold on its own. You are told the day something is confirmed rather than at the end of a reporting cycle.</p></div><div class="capability-grid product-grid">{cards}</div></section>
+<section class="section container" id="projects"><div class="section-heading"><div><div class="eyebrow">Projects</div><h2>Single pieces of work</h2></div><p>Each has a defined scope and an agreed deliverable. A scoping conversation comes first and carries no charge.</p></div><ul class="project-list">{projects}</ul><p class="service-more"><a href="projects.html">What each project covers</a></p><div class="service-pricing"><span class="eyebrow">What it costs</span><p>{PRICING}</p></div></section>'''
 
 
 def service_page(intro, slug):
