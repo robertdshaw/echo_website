@@ -185,6 +185,7 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 .ef-case .ef-meta{margin:0 0 26px;font:400 12.5px Inter,system-ui,sans-serif;color:#6E7B85}
 .ef-case figure{margin:0 0 26px;overflow-x:auto}
 .ef-case figure svg{display:block;width:100%;height:auto;min-width:600px}
+.ef-case figure img{display:block;max-width:100%;height:auto;margin-inline:auto}
 .ef-case figcaption{margin-top:12px;font:400 12.5px Inter,system-ui,sans-serif;line-height:1.5;color:#6E7B85;max-width:620px}
 .ef-body{columns:2;column-gap:38px;font:400 15px Inter,system-ui,sans-serif;line-height:1.68;color:#2C2C3E}
 .ef-body p{margin:0 0 14px;break-inside:avoid}
