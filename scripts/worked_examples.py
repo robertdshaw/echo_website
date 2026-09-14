@@ -14,7 +14,7 @@ CONTENT = ROOT / 'content' / 'worked-examples.html'
 def page(intro):
     body = CONTENT.read_text(encoding='utf-8').strip()
     return intro(
-        'Worked examples', 'Three pieces of work, and what each one changed',
+        'Worked examples', 'Two pieces of work,<br>and what each one changed',
         'Every one of these is real. No client is named and no figure from a client document appears. Where a '
         'number carried the argument it has been replaced by the proportion or the direction.'
     ) + f'<section class="section container">{body}</section>'
