@@ -180,7 +180,7 @@ def main():
     write('services.html','Products',services.overview(intro),'services')
     for line in services.SERVICES:
         write(line['slug']+'.html', line['name'], services.service_page(intro, line['slug']), 'services')
-    write('projects.html','Projects',services.projects_page(intro),'services')
+    write('projects.html','Bespoke projects',services.projects_page(intro),'services')
     for slug in ('oil-and-gas','commodities'):
         write(slug+'.html', sectors.SECTORS[slug]['name'], sectors.page(intro, slug), 'sector',
               description=sectors.SECTORS[slug]['description'])

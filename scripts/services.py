@@ -138,7 +138,7 @@ def overview(intro):
         'alert, a brief, a detailed report, or answers to your questions. Three subscriptions run against the '
         'assets and questions you name. Projects are single pieces of work with a scope and an end.'
     ) + f'''<section class="section container" id="subscriptions"><div class="section-heading"><div><div class="eyebrow">Subscriptions</div><h2>Coverage that keeps running</h2></div><p>A subscription is coverage, not a login. Access to the record comes with any of them and is not sold on its own. You are told the day something is confirmed rather than at the end of a reporting cycle.</p></div><div class="capability-grid product-grid">{cards}</div></section>
-<section class="section container" id="projects"><div class="section-heading"><div><div class="eyebrow">Projects</div><h2>Single pieces of work</h2></div><p>Each has a defined scope and an agreed deliverable. A scoping conversation comes first and carries no charge.</p></div><ul class="project-list">{projects}</ul><p class="service-more"><a href="projects.html">What each project covers</a></p><div class="service-pricing"><span class="eyebrow">What it costs</span><p>{PRICING}</p></div></section>'''
+<section class="section container" id="projects"><div class="section-heading"><div><div class="eyebrow">Bespoke projects</div><h2>Bespoke work is<br>what we are best at</h2></div><p>Most of what we do is built for one question that one client has to answer, in a place where the answer is not sitting anywhere waiting to be found. Each project has a defined scope, an agreed deliverable and a date. A scoping conversation comes first and carries no charge, because the first useful thing we can tell you is whether the record can carry your question at all.</p></div><ul class="project-list">{projects}</ul><p class="service-more"><a href="projects.html">What each project covers</a></p><div class="service-pricing"><span class="eyebrow">What it costs</span><p>{PRICING}</p></div></section>'''
 
 
 def service_page(intro, slug):
@@ -163,8 +163,8 @@ def projects_page(intro):
         f'<div><span class="eyebrow">{i:02d}</span><h3>{name}</h3><p>{text}</p></div>'
         for i, (name, text) in enumerate(PROJECTS, 1))
     return intro(
-        'Projects', 'Single pieces of work',
-        'Each project has a defined scope and an agreed deliverable. They stand on their own, and they are '
-        'often how a subscription starts.'
+        'Bespoke projects', 'Built for one question,<br>not sold off a shelf',
+        'Bespoke work is what we are best at. Each project has a defined scope, an agreed deliverable and '
+        'a date. They stand on their own, and they are often how a subscription starts.'
     ) + f'''<section class="section container"><div class="standards-grid">{items}</div></section>
 <section class="section container"><div class="prose-page"><p>{PRICING}</p></div></section>'''
