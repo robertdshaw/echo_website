@@ -120,9 +120,9 @@ def overview(intro):
         f'<p>{s["summary"]}</p><b></b></a>' for s in SERVICES)
     projects = ''.join(f'<li><h3>{name}</h3></li>' for name, _ in PROJECTS)
     return intro(
-        'What we deliver', 'Three things to subscribe to, three to commission',
-        'The subscriptions cover named assets and named questions continuously. The projects are single '
-        'pieces of work with a defined scope.'
+        'What we deliver', 'Three subscriptions and<br>three kinds of project',
+        'A subscription covers a named asset or a named question and keeps running. A project is one '
+        'piece of work with a scope, a deadline and an end.'
     ) + f'''<section class="section container" id="subscriptions"><div class="section-heading"><div><div class="eyebrow">Subscriptions</div><h2>Coverage that keeps running</h2></div><p>Access to the record comes with any subscription and is not sold on its own, because what you are paying for is coverage rather than logins.</p></div><div class="depth-link-grid">{cards}</div></section>
 <section class="section container" id="projects"><div class="section-heading"><div><div class="eyebrow">Projects</div><h2>Single pieces of work</h2></div><p>Each has a defined scope and an agreed deliverable. A scoping conversation comes first and carries no charge.</p></div><ul class="project-list project-list-compact">{projects}</ul><p class="service-more"><a href="projects.html">What each project covers</a></p><div class="service-pricing"><span class="eyebrow">What it costs</span><p>{PRICING}</p></div></section>'''
 

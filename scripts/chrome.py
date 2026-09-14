@@ -67,6 +67,7 @@ CHROME = {
 # Spanish labels for the navigation. The pages themselves are in English, which
 # the panel label states rather than leaving the reader to discover it.
 GROUPS_ES = {
+    'Services': 'Servicios',
     'Our work': 'Nuestro trabajo',
     'Cases': 'Casos',
     'The Frame Bureau': 'The Frame Bureau',
