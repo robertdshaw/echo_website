@@ -3,7 +3,7 @@
 
 def claims():
     sections = [
-        ('01 / The problem', 'You hear it once it is already priced in',
+        ('01 / The problem', 'Getting information out of hard-to-reach places',
          'Your exposure sits in the places that are hardest to get information out of. A supply chain runs '
          'from an oilfield in Venezuela to a mine in Rwanda and through a dozen countries in between. '
          'Finding someone reliable in any of them at short notice is slow and expensive. That is the part '
