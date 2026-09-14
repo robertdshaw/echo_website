@@ -23,7 +23,7 @@ def claims():
          'when you would rather ask someone who already knows. Everything carries the date it was confirmed '
          'and the sources behind it, so you can check the basis rather than take our word. '
          '<a href="services.html">See the products</a>, or read '
-         '<a href="how-it-works.html#corroboration">how a development is confirmed</a>.'),
+         '<a href="how-it-works.html">how the work is done</a>.'),
     ]
     blocks = ''.join(
         f'<section class="home-claim" aria-labelledby="claim-{i}"><div class="eyebrow">{kicker}</div>'
