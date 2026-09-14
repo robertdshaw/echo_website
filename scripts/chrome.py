@@ -76,7 +76,6 @@ GROUPS_ES = {
 
 ITEMS_ES = {
     'how-it-works.html': ('Cómo trabajamos', 'Los seis pasos y cómo se confirma un hecho.'),
-    'capabilities.html': ('Sistema de investigación', 'El flujo de trabajo analítico completo.'),
     'actor-mapping.html': ('Actores y activos', 'Documentar las relaciones detrás de una decisión.'),
     'evidence-workspace.html': ('Espacio de evidencia', 'Fuentes, contradicciones y límites.'),
     'decision-pathways.html': ('Rutas de decisión', 'Hitos observables y disparadores de revisión.'),

@@ -6,7 +6,6 @@ INVITATIONS = {
     'index.html': 'Start a conversation',
     'about.html': 'Ask us about the company',
     'actor-mapping.html': 'Discuss the relationships your decision depends on',
-    'capabilities.html': 'Outline the research you need',
     'worked-examples.html': 'Put a question to the desk',
     'frame-bureau.html': 'Talk to us about training a desk',
     'commodities.html': 'Tell us which origins you depend on',
@@ -32,7 +31,7 @@ INVITATIONS = {
 REFERENCE_PAGES = {'sources.html', 'privacy.html'}
 REFERENCE_LABELS = {
     'Watch the film': 'EchoFrame presentation video',
-    'Explore the research approach': 'Research approach',
+    'Explore how the work is done': 'How it works',
     'Explore the source directory': 'Primary-source directory',
     'Read our privacy notice': 'Privacy notice',
     'Download a question register': 'Question register template',

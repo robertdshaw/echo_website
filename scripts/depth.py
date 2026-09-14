@@ -126,7 +126,6 @@ def audience_depth(key):
 
 
 PAGES = [
-    ('capabilities.html','Research capabilities',capabilities,'capabilities'),
     ('actor-mapping.html','Actor & asset mapping',actor_mapping,'capabilities'),
     ('evidence-workspace.html','Evidence workspace',evidence_workspace,'capabilities'),
     ('decision-pathways.html','Decision pathways',pathways,'capabilities'),
