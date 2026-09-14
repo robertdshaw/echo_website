@@ -94,8 +94,8 @@ def page(intro):
     steps = ''.join(f'<div><h3>{title}</h3><p>{body}</p></div>' for title, body in STEPS_OF_ENGAGEMENT)
     example = ''.join(f'<div><span class="eyebrow">{heading}</span><p>{text}</p></div>' for heading, text in EXAMPLE)
     return intro(
-        'The Frame Bureau',
         'The training division',
+        'The Frame Bureau',
         'The Frame Bureau brings an organisation’s own people into the way EchoFrame works, until they can run a '
         'live desk without us. It is built for institutions that want the capability held internally, and for '
         'companies that want their own analysts trained on it.'
