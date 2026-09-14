@@ -2,7 +2,7 @@
 
 This module describes the product direction; it does not implement a signal engine.
 """
-from intelligence import brief_structure, risk_dimensions
+from intelligence import brief_structure, risk_dimensions, question_families
 
 # Retained for future editing; intentionally excluded from the public page.
 UNPUBLISHED_VENEZUELA_SECTIONS = """<section class="section container"><div class="section-heading"><div><div class="eyebrow">03 / Proposed collection priorities</div><h2>Three zones.<br>Specific local questions.</h2></div><p>Initial collection priorities are Zulia, Monagas, Bolívar, and Anzoátegui. These are programme priorities, not a claim of contracted field coverage.</p></div><div class="zone-grid"><article><div class="eyebrow">Oriente</div><h3>Anzoátegui & Monagas</h3><p>Proposed focus: the José complex, fields and upgraders, and the connections between operations, labour, contractors, and local authorities.</p><ul><li>Loading, shut-ins, restarts, and inputs</li><li>Arrears, stoppages, and contractor payment</li><li>Access, community concerns, and local control</li></ul></article><article><div class="eyebrow">Occidente</div><h3>Zulia; Falcón as scope expands</h3><p>Proposed focus: the Lake Maracaibo area and, as demand supports it, the Paraguaná refining area.</p><ul><li>Field and refinery operating conditions</li><li>Spills and fishing-community concerns</li><li>Contractor access and infrastructure</li></ul></article><article><div class="eyebrow">Guayana</div><h3>Bolívar; Delta Amacuro as scope expands</h3><p>Proposed focus: power, industrial activity, mining-related questions, and potential extension to Delta assets.</p><ul><li>Grid reliability and industrial constraints</li><li>Local authority and community positions</li><li>Navigation and asset access</li></ul></article></div><p class="collection-note">Collection scope depends on the questions commissioned, source access, and the ability to report safely. A more detailed map should only appear when the evidence supports that precision.</p></section>
@@ -19,7 +19,7 @@ def question_preview():
 
 
 def venezuela_page(intro, cta):
-    return intro('EchoFrame Venezuela / Country direction and commercial exposure', 'What the Venezuela programme covers', 'Venezuela reporting, turned into a structured assessment of risk, dated questions and the conditions an opportunity must meet. Start with the country picture, then work down to the decision on your desk.')+risk_dimensions()+brief_structure() + '''
+    return intro('EchoFrame Venezuela / Country direction and commercial exposure', 'What the Venezuela programme covers', 'Venezuela reporting, turned into a structured assessment of risk, dated questions and the conditions an opportunity must meet. Start with the country picture, then work down to the decision on your desk.')+risk_dimensions()+question_families()+brief_structure() + '''
 <section class="programme-note container"><span class="eyebrow">Where the programme stands</span><p>The product framework brings risk dimensions, dated questions and commercial criteria together. Collection scope, delivery cadence, and access are agreed for each engagement.</p></section>
 
 ''' + cta()
