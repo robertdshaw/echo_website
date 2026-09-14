@@ -7,8 +7,9 @@ GROUPS = [
         ('services.html','What we deliver','Three subscriptions and three kinds of project.'),
         ('engagement.html','Working with EchoFrame','Formats, scope, and delivery.')]),
     ('Sectors Served', [
-        ('oil-and-gas.html','Oil and gas','Policy, permits and the assets they decide.'),
-        ('commodities.html','Commodities','Food and farming, from the growing zone to the port.')]),
+        ('government-affairs.html','Government affairs','Operators, and the teams that hold the licence to operate.'),
+        ('distressed-debt.html','Investors and hedge funds','Funds underwriting a political or counterparty assumption.'),
+        ('commodities.html','Commodity traders','Origination and supply, from the growing zone to the port.')]),
     ('Cases', 'worked-examples.html'),
     ('The Frame Bureau', 'frame-bureau.html'),
     ('About', [

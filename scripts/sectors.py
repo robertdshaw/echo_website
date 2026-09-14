@@ -1,55 +1,23 @@
-"""Sector pages. Real sectors, with the audience pages sitting beneath each one.
+"""The commodity traders page.
 
-Coverage claims here must stay honest. Collection runs in Venezuela today and the
-other four countries are in build, which is what coverage_page.py says. Nothing on
-these pages may imply a live desk in a country where there is not one.
+Government affairs and investors keep their own audience pages, so this is the
+only one of the three that needs building here.
 
-The dated regulatory and market facts in COMMODITIES were checked against primary
-sources when the page was written. If you change a date or a figure, check it again.
+Coverage claims must stay honest. Collection runs in Venezuela today and the other
+four countries are in build, which is what coverage_page.py says. Nothing here may
+imply a live desk in a country where there is not one.
+
+The dated regulatory and market facts were checked against primary sources when
+the page was written. If you change a date or a figure, check it again.
 """
 
 SECTORS = {
-    'oil-and-gas': {
-        'name': 'Oil and gas',
-        'nav': 'Policy, permits and the assets they decide.',
-        'title': 'The asset runs or it does not,<br>and that is decided locally',
-        'description': 'Political and asset-level research for operators and the people who finance them.',
-        'standfirst': 'Permission on paper is only half the story. What decides whether an asset keeps '
-                      'producing is who holds the permit and on what condition, whether the workforce turns '
-                      'up, whether the road is open, which way the politics is turning, and what the '
-                      'contract obliges each side to do.',
-        'problem_title': 'The national story misses the asset',
-        'problem': 'A country briefing tells you the direction of travel. It does not tell you that a '
-                   'regional authority has stopped issuing a permit, that a contractor has not been paid '
-                   'for three months, or that the access road is being taxed by someone who is not the '
-                   'state. Those are the things that stop production, and they are decided several levels '
-                   'below the capital.',
-        'watch': [
-            ('Licensing and permits', 'Who holds the authorisation, what conditions sit on it, which '
-                                      'authority can withdraw it, and what has to happen before the next '
-                                      'milestone clears.'),
-            ('Labour', 'Whether the workforce and the contractors turn up, what is unresolved with them, '
-                       'and what a stoppage would take out.'),
-            ('Security', 'What is happening around the site and on the routes to it, told by people who '
-                         'are there rather than inferred from a national incident count.'),
-            ('Political change', 'The decisions and appointments that change the conditions around an '
-                                 'asset, and the institutional milestone that comes next.'),
-            ('Contract terms', 'What the agreement obliges each side to do, and which parts are being '
-                               'reopened in practice rather than on paper.'),
-        ],
-        'audiences': [
-            ('government-affairs.html', 'Government affairs',
-             'For the team that has to explain the policy environment around an operating asset.'),
-            ('distressed-debt.html', 'Distressed debt and special situations',
-             'For the fund holding the paper, where the political assumption is the thesis.'),
-        ],
-    },
     'commodities': {
-        'name': 'Commodities',
-        'nav': 'Food and farming, from the growing zone to the port.',
+        'name': 'Commodity traders',
+        'nav': 'Origination and supply, from the growing zone to the port.',
         'title': 'Food and farming, from the<br>growing zone to the port',
-        'description': 'Political and regulatory research on agricultural commodities in the places where '
-                       'the reporting is thinnest.',
+        'description': 'Political and regulatory research for the people who originate, trade and finance '
+                       'agricultural commodities in the places where the reporting is thinnest.',
         'standfirst': 'A crop is exposed to the same five things an oilfield is. Who holds the export '
                       'licence and on what condition. Whether the labour turns up. Whether the road to the '
                       'port is open. Which way the politics is turning. What the contract with the '
@@ -79,10 +47,10 @@ SECTORS = {
                                'changes.'),
         ],
         'audiences': [
-            ('distressed-debt.html', 'Funds and lenders',
-             'Where a position or a pre-export facility rests on a political assumption that has to hold.'),
-            ('services.html', 'Procurement and origination',
-             'Where the question is whether an origin keeps supplying, and what you would need to show.'),
+            ('asset-watch.html', 'Watch a named origin',
+             'Continuous coverage of the growing zones, ports and counterparties you depend on.'),
+            ('question-book.html', 'Settle a question with a date',
+             'Whether an origin keeps supplying, written so it can actually be answered and scored.'),
         ],
     },
 }
@@ -108,7 +76,7 @@ def page(intro, slug):
         f'<article><span class="depth-number">{i:02}</span><h3>{title}</h3><p>{text}</p></article>'
         for i, (title, text) in enumerate(s['watch'], 1))
     audiences = ''.join(
-        f'<a href="{url}"><span>{i:02} / Who we work with</span><h3>{label}</h3><p>{text}</p><b></b></a>'
+        f'<a href="{url}"><span>{i:02} / Where to start</span><h3>{label}</h3><p>{text}</p><b></b></a>'
         for i, (url, label, text) in enumerate(s['audiences'], 1))
     body = (
         f'<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
@@ -116,30 +84,22 @@ def page(intro, slug):
         f'<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
         f'What we watch</div><h2>Five things that decide<br>whether it keeps running</h2></div></div>'
         f'<div class="depth-cards">{watch}</div></section>')
-    if slug == 'commodities':
-        body += REGULATION
-        body += (
-            '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
-            'Where it matters</div><h2>The countries we open next<br>are farming countries</h2></div>'
-            '<p>Colombia is coffee and bananas, with a quarantine running in the banana zones since 2019. '
-            'Rwanda licenses and prices coffee and tea through a national board whose trading rules changed '
-            'as recently as 2023. Pakistan is cotton, rice and wheat, where a provincial decision on '
-            'procurement moves a farmgate price faster than any market does. Mexico is fresh produce, where '
-            'the labour mechanisms in the trade agreement now reach agriculture.</p></div>'
-            '<div class="container prose-page"><p>Collection runs in Venezuela today. The four countries '
-            'above are in build. We will tell you plainly whether we cover where you are exposed before you '
-            'buy anything, and we would rather lose the sale than imply a desk that does not exist. '
-            '<a href="coverage.html">See where collection stands</a>.</p></div></section>')
-    else:
-        body += (
-            '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
-            'Where it matters</div><h2>Outside the capitals</h2></div><p>Oil states in eastern and western '
-            'Venezuela today, where collection runs. Colombia, Mexico, Rwanda and Pakistan are in build. '
-            'We will tell you plainly whether we cover where you are exposed before you buy anything. '
-            '<a href="coverage.html">See where collection stands</a>.</p></div></section>')
+    body += REGULATION
+    body += (
+        '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
+        'Where it matters</div><h2>The countries we open next<br>are farming countries</h2></div>'
+        '<p>Colombia is coffee and bananas, with a quarantine running in the banana zones since 2019. '
+        'Rwanda licenses and prices coffee and tea through a national board whose trading rules changed '
+        'as recently as 2023. Pakistan is cotton, rice and wheat, where a provincial decision on '
+        'procurement moves a farmgate price faster than any market does. Mexico is fresh produce, where '
+        'the labour mechanisms in the trade agreement now reach agriculture.</p></div>'
+        '<div class="container prose-page"><p>Collection runs in Venezuela today. The four countries '
+        'above are in build. We will tell you plainly whether we cover where you are exposed before you '
+        'buy anything, and we would rather lose the sale than imply a desk that does not exist. '
+        '<a href="coverage.html">See where collection stands</a>.</p></div></section>')
     body += (
         f'<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
-        f'Who we work with</div><h2>The same record,<br>read for different stakes</h2></div></div>'
+        f'Where to start</div><h2>Two ways in</h2></div></div>'
         f'<div class="depth-link-grid">{audiences}</div>'
         f'<div class="container prose-page"><p>What you actually receive is set out on '
         f'<a href="services.html">products</a>.</p></div></section>')
