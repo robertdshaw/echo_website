@@ -12,19 +12,18 @@ def claims():
          'The five things that decide whether an asset keeps running and what it is worth. Who holds the '
          'permit and on what condition. Whether the workforce is about to stop. What is happening around '
          'the site. Which way the politics is turning. What the contract obliges each side to do.'),
-        ('03 / Where we work', 'Outside the capitals, and quick to add the next one',
-         'Collection runs in Venezuela today, with Colombia, Mexico, Rwanda and Pakistan '
-         'next. The method does not change from one country to the next, so a new desk starts from the '
-         'last one rather than from nothing. Tell us where you operate.'),
-        ('04 / How we check it', 'Nothing counts on one class of source',
-         'News media count as one class however many outlets carry a story. Official records, independent '
-         'research, physical data and reporting from the ground are the others. A development is confirmed '
-         'when independent classes agree, and it reaches you carrying the date and the sources behind it.'),
-        ('05 / What you get', 'An alert, a brief, a report, or an answer',
+        ('03 / Where we work', 'Venezuela now, four more in build',
+         'Collection runs in Venezuela. Colombia, Mexico, Rwanda and Pakistan are being built. Standing up '
+         'a new country is not starting again, because the method and the questions travel. Tell us where '
+         'you operate and we will tell you plainly whether we cover it.'),
+        ('04 / What you get', 'An alert, a brief, a report, or an answer',
          'Continuous coverage of places that are remote, volatile and largely offline, in whatever '
          'form the decision needs. An alert the day a development is confirmed. A short brief when it needs '
          'explaining. A full report when it has to go to a board or an investment committee. A direct answer '
-         'when you would rather ask someone who already knows. <a href="services.html">See the products</a>.'),
+         'when you would rather ask someone who already knows. Everything carries the date it was confirmed '
+         'and the sources behind it, so you can check the basis rather than take our word. '
+         '<a href="services.html">See the products</a>, or read '
+         '<a href="how-it-works.html#corroboration">how a development is confirmed</a>.'),
     ]
     blocks = ''.join(
         f'<section class="home-claim" aria-labelledby="claim-{i}"><div class="eyebrow">{kicker}</div>'
