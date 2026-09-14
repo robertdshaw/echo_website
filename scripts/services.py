@@ -28,7 +28,7 @@ SERVICES = [
              ["Operators with people and equipment on the ground, their contractors, and anyone whose "
               "planning depends on whether a specific site keeps running."]),
             ("Where it is available",
-             ["Eastern and western Venezuela today.",
+             ["Venezuela today.",
               "Colombia, Mexico, Rwanda and Pakistan as collection is built."]),
         ],
         "close": "Talk to us about the assets you need watched.",
@@ -134,7 +134,7 @@ def overview(intro):
         f'<li><h3>{name}</h3><p>{body}</p></li>' for name, body in PROJECTS)
     return intro(
         'Products', 'What you get,<br>and what is included',
-        'Continuous data from places that are hard to reach, volatile and largely offline, delivered as an '
+        'Continuous data from places that are remote, volatile and largely offline, delivered as an '
         'alert, a brief, a detailed report, or answers to your questions. Three subscriptions run against the '
         'assets and questions you name. Projects are single pieces of work with a scope and an end.'
     ) + f'''<section class="section container" id="subscriptions"><div class="section-heading"><div><div class="eyebrow">Subscriptions</div><h2>Coverage that keeps running</h2></div></div><div class="capability-grid product-grid">{cards}</div></section>
