@@ -8,12 +8,12 @@ def claims():
          'from an oilfield in Venezuela to a mine in Rwanda and through a dozen countries in between. '
          'Finding someone reliable in any of them at short notice is slow and expensive. That is the part '
          'we are built for.'),
-        ('02 / What we do about it', 'Coverage already standing, built on local reporting',
-         'The reporters who live in those places already know most of what you need, and very little of it '
-         'reaches the wires, because nobody is paying for it to. We find that reporting, check it against '
-         'official records, physical data and markets, and turn it into a dated record of what happened and '
-         'what it means. The coverage is running before you need it, so the answer does not begin with a '
-         'search for someone reliable.'),
+        ('02 / What we do about it', 'A collection system running down to the municipality',
+         'We run collection in the places the wires do not reach, at the level of the municipality and the town. '
+         'Local, offline and paywalled material is pulled in continuously, checked against official records, '
+         'physical data and markets, and turned into dated events with named actors. Counted over time, those '
+         'events are the signals that move ahead of a risk rather than describing it afterwards. The coverage is '
+         'running before you need it, so the answer does not begin with a search for someone reliable.'),
         ('03 / What we watch', 'Licensing, labour, security, politics and contract terms',
          'The five things that decide whether an asset keeps running and what it is worth. Who holds the '
          'permit and on what condition. Whether the workforce is about to stop. What is happening around '
