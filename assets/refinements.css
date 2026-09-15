@@ -212,3 +212,5 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 .ef-photo-data .ef-cap{left:auto;right:clamp(20px,3vw,40px);text-align:right;max-width:min(470px,54%)}
 .ef-photo-data .ef-cap,.ef-photo-data .ef-credit{z-index:2}
 @media(max-width:680px){.ef-photo-data:after{background:linear-gradient(180deg,rgba(8,10,20,.05),rgba(8,10,20,.9) 68%)}.ef-photo-data .ef-cap{left:clamp(20px,3vw,40px);right:auto;text-align:left;max-width:86%}}
+
+.ef-photo-note{margin:-18px 0 24px;font:400 11.5px Inter,system-ui,sans-serif;line-height:1.5;color:#6E7B85;max-width:62ch}
