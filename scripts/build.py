@@ -164,17 +164,9 @@ def write(path, title, body, page='home', prefix='', lang='en', description=''):
         # of this site can serve it, whatever else is deployed from this repo.
         dest=ROOT/'private'/PRIVATE_ADDRESS[path]; dest.parent.mkdir(parents=True,exist_ok=True)
         dest.write_text(html,encoding='utf-8')
-        holding=('<section class="page-intro container"><div class="eyebrow">The training division</div>'
-                 f'<h1>{E(title)}</h1><p>This page is closed while the people who teach on the programme '
-                 'agree the entries written about them. It reopens when they have.</p></section>'
-                 '<section class="section container"><div class="standards-grid"><div>'
-                 '<span class="eyebrow">🔒 &nbsp;Sign in</span><h3>If you have been sent a login</h3>'
-                 f'<p>Open <a href="{PRIVATE_ADDRESS[path]}">the full page</a> and enter the username and '
-                 'password you were given.</p></div><div><span class="eyebrow">Everyone else</span>'
-                 '<h3>Ask us about the programme</h3><p>The Frame Bureau trains an organisation&#8217;s own '
-                 'people until they can run a live intelligence desk without us. '
-                 '<a href="briefing.html">Put a question to the desk</a> and we will send you the detail.</p>'
-                 '</div></div></section>')
+        holding=('<section class="page-intro container"><div class="eyebrow">🔒 &nbsp;Private</div>'
+                 f'<h1>{E(title)}</h1><p>You need a login to view this page. '
+                 f'<a href="{PRIVATE_ADDRESS[path]}">Sign in</a>.</p></section>')
         dest=OUT/path; dest.write_text(layout(title,holding,page,prefix,description,lang),encoding='utf-8')
         GENERATED.append(path)
         return
