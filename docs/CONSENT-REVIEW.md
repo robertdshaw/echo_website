@@ -1,32 +1,25 @@
 # Asking Luis Matos Azócar and Jean-Christophe Loubier to approve their entries
 
-## Where their names appear on the site
+## How the page is closed
 
-1. **The Frame Bureau, "Who teaches it"** — a name, a role and a paragraph each.
-   Withheld from the published page until each of them agrees. See
-   `AWAITING_CONSENT` in `scripts/build.py`.
-2. **About, "Expert perspectives"** — an attributed quotation from each of them.
-   Still published. Decide separately whether these were given for publication.
-
-## How the review copy works
-
-- `scripts/build.py` writes the full page, both names included, to `review/frame-bureau.html`.
-  That directory is never copied into `public/`, is git-ignored, and is rebuilt on every deploy.
-- `server.py` serves it at `/review/frame-bureau.html` behind HTTP Basic auth,
-  with `X-Robots-Tag: noindex, nofollow, noarchive` and `Cache-Control: no-store`.
-- Credentials come from the `REVIEW_USERS` environment variable, formatted
-  `name:password,name:password`. If it is unset the review area returns 503,
-  so a misconfiguration closes the door rather than opening it.
-- Each reviewer gets their own username, so the access log shows who opened it.
+- The Frame Bureau page carries all six teachers, as written.
+- `server.py` asks for a username and password on `/frame-bureau.html` only,
+  whenever the `BUREAU_USERS` environment variable is set. Every other page,
+  and the contact form, stays public and unchanged.
+- While it is closed the page is served `noindex, nofollow, noarchive` and
+  `no-store`, so it is not indexed or cached.
+- `BUREAU_USERS` is formatted `name:password,name:password`, one login per
+  reviewer, so the access log shows who opened it. Unset means the page is
+  public, which is how the site normally runs.
 
 ## To set it up
 
-1. In Render, on the service serving echoframe.co, add an environment variable:
-   `REVIEW_USERS` = `luis:<password-1>,jc:<password-2>`
-2. Send each person their own username and password with the note below.
-3. When someone approves, remove their name from `AWAITING_CONSENT` in
-   `scripts/build.py` and push. Their card returns to the published page.
-4. When both have answered, delete the `REVIEW_USERS` variable to close the area.
+1. In Render, on the service serving echoframe.co, add the environment variable
+   `BUREAU_USERS` = `luis:<password-1>,jc:<password-2>`.
+2. Send each person their own login with the note below.
+3. When both have agreed, delete `BUREAU_USERS`. The page is public again with
+   no other change. If one of them declines, remove their entry from `BENCH` in
+   `scripts/frame_bureau.py` before reopening the page.
 
 ## The note to send
 
@@ -45,10 +38,10 @@ el próximo lunes 21 de septiembre.
 En la sección «Quién enseña» he escrito un párrafo sobre usted: su nombre, el
 cargo de Chief Intelligence Architect y una breve descripción de su trayectoria.
 
-No lo he publicado. La página está en un borrador privado, no aparece en el sitio
-ni en los buscadores, y solo se abre con la contraseña que le envío aquí:
+La página está cerrada con contraseña mientras la revisan ustedes: no aparece en
+los buscadores y solo se abre con estas credenciales:
 
-  Enlace:      https://www.echoframe.co/review/frame-bureau.html
+  Enlace:      https://www.echoframe.co/frame-bureau.html
   Usuario:     luis
   Contraseña:  <password-1>
 
@@ -78,11 +71,11 @@ Dans la rubrique « Qui enseigne », j'ai rédigé un paragraphe vous concernant
 votre nom, la fonction de Director of Decision Analytics et une courte
 présentation de votre parcours.
 
-Je ne l'ai pas publié. La page est un brouillon privé : elle n'apparaît ni sur le
-site ni dans les moteurs de recherche, et ne s'ouvre qu'avec le mot de passe
-ci-dessous.
+La page est protégée par mot de passe le temps de votre relecture : elle
+n'apparaît pas dans les moteurs de recherche et ne s'ouvre qu'avec les
+identifiants ci-dessous.
 
-  Lien :         https://www.echoframe.co/review/frame-bureau.html
+  Lien :         https://www.echoframe.co/frame-bureau.html
   Identifiant :  jc
   Mot de passe : <password-2>
 

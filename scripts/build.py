@@ -33,17 +33,6 @@ E = html.escape
 ARROW = ''
 GENERATED = []
 
-# Teachers who have not yet confirmed the entry written about them. Their card
-# is withheld from the published page and shown only on the private review copy
-# under review/, which is served behind a password and is never published.
-AWAITING_CONSENT = ('Luis Raul Matos Azocar', 'Dr Jean-Christophe Loubier')
-
-REVIEW_NOTE = '''<div class="container section review-note">
-<p class="eyebrow">Borrador privado / Version privee / Private draft</p>
-<p><strong>ES.</strong> Esta pagina es un borrador. No esta publicada, no aparece en el sitio ni en buscadores, y solo se abre con la contrasena que le enviamos. Le pedimos que lea el parrafo que lleva su nombre en &laquo;Quien ensena&raquo; y nos diga si esta de acuerdo, si quiere cambiar algo o si prefiere no aparecer. Nada se publica hasta que usted responda.</p>
-<p><strong>FR.</strong> Cette page est un brouillon. Elle n&rsquo;est pas publiee, n&rsquo;apparait ni sur le site ni dans les moteurs de recherche, et ne s&rsquo;ouvre qu&rsquo;avec le mot de passe qui vous a ete transmis. Merci de lire le paragraphe qui porte votre nom dans &laquo;Qui enseigne&raquo; et de nous dire si vous l&rsquo;approuvez, si vous souhaitez le modifier, ou si vous preferez ne pas y figurer. Rien ne sera publie avant votre reponse.</p>
-<p><strong>EN.</strong> A private draft for your approval. Not published, not linked, not indexed. Please check the paragraph under your name in &ldquo;Who teaches it&rdquo; and tell us whether it is right.</p>
-</div>'''
 MARK = '<svg class="echoframe-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><g stroke-width="3.8" stroke-linecap="round"><path d="M7 7L29 41M13 7L35 41M19 7L41 41" stroke="#ed704b"/><path d="M41 7L19 41M35 7L13 41M29 7L7 41" stroke="currentColor"/></g></svg>'
 
 
@@ -167,14 +156,6 @@ def write(path, title, body, page='home', prefix='', lang='en', description=''):
     GENERATED.append(path)
 
 
-def review(path, title, page, body):
-    """Write a copy under review/ for a named reviewer to read behind a password.
-    It is deliberately outside public/, so no build step can publish it."""
-    dest = ROOT / 'review' / path
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(layout(title, body, page, '../'), encoding='utf-8')
-
-
 def main():
     globe()
     downloads = write_downloads() + write_sample_downloads()
@@ -198,8 +179,7 @@ def main():
     write('venezuela.html','Venezuela · Asset-level intelligence',venezuela_page(intro,cta),'venezuela')
     write('how-it-works.html','How it works',how_it_works_page(intro),'how-it-works')
     write('worked-examples.html','Worked examples',worked_examples_page(intro),'worked-examples')
-    write('frame-bureau.html','The Frame Bureau',frame_bureau_page(intro, withhold=AWAITING_CONSENT),'frame-bureau')
-    review('frame-bureau.html','The Frame Bureau','frame-bureau',REVIEW_NOTE+frame_bureau_page(intro))
+    write('frame-bureau.html','The Frame Bureau',frame_bureau_page(intro),'frame-bureau')
     write('about.html','About',about(),'about')
     write('briefing.html','Book a briefing',briefing(),'briefing')
     write('privacy.html','Privacy',privacy(),'privacy')

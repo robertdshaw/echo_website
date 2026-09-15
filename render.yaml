@@ -20,7 +20,7 @@ services:
         sync: false
       - key: PUBLIC_ORIGIN
         sync: false
-      - key: REVIEW_USERS
+      - key: BUREAU_USERS
         sync: false
       - key: TRUST_PROXY
         value: "true"
