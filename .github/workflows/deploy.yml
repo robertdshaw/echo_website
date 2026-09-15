@@ -21,4 +21,5 @@ jobs:
           code=$(curl -sS -o response.txt -w '%{http_code}' "${{ secrets.RENDER_DEPLOY_HOOK }}")
           echo "Render replied $code"
           cat response.txt
-          [ "$code" = "200" ] || [ "$code" = "201" ]
+          # Render answers 202 Accepted when it queues the build.
+          case "$code" in 2??) ;; *) exit 1 ;; esac
