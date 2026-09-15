@@ -16,3 +16,9 @@ __pycache__/
 
 # Pages withheld from publication while the people named on them agree
 private/
+
+# Local working copies and generated output; not part of the source
+.preview/
+public/
+docs/files.zip
+docs/worked_examples_page.html
