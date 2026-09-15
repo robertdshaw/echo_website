@@ -37,11 +37,25 @@ def formats():
 
 def faq(limit=None):
     items = [
-        ('Who is EchoFrame for?', 'Our primary audience is oil and gas government affairs teams and fund managers researching distressed debt and special situations. Each engagement starts with a defined policy, actor, counterparty, or asset question.'),
-        ('What can a private briefing cover?', 'Bring the decision you face, the assets or contracts involved, and your time horizon. We can discuss a stakeholder brief, a policy milestone note, a thesis-question register, or another research format suited to that question.'),
-        ('What is the status of the Venezuela programme?', 'Venezuela is the working programme. There are two years of archive, a structured event record for the eastern oil states, and a correspondent agreement in progress. Scope and delivery are agreed for each engagement.'),
-        ('Can I explore the research before getting in touch?', 'Yes. The four library articles explain source comparison, question design, Venezuela collection priorities and European energy policy research. They do not present a live feed or a validated forecast record.'),
-        ('How do you handle conflicting sources?', 'A disagreement becomes a research question rather than being averaged away. We keep both accounts, record what each source was able to observe, and say what evidence would settle it.'),
-        ('How do we start?', 'Send us a question through the contact form. Share a bounded research question and the date that matters. Scope, access, and delivery are discussed directly.'),
+        ('Who is EchoFrame for?', 'Oil and gas government affairs teams, funds underwriting a political or '
+         'counterparty assumption, and commodity traders and large agribusiness and food-security groups with '
+         'origination, farmland or livestock exposure in emerging markets. What they have in common is a decision '
+         'that turns on somewhere the wires do not cover. Each engagement starts with a defined policy, actor, '
+         'counterparty, or asset question.'),
+        ('Which countries do you cover?', 'Collection runs in Venezuela. Colombia, Mexico, Rwanda and Pakistan are '
+         'being built. Standing up a new country is not starting again, because the method and the questions '
+         'travel. Tell us where you operate and we will tell you plainly whether we cover it.'),
+        ('What can a private briefing cover?', 'Bring the decision you face, the assets or contracts involved, and '
+         'your time horizon. We can discuss a stakeholder brief, a policy milestone note, a thesis-question '
+         'register, or another research format suited to that question.'),
+        ('How do you know something is true before you send it?', 'Reporting is checked before it is allowed to '
+         'count. Who says this, how would they know, and who else confirms it independently. Four outlets running '
+         'the same unnamed official is one piece of unconfirmed information, not four. Everything carries the date '
+         'it was confirmed and the sourcing beside the claim, so you can check the basis rather than take our word.'),
+        ('Can our own people be trained to run this?', 'Yes. The Frame Bureau is the training division. Five '
+         'modules take a group from finding and checking material through to writing the call, and the measure of '
+         'success is that they can staff their own desk without us in the room.'),
+        ('How do we start?', 'Send us a question through the contact form. Share a bounded research question and '
+         'the date that matters. Scope, access, and delivery are discussed directly.'),
     ]
     return '''<section class="faq-section container"><div class="eyebrow">A little more context</div><h2>Frequently asked questions.</h2><div class="faq-list">'''+''.join(f'<details><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>' for question,answer in items[:limit])+'''</div><a class="text-link" href="briefing.html">Have a more specific question? Let’s talk </a></section>'''

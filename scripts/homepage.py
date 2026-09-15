@@ -8,15 +8,21 @@ def claims():
          'from an oilfield in Venezuela to a mine in Rwanda and through a dozen countries in between. '
          'Finding someone reliable in any of them at short notice is slow and expensive. That is the part '
          'we are built for.'),
-        ('02 / What we watch', 'Licensing, labour, security, politics and contract terms',
+        ('02 / What we do about it', 'Coverage already standing, built on local reporting',
+         'The reporters who live in those places already know most of what you need, and very little of it '
+         'reaches the wires, because nobody is paying for it to. We find that reporting, check it against '
+         'official records, physical data and markets, and turn it into a dated record of what happened and '
+         'what it means. The coverage is running before you need it, so the answer does not begin with a '
+         'search for someone reliable.'),
+        ('03 / What we watch', 'Licensing, labour, security, politics and contract terms',
          'The five things that decide whether an asset keeps running and what it is worth. Who holds the '
          'permit and on what condition. Whether the workforce is about to stop. What is happening around '
          'the site. Which way the politics is turning. What the contract obliges each side to do.'),
-        ('03 / Where we work', 'Venezuela now, four more in build',
+        ('04 / Where we work', 'Venezuela now, four more in build',
          'Collection runs in Venezuela. Colombia, Mexico, Rwanda and Pakistan are being built. Standing up '
          'a new country is not starting again, because the method and the questions travel. Tell us where '
          'you operate and we will tell you plainly whether we cover it.'),
-        ('04 / What you get', 'An alert, a brief, a report, or an answer',
+        ('05 / What you get', 'An alert, a brief, a report, or an answer',
          'Continuous coverage of places that are remote, volatile and largely offline, in whatever '
          'form the decision needs. An alert the day a development is confirmed. A short brief when it needs '
          'explaining. A full report when it has to go to a board or an investment committee. A direct answer '

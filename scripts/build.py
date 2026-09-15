@@ -73,7 +73,7 @@ def intro(kicker, title, description):
 
 def about():
     story = ('<section class="about-story container"><div class="about-visual"><span class="eyebrow">ECHOFRAME</span>'
-             + MARK + '<span>Research and assessment</span></div><div>'
+             + MARK + '</div><div>'
              '<h2>The information exists.<br>It is not where people look.</h2>'
              '<p>I spent twenty years as an investigative reporter and risk analyst, most of it in Latin America, '
              'and then a decade building the data systems that try to close the gap between what is known in a '
