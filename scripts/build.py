@@ -33,6 +33,11 @@ E = html.escape
 ARROW = ''
 GENERATED = []
 
+# Pages held back from the published site while the people named on them agree
+# to what is written. They are written to private/ instead, and server.py serves
+# them from there behind a password. Empty this set to publish normally.
+PRIVATE_PAGES = {'frame-bureau.html'}
+
 MARK = '<svg class="echoframe-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><g stroke-width="3.8" stroke-linecap="round"><path d="M7 7L29 41M13 7L35 41M19 7L41 41" stroke="#ed704b"/><path d="M41 7L19 41M35 7L13 41M29 7L7 41" stroke="currentColor"/></g></svg>'
 
 
@@ -151,8 +156,15 @@ def globe():
 
 
 def write(path, title, body, page='home', prefix='', lang='en', description=''):
+    html=layout(title,enquiry_policy(body,path),page,prefix,description,lang)
+    if path in PRIVATE_PAGES:
+        # Never written to the repository root or to public/, so no static copy
+        # of this site can serve it, whatever else is deployed from this repo.
+        dest=ROOT/'private'/path; dest.parent.mkdir(parents=True,exist_ok=True)
+        dest.write_text(html,encoding='utf-8')
+        return
     dest=OUT/path; dest.parent.mkdir(parents=True,exist_ok=True)
-    dest.write_text(layout(title,enquiry_policy(body,path),page,prefix,description,lang),encoding='utf-8')
+    dest.write_text(html,encoding='utf-8')
     GENERATED.append(path)
 
 

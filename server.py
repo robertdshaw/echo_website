@@ -111,6 +111,7 @@ def create_app(overrides=None, sender=None):
 
     # One page can be closed while the rest of the site stays open. The Frame
     # Bureau names people whose entries are still being agreed with them.
+    PRIVATE_DIR=ROOT/'private'
     PRIVATE_PAGES={'/frame-bureau.html','/frame-bureau'}
 
     def page_users():
@@ -120,7 +121,7 @@ def create_app(overrides=None, sender=None):
         return {name.strip():password for name,password in pairs if name.strip() and password}
 
     def page_is_private():
-        return request.path in PRIVATE_PAGES and bool(page_users())
+        return request.path in PRIVATE_PAGES and (PRIVATE_DIR/'frame-bureau.html').exists()
 
     @app.before_request
     def private_page():
@@ -240,6 +241,13 @@ def create_app(overrides=None, sender=None):
     @app.errorhandler(413)
     def oversized(error):
         return jsonify(error='Your message is too long. Please shorten it and try again.'),413
+
+    @app.get('/frame-bureau.html')
+    def private_bureau():
+        # Reached only once before_request has accepted the login.
+        if not (PRIVATE_DIR/'frame-bureau.html').exists():
+            return send_from_directory(ROOT/'public','frame-bureau.html',conditional=True)
+        return send_from_directory(PRIVATE_DIR,'frame-bureau.html',conditional=False)
 
     @app.get('/site.html')
     def legacy():

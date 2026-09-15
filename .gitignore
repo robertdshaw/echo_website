@@ -13,3 +13,6 @@ latinnews-data-collection.html
 # Python bytecode
 __pycache__/
 *.pyc
+
+# Pages withheld from publication while the people named on them agree
+private/
