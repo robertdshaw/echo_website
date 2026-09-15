@@ -209,7 +209,9 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 /* Imagery that carries evidence: keep the heat signatures clear on the left
    and move the caption over the dark water on the right. */
 .ef-photo-data:after{content:"";position:absolute;inset:0;background:linear-gradient(270deg,rgba(8,10,20,.88),rgba(8,10,20,.6) 34%,rgba(8,10,20,.12) 62%,rgba(8,10,20,0));pointer-events:none}
-.ef-photo-data .ef-cap{left:auto;right:clamp(20px,3vw,40px);text-align:right;max-width:min(470px,54%)}
+.ef-photo-data .ef-cap{left:auto;right:clamp(20px,3vw,40px);top:auto;bottom:clamp(18px,6.5%,40px);transform:none;text-align:right;max-width:min(370px,42%)}
+.ef-photo-data h2{font-size:clamp(20px,2.45vw,30px)}
+.ef-photo-data .ef-kicker{text-wrap:balance;line-height:1.55;margin-bottom:8px}
 .ef-photo-data .ef-cap,.ef-photo-data .ef-credit{z-index:2}
 @media(max-width:680px){.ef-photo-data:after{background:linear-gradient(180deg,rgba(8,10,20,.05),rgba(8,10,20,.9) 68%)}.ef-photo-data .ef-cap{left:clamp(20px,3vw,40px);right:auto;text-align:left;max-width:86%}}
 
