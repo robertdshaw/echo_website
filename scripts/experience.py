@@ -43,8 +43,7 @@ def faq(limit=None):
          'that turns on somewhere the wires do not cover. Each engagement starts with a defined policy, actor, '
          'counterparty, or asset question.'),
         ('Which countries do you cover?', 'Collection runs in Venezuela. Colombia, Mexico, Rwanda and Pakistan are '
-         'being built. Standing up a new country is not starting again, because the method and the questions '
-         'travel. Tell us where you operate and we will tell you plainly whether we cover it.'),
+         'being built. Tell us where you operate and we will tell you plainly whether we cover it.'),
         ('What can a private briefing cover?', 'Bring the decision you face, the assets or contracts involved, and '
          'your time horizon. We can discuss a stakeholder brief, a policy milestone note, a thesis-question '
          'register, or another research format suited to that question.'),

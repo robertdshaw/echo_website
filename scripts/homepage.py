@@ -18,10 +18,9 @@ def claims():
          'The five things that decide whether an asset keeps running and what it is worth. Who holds the '
          'permit and on what condition. Whether the workforce is about to stop. What is happening around '
          'the site. Which way the politics is turning. What the contract obliges each side to do.'),
-        ('04 / Where we work', 'Venezuela now, four more in build',
-         'Collection runs in Venezuela. Colombia, Mexico, Rwanda and Pakistan are being built. Standing up '
-         'a new country is not starting again, because the method and the questions travel. Tell us where '
-         'you operate and we will tell you plainly whether we cover it.'),
+        ('04 / Where we work',
+         'Collection runs in Venezuela. Colombia, Mexico, Rwanda and Pakistan are being built.',
+         'Tell us where you operate and we will tell you plainly whether we cover it.'),
         ('05 / What you get', 'An alert, a brief, a report, or an answer',
          'Continuous coverage of places that are remote, volatile and largely offline, in whatever '
          'form the decision needs. An alert the day a development is confirmed. A short brief when it needs '

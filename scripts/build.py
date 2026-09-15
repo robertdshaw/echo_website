@@ -50,8 +50,9 @@ def brand(prefix=''):
 def layout(title, body, page='home', prefix='', description='', lang='en'):
     # Apply the heading punctuation convention to generated pages, not prose.
     def clean_heading(match):
-        parts = re.split(r'(<[^>]+>)', match.group(2))
-        text = ''.join(part if part.startswith('<') else re.sub(r'\.(?=\s|$|[”’\"])', '', part) for part in parts)
+        # A heading does not end in a full stop. Punctuation inside one is left
+        # alone, so a heading of two sentences still reads as two sentences.
+        text = re.sub(r'\.(?=(?:\s|<[^>]+>)*$)', '', match.group(2))
         return match.group(1) + text + match.group(3)
     body = re.sub(r'(<h[1-4]\b[^>]*>)(.*?)(</h[1-4]>)', clean_heading, body, flags=re.DOTALL)
     C = CHROME[lang]
