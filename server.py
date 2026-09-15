@@ -109,6 +109,12 @@ def create_app(overrides=None, sender=None):
         app.wsgi_app=ProxyFix(app.wsgi_app,x_for=1,x_proto=1)
     deliver=sender or send_contact
 
+    def reviewers():
+        # REVIEW_USERS is "name:password,name:password". Absent means the
+        # review area is closed, which is the safe default.
+        pairs=[pair.split(':',1) for pair in os.getenv('REVIEW_USERS','').split(',') if ':' in pair]
+        return {name.strip():password for name,password in pairs if name.strip() and password}
+
     def digest(text):
         return hmac.new(app.config['APP_SECRET'].encode(),text.encode(),hashlib.sha256).hexdigest()
 
@@ -212,6 +218,23 @@ def create_app(overrides=None, sender=None):
     @app.errorhandler(413)
     def oversized(error):
         return jsonify(error='Your message is too long. Please shorten it and try again.'),413
+
+    @app.get('/review/<path:path>')
+    def private_review(path):
+        # A draft shown to one named person for their approval. It is served
+        # from review/, which the build never publishes, and it is never indexed.
+        people=reviewers()
+        if not people:
+            return 'The review area is closed.',503
+        auth=request.authorization
+        expected=people.get(auth.username) if auth and auth.username else None
+        if not expected or not hmac.compare_digest(auth.password or '',expected):
+            return ('Sign in to read this draft.',401,
+                    {'WWW-Authenticate':'Basic realm="EchoFrame draft", charset="UTF-8"'})
+        response=send_from_directory(ROOT/'review',path,conditional=False)
+        response.headers['X-Robots-Tag']='noindex, nofollow, noarchive'
+        response.headers['Cache-Control']='no-store'
+        return response
 
     @app.get('/site.html')
     def legacy():

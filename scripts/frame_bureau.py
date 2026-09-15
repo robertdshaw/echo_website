@@ -83,14 +83,16 @@ EXAMPLE = [
 ]
 
 
-def page(intro):
+def page(intro, withhold=()):
+    """The Bureau page. `withhold` drops a teacher's card until they have seen
+    their own entry and agreed to it; the section stands without them."""
     modules = ''
     for title, pillar, rows in MODULES:
         body = ''.join(f'<p><span class="eyebrow">{key}</span> {value}</p>' for key, value in rows)
         modules += f'<div><span class="eyebrow">{pillar}</span><h3>{title}</h3>{body}</div>'
     bench = ''.join(
         f'<div><h3>{name}</h3><span class="eyebrow">{role}</span><p>{body}</p></div>'
-        for name, role, body in BENCH)
+        for name, role, body in BENCH if name not in withhold)
     steps = ''.join(f'<div><h3>{title}</h3><p>{body}</p></div>' for title, body in STEPS_OF_ENGAGEMENT)
     example = ''.join(f'<div><span class="eyebrow">{heading}</span><p>{text}</p></div>' for heading, text in EXAMPLE)
     return intro(

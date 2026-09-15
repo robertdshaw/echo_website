@@ -13,3 +13,6 @@ latinnews-data-collection.html
 # Python bytecode
 __pycache__/
 *.pyc
+
+# Private drafts awaiting a named person's approval; rebuilt by scripts/build.py
+review/
