@@ -1,0 +1,24 @@
+# Render's GitHub App webhook went missing, so pushes stopped deploying.
+# This calls the service's deploy hook directly instead, which needs nothing
+# from Render beyond the URL held in the RENDER_DEPLOY_HOOK secret.
+name: Deploy to Render
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger the Render deploy
+        run: |
+          if [ -z "${{ secrets.RENDER_DEPLOY_HOOK }}" ]; then
+            echo "RENDER_DEPLOY_HOOK is not set. Add it under Settings > Secrets and variables > Actions." >&2
+            exit 1
+          fi
+          code=$(curl -sS -o response.txt -w '%{http_code}' "${{ secrets.RENDER_DEPLOY_HOOK }}")
+          echo "Render replied $code"
+          cat response.txt
+          [ "$code" = "200" ] || [ "$code" = "201" ]
