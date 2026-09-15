@@ -1,0 +1,13 @@
+{
+  "pages": 28,
+  "viewports": [
+    1440,
+    390
+  ],
+  "javascript_errors": [],
+  "horizontal_overflow": [],
+  "form": "eight fields, confirmation, failure retention and fixed recipient passed with stub delivery",
+  "research_filters": "passed",
+  "evidence_and_decision_controls": "passed",
+  "emails_sent": 0
+}

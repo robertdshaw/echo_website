@@ -34,9 +34,11 @@ ARROW = ''
 GENERATED = []
 
 # Pages held back from the published site while the people named on them agree
-# to what is written. They are written to private/ instead, and server.py serves
-# them from there behind a password. Empty this set to publish normally.
+# to what is written. Each is written to private/, served from there behind a
+# password at its own address, and replaced in public by a holding page.
+# Empty this set to publish normally.
 PRIVATE_PAGES = {'frame-bureau.html'}
+PRIVATE_ADDRESS = {'frame-bureau.html': 'frame-bureau-full.html'}
 
 MARK = '<svg class="echoframe-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><g stroke-width="3.8" stroke-linecap="round"><path d="M7 7L29 41M13 7L35 41M19 7L41 41" stroke="#ed704b"/><path d="M41 7L19 41M35 7L13 41M29 7L7 41" stroke="currentColor"/></g></svg>'
 
@@ -160,8 +162,21 @@ def write(path, title, body, page='home', prefix='', lang='en', description=''):
     if path in PRIVATE_PAGES:
         # Never written to the repository root or to public/, so no static copy
         # of this site can serve it, whatever else is deployed from this repo.
-        dest=ROOT/'private'/path; dest.parent.mkdir(parents=True,exist_ok=True)
+        dest=ROOT/'private'/PRIVATE_ADDRESS[path]; dest.parent.mkdir(parents=True,exist_ok=True)
         dest.write_text(html,encoding='utf-8')
+        holding=('<section class="page-intro container"><div class="eyebrow">The training division</div>'
+                 f'<h1>{E(title)}</h1><p>This page is closed while the people who teach on the programme '
+                 'agree the entries written about them. It reopens when they have.</p></section>'
+                 '<section class="section container"><div class="standards-grid"><div>'
+                 '<span class="eyebrow">🔒 &nbsp;Sign in</span><h3>If you have been sent a login</h3>'
+                 f'<p>Open <a href="{PRIVATE_ADDRESS[path]}">the full page</a> and enter the username and '
+                 'password you were given.</p></div><div><span class="eyebrow">Everyone else</span>'
+                 '<h3>Ask us about the programme</h3><p>The Frame Bureau trains an organisation&#8217;s own '
+                 'people until they can run a live intelligence desk without us. '
+                 '<a href="briefing.html">Put a question to the desk</a> and we will send you the detail.</p>'
+                 '</div></div></section>')
+        dest=OUT/path; dest.write_text(layout(title,holding,page,prefix,description,lang),encoding='utf-8')
+        GENERATED.append(path)
         return
     dest=OUT/path; dest.parent.mkdir(parents=True,exist_ok=True)
     dest.write_text(html,encoding='utf-8')

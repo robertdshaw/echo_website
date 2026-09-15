@@ -1,0 +1,16 @@
+from pathlib import Path
+
+p=Path('scripts/audiences.py')
+s=p.read_text(encoding='utf-8').replace('A scoped research conversation. No security recommendation or performance outcome is implied.','Bring a defined question, the evidence you need, and the date that matters.')
+s=s.replace('width="1536" height="1024"','width="1774" height="887"')
+p.write_text(s,encoding='utf-8')
+p=Path('assets/presence.css')
+s=p.read_text(encoding='utf-8')
+s=s.replace('animation:orbit-drift 110s linear infinite','animation:orbit-drift 3.4s ease-out 1').replace('animation:route-flow 30s linear infinite','animation:route-flow 3.4s ease-out 1').replace('animation:orbit-drift 100s linear infinite','animation:orbit-drift 3.4s ease-out 1')
+s=s.replace('.image-disclosure{font-size:6px;','.image-disclosure{font-size:8px;')
+s=s.replace('.image-disclosure{font-size:5px;}','.image-disclosure{font-size:7px;}')
+s=s.replace('.power-hero-bottom .image-disclosure{display:none}', '.power-hero-bottom{flex-wrap:wrap;padding-block:18px}.power-hero-bottom .image-disclosure{display:block;width:100%;order:3;font-size:7px}')
+s=s.replace('.power-hero-bottom .image-disclosure{display:block;width:100%;font-size:5px;', '.power-hero-bottom .image-disclosure{display:block;width:100%;font-size:7px;')
+s=s.replace('.hero-audiences>a{font-size:6px;', '.hero-audiences>a{font-size:8px;')
+p.write_text(s,encoding='utf-8')
+Path('assets/social-card.svg').write_text('''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><defs><linearGradient id="shade"><stop stop-color="#091320" stop-opacity=".98"/><stop offset="1" stop-color="#091320" stop-opacity=".35"/></linearGradient></defs><rect width="1200" height="630" fill="#091320"/><image href="energy-horizon.png" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/><rect width="1200" height="630" fill="url(#shade)"/><text x="65" y="95" fill="#f7f6f2" font-family="Arial,sans-serif" font-size="35" letter-spacing="-1">echoframe</text><text x="65" y="247" fill="#fff" font-family="Arial,sans-serif" font-size="83" letter-spacing="-3">Power shifts.</text><text x="65" y="355" fill="#e9be91" font-family="Georgia,serif" font-size="85" font-style="italic" letter-spacing="-3">Exposure follows.</text><path d="M65 430H1135" stroke="#ffffff40"/><text x="65" y="478" fill="#dee2e9" font-family="Arial,sans-serif" font-size="17" letter-spacing="1.4">OIL &amp; GAS GOVERNMENT AFFAIRS</text><text x="65" y="515" fill="#dee2e9" font-family="Arial,sans-serif" font-size="17" letter-spacing="1.4">DISTRESSED DEBT &amp; SPECIAL SITUATIONS</text><text x="65" y="586" fill="#c6d0de" font-family="Arial,sans-serif" font-size="10" letter-spacing="1">POLITICAL INTELLIGENCE. MATERIAL EXPOSURE.</text><text x="922" y="586" fill="#c6d0de" font-family="Arial,sans-serif" font-size="8">AI-GENERATED FICTIONAL LOCATION</text></svg>''',encoding='utf-8')

@@ -1,0 +1,15 @@
+from pathlib import Path
+p=Path('scripts/build.py')
+s=p.read_text(encoding='utf-8')
+s=s.replace('from audiences import hero as cinematic_hero, perspectives, consequence_section, audience_page','from audiences import perspectives, consequence_section, audience_page\nfrom experience import hero as cinematic_hero, formats, faq')
+s=s.replace('<span>POLITICAL INTELLIGENCE. MATERIAL EXPOSURE.</span><span>Part of The OSINT Collective <span class="small-cross">✳</span></span>', '<span>✳ &nbsp; A closer view of Venezuela. Our lead research programme is taking shape.</span><a href="{prefix}venezuela.html">Explore the programme <span aria-hidden="true">↗</span></a>')
+s=s.replace("'''+consequence_section()+'''<section", "'''+consequence_section()+formats()+'''<section")
+start=s.index('def home():')
+end=s.index('\n\nREGIONS =',start)
+part=s[start:end].replace("'''+cta()", "'''+cta()+faq()")
+s=s[:start]+part+s[end:]
+s=s.replace('Your exposure.<br>A sharper perspective.', 'Every decision deserves<br>a clearer perspective.')
+p.write_text(s,encoding='utf-8')
+p=Path('assets/site.css')
+s=p.read_text(encoding='utf-8').replace('family=DM+Sans:', 'family=DM+Serif+Display&family=DM+Sans:')
+p.write_text(s,encoding='utf-8')

@@ -41,7 +41,7 @@ cargo de Chief Intelligence Architect y una breve descripción de su trayectoria
 La página está cerrada con contraseña mientras la revisan ustedes: no aparece en
 los buscadores y solo se abre con estas credenciales:
 
-  Enlace:      https://www.echoframe.co/frame-bureau.html
+  Enlace:      https://www.echoframe.co/frame-bureau-full.html
   Usuario:     luis
   Contraseña:  <password-1>
 
@@ -75,7 +75,7 @@ La page est protégée par mot de passe le temps de votre relecture : elle
 n'apparaît pas dans les moteurs de recherche et ne s'ouvre qu'avec les
 identifiants ci-dessous.
 
-  Lien :         https://www.echoframe.co/frame-bureau.html
+  Lien :         https://www.echoframe.co/frame-bureau-full.html
   Identifiant :  jc
   Mot de passe : <password-2>
 

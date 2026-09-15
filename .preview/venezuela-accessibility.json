@@ -1,0 +1,30 @@
+{
+  "1440/index.html": [],
+  "1440/venezuela.html": [
+    {
+      "id": "color-contrast",
+      "nodes": [
+        [
+          ".evidence-verdict > div > p"
+        ]
+      ]
+    }
+  ],
+  "1440/methodology.html": [],
+  "1440/research.html": [],
+  "1440/briefing.html": [],
+  "390/index.html": [],
+  "390/venezuela.html": [
+    {
+      "id": "color-contrast",
+      "nodes": [
+        [
+          ".evidence-verdict > div > p"
+        ]
+      ]
+    }
+  ],
+  "390/methodology.html": [],
+  "390/research.html": [],
+  "390/briefing.html": []
+}

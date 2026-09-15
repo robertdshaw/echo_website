@@ -11,7 +11,7 @@ GROUPS = [
         ('distressed-debt.html','Investors and hedge funds','Funds underwriting a political or counterparty assumption.'),
         ('commodities.html','Commodity traders','Origination and supply, from the growing zone to the port.')]),
     ('Cases', 'worked-examples.html'),
-    ('The Frame Bureau', 'frame-bureau.html'),
+    ('The Frame Bureau  🔒', 'frame-bureau.html'),
     ('About', [
         ('about.html','About EchoFrame','The purpose and approach behind the research.'),
         ('how-it-works.html','How it works','The six steps, and how a development is confirmed.'),

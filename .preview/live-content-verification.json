@@ -1,0 +1,13 @@
+{
+  "checked_utc": "2026-09-13T11:38:26.039170+00:00",
+  "site": "https://www.echoframe.co/",
+  "deployment_commit": "50afd9102f013818980e2d332a9c47e2d450850b",
+  "public_files_checked": 44,
+  "public_pages_checked": 28,
+  "content_mismatches": [],
+  "removed_paths_checked": 0,
+  "removal_failures": [],
+  "video_range_verified": true,
+  "contact_ready": false,
+  "emails_sent": 0
+}
