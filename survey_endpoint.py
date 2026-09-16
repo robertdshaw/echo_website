@@ -138,6 +138,28 @@ def _email(flat):
         print(f"[survey] email failed: {exc}", flush=True)
 
 
+ALLOWED_ORIGINS = {
+    "https://survey.echoframe.co",
+    "https://www.echoframe.co",
+    "https://echoframe.co",
+}
+
+
+@survey.after_request
+def _cors(resp):
+    origin = request.headers.get("Origin", "")
+    if origin in ALLOWED_ORIGINS:
+        resp.headers["Access-Control-Allow-Origin"] = origin
+        resp.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        resp.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+    return resp
+
+
+@survey.route("/api/survey", methods=["OPTIONS"])
+def preflight():
+    return ("", 204)
+
+
 @survey.post("/api/survey")
 def receive():
     raw = request.get_data(cache=False, as_text=False)
