@@ -34,12 +34,6 @@ E = html.escape
 ARROW = ""
 GENERATED = []
 
-# Pages held back from the published site while the people named on them agree
-# to what is written. Each is written to private/, served from there behind a
-# password at its own address, and replaced in public by a holding page.
-# Empty this set to publish normally.
-PRIVATE_PAGES = {"frame-bureau.html"}
-PRIVATE_ADDRESS = {"frame-bureau.html": "frame-bureau-full.html"}
 
 MARK = '<svg class="echoframe-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><g stroke-width="3.8" stroke-linecap="round"><path d="M7 7L29 41M13 7L35 41M19 7L41 41" stroke="#ed704b"/><path d="M41 7L19 41M35 7L13 41M29 7L7 41" stroke="currentColor"/></g></svg>'
 
@@ -210,23 +204,6 @@ def globe():
 
 def write(path, title, body, page="home", prefix="", lang="en", description=""):
     html = layout(title, enquiry_policy(body, path), page, prefix, description, lang)
-    if path in PRIVATE_PAGES:
-        # Never written to the repository root or to public/, so no static copy
-        # of this site can serve it, whatever else is deployed from this repo.
-        dest = ROOT / "private" / PRIVATE_ADDRESS[path]
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(html, encoding="utf-8")
-        holding = (
-            '<section class="page-intro container"><div class="eyebrow">🔒 &nbsp;Private</div>'
-            f"<h1>{E(title)}</h1><p>You need a login to view this page. "
-            f'<a href="{PRIVATE_ADDRESS[path]}">Sign in</a>.</p></section>'
-        )
-        dest = OUT / path
-        dest.write_text(
-            layout(title, holding, page, prefix, description, lang), encoding="utf-8"
-        )
-        GENERATED.append(path)
-        return
     dest = OUT / path
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(html, encoding="utf-8")

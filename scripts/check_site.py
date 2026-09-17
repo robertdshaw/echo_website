@@ -33,11 +33,7 @@ for path,doc in documents.items():
         if parts.scheme or parts.netloc: continue
         target=(path.parent/unquote(parts.path)).resolve() if parts.path else path.resolve()
         if target.is_dir(): target=target/'index.html'
-        # A private page is served by the app from private/, never from public/.
-        if not target.exists() and not (ROOT/'private'/link).exists():
-            errors.append(f'{path.relative_to(PUBLIC)}: missing {link}')
-        elif not target.exists():
-            pass
+        if not target.exists(): errors.append(f'{path.relative_to(PUBLIC)}: missing {link}')
         elif parts.fragment and target in documents and unquote(parts.fragment) not in documents[target].ids:
             errors.append(f'{path.relative_to(PUBLIC)}: missing fragment {link}')
 

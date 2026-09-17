@@ -184,48 +184,6 @@ def create_app(overrides=None, sender=None):
         app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1)
     deliver = sender or send_contact
 
-    # One page can be closed while the rest of the site stays open. The Frame
-    # Bureau names people whose entries are still being agreed with them.
-    PRIVATE_DIR = ROOT / "private"
-    PRIVATE_PAGES = {"/frame-bureau-full.html"}
-
-    def page_users():
-        # BUREAU_USERS is "name:password,name:password". Unset means the page
-        # is public, which is how the site normally runs.
-        pairs = [
-            pair.split(":", 1)
-            for pair in os.getenv("BUREAU_USERS", "").split(",")
-            if ":" in pair
-        ]
-        return {
-            name.strip(): password
-            for name, password in pairs
-            if name.strip() and password
-        }
-
-    def page_is_private():
-        return (
-            request.path in PRIVATE_PAGES
-            and (PRIVATE_DIR / "frame-bureau-full.html").exists()
-        )
-
-    @app.before_request
-    def private_page():
-        if not page_is_private():
-            return None
-        people = page_users()
-        auth = request.authorization
-        expected = people.get(auth.username) if auth and auth.username else None
-        if expected and hmac.compare_digest(auth.password or "", expected):
-            return None
-        return (
-            "This page is private while it is being reviewed.",
-            401,
-            {
-                "WWW-Authenticate": 'Basic realm="EchoFrame, The Frame Bureau", charset="UTF-8"'
-            },
-        )
-
     def digest(text):
         return hmac.new(
             app.config["APP_SECRET"].encode(), text.encode(), hashlib.sha256
@@ -250,9 +208,6 @@ def create_app(overrides=None, sender=None):
     def headers(response):
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
-        if page_is_private():
-            response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive"
-            response.headers["Cache-Control"] = "no-store"
         if request.path.startswith("/api/"):
             response.headers["Cache-Control"] = "no-store"
         return response
@@ -404,15 +359,6 @@ def create_app(overrides=None, sender=None):
         return (
             jsonify(error="Your message is too long. Please shorten it and try again."),
             413,
-        )
-
-    @app.get("/frame-bureau-full.html")
-    def private_bureau():
-        # Reached only once before_request has accepted the login.
-        if not (PRIVATE_DIR / "frame-bureau-full.html").exists():
-            return redirect("/frame-bureau.html", code=302)
-        return send_from_directory(
-            PRIVATE_DIR, "frame-bureau-full.html", conditional=False
         )
 
     @app.get("/site.html")
