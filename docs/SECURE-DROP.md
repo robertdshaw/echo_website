@@ -61,6 +61,28 @@ Render:
 
 The name is held in Render and is not written in the page or the code.
 
+## Get an alert when a drop arrives
+
+Nothing tells you a file has arrived unless you add one setting in Render.
+
+For a phone alert, install the free **ntfy** app (App Store or Google Play),
+open it, and subscribe to a topic with a long random name, for example
+`echoframe-drop-7h3k9q2x`. Then add in Render:
+
+| Variable | Value |
+| --- | --- |
+| `DROP_NOTIFY` | `https://ntfy.sh/echoframe-drop-7h3k9q2x` |
+
+Use your own topic name and keep it private. The alert says only how many
+documents arrived, never any client content.
+
+For an email alert instead, set `DROP_NOTIFY` to your email address. Email also
+needs `RESEND_API_KEY` and `CONTACT_FROM` configured, which the live site does
+not have yet, so the phone alert is the one that works today.
+
+Either way, still download promptly. The alert does not keep the file; Render
+clears it on the next restart or deploy.
+
 ## Where received files are kept
 
 By default they go to `.drop-inbox/` next to `server.py`. Render clears that

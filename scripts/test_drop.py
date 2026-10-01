@@ -3,6 +3,7 @@ import io
 import os
 import shutil
 import sys
+import time
 import unittest
 import uuid
 import zipfile
@@ -166,6 +167,46 @@ class DropTests(unittest.TestCase):
         with patch.dict(os.environ, {'DROP_FIRM': 'Acme Advisory, acme-advisory.com, @acme.co.uk'}):
             firm = self.client.get('/drop/api/session').json['firm']
             self.assertEqual(firm, {'name': 'Acme Advisory', 'domains': ['acme-advisory.com', 'acme.co.uk']})
+
+    def test_alert_fires_with_only_a_count(self):
+        import http.server
+        import threading as _t
+        captured = []
+
+        class Handler(http.server.BaseHTTPRequestHandler):
+            def do_POST(self):
+                body = self.rfile.read(int(self.headers.get("Content-Length", 0)))
+                captured.append({"body": body.decode("utf-8", "replace"), "title": self.headers.get("Title", "")})
+                self.send_response(200)
+                self.end_headers()
+
+            def log_message(self, *a):
+                pass
+
+        srv = http.server.HTTPServer(("127.0.0.1", 0), Handler)
+        _t.Thread(target=srv.serve_forever, daemon=True).start()
+        url = f"http://127.0.0.1:{srv.server_address[1]}/drop-topic"
+        try:
+            with patch.dict(os.environ, {"DROP_NOTIFY": url}):
+                self.login(self.client, "sender", "sender-password-1")
+                self.assertEqual(self.send(self.client).status_code, 200)
+                for _ in range(50):
+                    if captured:
+                        break
+                    time.sleep(0.05)
+            self.assertEqual(len(captured), 1)
+            self.assertEqual(captured[0]["title"], "EchoFrame drop")
+            self.assertIn("2 redacted documents received", captured[0]["body"])
+            # The alert must not carry any client content.
+            self.assertNotIn("Hedge fund", captured[0]["body"])
+            self.assertNotIn("0001", captured[0]["body"])
+        finally:
+            srv.shutdown()
+
+    def test_no_alert_when_unset(self):
+        # With DROP_NOTIFY unset the upload still works and nothing is sent.
+        self.login(self.client, "sender", "sender-password-1")
+        self.assertEqual(self.send(self.client).status_code, 200)
 
     def test_sign_out(self):
         self.login(self.client, 'owner', 'owner-password-1')

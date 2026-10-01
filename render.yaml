@@ -28,5 +28,8 @@ services:
       # Optional. The sender's own firm as name,email-domain so it is never taken for a client.
       - key: DROP_FIRM
         sync: false
+      # Optional. Alert when a drop arrives: an ntfy.sh topic URL (phone) or an email address.
+      - key: DROP_NOTIFY
+        sync: false
       - key: TRUST_PROXY
         value: "true"
