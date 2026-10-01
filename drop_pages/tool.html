@@ -5,46 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'self' https://www.wikidata.org https://en.wikipedia.org; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
-<title>Redact client names</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<title>Upload client scoping questions and auto redact</title>
 <style>
-:root { --ink:#1c2430; --muted:#5d6878; --line:#dfe4ea; --bg:#f5f6f8; --card:#fff; --accent:#1f5f4a; --accent-ink:#fff; --mark:#ffe58a; --warn:#9a3412; --ok:#166534; }
+/* EchoFrame colours, taken from the website: violet and coral on white. */
+:root { --ink:#25212a; --muted:#696969; --line:#e5e2e8; --bg:#fff; --tint:#f6f2f9; --card:#fff; --accent:#5a3878; --accent-dark:#33213f; --coral:#ed704b; --coral-tint:#fdeae3; --accent-ink:#fff; --mark:#fbd9cc; --warn:#b8431f; --ok:#5a3878; --serif:'DM Serif Display', Georgia, 'Times New Roman', serif; }
 * { box-sizing: border-box; }
 [hidden] { display:none !important; }
-.errbar { background:#fde8d7; color:#9a3412; padding:10px 20px; text-align:center; font-size:14px; }
+.errbar { background:var(--coral-tint); color:var(--warn); padding:10px 20px; text-align:center; font-size:14px; }
 html, body { margin:0; }
+body::before { content:''; display:block; height:5px; background:linear-gradient(90deg, var(--accent) 0%, var(--accent) 55%, var(--coral) 100%); }
 body { background:var(--bg); color:var(--ink); font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
 .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
 .top { background:#fff; border-bottom:1px solid var(--line); }
 .top .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-top:14px; padding-bottom:14px; flex-wrap:wrap; }
-.brand { font-weight:700; font-size:18px; }
-.safe { color:var(--ok); font-size:14px; display:flex; align-items:center; gap:8px; }
-.dot { width:9px; height:9px; border-radius:50%; background:var(--ok); display:inline-block; flex:none; }
+.brand { font-family:var(--serif); font-size:21px; color:var(--accent-dark); display:flex; align-items:center; gap:10px; }
+.brand img { width:28px; height:28px; display:block; }
+.safe { color:var(--accent); font-size:14px; display:flex; align-items:center; gap:8px; }
+.dot { width:9px; height:9px; border-radius:50%; background:var(--coral); display:inline-block; flex:none; }
 .steps { display:flex; gap:8px; padding-top:18px; padding-bottom:6px; flex-wrap:wrap; }
 .steps button { font:inherit; border:1px solid var(--line); background:#fff; color:var(--muted); padding:8px 14px; border-radius:999px; cursor:pointer; }
 .steps button b { display:inline-block; width:22px; height:22px; line-height:22px; text-align:center; border-radius:50%; background:var(--line); color:var(--ink); margin-right:6px; font-size:13px; }
 .steps button.on { border-color:var(--accent); color:var(--ink); }
 .steps button.on b { background:var(--accent); color:#fff; }
 .steps button:disabled { opacity:.5; cursor:default; }
-h1 { font-size:26px; margin:22px 0 6px; }
+h1 { font-family:var(--serif); font-weight:400; font-size:32px; line-height:1.2; color:var(--accent-dark); margin:22px 0 8px; }
 h2 { font-size:17px; margin:0 0 4px; }
 .lead { margin:0 0 18px; max-width:760px; }
 .muted { color:var(--muted); font-size:14px; margin:0 0 10px; }
 .hint { color:var(--muted); font-size:14px; max-width:760px; }
 mark { background:var(--mark); padding:0 2px; border-radius:3px; color:inherit; }
-.card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin:0 0 16px; }
+.card { background:var(--card); border:1px solid var(--line); box-shadow:0 1px 2px rgba(51,33,63,.05); border-radius:10px; padding:16px 18px; margin:0 0 16px; }
 .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 label { font-size:14px; color:var(--muted); display:block; }
-input[type=text], input[type=search], textarea, select { font:inherit; color:var(--ink); width:100%; padding:8px 10px; border:1px solid #c9d0d9; border-radius:7px; background:#fff; margin-top:4px; }
+input[type=text], input[type=search], textarea, select { font:inherit; color:var(--ink); width:100%; padding:8px 10px; border:1px solid #cfc9d6; border-radius:7px; background:#fff; margin-top:4px; }
+input:focus, textarea:focus, select:focus, .btn:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
 textarea { resize:vertical; }
-.btn { font:inherit; display:inline-block; border:1px solid #c0c8d2; background:#fff; color:var(--ink); padding:9px 16px; border-radius:8px; cursor:pointer; }
-.btn:hover { border-color:#8f9aa8; }
+.btn { font:inherit; display:inline-block; border:1px solid #cfc9d6; background:#fff; color:var(--ink); padding:9px 16px; border-radius:8px; cursor:pointer; }
+.btn:hover { border-color:var(--accent); }
+.btn.primary:hover { background:var(--accent-dark); border-color:var(--accent-dark); }
 .btn.primary { background:var(--accent); border-color:var(--accent); color:var(--accent-ink); font-weight:600; }
 .btn.small { padding:5px 10px; font-size:14px; }
 .btn:disabled { opacity:.5; cursor:default; }
 .actions { display:flex; gap:10px; margin:18px 0 10px; flex-wrap:wrap; }
-.drop { border:2px dashed #b4bdc9; border-radius:14px; background:#fff; padding:38px 20px; text-align:center; }
-.drop.over { border-color:var(--accent); background:#eef6f2; }
-.drop-title { font-size:20px; font-weight:600; }
+.drop { border:2px dashed #b9a9c8; border-radius:14px; background:var(--tint); padding:38px 20px; text-align:center; }
+.drop.over { border-color:var(--coral); background:var(--coral-tint); }
+.drop-title { font-size:20px; font-weight:600; color:var(--accent-dark); }
 .drop-or { color:var(--muted); margin:6px 0 10px; }
 .drop-buttons { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
 .progress { margin:16px 0; }
@@ -68,44 +74,44 @@ details ul { margin:8px 0; padding-left:20px; color:var(--muted); max-height:220
 .row .nm { font-weight:600; word-break:break-word; }
 .row .sub { color:var(--muted); font-size:13px; }
 .row select { margin-top:0; }
-.row.client select { border-color:var(--accent); background:#eef6f2; }
-.row.remove select { border-color:#b08900; background:#fff8dc; }
-.tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:999px; background:#eef1f5; color:var(--muted); margin-left:6px; font-weight:400; }
-.tag.hint { background:#fde8d7; color:var(--warn); }
+.row.client select { border-color:var(--accent); background:var(--tint); }
+.row.remove select { border-color:var(--coral); background:var(--coral-tint); }
+.tag { display:inline-block; font-size:12px; padding:1px 7px; border-radius:999px; background:#f1eef4; color:var(--muted); margin-left:6px; font-weight:400; }
+.tag.hint { background:var(--coral-tint); color:var(--warn); }
 .link { background:none; border:none; padding:0; color:var(--accent); cursor:pointer; font:inherit; font-size:13px; text-decoration:underline; }
-.snips { grid-column:1 / -1; font-size:13px; color:var(--muted); background:var(--bg); border-radius:7px; padding:8px 10px; }
+.snips { grid-column:1 / -1; font-size:13px; color:var(--muted); background:var(--tint); border-radius:7px; padding:8px 10px; }
 .snips div { margin:2px 0; }
 .snips b { color:var(--ink); background:var(--mark); }
 .more { text-align:center; padding-top:10px; }
 .empty { color:var(--muted); padding:18px 0; }
 .preview-bar { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px; }
 .preview-bar select { max-width:380px; margin-top:0; }
-.preview { white-space:pre-wrap; word-wrap:break-word; font:14px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#fbfbfc; border:1px solid var(--line); border-radius:8px; padding:14px; max-height:480px; overflow:auto; margin:0; }
-.selbar { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:10px; padding:10px; background:#fff8dc; border:1px solid #e6cf7a; border-radius:8px; }
+.preview { white-space:pre-wrap; word-wrap:break-word; font:14px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#fbfafc; border:1px solid var(--line); border-radius:8px; padding:14px; max-height:480px; overflow:auto; margin:0; }
+.selbar { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:10px; padding:10px; background:var(--coral-tint); border:1px solid var(--coral); border-radius:8px; }
 .selbar select { width:auto; margin-top:0; }
 #selText { font-weight:600; }
 .ok { color:var(--ok); font-weight:600; }
 .warn { color:var(--warn); font-weight:600; }
-.done { border-color:var(--accent); background:#eef6f2; }
+.done { border-color:var(--accent); background:var(--tint); }
 .foot { color:var(--muted); font-size:13px; padding-top:18px; padding-bottom:30px; }
 @media (max-width:720px) { .grid2, .quick, .row { grid-template-columns:1fr; } }
 
-.lookup { display:flex; gap:12px; align-items:center; flex-wrap:wrap; background:var(--bg); border-radius:8px; padding:10px 12px; margin:6px 0 4px; }
+.lookup { display:flex; gap:12px; align-items:center; flex-wrap:wrap; background:var(--tint); border-radius:8px; padding:10px 12px; margin:6px 0 4px; }
 .lookup .muted { margin:0; flex:1; min-width:240px; }
-.tag.ok { background:#e3f1ea; color:#166534; }
+.tag.ok { background:var(--tint); color:var(--accent); }
 
 .more-box summary { cursor:pointer; font-weight:600; color:var(--ink); }
 .more-box h2 { margin-top:18px; }
 .more-box .quick { grid-template-columns:1fr 120px; }
 label.check.hint { margin-top:6px; }
-.done.warnbox { border-color:#e6cf7a; background:#fff8dc; }
+.done.warnbox { border-color:var(--coral); background:var(--coral-tint); }
 
 </style>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <div class="brand">Redact client names</div>
+    <div class="brand"><img alt="" src="data:image/png;base64,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">Upload client scoping questions and auto redact</div>
     <div class="safe"><span class="dot"></span>Your documents never leave this computer and your original files are not changed.</div>
     <button class="btn small" id="signOut" hidden>Sign out</button>
   </div>
@@ -114,7 +120,7 @@ label.check.hint { margin-top:6px; }
 <div id="errbar" class="errbar" hidden>Something went wrong on this page. Try opening this file in Google Chrome. Nothing has been sent anywhere.</div>
 <nav class="steps wrap" id="steps">
   <button data-step="1" class="on"><b>1</b> Add documents</button>
-  <button data-step="3" disabled><b>2</b> Check and download</button>
+  <button data-step="3" disabled><b>2</b> Check and send</button>
 </nav>
 
 <main class="wrap">
@@ -143,11 +149,10 @@ label.check.hint { margin-top:6px; }
   </section>
 
   <section id="step3" hidden>
-    <h1>Check and download</h1>
-    <p class="lead">Each client is replaced with its type, for example <mark>[Hedge fund 1]</mark>. People are replaced with <mark>[name]</mark>. Look at a few documents, then download.</p>
+    <h1>Check and send</h1>
+    <p class="lead">Each client is replaced with its type, for example <mark>[Hedge fund 1]</mark>. People are replaced with <mark>[name]</mark>. Look at a few documents, then send.</p>
     <div class="card">
       <div id="leak"></div>
-      <div id="lookupStatus" class="muted"></div>
     </div>
     <div class="card">
       <div class="preview-bar">
@@ -162,7 +167,6 @@ label.check.hint { margin-top:6px; }
         <button class="btn small" id="selRemove">Take it out everywhere</button>
         <button class="btn small" id="selClient">It is a client</button>
       </div>
-      <p class="muted" style="margin:10px 0 0">If you see a name that should go, select it with the mouse.</p>
     </div>
     <div class="actions">
       <button class="btn" data-go="1">Back</button>
@@ -183,16 +187,9 @@ label.check.hint { margin-top:6px; }
       <div id="more" class="more"></div>
     </details>
 
-    <details class="card more-box">
-      <summary>A client is missing</summary>
-      <p class="muted" style="margin-top:10px">Type the name and press Add. It is replaced in every document.</p>
-      <div class="quick">
-        <textarea id="quickNames" rows="2" placeholder="One client per line"></textarea>
-        <div class="quick-side"><button class="btn" id="quickAdd">Add</button></div>
-      </div>
-    </details>
-
     <div hidden>
+      <div id="lookupStatus"></div>
+      <textarea id="quickNames"></textarea><button id="quickAdd"></button>
       <input id="probe" type="search"><span id="probeResult"></span>
       <input id="firm" type="text" value="Our firm"><input id="ownDomains" type="text">
       <input type="checkbox" id="shortenDates" checked><input type="checkbox" id="autoLookup" checked>
