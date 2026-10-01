@@ -6,13 +6,16 @@ is sent here, as one zip file. The original documents are never uploaded.
 
 The owner signs in at the same address, downloads what was sent, and deletes it.
 
-The whole feature is off, and every /drop/ address answers 404, unless these four
-environment variables are set (in the Render dashboard, never in source control):
+The whole feature is off, and every /drop/ address answers 404, unless one
+environment variable is set (in the Render dashboard, never in source control):
 
-    DROP_SENDER_USER   sign-in name for the person sending
-    DROP_SENDER_HASH   password hash for the sender (make it with scripts/drop_password.py)
-    DROP_OWNER_USER    sign-in name for the person receiving
-    DROP_OWNER_HASH    password hash for the owner
+    DROP_USERS   sender-name:password,owner-name:password
+
+The first name is the person sending. The second is the person receiving.
+Each password needs at least 12 characters and no commas.
+
+Instead of DROP_USERS, password hashes can be used (scripts/drop_password.py):
+DROP_SENDER_USER, DROP_SENDER_HASH, DROP_OWNER_USER, DROP_OWNER_HASH.
 
 Optional:
 
@@ -21,7 +24,7 @@ Optional:
                        persistent disk is attached. Point this at the disk's mount
                        path, or download promptly.
 
-To remove the feature, delete the four variables. See docs/SECURE-DROP.md.
+To remove the feature, delete the variable. See docs/SECURE-DROP.md.
 """
 
 import hashlib
@@ -63,13 +66,31 @@ _lock = threading.Lock()
 
 
 def _config():
-    return {
+    c = {
         "sender_user": os.environ.get("DROP_SENDER_USER", "").strip(),
         "sender_hash": os.environ.get("DROP_SENDER_HASH", "").strip(),
         "owner_user": os.environ.get("DROP_OWNER_USER", "").strip(),
         "owner_hash": os.environ.get("DROP_OWNER_HASH", "").strip(),
         "dir": Path(os.environ.get("DROP_DIR") or (ROOT / ".drop-inbox")),
     }
+    # The simple form: DROP_USERS = sender-name:password,owner-name:password
+    pairs = [p.split(":", 1) for p in os.environ.get("DROP_USERS", "").split(",") if ":" in p]
+    if len(pairs) == 2 and all(name.strip() and len(password.strip()) >= 12 for name, password in pairs):
+        (sender, sender_password), (owner, owner_password) = pairs
+        c.update(
+            sender_user=sender.strip(), sender_hash="plain:" + sender_password.strip(),
+            owner_user=owner.strip(), owner_hash="plain:" + owner_password.strip(),
+        )
+    return c
+
+
+def _password_ok(stored, given):
+    if stored.startswith("plain:"):
+        return hmac.compare_digest(stored[6:].encode(), given.encode())
+    try:
+        return check_password_hash(stored, given)
+    except ValueError:
+        return False
 
 
 def _enabled(c):
@@ -199,10 +220,7 @@ def login():
         role = "sender"
     elif username and hmac.compare_digest(username.lower().encode(), c["owner_user"].lower().encode()):
         role = "owner"
-    try:
-        good = check_password_hash(c[role + "_hash"] if role else DUMMY_HASH, password)
-    except ValueError:
-        good = False
+    good = _password_ok(c[role + "_hash"] if role else DUMMY_HASH, password)
     if not role or not good:
         with _lock:
             _failures.setdefault(who, []).append(now)

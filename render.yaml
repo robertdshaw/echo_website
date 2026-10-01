@@ -22,14 +22,8 @@ services:
         sync: false
       - key: BUREAU_USERS
         sync: false
-      # Secure drop. The feature stays off until all four are set in the dashboard.
-      - key: DROP_SENDER_USER
-        sync: false
-      - key: DROP_SENDER_HASH
-        sync: false
-      - key: DROP_OWNER_USER
-        sync: false
-      - key: DROP_OWNER_HASH
+      # Secure drop. Off until set in the dashboard as sender-name:password,owner-name:password
+      - key: DROP_USERS
         sync: false
       - key: TRUST_PROXY
         value: "true"

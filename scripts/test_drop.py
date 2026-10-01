@@ -147,6 +147,19 @@ class DropTests(unittest.TestCase):
         with patch.dict(os.environ, {'DROP_SENDER_HASH': generate_password_hash('a-new-password-2')}):
             self.assertEqual(self.client.get('/drop/api/session').status_code, 401)
 
+    def test_single_setting_form(self):
+        blank = {'DROP_SENDER_USER': '', 'DROP_SENDER_HASH': '', 'DROP_OWNER_USER': '', 'DROP_OWNER_HASH': ''}
+        with patch.dict(os.environ, dict(blank, DROP_USERS='too:short,also:short')):
+            self.assertEqual(self.client.get('/drop/login').status_code, 404)
+        with patch.dict(os.environ, dict(blank, DROP_USERS='alex:first-long-password, sam:second-long-password')):
+            self.assertIn('failed=1', self.login(self.client, 'alex', 'second-long-password').headers['Location'])
+            self.assertEqual(self.login(self.client, 'alex', 'first-long-password').headers['Location'], '/drop/')
+            self.assertEqual(self.send(self.client).status_code, 200)
+            self.assertEqual(self.client.get('/drop/api/list').status_code, 403)
+            owner = app.test_client()
+            self.login(owner, 'sam', 'second-long-password')
+            self.assertEqual(len(owner.get('/drop/api/list').json['files']), 1)
+
     def test_sign_out(self):
         self.login(self.client, 'owner', 'owner-password-1')
         self.assertEqual(self.client.post('/drop/logout', headers=ORIGIN).status_code, 302)
