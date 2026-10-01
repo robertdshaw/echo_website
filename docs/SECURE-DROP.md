@@ -49,6 +49,18 @@ Password hashes can be used instead of plain passwords. Run
 `python scripts/drop_password.py` and set `DROP_SENDER_USER`, `DROP_SENDER_HASH`,
 `DROP_OWNER_USER` and `DROP_OWNER_HASH`.
 
+## Keep the sender's own firm out of the client list
+
+The page works out which firm is the sender's own, because that firm appears
+alongside many different clients. To make it certain, add one more variable in
+Render:
+
+| Variable | Value |
+| --- | --- |
+| `DROP_FIRM` | `firm name,email domain` |
+
+The name is held in Render and is not written in the page or the code.
+
 ## Where received files are kept
 
 By default they go to `.drop-inbox/` next to `server.py`. Render clears that

@@ -19,6 +19,10 @@ DROP_SENDER_USER, DROP_SENDER_HASH, DROP_OWNER_USER, DROP_OWNER_HASH.
 
 Optional:
 
+    DROP_FIRM    the sender's own firm, as name,email-domain  (for example
+                 Acme Advisory,acme-advisory.com). The page then never treats
+                 that firm as a client. Kept here so the name is not in the code.
+
     DROP_DIR           where received files are kept. Default ./.drop-inbox
                        Render wipes the disk on every deploy and restart unless a
                        persistent disk is attached. Point this at the disk's mount
@@ -245,7 +249,9 @@ def session_info():
     session = _session()
     if not session:
         return jsonify(error="Sign in first."), 401
-    return jsonify(role=session["r"], token=session["c"])
+    parts = [p.strip() for p in os.environ.get("DROP_FIRM", "").split(",") if p.strip()]
+    firm = {"name": parts[0][:80], "domains": [d.lower().lstrip("@")[:120] for d in parts[1:6]]} if parts else None
+    return jsonify(role=session["r"], token=session["c"], firm=firm)
 
 
 def _check_zip(data):
