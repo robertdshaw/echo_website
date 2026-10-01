@@ -131,7 +131,6 @@ label.check.hint { margin-top:6px; }
     </div>
     <p class="hint">For emails, select them in your mail program and drag them into a folder first. Attachments inside the emails are read as well.</p>
     <p class="hint">If your browser asks whether to "upload" the folder, say yes. That only lets this page read the files. They stay on this computer.</p>
-    <label class="check hint"><input type="checkbox" id="autoLookup" checked> Check each client's name on Wikipedia to work out what kind of company it is. Only the name is sent.</label>
     <div id="progress" class="progress" hidden>
       <div class="bar"><div id="barFill"></div></div>
       <div id="progressText" class="muted"></div>
@@ -201,6 +200,7 @@ label.check.hint { margin-top:6px; }
       </div>
       <h2>Other</h2>
       <label class="check"><input type="checkbox" id="shortenDates" checked> Shorten full dates to the year</label>
+      <label class="check"><input type="checkbox" id="autoLookup" checked> Check client types on Wikipedia</label>
       <div class="actions">
         <button class="btn" id="lookupBtn">Check client types on Wikipedia again</button>
         <button class="btn" id="downloadCopy" hidden>Download a copy of what is sent</button>
@@ -209,7 +209,7 @@ label.check.hint { margin-top:6px; }
     </details>
   </section>
 </main>
-<footer class="wrap foot">Only the redacted text is sent. Only the client type check contacts any other site.</footer>
+<footer class="wrap foot"></footer>
 <script>
 window.addEventListener('error', function () { var b = document.getElementById('errbar'); if (b) b.hidden = false; });
 window.addEventListener('unhandledrejection', function () { var b = document.getElementById('errbar'); if (b) b.hidden = false; });
