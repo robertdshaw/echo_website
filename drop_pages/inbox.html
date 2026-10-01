@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Received files</title>
+<style>
+* { box-sizing: border-box; }
+[hidden] { display:none !important; }
+body { margin:0; background:#f5f6f8; color:#1c2430; font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+main { max-width:860px; margin:0 auto; padding:28px 20px 40px; }
+header { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+h1 { font-size:24px; margin:0; }
+p.lead { color:#5d6878; margin:6px 0 18px; }
+.card { background:#fff; border:1px solid #dfe4ea; border-radius:10px; padding:6px 18px; }
+.row { display:grid; grid-template-columns:1fr auto auto; gap:12px; align-items:center; padding:12px 0; border-top:1px solid #dfe4ea; }
+.row:first-child { border-top:0; }
+.row b { display:block; }
+.row span { color:#5d6878; font-size:14px; }
+.btn { font:inherit; display:inline-block; text-decoration:none; border:1px solid #c0c8d2; background:#fff; color:#1c2430; padding:8px 14px; border-radius:8px; cursor:pointer; }
+.btn.primary { background:#1f5f4a; border-color:#1f5f4a; color:#fff; font-weight:600; }
+.btn.danger { border-color:#c2410c; color:#9a3412; }
+.empty { color:#5d6878; padding:18px 0; }
+.actions { display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; }
+.note { color:#5d6878; font-size:14px; margin-top:14px; }
+form { margin:0; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Received files</h1>
+    <form method="post" action="/drop/logout"><button class="btn" type="submit">Sign out</button></form>
+  </header>
+  <p class="lead">Each file holds redacted text only. Download it, then delete it here.</p>
+  <div class="card" id="list"><div class="empty">Loading.</div></div>
+  <div class="actions">
+    <button class="btn" id="refresh">Refresh</button>
+    <a class="btn" href="/drop/tool">Open the sender's page</a>
+    <button class="btn danger" id="deleteAll" hidden>Delete everything</button>
+  </div>
+  <p class="note" id="status"></p>
+</main>
+<script>
+var token = '';
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+function size(n) { return n > 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(n / 1024)) + ' KB'; }
+function when(iso) { var d = new Date(iso); return isNaN(d) ? iso : d.toLocaleString(); }
+function load() {
+  fetch('/drop/api/list', { credentials: 'same-origin', cache: 'no-store' }).then(function (r) {
+    if (r.status === 401) { location.href = '/drop/login'; return null; }
+    return r.json();
+  }).then(function (data) {
+    if (!data) return;
+    token = data.token;
+    var box = document.getElementById('list');
+    document.getElementById('deleteAll').hidden = !data.files.length;
+    if (!data.files.length) { box.innerHTML = '<div class="empty">Nothing has been sent yet.</div>'; return; }
+    box.innerHTML = data.files.map(function (f) {
+      return '<div class="row"><div><b>' + esc(f.documents) + ' redacted documents</b><span>Received ' + esc(when(f.received)) + ' · ' + esc(size(f.bytes)) + '</span></div>' +
+        '<a class="btn primary" href="/drop/api/file/' + encodeURIComponent(f.id) + '">Download</a>' +
+        '<button class="btn danger" data-id="' + esc(f.id) + '">Delete</button></div>';
+    }).join('');
+  }).catch(function () { document.getElementById('status').textContent = 'Could not load the list. Check the connection and refresh.'; });
+}
+function remove(body, message) {
+  fetch('/drop/api/delete', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'X-Drop-Token': token }, body: JSON.stringify(body) })
+    .then(function (r) { return r.json(); })
+    .then(function (d) { document.getElementById('status').textContent = d.ok ? message : (d.error || 'That did not work.'); load(); })
+    .catch(function () { document.getElementById('status').textContent = 'That did not work. Refresh and try again.'; });
+}
+var armed = null;
+document.getElementById('list').addEventListener('click', function (e) {
+  var b = e.target.closest('button[data-id]');
+  if (!b) return;
+  if (armed !== b) { armed = b; b.textContent = 'Press again to delete'; return; }
+  remove({ id: b.getAttribute('data-id') }, 'Deleted.');
+});
+document.getElementById('deleteAll').addEventListener('click', function () {
+  var b = this;
+  if (armed !== b) { armed = b; b.textContent = 'Press again to delete everything'; return; }
+  armed = null; b.textContent = 'Delete everything';
+  remove({ all: true }, 'Everything has been deleted from the server.');
+});
+document.getElementById('refresh').addEventListener('click', load);
+load();
+</script>
+</body>
+</html>

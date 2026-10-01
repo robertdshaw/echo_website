@@ -22,3 +22,6 @@ private/
 public/
 docs/files.zip
 docs/worked_examples_page.html
+
+# Files received through the secure drop. Never commit these.
+.drop-inbox/

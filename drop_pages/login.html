@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sign in</title>
+<style>
+* { box-sizing: border-box; }
+body { margin:0; background:#f5f6f8; color:#1c2430; font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+main { max-width:380px; margin:12vh auto 0; padding:0 20px; }
+h1 { font-size:22px; margin:0 0 6px; }
+p { color:#5d6878; font-size:14px; margin:0 0 18px; }
+form { background:#fff; border:1px solid #dfe4ea; border-radius:10px; padding:20px; }
+label { display:block; font-size:14px; color:#5d6878; margin-bottom:12px; }
+input { font:inherit; width:100%; padding:9px 10px; border:1px solid #c9d0d9; border-radius:7px; margin-top:4px; }
+button { font:inherit; font-weight:600; width:100%; padding:10px; border:0; border-radius:8px; background:#1f5f4a; color:#fff; cursor:pointer; }
+.note { margin-top:12px; padding:10px 12px; border-radius:8px; background:#fde8d7; color:#9a3412; font-size:14px; }
+[hidden] { display:none; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Sign in</h1>
+  <p>This page is private. Use the name and password you were given.</p>
+  <form method="post" action="/drop/login" autocomplete="off">
+    <label>Name<input name="username" type="text" required autofocus autocapitalize="none" spellcheck="false"></label>
+    <label>Password<input name="password" type="password" required></label>
+    <button type="submit">Sign in</button>
+    <div class="note" id="failed" hidden>That name or password is not right.</div>
+    <div class="note" id="wait" hidden>Too many attempts. Wait fifteen minutes and try again.</div>
+  </form>
+</main>
+<script>
+var q = new URLSearchParams(location.search);
+if (q.get('failed')) document.getElementById('failed').hidden = false;
+if (q.get('wait')) document.getElementById('wait').hidden = false;
+</script>
+</body>
+</html>
