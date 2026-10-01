@@ -15,11 +15,11 @@ The owner signs in at the same address, downloads the zip and deletes it.
 
 ## What protects it
 
-- Every `/drop/` address answers 404 until the four sign-in variables are set.
+- Every `/drop/` address answers 404 until the sign-in variable is set.
 - Two separate sign-ins. The sender can send. Only the owner can list, download
   or delete. The sender cannot read back anything that was sent.
-- Passwords are stored as hashes. Five wrong attempts lock that address out for
-  fifteen minutes.
+- Passwords live only in the Render dashboard, never in the code. Five wrong
+  attempts lock that address out for fifteen minutes.
 - The sign-in cookie is HttpOnly, Secure and SameSite=Strict, scoped to `/drop`,
   and lasts eight hours. Changing a password signs that person out.
 - The server refuses anything that is not the redaction page's own output. A
@@ -34,24 +34,20 @@ The owner signs in at the same address, downloads the zip and deletes it.
 
 1. Deploy the site with `drop_endpoint.py` and the `drop_pages/` folder alongside
    `server.py`. `python scripts/package_update.py` now includes them.
-2. On your own machine, make two password hashes:
-
-   ```
-   python scripts/drop_password.py
-   ```
-
-   Run it once for the sender's password and once for yours.
-3. In the Render dashboard, add four environment variables to the website
-   service:
+2. In the Render dashboard, open the website service, go to Environment and add
+   one variable:
 
    | Variable | Value |
    | --- | --- |
-   | `DROP_SENDER_USER` | the sender's sign-in name |
-   | `DROP_SENDER_HASH` | the first hash |
-   | `DROP_OWNER_USER` | your sign-in name |
-   | `DROP_OWNER_HASH` | the second hash |
+   | `DROP_USERS` | `sender-name:password,owner-name:password` |
 
-4. Give the sender the address, the name and the password by phone or in person.
+   The first name and password are for the sender. The second are yours. Each
+   password needs at least 12 characters and no commas.
+3. Give the sender the address, the name and the password by phone or in person.
+
+Password hashes can be used instead of plain passwords. Run
+`python scripts/drop_password.py` and set `DROP_SENDER_USER`, `DROP_SENDER_HASH`,
+`DROP_OWNER_USER` and `DROP_OWNER_HASH`.
 
 ## Where received files are kept
 
@@ -64,7 +60,7 @@ persistent disk to the service and set `DROP_DIR` to a folder on it, for example
 ## Take it down when the job is done
 
 1. Sign in as the owner and press Delete everything.
-2. Delete the four `DROP_` variables in Render. The feature is then off and every
+2. Delete the `DROP_USERS` variable in Render. The feature is then off and every
    `/drop/` address answers 404.
 3. If a disk was attached only for this, remove it.
 4. To remove the code as well, delete `drop_endpoint.py`, `drop_pages/`,
