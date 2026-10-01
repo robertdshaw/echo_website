@@ -14,8 +14,9 @@ This updates the existing echoframe-team-preview repository.
 
 1. Extract this ZIP into a temporary folder.
 2. In GitHub Desktop, select echoframe-team-preview and click Show in Explorer.
-3. Copy public/, server.py, and requirements.txt from the extracted folder into
-   that repository folder. Replace matching files when prompted.
+3. Copy public/, drop_pages/, server.py, survey_endpoint.py, drop_endpoint.py
+   and requirements.txt from the extracted folder into that repository folder.
+   Replace matching files when prompted.
 4. In GitHub Desktop, review Changes, enter a summary, and Commit to main.
 5. Click Push origin.
 6. In the existing Render service, choose Manual Deploy > Deploy latest commit
@@ -40,8 +41,11 @@ with ZipFile(TARGET, 'w', compression=ZIP_DEFLATED, compresslevel=6) as archive:
     for path in sorted(PUBLIC.rglob('*')):
         if path.is_file():
             archive.write(path, 'public/' + path.relative_to(PUBLIC).as_posix())
-    for name in ['server.py', 'requirements.txt']:
-        archive.write(ROOT / name, name)
+    for name in ['server.py', 'requirements.txt', 'survey_endpoint.py', 'drop_endpoint.py']:
+        if (ROOT / name).is_file():
+            archive.write(ROOT / name, name)
+    for path in sorted((ROOT / 'drop_pages').glob('*.html')):
+        archive.write(path, 'drop_pages/' + path.name)
     archive.writestr('UPDATE-INSTRUCTIONS.txt', instructions)
 
 with ZipFile(TARGET) as archive:

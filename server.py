@@ -393,5 +393,11 @@ from survey_endpoint import survey
 
 app.register_blueprint(survey)
 
+# Private page for receiving redacted documents. Off unless its sign-in
+# variables are set; see docs/SECURE-DROP.md.
+from drop_endpoint import drop
+
+app.register_blueprint(drop)
+
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=int(os.getenv("PORT", "4173")), debug=False)
