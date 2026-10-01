@@ -28,17 +28,26 @@ Optional:
                        persistent disk is attached. Point this at the disk's mount
                        path, or download promptly.
 
+    DROP_NOTIFY        where to send an alert when a drop arrives. Either an
+                       ntfy.sh topic URL for a phone alert (for example
+                       https://ntfy.sh/a-long-random-topic-name), or an email
+                       address (email needs RESEND_API_KEY and CONTACT_FROM set
+                       too). The alert carries only the number of documents, no
+                       client content.
+
 To remove the feature, delete the variable. See docs/SECURE-DROP.md.
 """
 
 import hashlib
 import hmac
 import io
+import json
 import os
 import re
 import secrets
 import threading
 import time
+import urllib.request
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -282,6 +291,40 @@ def _check_zip(data):
         return None
 
 
+# Best-effort alert that a drop arrived. Runs in the background, never raises,
+# and carries only the document count, never any client content.
+def _notify(documents):
+    target = os.environ.get("DROP_NOTIFY", "").strip()
+    if not target:
+        return
+    message = f"{documents} redacted {'document' if documents == 1 else 'documents'} received in the drop."
+    try:
+        if target.startswith("https://") or target.startswith("http://"):
+            req = urllib.request.Request(
+                target,
+                data=message.encode("utf-8"),
+                headers={"Title": "EchoFrame drop", "Content-Type": "text/plain; charset=utf-8"},
+                method="POST",
+            )
+            urllib.request.urlopen(req, timeout=10).close()
+        elif "@" in target:
+            key = os.environ.get("RESEND_API_KEY", "").strip()
+            sender = os.environ.get("CONTACT_FROM", "").strip()
+            if not key or not sender:
+                print("[drop] email alert needs RESEND_API_KEY and CONTACT_FROM", flush=True)
+                return
+            payload = {"from": sender, "to": [target], "subject": "EchoFrame drop received", "text": message}
+            req = urllib.request.Request(
+                "https://api.resend.com/emails",
+                data=json.dumps(payload).encode(),
+                headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"},
+                method="POST",
+            )
+            urllib.request.urlopen(req, timeout=15).close()
+    except Exception as exc:  # an alert never blocks or fails the drop
+        print(f"[drop] alert failed: {exc}", flush=True)
+
+
 @drop.post("/api/upload")
 def upload():
     session = _session()
@@ -306,6 +349,7 @@ def upload():
         pass
     os.replace(temporary, folder / (file_id + ".zip"))
     print(f"[drop] received {file_id}: {documents} documents, {len(data)} bytes", flush=True)
+    threading.Thread(target=_notify, args=(documents,), daemon=True).start()
     return jsonify(ok=True, documents=documents, reference=file_id)
 
 
