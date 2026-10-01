@@ -160,6 +160,13 @@ class DropTests(unittest.TestCase):
             self.login(owner, 'sam', 'second-long-password')
             self.assertEqual(len(owner.get('/drop/api/list').json['files']), 1)
 
+    def test_own_firm_comes_from_settings_only(self):
+        self.login(self.client, 'sender', 'sender-password-1')
+        self.assertIsNone(self.client.get('/drop/api/session').json['firm'])
+        with patch.dict(os.environ, {'DROP_FIRM': 'Acme Advisory, acme-advisory.com, @acme.co.uk'}):
+            firm = self.client.get('/drop/api/session').json['firm']
+            self.assertEqual(firm, {'name': 'Acme Advisory', 'domains': ['acme-advisory.com', 'acme.co.uk']})
+
     def test_sign_out(self):
         self.login(self.client, 'owner', 'owner-password-1')
         self.assertEqual(self.client.post('/drop/logout', headers=ORIGIN).status_code, 302)

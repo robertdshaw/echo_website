@@ -25,5 +25,8 @@ services:
       # Secure drop. Off until set in the dashboard as sender-name:password,owner-name:password
       - key: DROP_USERS
         sync: false
+      # Optional. The sender's own firm as name,email-domain so it is never taken for a client.
+      - key: DROP_FIRM
+        sync: false
       - key: TRUST_PROXY
         value: "true"
