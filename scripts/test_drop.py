@@ -87,7 +87,7 @@ class DropTests(unittest.TestCase):
         self.assertEqual(self.login(self.client, 'sender', 'sender-password-1').headers['Location'], '/drop/')
         page = self.client.get('/drop/')
         self.assertEqual(page.status_code, 200)
-        self.assertIn(b'Redact client names', page.data)
+        self.assertIn(b'Upload client scoping questions and auto redact', page.data)
         self.assertIn("frame-ancestors 'none'", page.headers['Content-Security-Policy'])
         self.assertEqual(page.headers['Cache-Control'], 'no-store')
         sent = self.send(self.client)
