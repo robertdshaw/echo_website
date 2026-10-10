@@ -7,6 +7,12 @@ services:
     buildCommand: pip install -r requirements.txt && python scripts/build.py
     startCommand: gunicorn --workers 1 --threads 4 --timeout 60 --bind 0.0.0.0:$PORT server:app
     healthCheckPath: /api/contact/status
+    plan: starter
+    # Received drop files live here so they survive deploys and restarts.
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 1
     envVars:
       - key: APP_SECRET
         generateValue: true
@@ -31,5 +37,8 @@ services:
       # Optional. Alert when a drop arrives: an ntfy.sh topic URL (phone) or an email address.
       - key: DROP_NOTIFY
         sync: false
+      # Drop inbox on the persistent disk, not the ephemeral instance disk.
+      - key: DROP_DIR
+        value: /var/data/drop
       - key: TRUST_PROXY
         value: "true"
