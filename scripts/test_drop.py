@@ -132,6 +132,18 @@ class DropTests(unittest.TestCase):
         self.assertIn('could not store', sent.json['error'])
         self.assertFalse(list(self.folder.glob('*.part')) or list(self.folder.glob('*.zip')))
 
+    def test_text_recognition_files_need_a_sign_in(self):
+        self.assertEqual(self.client.get('/drop/ocr/eng.traineddata.gz').status_code, 401)
+        self.login(self.client, 'sender', 'sender-password-1')
+        got = self.client.get('/drop/ocr/worker.min.js')
+        self.assertEqual(got.status_code, 200)
+        self.assertIn("'wasm-unsafe-eval'", got.headers['Content-Security-Policy'])
+        got.close()
+        self.assertEqual(self.client.get('/drop/ocr/eng.traineddata.gz').status_code, 200)
+        self.assertEqual(self.client.get('/drop/ocr/..%2Fdrop_endpoint.py').status_code, 404)
+        self.assertEqual(self.client.get('/drop/ocr/README.txt').status_code, 404)
+        self.assertIn("worker-src 'self'", self.client.get('/drop/tool').headers['Content-Security-Policy'])
+
     def test_owner_downloads_and_deletes(self):
         sender = app.test_client()
         self.login(sender, 'sender', 'sender-password-1')

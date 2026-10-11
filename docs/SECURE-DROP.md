@@ -6,10 +6,29 @@ A private page for receiving redacted documents from one named sender.
 
 The sender opens `https://www.echoframe.co/drop/`, signs in and drops a folder of
 documents onto the page. The page reads and redacts the documents inside the
-sender's browser. Client names become a label for the type of company, people
-become `[name]`, and email addresses, links and phone numbers are removed. When
-the sender presses Send, only the redacted text is sent to this site, as one zip
-file. The original documents never leave the sender's computer.
+sender's browser. Only three things are hidden:
+
+- Client names become a label for the type of company, such as `[Hedge fund 1]`.
+  People who work for a client become `[Hedge fund 1 contact]`, and a link that
+  contains a client's name or web address becomes the client's label.
+- Email addresses become `[email]`.
+- Phone numbers become `[phone]`.
+
+Everything else is kept as written, including other people, dates, places,
+links, addresses and reference numbers. Known place names are never treated as
+a client.
+
+Every page and every character is read. Word headers, footers, footnotes and
+comments, PowerPoint notes, every Excel cell, zip archives and email
+attachments are included. Scanned PDF pages and pictures are read with text
+recognition in the sender's browser, in English, Spanish, French and
+Portuguese. The text is marked as read that way, because recognition can make
+mistakes. Any file that cannot be read is listed for the sender and arrives as
+`not_read.csv`.
+
+When the sender presses Send, only the redacted text is sent to this site, as
+one zip file, or in parts of about 40 MB for very large sets. The original
+documents never leave the sender's computer.
 
 The owner signs in at the same address, downloads the zip and deletes it.
 
@@ -26,7 +45,8 @@ The owner signs in at the same address, downloads the zip and deletes it.
   Word or PDF file cannot be sent here by mistake.
 - The page can only connect to this site and to Wikipedia's two lookup
   addresses, which it uses to work out what kind of company a client is. Only
-  the client's name is sent there.
+  the client's name is sent there. The text recognition files are served from
+  this site at `/drop/ocr/`, only to a signed-in user.
 - Received files are not reachable by link. They are served only to the signed-in
   owner. Nothing is cached and the pages are marked noindex.
 

@@ -168,9 +168,23 @@ def _page(name, csp):
 PAGE_CSP = "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'"
 TOOL_CSP = (
     "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; "
-    "connect-src 'self' https://www.wikidata.org https://en.wikipedia.org; form-action 'none'; "
+    "connect-src 'self' https://www.wikidata.org https://en.wikipedia.org; worker-src 'self'; form-action 'none'; "
     "frame-ancestors 'none'; base-uri 'none'"
 )
+
+
+# Text recognition for scanned pages and pictures. The page loads these only when it meets one.
+OCR = PAGES / "ocr"
+OCR_FILES = {
+    "worker.min.js": "text/javascript",
+    "tesseract-core-simd-lstm.wasm.js": "text/javascript",
+    "tesseract-core-lstm.wasm.js": "text/javascript",
+    "eng.traineddata.gz": "application/octet-stream",
+    "spa.traineddata.gz": "application/octet-stream",
+    "fra.traineddata.gz": "application/octet-stream",
+    "por.traineddata.gz": "application/octet-stream",
+}
+OCR_CSP = "default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self' data:"
 
 
 @drop.before_request
@@ -208,6 +222,17 @@ def tool():
     if not _session():
         return redirect("/drop/login")
     return _page("tool.html", TOOL_CSP)
+
+
+@drop.get("/ocr/<name>")
+def ocr_file(name):
+    if not _session():
+        return jsonify(error="Sign in first."), 401
+    if name not in OCR_FILES:
+        abort(404)
+    response = send_file(OCR / name, mimetype=OCR_FILES[name], max_age=0)
+    response.headers["Content-Security-Policy"] = OCR_CSP
+    return response
 
 
 @drop.get("/login")
