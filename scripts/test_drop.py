@@ -117,6 +117,21 @@ class DropTests(unittest.TestCase):
         self.assertEqual(self.send(self.client, data=make_zip({'index.csv': 'id\n'})).status_code, 400)
         self.assertFalse(self.folder.exists() and list(self.folder.glob('*.zip')))
 
+    def test_list_of_unread_files_is_accepted(self):
+        self.login(self.client, 'sender', 'sender-password-1')
+        names = {'redacted/0001.txt': 'ID: 0001\n\ntext', 'index.csv': 'id\n0001\n', 'not_read.csv': 'file,reason\nscan.pdf,no text in it\n', 'READ_ME.txt': 'x'}
+        sent = self.send(self.client, data=make_zip(names))
+        self.assertEqual(sent.status_code, 200)
+        self.assertEqual(sent.json['documents'], 1)
+
+    def test_a_full_disk_gives_a_clear_error_and_leaves_nothing_behind(self):
+        self.login(self.client, 'sender', 'sender-password-1')
+        with patch('pathlib.Path.write_bytes', side_effect=OSError(28, 'No space left on device')):
+            sent = self.send(self.client)
+        self.assertEqual(sent.status_code, 507)
+        self.assertIn('could not store', sent.json['error'])
+        self.assertFalse(list(self.folder.glob('*.part')) or list(self.folder.glob('*.zip')))
+
     def test_owner_downloads_and_deletes(self):
         sender = app.test_client()
         self.login(sender, 'sender', 'sender-password-1')

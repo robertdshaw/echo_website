@@ -64,12 +64,12 @@ COOKIE = "drop_session"
 SESSION_SECONDS = 8 * 3600
 MAX_UPLOAD = 200 * 1024 * 1024
 MAX_UNPACKED = 1024 * 1024 * 1024
-MAX_FILES_KEPT = 200
+MAX_FILES_KEPT = 2000
 LOGIN_TRIES = 5
 LOGIN_WINDOW = 15 * 60
 # The redaction page produces exactly these files. Anything else is refused,
 # so an original document cannot be sent here by mistake.
-ALLOWED_NAME = re.compile(r"^(redacted/\d{4,7}\.txt|index\.csv|client_labels\.csv|READ_ME\.txt)$")
+ALLOWED_NAME = re.compile(r"^(redacted/\d{4,7}\.txt|index\.csv|client_labels\.csv|not_read\.csv|READ_ME\.txt)$")
 FILE_ID = re.compile(r"^\d{8}-\d{6}-[0-9a-f]{8}$")
 # Checked when the sign-in name is unknown, so both cases take the same time.
 DUMMY_HASH = generate_password_hash(secrets.token_hex(16))
@@ -342,12 +342,17 @@ def upload():
         return jsonify(error="The inbox is full. Ask the recipient to clear it."), 507
     file_id = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S") + "-" + secrets.token_hex(4)
     temporary = folder / (file_id + ".part")
-    temporary.write_bytes(data)
     try:
-        os.chmod(temporary, 0o600)
-    except OSError:
-        pass
-    os.replace(temporary, folder / (file_id + ".zip"))
+        temporary.write_bytes(data)
+        try:
+            os.chmod(temporary, 0o600)
+        except OSError:
+            pass
+        os.replace(temporary, folder / (file_id + ".zip"))
+    except OSError as exc:
+        temporary.unlink(missing_ok=True)
+        print(f"[drop] could not store {file_id}: {exc}", flush=True)
+        return jsonify(error="The inbox could not store this file. Ask the recipient to clear it."), 507
     print(f"[drop] received {file_id}: {documents} documents, {len(data)} bytes", flush=True)
     threading.Thread(target=_notify, args=(documents,), daemon=True).start()
     return jsonify(ok=True, documents=documents, reference=file_id)
