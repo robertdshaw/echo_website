@@ -144,6 +144,10 @@ def partners():
         "show its evidence, is one of the finalists of the Global Trust Challenge, an international challenge to "
         "build trust in the age of AI. The finalists were presented at the DIGITAL SME Summit of the European "
         "DIGITAL SME Alliance.</p></div>"
+        '<div><img src="assets/partner-dsme.png" alt="European DIGITAL SME Alliance" width="450" height="220" '
+        'loading="lazy">'
+        "<p><strong>Member, European DIGITAL SME Alliance.</strong> The Alliance is the largest network of small "
+        "and medium-sized technology companies in Europe, representing more than 45,000 digital businesses.</p></div>"
         "</div></section>"
     )
 
@@ -363,6 +367,7 @@ def main():
         "assets/ATTRIBUTION.md",
         "assets/partner-minc.png",
         "assets/partner-gtc.png",
+        "assets/partner-dsme.png",
     ]
     files += downloads + ["images/EchoFramev3.mp4"]
     # Archive interface screenshots are not part of the publication output.

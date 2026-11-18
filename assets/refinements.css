@@ -221,7 +221,8 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 .ef-case figcaption.ef-fignote{margin-top:6px;font-size:11.5px;line-height:1.45;max-width:560px;color:#7C8792}
 
 /* Supporters and recognition on the About page. */
-.supporters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;align-items:start}
+.supporters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;align-items:start}
 .supporters img{display:block;height:44px;width:auto;max-width:100%;margin-bottom:18px;object-fit:contain;object-position:left center}
+.supporters img[src$="partner-dsme.png"]{height:64px;margin-top:-10px;margin-bottom:8px}
 .supporters p{margin:0;max-width:46ch}
 @media (max-width:720px){.supporters{grid-template-columns:1fr;gap:32px}}
