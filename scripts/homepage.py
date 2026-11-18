@@ -37,6 +37,11 @@ def claims():
         f'<div><h2 id="claim-{i}">{title}</h2><p>{copy}</p></div></section>'
         for i, (kicker, title, copy) in enumerate(sections, 1)
     )
-    closing = ('<section class="home-claim home-closing"><div><p>If the decision in front of you depends on '
-               'somewhere the wires do not cover, start a conversation.</p></div></section>')
-    return '<div class="home-claims container">' + blocks + closing + '</div>'
+    return '<div class="home-claims container">' + blocks + '</div>'
+
+
+def closing():
+    """The last line of the page. It sits directly above the enquiry button."""
+    return ('<div class="home-claims home-end container"><section class="home-claim home-closing"><div><p>'
+            'If the decision in front of you depends on somewhere the wires do not cover, start a conversation.'
+            '</p></div></section></div>')

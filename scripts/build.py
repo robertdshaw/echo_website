@@ -16,7 +16,7 @@ from site_navigation import navigation, home_directory
 from chrome import CHROME
 from spanish_page import page as spanish_page
 from visuals import video_section
-from homepage import claims
+from homepage import claims, closing
 from how_it_works import page as how_it_works_page
 from worked_examples import page as worked_examples_page
 from frame_bureau import page as frame_bureau_page
@@ -71,7 +71,7 @@ def cta(prefix=""):
 
 
 def home():
-    return research_hero() + claims() + partners_strip()
+    return research_hero() + claims() + partners_strip() + closing()
 
 
 def intro(kicker, title, description):

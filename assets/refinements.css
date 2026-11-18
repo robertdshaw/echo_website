@@ -232,3 +232,7 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 .supporters-strip p{font-size:.94em}
 .supporters-more{margin:44px 0 0}
 @media (max-width:720px){.supporters{grid-template-columns:1fr;gap:32px}}
+.home-end{padding-block:40px 0}
+.home-end .home-claim{display:block;padding-bottom:0;border-bottom:0}
+.home-end .home-claim p{max-width:52ch;margin:0}
+.home-end+.page-enquiry{padding-top:28px}
