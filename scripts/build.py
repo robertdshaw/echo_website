@@ -121,7 +121,23 @@ def partners():
         '<div class="prose-page">'
         "<p><strong>GMTL Advisory, London.</strong> An advisory firm that commissions EchoFrame research for "
         "work delivered to institutional investment clients.</p>"
-        "<p><strong>InStrat, Doha.</strong> Our strategic partner in Doha.</p>"
+        "<p><strong>Grupo Bursátil Venezolano (GBV), Caracas.</strong> A Venezuelan brokerage house that also "
+        "provides business intelligence, political analysis and public affairs. GBV is our strategic partner in "
+        "Venezuela.</p>"
+        '<p><strong>InStrat, Doha.</strong> A knowledge collective with multidisciplinary competence and in-depth '
+        "knowledge of the Arabian Gulf region. We work with InStrat as Gulf investors and institutions extend "
+        'their interests into new markets. <a href="https://www.instrat4d.com" rel="noopener">instrat4d.com</a></p>'
+        "</div></section>"
+        '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
+        "Support and recognition</div><h2>Who stands behind the work</h2></div></div>"
+        '<div class="supporters">'
+        '<div><img src="assets/partner-minc.png" alt="Minc" width="455" height="107" loading="lazy">'
+        "<p><strong>Supported by Minc.</strong> Minc is the startup house founded by the City of Malmö in 2002. "
+        "Its alumni include Neo4j and Joint Academy.</p></div>"
+        '<div><img src="assets/partner-gtc.png" alt="Global Trust Challenge" width="700" height="111" loading="lazy">'
+        "<p><strong>Global Trust Challenge.</strong> TrustFrame, our system for making every risk score show its "
+        "evidence, is in the prototyping phase of the Global Trust Challenge, an international challenge to build "
+        "trust in the age of AI.</p></div>"
         "</div></section>"
     )
 
@@ -339,6 +355,8 @@ def main():
         "assets/social-card.svg",
         "assets/social-card.png",
         "assets/ATTRIBUTION.md",
+        "assets/partner-minc.png",
+        "assets/partner-gtc.png",
     ]
     files += downloads + ["images/EchoFramev3.mp4"]
     # Archive interface screenshots are not part of the publication output.
