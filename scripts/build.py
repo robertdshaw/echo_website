@@ -95,6 +95,9 @@ def about():
         "<p>EchoFrame is built on that gap. Find what local reporting already knows, check it against official "
         "records, physical data and markets, and read the meaning out of it, and you can see where something "
         "is going while there is still time to act on it.</p>"
+        "<p>The method joins data collected on the ground with Bayesian modelling, which moves the odds as "
+        "evidence arrives, and with game theory, drama theory and prospect theory, which explain how the people "
+        "involved are likely to act. The result is business intelligence built for a decision.</p>"
         '<p class="eyebrow">Robert Shaw, founder</p></div></section>'
     )
     return (
@@ -124,6 +127,11 @@ def partners():
         '<p><strong>InStrat, Doha.</strong> A knowledge collective with multidisciplinary competence and in-depth '
         "knowledge of the Arabian Gulf region. We work with InStrat as Gulf investors and institutions extend "
         'their interests into new markets. <a href="https://www.instrat4d.com" rel="noopener">instrat4d.com</a></p>'
+        "<p><strong>PowerTalk IA.</strong> The strategic governance company of Luis Raul Matos Azocar, a former "
+        "Minister of Finance of Venezuela, who brings the view from the government side of the table. Together "
+        "we build AI training programmes for political management. Managers rehearse a difficult conversation "
+        "with a minister or an official against an AI playing the part, then review where they lost the room. "
+        '<a href="https://www.powertalkia.com" rel="noopener">powertalkia.com</a></p>'
         "</div></section>"
         '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
         "Support and recognition</div><h2>Who stands behind the work</h2></div></div>"
