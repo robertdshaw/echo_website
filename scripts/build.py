@@ -71,7 +71,7 @@ def cta(prefix=""):
 
 
 def home():
-    return research_hero() + claims()
+    return research_hero() + claims() + partners()
 
 
 def intro(kicker, title, description):
