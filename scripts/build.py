@@ -71,7 +71,7 @@ def cta(prefix=""):
 
 
 def home():
-    return research_hero() + claims() + partners()
+    return research_hero() + claims() + partners_strip()
 
 
 def intro(kicker, title, description):
@@ -116,39 +116,79 @@ def about():
     )
 
 
+PARTNERS = [
+    # file, alt, width, height, name, url, short line for the front page, full text for About
+    ("partner-gmtl.png", "GMTL Advisory", 759, 200, "GMTL Advisory", "https://www.gmtl.co.uk",
+     "Corporate intelligence and strategic advisory firm. London, United Kingdom.",
+     "A corporate intelligence firm providing strategic advisory and due diligence, headquartered in London, "
+     "United Kingdom. GMTL commissions EchoFrame research for work delivered to institutional investment clients."),
+    ("partner-instrat.png", "InStrat", 683, 200, "InStrat", "https://www.instrat4d.com",
+     "Knowledge collective on the Arabian Gulf region. Doha, Qatar.",
+     "A knowledge collective in Doha, Qatar, with multidisciplinary competence and in-depth knowledge of the "
+     "Arabian Gulf region. We work with InStrat as Gulf investors and institutions extend their interests into "
+     "new markets."),
+    ("partner-powertalk.png", "PowerTalk IA", 551, 96, "PowerTalk IA", "https://www.powertalkia.com",
+     "Strategic governance and AI training for governments and companies.",
+     "The strategic governance company of Luis Raul Matos Azocar, a former Minister of Finance of Venezuela, "
+     "who brings the view from the government side of the table. Together we build AI training programmes for "
+     "political management. Managers rehearse a difficult conversation with a minister or an official against "
+     "an AI playing the part, then review where they lost the room."),
+]
+
+SUPPORTERS = [
+    ("partner-minc.png", "Minc", 455, 107, "Supported by Minc", "https://www.minc.se",
+     "Startup incubator founded by the City of Malmö, Sweden.",
+     "Minc is the startup incubator founded by the City of Malmö, Sweden, in 2002. Its alumni include Neo4j and "
+     "Joint Academy."),
+    ("partner-gtc.png", "Global Trust Challenge", 700, 111, "Global Trust Challenge finalist, 2026", "",
+     "International challenge to build trust in the age of AI.",
+     "TrustFrame, our system for making every risk score show its evidence, is one of the finalists of the "
+     "Global Trust Challenge, an international challenge to build trust in the age of AI. The finalists were "
+     "presented at the DIGITAL SME Summit of the European DIGITAL SME Alliance."),
+    ("partner-dsme.png", "European DIGITAL SME Alliance", 450, 220, "Member, European DIGITAL SME Alliance",
+     "https://www.digitalsme.eu",
+     "The largest network of small and medium-sized technology companies in Europe.",
+     "The Alliance is the largest network of small and medium-sized technology companies in Europe, "
+     "representing more than 45,000 digital businesses."),
+]
+
+
+def _logo(item):
+    file, alt, width, height = item[:4]
+    return f'<img src="assets/{file}" alt="{alt}" width="{width}" height="{height}" loading="lazy">'
+
+
+def _name(item):
+    name, url = item[4], item[5]
+    if not url:
+        return f"<strong>{name}.</strong>"
+    return f'<strong><a href="{url}" rel="noopener">{name}</a>.</strong>'
+
+
 def partners():
-    """Strategic partners. Each is named with its agreement, and described by what it does with us."""
+    """About page. Each partner with its logo, its name as the link, and what it does with us."""
+    def cards(items):
+        return "".join(f"<div>{_logo(i)}<p>{_name(i)} {i[7]}</p></div>" for i in items)
+    return (
+        '<section class="section container" id="partners"><div class="section-heading"><div><div class="eyebrow">'
+        "Strategic partners</div><h2>Who we work with</h2></div></div>"
+        f'<div class="supporters">{cards(PARTNERS)}</div></section>'
+        '<section class="section container" id="support"><div class="section-heading"><div><div class="eyebrow">'
+        "Support and recognition</div><h2>Who stands behind the work</h2></div></div>"
+        f'<div class="supporters">{cards(SUPPORTERS)}</div></section>'
+    )
+
+
+def partners_strip():
+    """Front page. Logos, names and one short line each; the detail lives on About."""
+    def cells(items):
+        return "".join(f"<div>{_logo(i)}<p><strong>{i[4]}.</strong> {i[6]}</p></div>" for i in items)
     return (
         '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
-        "Strategic partners</div><h2>Who we work with</h2></div></div>"
-        '<div class="prose-page">'
-        "<p><strong>GMTL Advisory, London.</strong> An advisory firm that commissions EchoFrame research for "
-        "work delivered to institutional investment clients.</p>"
-        '<p><strong>InStrat, Doha.</strong> A knowledge collective with multidisciplinary competence and in-depth '
-        "knowledge of the Arabian Gulf region. We work with InStrat as Gulf investors and institutions extend "
-        'their interests into new markets. <a href="https://www.instrat4d.com" rel="noopener">instrat4d.com</a></p>'
-        "<p><strong>PowerTalk IA.</strong> The strategic governance company of Luis Raul Matos Azocar, a former "
-        "Minister of Finance of Venezuela, who brings the view from the government side of the table. Together "
-        "we build AI training programmes for political management. Managers rehearse a difficult conversation "
-        "with a minister or an official against an AI playing the part, then review where they lost the room. "
-        '<a href="https://www.powertalkia.com" rel="noopener">powertalkia.com</a></p>'
-        "</div></section>"
-        '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
-        "Support and recognition</div><h2>Who stands behind the work</h2></div></div>"
-        '<div class="supporters">'
-        '<div><img src="assets/partner-minc.png" alt="Minc" width="455" height="107" loading="lazy">'
-        "<p><strong>Supported by Minc.</strong> Minc is the startup house founded by the City of Malmö in 2002. "
-        "Its alumni include Neo4j and Joint Academy.</p></div>"
-        '<div><img src="assets/partner-gtc.png" alt="Global Trust Challenge" width="700" height="111" loading="lazy">'
-        "<p><strong>Global Trust Challenge finalist, 2026.</strong> TrustFrame, our system for making every risk score "
-        "show its evidence, is one of the finalists of the Global Trust Challenge, an international challenge to "
-        "build trust in the age of AI. The finalists were presented at the DIGITAL SME Summit of the European "
-        "DIGITAL SME Alliance.</p></div>"
-        '<div><img src="assets/partner-dsme.png" alt="European DIGITAL SME Alliance" width="450" height="220" '
-        'loading="lazy">'
-        "<p><strong>Member, European DIGITAL SME Alliance.</strong> The Alliance is the largest network of small "
-        "and medium-sized technology companies in Europe, representing more than 45,000 digital businesses.</p></div>"
-        "</div></section>"
+        "Partners and support</div><h2>Who we work with</h2></div></div>"
+        f'<div class="supporters supporters-strip">{cells(PARTNERS + SUPPORTERS)}</div>'
+        '<p class="supporters-more"><a href="about.html#partners">More about our partners and supporters</a></p>'
+        "</section>"
     )
 
 
@@ -368,6 +408,9 @@ def main():
         "assets/partner-minc.png",
         "assets/partner-gtc.png",
         "assets/partner-dsme.png",
+        "assets/partner-gmtl.png",
+        "assets/partner-instrat.png",
+        "assets/partner-powertalk.png",
     ]
     files += downloads + ["images/EchoFramev3.mp4"]
     # Archive interface screenshots are not part of the publication output.

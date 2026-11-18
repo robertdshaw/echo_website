@@ -225,4 +225,10 @@ select{appearance:none;-webkit-appearance:none;background-image:none}
 .supporters img{display:block;height:44px;width:auto;max-width:100%;margin-bottom:18px;object-fit:contain;object-position:left center}
 .supporters img[src$="partner-dsme.png"]{height:64px;margin-top:-10px;margin-bottom:8px}
 .supporters p{margin:0;max-width:46ch}
+.supporters img[src$="partner-powertalk.png"]{height:34px;margin-top:5px;margin-bottom:23px}
+.supporters strong a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.supporters-more a{text-decoration:underline;text-underline-offset:3px}
+.supporters-strip{row-gap:48px}
+.supporters-strip p{font-size:.94em}
+.supporters-more{margin:44px 0 0}
 @media (max-width:720px){.supporters{grid-template-columns:1fr;gap:32px}}
