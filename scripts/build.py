@@ -129,8 +129,8 @@ PARTNERS = [
      "new markets."),
     ("partner-powertalk.png", "PowerTalk IA", 551, 96, "PowerTalk IA", "https://www.powertalkia.com",
      "Strategic governance and AI training for governments and companies.",
-     "The strategic governance company of Luis Raul Matos Azocar, a former Minister of Finance of Venezuela, "
-     "who brings the view from the government side of the table. Together we build AI training programmes for "
+     "A strategic governance company led by a former Minister of Finance of Venezuela, who brings the view "
+     "from the government side of the table. Together we build AI training programmes for "
      "political management. Managers rehearse a difficult conversation with a minister or an official against "
      "an AI playing the part, then review where they lost the room."),
 ]
