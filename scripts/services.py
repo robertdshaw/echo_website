@@ -29,7 +29,7 @@ SERVICES = [
               "planning depends on whether a specific site keeps running."]),
             ("Where it is available",
              ["Venezuela today.",
-              "Colombia, Mexico, Rwanda and Pakistan as collection is built."]),
+              "Elsewhere, collection is set up around the assets you need watched."]),
         ],
         "close": "Talk to us about the assets you need watched.",
         "invitation": "Tell us which assets to watch",

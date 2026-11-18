@@ -105,10 +105,26 @@ def about():
             "build starts there.",
         )
         + story
+        + partners()
         + video_section()
         + testimonials()
         + faq()
         + cta()
+    )
+
+
+def partners():
+    """Strategic partners. Each is named with its agreement, and described by what it does with us."""
+    return (
+        '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
+        "Strategic partners</div><h2>Who we work with</h2></div></div>"
+        '<div class="prose-page">'
+        "<p><strong>TALISMAN, Paris.</strong> A crisis-communications and strategic-advisory firm active in "
+        "defence and security, founded by Emmanuelle Hervé. We establish what is happening. TALISMAN prepares "
+        "the response, with stakeholder mapping, worst-case scenarios, playbooks and crisis-team rehearsal.</p>"
+        "<p><strong>GMTL Advisory, London.</strong> An advisory firm that commissions EchoFrame research for "
+        "work delivered to institutional investment clients.</p>"
+        "</div></section>"
     )
 
 
@@ -254,7 +270,7 @@ def main():
         "sector",
         description=sectors.SECTORS["commodities"]["description"],
     )
-    write("coverage.html", "Regional coverage", coverage_page(intro), "coverage")
+    write("coverage.html", "Where we work", coverage_page(intro), "coverage")
     write(
         "venezuela.html",
         "Venezuela · Asset-level intelligence",

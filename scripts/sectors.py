@@ -3,9 +3,9 @@
 Government affairs and investors keep their own audience pages, so this is the
 only one of the three that needs building here.
 
-Coverage claims must stay honest. Collection runs in Venezuela today and the other
-four countries are in build, which is what coverage_page.py says. Nothing here may
-imply a live desk in a country where there is not one.
+Coverage claims must stay honest. Collection runs in Venezuela today and is set up
+elsewhere around a client's exposure, which is what coverage_page.py says. Nothing
+here may imply a live desk in a country where there is not one.
 
 The dated regulatory and market facts were checked against primary sources when
 the page was written. If you change a date or a figure, check it again.
@@ -91,17 +91,17 @@ def page(intro, slug):
     body += REGULATION
     body += (
         '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
-        'Where it matters</div><h2>The countries we open next<br>are farming countries</h2></div></div>'
+        'Where it matters</div><h2>The countries we are asked about<br>are farming countries</h2></div></div>'
         '<div class="prose-page">'
         '<p>Colombia is coffee and bananas, with a quarantine running in the banana zones since 2019. '
         'Rwanda licenses and prices coffee and tea through a national board whose trading rules changed '
         'as recently as 2023. Pakistan is cotton, rice and wheat, where a provincial decision on '
         'procurement moves a farmgate price faster than any market does. Mexico is fresh produce, where '
         'the labour mechanisms in the trade agreement now reach agriculture.</p>'
-        '<p>Collection runs in Venezuela today. The four countries '
-        'above are in build. We will tell you plainly whether we cover where you are exposed before you '
+        '<p>Collection runs in Venezuela today. Elsewhere it is set up around '
+        'where you are exposed. We will tell you plainly whether we cover where you are exposed before you '
         'buy anything, and we would rather lose the sale than imply a desk that does not exist. '
-        '<a href="coverage.html">See where collection stands</a>.</p></div></section>')
+        '<a href="coverage.html">See where we work</a>.</p></div></section>')
     body += (
         f'<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
         f'Where to start</div><h2>Two ways in</h2></div></div>'

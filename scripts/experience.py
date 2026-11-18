@@ -42,8 +42,10 @@ def faq(limit=None):
          'origination, farmland or livestock exposure in emerging markets. What they have in common is a decision '
          'that turns on somewhere the wires do not cover. Each engagement starts with a defined policy, actor, '
          'counterparty, or asset question.'),
-        ('Which countries do you cover?', 'Collection runs in Venezuela. Colombia, Mexico, Rwanda and Pakistan are '
-         'being built. Tell us where you operate and we will tell you plainly whether we cover it.'),
+        ('Which countries do you cover?', 'Coverage is built around where you are exposed, not around a fixed '
+         'list of countries. We work across Latin America, Africa and South Asia, and our longest-running '
+         'programme is Venezuela. Tell us where you operate and we will tell you plainly whether we cover it, '
+         'and what it would take if we do not yet.'),
         ('What can a private briefing cover?', 'Bring the decision you face, the assets or contracts involved, and '
          'your time horizon. We can discuss a stakeholder brief, a policy milestone note, a thesis-question '
          'register, or another research format suited to that question.'),

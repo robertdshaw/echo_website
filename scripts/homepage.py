@@ -19,7 +19,9 @@ def claims():
          'permit and on what condition. Whether the workforce is about to stop. What is happening around '
          'the site. Which way the politics is turning. What the contract obliges each side to do.'),
         ('04 / Where we work',
-         'Collection runs in Venezuela. Colombia, Mexico, Rwanda and Pakistan are being built.',
+         'We work where our clients are exposed',
+         'Coverage is built around your question, not around a fixed list of countries. We work across '
+         'Latin America, Africa and South Asia, and our longest-running programme is Venezuela. '
          'Tell us where you operate and we will tell you plainly whether we cover it.'),
         ('05 / What you get', 'An alert, a brief, a report, or an answer',
          'Continuous coverage of places that are remote, volatile and largely offline, in whatever '
