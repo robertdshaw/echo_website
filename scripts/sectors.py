@@ -91,16 +91,18 @@ def page(intro, slug):
     body += REGULATION
     body += (
         '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
-        'Where it matters</div><h2>The countries we are asked about<br>are farming countries</h2></div></div>'
+        'Where it matters</div><h2>What moves a crop<br>is decided locally</h2></div></div>'
         '<div class="prose-page">'
-        '<p>Colombia is coffee and bananas, with a quarantine running in the banana zones since 2019. '
-        'Rwanda licenses and prices coffee and tea through a national board whose trading rules changed '
-        'as recently as 2023. Pakistan is cotton, rice and wheat, where a provincial decision on '
-        'procurement moves a farmgate price faster than any market does. Mexico is fresh produce, where '
-        'the labour mechanisms in the trade agreement now reach agriculture.</p>'
-        '<p>Collection runs in Venezuela today. Elsewhere it is set up around '
-        'where you are exposed. We will tell you plainly whether we cover where you are exposed before you '
-        'buy anything, and we would rather lose the sale than imply a desk that does not exist. '
+        '<p>The decision that moves a crop is usually taken far from the capital and is rarely reported '
+        'beyond it. A quarantine has been running in the banana zones of Colombia since 2019. Rwanda '
+        'licenses and prices coffee and tea through a national board whose trading rules changed as '
+        'recently as 2023. In Pakistan a provincial decision on procurement moves the farmgate price of '
+        'cotton, rice and wheat faster than any market does. In Mexico the labour mechanisms in the trade '
+        'agreement now reach fresh produce. These are examples of what we watch for, and the same is true '
+        'wherever food is grown.</p>'
+        '<p>We set up collection around the farms, suppliers and routes you depend on. Tell us where '
+        'those are and we will tell you plainly whether we cover them before you buy anything. We would '
+        'rather lose the sale than imply a desk that does not exist. '
         '<a href="coverage.html">See where we work</a>.</p></div></section>')
     body += (
         f'<section class="section container"><div class="section-heading"><div><div class="eyebrow">'

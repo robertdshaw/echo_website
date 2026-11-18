@@ -2,8 +2,8 @@
 
 BLOCKS = [
     ('01 / Dónde recopilamos', 'Fuera de las capitales',
-     'Los estados petroleros del este y el oeste de Venezuela, y a continuación Colombia, México, Ruanda y Pakistán. '
-     'Trabajamos donde la información es más escasa y la exposición es mayor.'),
+     'Trabajamos donde nuestros clientes están expuestos, en América Latina, África y el sur de Asia. Nuestro '
+     'programa más antiguo es Venezuela, en los estados petroleros del este y el oeste.'),
     ('02 / Cómo lo verificamos', 'Nada se confirma con una sola clase de fuente',
      'Los medios de comunicación cuentan como una sola clase, por muchos que publiquen la misma noticia. Los '
      'registros oficiales, la investigación independiente, los datos físicos y la información obtenida sobre el '
@@ -35,7 +35,8 @@ def page(intro):
         'nadie observa lo que pasa entre uno y otro.</p>'
         '<h2>Venezuela es el programa en marcha.</h2>'
         '<p>Dos años de archivo, un registro estructurado de hechos para los estados petroleros del oriente y un '
-        'acuerdo con corresponsales en preparación. Después vienen Colombia, México, Ruanda y Pakistán.</p>'
+        'acuerdo con corresponsales en preparación. En otros países, la cobertura se organiza en torno a los '
+        'activos que usted necesita vigilar.</p>'
         '<p>Nuestra segunda área es la política energética y regulatoria europea, disponible para clientes que la '
         'soliciten.</p>'
         '<h2>Hablemos de sus prioridades.</h2>'
