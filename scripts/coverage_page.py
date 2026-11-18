@@ -42,10 +42,6 @@ def page(intro):
                '<p>For defence and security institutions we are developing decision support for planning around '
                'energy and critical infrastructure in contested environments. A person stays in command of every '
                'decision, and each prediction and suggested option can be traced back to the sources behind it.</p>'
-               '<p>We are developing it with TALISMAN, a Paris crisis-communications and strategic-advisory firm '
-               'active in defence and security. TALISMAN will co-design the operational scenario the system is tested '
-               'on, and will run the table-top exercise that shows whether planners find its output useful and '
-               'trustworthy.</p>'
                '<p>This work is in development. We will say so here until it is in use.</p>'
                '</div></section>')
     return intro(

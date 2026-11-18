@@ -119,11 +119,9 @@ def partners():
         '<section class="section container"><div class="section-heading"><div><div class="eyebrow">'
         "Strategic partners</div><h2>Who we work with</h2></div></div>"
         '<div class="prose-page">'
-        "<p><strong>TALISMAN, Paris.</strong> A crisis-communications and strategic-advisory firm active in "
-        "defence and security, founded by Emmanuelle Hervé. We establish what is happening. TALISMAN prepares "
-        "the response, with stakeholder mapping, worst-case scenarios, playbooks and crisis-team rehearsal.</p>"
         "<p><strong>GMTL Advisory, London.</strong> An advisory firm that commissions EchoFrame research for "
         "work delivered to institutional investment clients.</p>"
+        "<p><strong>InStrat, Doha.</strong> Our strategic partner in Doha.</p>"
         "</div></section>"
     )
 
