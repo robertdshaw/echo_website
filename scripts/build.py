@@ -121,9 +121,6 @@ def partners():
         '<div class="prose-page">'
         "<p><strong>GMTL Advisory, London.</strong> An advisory firm that commissions EchoFrame research for "
         "work delivered to institutional investment clients.</p>"
-        "<p><strong>Grupo Bursátil Venezolano (GBV), Caracas.</strong> A Venezuelan brokerage house that also "
-        "provides business intelligence, political analysis and public affairs. GBV is our strategic partner in "
-        "Venezuela.</p>"
         '<p><strong>InStrat, Doha.</strong> A knowledge collective with multidisciplinary competence and in-depth '
         "knowledge of the Arabian Gulf region. We work with InStrat as Gulf investors and institutions extend "
         'their interests into new markets. <a href="https://www.instrat4d.com" rel="noopener">instrat4d.com</a></p>'
