@@ -135,9 +135,10 @@ def partners():
         "<p><strong>Supported by Minc.</strong> Minc is the startup house founded by the City of Malmö in 2002. "
         "Its alumni include Neo4j and Joint Academy.</p></div>"
         '<div><img src="assets/partner-gtc.png" alt="Global Trust Challenge" width="700" height="111" loading="lazy">'
-        "<p><strong>Global Trust Challenge.</strong> TrustFrame, our system for making every risk score show its "
-        "evidence, is in the prototyping phase of the Global Trust Challenge, an international challenge to build "
-        "trust in the age of AI.</p></div>"
+        "<p><strong>Global Trust Challenge finalist, 2026.</strong> TrustFrame, our system for making every risk score "
+        "show its evidence, is one of the finalists of the Global Trust Challenge, an international challenge to "
+        "build trust in the age of AI. The finalists were presented at the DIGITAL SME Summit of the European "
+        "DIGITAL SME Alliance.</p></div>"
         "</div></section>"
     )
 
