@@ -46,6 +46,10 @@ BENCH = [
      'PhD in political processes with a master’s in business analytics, and Chief Product Officer at EchoFrame. '
      'Advisory work for UNDP, International IDEA and NDI. He teaches how social theory becomes indicators a system '
      'can score.'),
+    ('Dr Diego Rojas', 'Lead Architect for AI and Data',
+     'PhD in geographic information science, with more than twenty years designing and running AI and data units '
+     'for governments and regulated industries. He teaches how to turn the wish for an intelligence unit into a '
+     'scope, a team, a set of rules and a budget that hold up.'),
     ('Dr Jean-Christophe Loubier', 'Director of Decision Analytics',
      'Twenty years in decision support and scenario modelling for complex systems, with a standing insistence that '
      'an output has to be explainable. He teaches why a model nobody can explain will not survive its first serious '
